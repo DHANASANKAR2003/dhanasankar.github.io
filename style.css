@@ -138,15 +138,3 @@ body {
   text-decoration: none;
   font-size: 1.8rem;
 }
-
-.location-link {
-  display: inline-flex;
-  align-items: center;
-  margin-top: 0.6rem;
-  color: #ffca28;
-}
-
-.location-link i {
-  margin-right: 8px;
-  color: #ffca28;
-}
