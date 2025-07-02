@@ -1,56 +1,95 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f4f6f8;
-  color: #333;
+  background: linear-gradient(to bottom, #e6f0ff, #ffffff);
+  color: #2c3e50;
 }
 
-header {
-  text-align: center;
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem;
-  background: #0f4c75;
+  background-color: #003366;
   color: white;
+  flex-wrap: wrap;
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
-  margin-bottom: 1rem;
-  border: 4px solid #bbe1fa;
+  border: 4px solid #66ccff;
+  margin-right: 2rem;
 }
 
-.projects {
+.profile-info {
+  max-width: 600px;
+}
+
+.profile-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: #66ccff;
+}
+
+.profile-info p {
+  margin: 0.4rem 0;
+}
+
+.about,
+.projects,
+.footer {
   padding: 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
+.about h2,
 .projects h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
-  color: #0f4c75;
+  color: #003366;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-left: 5px solid #66ccff;
+  padding-left: 10px;
 }
 
 .project {
-  background: white;
-  padding: 1rem 1.5rem;
-  margin: 1rem auto;
-  max-width: 800px;
-  border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  background: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #003366;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
 }
 
 .project img {
   max-width: 100%;
-  height: auto;
-  border: 2px solid #ddd;
-  margin-top: 0.8rem;
-  border-radius: 6px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5rem;
 }
 
-footer {
+.footer {
+  background-color: #003366;
+  color: white;
   text-align: center;
-  padding: 1rem;
-  background: #bbe1fa;
-  margin-top: 2rem;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  color: #66ccff;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.location-link {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.location-link i {
+  margin-right: 8px;
+  color: #003366;
 }
