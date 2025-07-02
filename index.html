@@ -2,45 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhanasankar | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhanasankar | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
+  <header class="header-container">
     <img src="myphoto.jpg" alt="Dhanasankar" class="profile-img" />
-    <h1>Dhanasankar K</h1>
-    <p>B.E. Electronics and Communication Engineering</p>
-    <p>College: XYZ Institute of Technology</p>
-    <p>School: ABC Higher Secondary School</p>
-    <p>Currently Pursuing: Final Year, 2025</p>
+    <div class="profile-info">
+      <h1>Dhanasankar K</h1>
+      <p><strong>College:</strong> Government College of Engineering, Erode</p>
+      <p><strong>School:</strong> Government Boys Higher Secondary School, Pudukkottai</p>
+      <p><strong>Currently Pursuing:</strong> VLSI Internship at Silicon Craft</p>
+      <p><strong>Address:</strong> Pennadam, Pennadam Post, Cuddalore District, Tamil Nadu</p>
+      <div class="location-link">
+        <i class="fas fa-map-marker-alt"></i>
+        <a href="https://goo.gl/maps/6pZGyNnyDFmF9bT59" target="_blank">View on Google Maps</a>
+      </div>
+    </div>
   </header>
+
+  <section class="about">
+    <h2>About Me</h2>
+    <p>I am a passionate VLSI enthusiast currently pursuing my internship at Silicon Craft, focusing on RTL design, FPGA implementation, and digital system modeling. I have hands-on experience in Verilog, I2C, UART, and real-time image processing using FPGAs. I am driven by innovation and eager to contribute to the semiconductor and electronics industry.</p>
+  </section>
 
   <section class="projects">
     <h2>My Projects</h2>
 
     <div class="project">
-      <h3>1. I2C Master-Slave Simulation</h3>
-      <p>Implemented I2C protocol in Verilog for communication with multiple slave devices.</p>
-      <img src="waveform1.png" alt="I2C waveform" />
+      <h3>1. I2C Master-Slave Communication</h3>
+      <p>Designed Verilog-based I2C protocol with multiple slave interaction and waveform verification.</p>
+      <img src="waveform1.png" alt="I2C Waveform" />
     </div>
 
     <div class="project">
       <h3>2. Sobel Edge Detection on FPGA</h3>
-      <p>Real-time image processing using Artix-7 FPGA with VGA output. Developed in Verilog.</p>
-      <img src="sobel_output.png" alt="Sobel output" />
+      <p>Developed real-time edge detection system using Artix-7 FPGA with VGA display and OV5640 camera.</p>
+      <img src="sobel_output.png" alt="Sobel Output" />
     </div>
 
     <div class="project">
-      <h3>3. UART Communication Design</h3>
-      <p>Created a UART TX/RX Verilog design with waveform verification using testbenches.</p>
-      <img src="uart_waveform.png" alt="UART waveform" />
+      <h3>3. UART Serial Communication</h3>
+      <p>Implemented UART TX/RX with Verilog testbench and validated waveform-based communication.</p>
+      <img src="uart_waveform.png" alt="UART Waveform" />
     </div>
-
   </section>
 
-  <footer>
-    <p>© 2025 Dhanasankar K | GitHub: <a href="https://github.com/your-username">your-username</a></p>
+  <footer class="footer">
+    <p>© 2025 Dhanasankar K</p>
+    <div class="social-icons">
+      <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
   </footer>
 </body>
 </html>
