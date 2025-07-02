@@ -1,26 +1,39 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: linear-gradient(to bottom, #e6f0ff, #ffffff);
-  color: #2c3e50;
+  background-color: #1f1f2e;
+  color: #fff;
 }
 
 .header-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 2rem;
-  background-color: #003366;
-  color: white;
+  background-color: #1e1e2f;
+  color: #fff;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.social-top {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+
+.social-top a {
+  color: #ffca28;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
 .profile-img {
-  width: 180px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  border: 4px solid #66ccff;
+  border: 4px solid #ffca28;
   margin-right: 2rem;
+  box-shadow: 0 0 10px #ffca28;
 }
 
 .profile-info {
@@ -30,66 +43,85 @@ body {
 .profile-info h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  color: #66ccff;
+  color: #ffca28;
 }
 
 .profile-info p {
-  margin: 0.4rem 0;
+  margin: 0.3rem 0;
+  font-size: 1rem;
 }
 
-.about,
-.projects,
-.footer {
+.about, .projects, .footer {
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
 }
 
-.about h2,
-.projects h2 {
-  color: #003366;
+.about h2, .projects h2 {
+  color: #ffca28;
   font-size: 2rem;
-  margin-bottom: 1rem;
-  border-left: 5px solid #66ccff;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #ffca28;
   padding-left: 10px;
 }
 
-.project {
-  background: #ffffff;
+.about p {
+  background-color: #29293d;
   padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-left: 5px solid #003366;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-radius: 8px;
+  border-radius: 10px;
+  line-height: 1.6;
+}
+
+.project {
+  background: #2a2a3d;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 5px solid #ffca28;
+  box-shadow: 0 4px 15px rgba(255, 202, 40, 0.2);
+  border-radius: 10px;
+}
+
+.project h3 {
+  color: #ffca28;
+  margin-bottom: 0.8rem;
 }
 
 .project img {
   max-width: 100%;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  margin-top: 0.5rem;
+  border: 2px solid #444;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
 }
 
 .footer {
-  background-color: #003366;
+  background-color: #1e1e2f;
   color: white;
   text-align: center;
+  padding: 1rem;
+  margin-top: 3rem;
+  border-top: 1px solid #444;
 }
 
 .social-icons a {
-  margin: 0 10px;
-  color: #66ccff;
+  margin: 0 12px;
+  color: #ffca28;
   text-decoration: none;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #fff;
 }
 
 .location-link {
   display: inline-flex;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .location-link i {
   margin-right: 8px;
-  color: #003366;
+  color: #ffca28;
 }
