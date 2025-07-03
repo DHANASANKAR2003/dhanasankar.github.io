@@ -68,18 +68,30 @@ a {
 /* ===== Sections ===== */
 .centered-section {
   max-width: 800px;
-  background: #fff;
   margin: 3rem auto;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Unique background colors */
+#about.centered-section {
+  background-color: #e8f4fa; /* light blue */
+}
+
+#skills.centered-section {
+  background-color: #fef3e7; /* light orange */
+}
+
+#projects.centered-section {
+  background-color: #eaf8ec; /* light green */
+}
+
 .centered-section h2 {
-  color: #ffca28;
+  color: #444;
   font-size: 2rem;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #ccc;
   padding-bottom: 0.5rem;
 }
 
@@ -110,7 +122,7 @@ a {
 .project-card {
   display: flex;
   flex-direction: column;
-  background: #f9f9f9;
+  background: #fff;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
