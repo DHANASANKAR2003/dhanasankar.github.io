@@ -45,7 +45,7 @@ a {
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  background: url("vlsi_bg.jpg") center/cover no-repeat fixed;
+  background: url("images/hero_bg.jpg") center/cover no-repeat fixed;
   position: relative;
   text-align: center;
   padding: 2rem;
@@ -100,6 +100,22 @@ a {
   max-width: 1000px;
   margin: auto;
   padding: 4rem 1rem;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#skills {
+  background-image: url('images/skills_bg.jpg');
+}
+
+#about {
+  background-image: url('images/about_bg.jpg');
+}
+
+#projects {
+  background-image: url('images/projects_bg.jpg');
 }
 
 .content-section h2 {
@@ -124,7 +140,7 @@ a {
 
 /* About Section */
 #about p {
-  background: #222236;
+  background: rgba(34, 34, 54, 0.85);
   padding: 1.5rem;
   border-radius: 10px;
   line-height: 1.7;
@@ -132,7 +148,7 @@ a {
 
 /* Project Cards */
 .project-card {
-  background-color: #1e1e2e;
+  background-color: rgba(30, 30, 46, 0.9);
   padding: 1rem;
   border-left: 6px solid #ffca28;
   border-radius: 10px;
