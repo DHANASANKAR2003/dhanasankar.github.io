@@ -3,26 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhanasankar | VLSI Portfolio</title>
+  <title>Dhanasankar K | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
-  </nav>
-
   <header class="hero" id="home">
-    <div class="overlay">
-      <img src="images/myphoto.jpg" alt="Dhanasankar" class="profile-img" />
+    <div class="container">
+      <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-photo" />
       <h1>Dhanasankar K</h1>
-      <p class="subheading">Aspiring VLSI Engineer | Government College of Engineering, Erode – Tamil Nadu</p>
-      <div class="contact-icons">
+      <p class="hero-tagline">Aspiring VLSI Engineer @ Government College of Engineering, Erode</p>
+      <div class="hero-icons">
         <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology" target="_blank"><i class="fab fa-github"></i></a>
         <a href="https://www.linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
         <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -31,7 +22,12 @@
     </div>
   </header>
 
-  <section class="section skills" id="skills">
+  <section class="centered-section" id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate VLSI enthusiast currently pursuing my internship at Silicon Craft. My core focus is RTL design, FPGA implementation, and digital system modeling. I have hands-on experience in Verilog, I2C, UART, and real-time image processing using FPGAs. I’m committed to innovation and eager to contribute to the semiconductor industry.</p>
+  </section>
+
+  <section class="centered-section" id="skills">
     <h2>Interests & Skills</h2>
     <div class="skills-container">
       <div>
@@ -52,52 +48,49 @@
       <div>
         <h3>Technical Skills</h3>
         <ul>
-          <li>Verilog, Icarus, Vivado</li>
-          <li>Artix-7, DE2-70</li>
-          <li>UART, SPI, I2C, APB</li>
-          <li>Python, C, Ubuntu</li>
+          <li>HDL: Verilog</li>
+          <li>Tools: Icarus Verilog, Xilinx Vivado</li>
+          <li>Platforms: DE2-70, Artix-7</li>
+          <li>Protocols: UART, SPI, I2C, APB</li>
+          <li>Languages: Python, C</li>
+          <li>OS: Ubuntu Linux</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section about" id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a passionate VLSI enthusiast currently pursuing my internship at Silicon Craft, focusing on RTL design,
-      FPGA implementation, and digital system modeling. I have hands-on experience in Verilog, I2C, UART, and real-time
-      image processing using FPGAs. I am driven by innovation and eager to contribute to the semiconductor and
-      electronics industry. I aim to build a career in digital design and embedded systems with strong foundations in HDL coding,
-      simulation, and system-level debugging.
-    </p>
-  </section>
-
-  <section class="section projects" id="projects">
-    <h2>My Projects</h2>
+  <section class="centered-section" id="projects">
+    <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <img src="images/waveform1.png" alt="I2C Waveform">
-        <h3>I2C Master-Slave Communication</h3>
-        <p>Designed Verilog-based I2C protocol with multiple slave interaction and waveform verification.</p>
+        <img src="images/waveform1.png" alt="I2C Project" />
+        <div class="project-details">
+          <h3>I2C Master-Slave Communication</h3>
+          <p>Verilog-based I2C protocol with multiple slave interaction and waveform verification.</p>
+        </div>
       </div>
 
       <div class="project-card">
-        <img src="images/sobel_output.png" alt="Sobel Output">
-        <h3>Sobel Edge Detection on FPGA</h3>
-        <p>Developed real-time edge detection system using Artix-7 FPGA with VGA display and OV5640 camera.</p>
+        <img src="images/sobel_output.png" alt="Sobel Project" />
+        <div class="project-details">
+          <h3>Sobel Edge Detection on FPGA</h3>
+          <p>Real-time edge detection using Artix-7 FPGA with VGA display and OV5640 camera.</p>
+        </div>
       </div>
 
       <div class="project-card">
-        <img src="images/uart_waveform.png" alt="UART Waveform">
-        <h3>UART Serial Communication</h3>
-        <p>Implemented UART TX/RX with Verilog testbench and validated waveform-based communication.</p>
+        <img src="images/uart_waveform.png" alt="UART Project" />
+        <div class="project-details">
+          <h3>UART Serial Communication</h3>
+          <p>Implemented UART TX/RX in Verilog with waveform-based simulation testbench.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
     <p>&copy; 2025 Dhanasankar K | kdhanasankar7@gmail.com | +91 93843 20190</p>
-    <div class="contact-icons">
+    <div class="hero-icons">
       <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://www.linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
       <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
