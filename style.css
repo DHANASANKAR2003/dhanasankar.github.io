@@ -3,6 +3,7 @@ body {
   font-family: 'Times New Roman', serif;
   color: #fff;
   background-color: #0e0e17;
+  scroll-behavior: smooth;
 }
 
 .hero {
@@ -12,10 +13,11 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
+  box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.7);
 }
 
 .hero .overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
   height: 100%;
   display: flex;
@@ -23,44 +25,53 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 2rem;
 }
 
 .profile-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 10px;
-  border: 3px solid #ffca28;
-  box-shadow: 0 0 15px #ffca28;
-  margin-bottom: 1rem;
+  width: 180px;
+  height: 180px;
+  border-radius: 15px;
+  border: 4px solid #ffca28;
+  box-shadow: 0 0 20px #ffca28;
+  margin-bottom: 1.2rem;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #ffca28;
+  margin: 0.5rem 0;
 }
 
 .subheading {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   color: #ccc;
+  margin-bottom: 1rem;
 }
 
 .contact-icons a {
   color: #ffca28;
-  font-size: 1.5rem;
-  margin: 0 12px;
-  transition: 0.3s;
+  font-size: 1.6rem;
+  margin: 0 15px;
+  transition: color 0.3s, transform 0.3s;
 }
 
 .contact-icons a:hover {
-  color: #fff;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .navbar {
   background-color: #111;
   padding: 1rem;
   text-align: center;
-  border-bottom: 2px solid #ffca28;
+  border-bottom: 3px solid #ffca28;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -72,19 +83,25 @@ h1 {
   padding: 0;
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .navbar a {
   color: #ffca28;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #ffffff;
 }
 
 .section {
   padding: 4rem 2rem;
   text-align: center;
+  backdrop-filter: blur(4px);
 }
 
 .skills {
@@ -104,6 +121,17 @@ h1 {
 .skills-container div {
   flex: 1;
   min-width: 250px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 202, 40, 0.3);
+}
+
+.skills-container h3 {
+  color: #ffca28;
+  border-bottom: 2px solid #ffca28;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
 }
 
 .about {
@@ -113,13 +141,14 @@ h1 {
 }
 
 .about p {
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.15rem;
+  line-height: 1.7;
   background-color: rgba(0, 0, 0, 0.6);
-  padding: 1rem 2rem;
-  border-radius: 8px;
+  padding: 1.2rem 2.2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
 }
 
 .projects {
@@ -129,27 +158,34 @@ h1 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
   padding: 0 2rem;
 }
 
 .project-card {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.75);
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
 .project-card img {
   max-width: 100%;
-  border-radius: 5px;
-  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+  border: 2px solid #444;
 }
 
 .project-card h3 {
   color: #ffca28;
+  margin-bottom: 0.5rem;
 }
 
 .footer {
@@ -157,8 +193,13 @@ h1 {
   color: #fff;
   text-align: center;
   padding: 1.5rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border-top: 2px solid #ffca28;
+  box-shadow: 0 -3px 10px rgba(255, 202, 40, 0.2);
+}
+
+.footer p {
+  margin: 0.5rem 0;
 }
 
 @media (max-width: 768px) {
@@ -168,10 +209,15 @@ h1 {
   }
 
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .subheading {
-    font-size: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
   }
 }
