@@ -3,109 +3,103 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhanasankar | VLSI Portfolio</title>
+  <title>Dhanasankar K | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+  <!-- Header/Nav -->
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
 
-  <!-- Header -->
-  <header class="header-container">
-    <div class="header-box">
-      <div class="box-left">
-        <img src="images/myphoto.jpg" alt="Dhanasankar" class="profile-img" />
-      </div>
-      <div class="box-right">
-        <div class="profile-info">
-          <h1>Dhanasankar K</h1>
-          <p><strong>VLSI Intern</strong> @ Silicon Craft</p>
-          <p><strong>College:</strong> GCE, Erode</p>
-          <p><strong>Location:</strong> Tamil Nadu, India</p>
-        </div>
-        <div class="links-row">
-          <div class="social-icons">
-            <a href="https://github.com/DHANASANKAR2003" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
-          </div>
-          <div class="map-icon">
-            <a href="https://goo.gl/maps/6pZGyNnyDFmF9bT59" target="_blank"><i class="fas fa-map-marker-alt"></i></a>
-          </div>
-        </div>
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-avatar" />
+      <h1>Dhanasankar K</h1>
+      <p>VLSI Intern @ Silicon Craft</p>
+      <div class="hero-links">
+        <a href="https://github.com/DHANASANKAR2003" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/dhanasankar‑k‑23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- Skills Section -->
-  <section class="skills-section">
+  <section id="skills" class="content-section">
     <h2>Interests & Skills</h2>
-    <div class="skills-box">
-      <div class="sub-section">
-        <h3>Co-Curricular</h3>
+    <div class="content-grid">
+      <div>
+        <h3>Co‑curricular</h3>
         <ul>
           <li>Rank 1 on HDLBits</li>
-          <li>Created modular Verilog libraries on GitHub</li>
+          <li>Verilog libraries on GitHub</li>
         </ul>
       </div>
-      <div class="sub-section">
+      <div>
         <h3>Soft Skills</h3>
         <ul>
-          <li>Time-management</li>
-          <li>Problem-solving</li>
-          <li>Team collaboration</li>
+          <li>Team Collaboration</li>
+          <li>Decision Making</li>
+          <li>Problem Solving</li>
         </ul>
       </div>
-      <div class="sub-section">
-        <h3>Technical</h3>
+      <div>
+        <h3>Technical Skills</h3>
         <ul>
-          <li><strong>HDL:</strong> Verilog</li>
-          <li><strong>Tools:</strong> Vivado, Icarus Verilog</li>
-          <li><strong>FPGA:</strong> Artix-7, DE2-70</li>
-          <li><strong>Protocols:</strong> UART, I2C, SPI</li>
-          <li><strong>Languages:</strong> Python, C</li>
+          <li>Verilog, Icarus, Vivado</li>
+          <li>Artix‑7, DE2‑70</li>
+          <li>UART, SPI, I2C, APB</li>
+          <li>Python, C, Ubuntu</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="about">
+  <!-- About Section -->
+  <section id="about" class="content-section">
     <h2>About Me</h2>
     <p>
-      I’m a passionate VLSI design enthusiast skilled in RTL coding, digital systems, and FPGA-based real-time image processing. With deep experience in Verilog, I2C, UART, and APB protocols, I aspire to innovate in the semiconductor industry.
+      A passionate VLSI design enthusiast specializing in RTL coding, FPGA-based image processing, and protocol implementations.
     </p>
   </section>
 
-  <!-- Projects -->
-  <section class="projects">
+  <!-- Projects Section -->
+  <section id="projects" class="content-section">
     <h2>Projects</h2>
-
-    <div class="project">
-      <h3>1. I2C Master-Slave Communication</h3>
-      <p>Built Verilog-based I2C bus with multi-slave addressing and waveform validation.</p>
-      <img src="images/waveform1.png" alt="I2C Waveform">
-    </div>
-
-    <div class="project">
-      <h3>2. Sobel Edge Detection</h3>
-      <p>Real-time image edge detection on FPGA using OV5640 camera and VGA display.</p>
-      <img src="images/sobel_output.png" alt="Sobel Output">
-    </div>
-
-    <div class="project">
-      <h3>3. UART Communication</h3>
-      <p>Implemented TX/RX module in Verilog with testbench verification.</p>
-      <img src="images/uart_waveform.png" alt="UART Waveform">
+    <div class="content-grid">
+      <div class="project-card">
+        <img src="images/waveform1.png" alt="I2C Waveform" />
+        <h3>I2C Master-Slave</h3>
+        <p>Multi‑slave I2C protocol implementation in Verilog.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/sobel_output.png" alt="Sobel Output" />
+        <h3>Sobel Edge Detection</h3>
+        <p>Real‑time image processing using FPGA + OV5640.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/uart_waveform.png" alt="UART Waveform" />
+        <h3>UART Communication</h3>
+        <p>Verilog TX/RX implementation with waveform testing.</p>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
     <p>© 2025 Dhanasankar K</p>
-    <div class="social-icons">
-      <a href="https://github.com/DHANASANKAR2003" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div>
+      <a href="https://github.com/DHANASANKAR2003"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/dhanasankar‑k‑23b196291"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>
-
 </body>
 </html>
