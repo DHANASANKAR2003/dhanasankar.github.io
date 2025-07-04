@@ -1,0 +1,109 @@
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a;
+  color: white;
+  line-height: 1.6;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1e293b;
+}
+.nav-links a {
+  margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.social-icons img {
+  width: 24px;
+  margin-left: 15px;
+}
+.toggle-theme {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #38bdf8;
+  margin-bottom: 1rem;
+}
+.home-section {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.home-section span {
+  color: #38bdf8;
+}
+.btn-primary {
+  background-color: #38bdf8;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.about-section, .projects-section, .contact-section, .map-section {
+  padding: 4rem 2rem;
+}
+.project-card {
+  margin: 1rem auto;
+  padding: 1rem;
+  background: #1e293b;
+  border-radius: 10px;
+  max-width: 600px;
+}
+.project-card img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+.map-section iframe {
+  width: 100%;
+  height: 300px;
+}
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.animate {
+  opacity: 1;
+  transform: translateY(0px);
+}
+body.light-mode {
+  background-color: #f9fafb;
+  color: #111827;
+}
+body.light-mode .navbar {
+  background-color: #e5e7eb;
+}
+body.light-mode .nav-links a {
+  color: #111827;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(#38bdf8 1px, transparent 1px),
+                    radial-gradient(#38bdf8 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  animation: bubbleMove 20s linear infinite;
+  opacity: 0.05;
+  z-index: -1;
+}
+@keyframes bubbleMove {
+  from { background-position: 0 0, 10px 10px; }
+  to { background-position: 100px 100px, 110px 110px; }
+}
