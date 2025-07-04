@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dhanasankar K | VLSI Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -25,6 +25,7 @@
 
   <!-- Hero Section -->
   <header class="hero" id="home">
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-photo">
       <h1>Dhanasankar K</h1>
@@ -40,6 +41,7 @@
 
   <!-- About Section -->
   <section class="section about" id="about">
+    <div class="overlay"></div>
     <h2>About Me</h2>
     <p>I am Dhanasankar K, an enthusiastic and dedicated VLSI design aspirant with a strong foundation in Digital Electronics, RTL Design, and FPGA-based system implementation. Currently pursuing my VLSI internship at Silicon Craft, I am gaining in-depth exposure to real-time digital design flows, including Verilog HDL development, testbench creation, and functional simulation using tools like Vivado and Icarus Verilog. With a deep passion for semiconductor technology, I have taken initiative beyond academics by building various Verilog projects including UART, I2C, and SPI communication protocols, as well as complex image processing filters using FPGAs such as the Artix-7 and DE2-70 platforms.</p>
     <p>My goal is to innovate reliable and high-performance digital systems that can bridge the gap between theoretical design and real-world applications. I actively contribute to open-source hardware development through GitHub, where I maintain clean, modular code with documentation. Apart from technical skills, I possess strong analytical thinking, effective time management, and a collaborative mindset—making me a proactive learner and an ideal team contributor in the VLSI industry. My long-term vision is to contribute meaningfully to the advancement of chip design and embedded hardware systems.</p>
@@ -47,6 +49,7 @@
 
   <!-- Skills Section -->
   <section class="section skills" id="skills">
+    <div class="overlay"></div>
     <h2>Interests & Skills</h2>
     <div class="skills-wrapper">
       <div class="skill-box">
@@ -61,6 +64,7 @@
           <li>Ubuntu Linux</li>
         </ul>
       </div>
+
       <div class="skill-box">
         <h3>Soft Skills</h3>
         <ul>
@@ -71,6 +75,7 @@
           <li>Problem Solving</li>
         </ul>
       </div>
+
       <div class="skill-box">
         <h3>Achievements</h3>
         <ul>
@@ -85,6 +90,7 @@
 
   <!-- Projects Section -->
   <section class="section projects" id="projects">
+    <div class="overlay"></div>
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
@@ -94,34 +100,7 @@
           <p>Designed multi-slave I2C protocol in Verilog with complete waveform verification and state machine logic.</p>
         </div>
       </div>
-      <div class="project-card">
-        <img src="images/sobel_output.png" alt="Sobel Edge Detection">
-        <div class="project-info">
-          <h3>FPGA Based Sobel Edge Detection</h3>
-          <p>Real-time edge detection system using OV5640 camera and VGA output on Artix-7 FPGA.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/uart_waveform.png" alt="UART Serial">
-        <div class="project-info">
-          <h3>UART Serial Communication</h3>
-          <p>Implemented UART TX and RX with Verilog testbenches, functional validation and simulation.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/i2c_lcd.png" alt="I2C LCD">
-        <div class="project-info">
-          <h3>I2C LCD Display Controller</h3>
-          <p>Interface design for displaying UART data using I2C LCD (0x27 addr) on 16x2 screen.</p>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="images/fpga_pipeline.png" alt="FPGA Pipeline">
-        <div class="project-info">
-          <h3>Camera to VGA Display Pipeline</h3>
-          <p>Developed Verilog-based image pipeline from camera to VGA with memory buffer using SDRAM.</p>
-        </div>
-      </div>
+      <!-- Additional project cards... -->
     </div>
   </section>
 
