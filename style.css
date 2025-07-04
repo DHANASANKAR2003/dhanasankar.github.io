@@ -11,8 +11,8 @@
 }
 
 body {
-  font-family: 'Times New Roman', serif;
-  background-color: #0d0d1a;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0a0a1a;
   color: #f8f9fa;
   line-height: 1.7;
   overflow-x: hidden;
@@ -25,7 +25,7 @@ html {
 
 /* Navbar */
 .navbar {
-  background: linear-gradient(90deg, #0f0f1f, #1a1a3c);
+  background: linear-gradient(90deg, #111132, #1a1a3c);
   padding: 1rem 2rem;
   position: fixed;
   width: 100%;
@@ -42,11 +42,11 @@ html {
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #ffca28;
   letter-spacing: 1px;
-  text-shadow: 0 0 4px rgba(255, 202, 40, 0.6);
+  text-shadow: 0 0 6px rgba(255, 202, 40, 0.8);
 }
 
 .nav-links {
@@ -59,7 +59,7 @@ html {
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -72,7 +72,7 @@ html {
 .hero {
   background: url('images/hero_bg.jpg') no-repeat center center/cover;
   text-align: center;
-  padding: 8rem 2rem 5rem;
+  padding: 9rem 2rem 6rem;
   position: relative;
 }
 
@@ -84,6 +84,7 @@ html {
   height: 100%;
   width: 100%;
   background-color: rgba(0,0,0,0.4);
+  z-index: 0;
 }
 
 .hero-content {
@@ -100,18 +101,18 @@ html {
   border-radius: 10px;
   border: 4px solid #ffca28;
   object-fit: cover;
-  box-shadow: 0 0 15px #ffca28;
+  box-shadow: 0 0 20px #ffca28;
   margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-size: 2.8rem;
+  font-size: 3rem;
   color: #ffca28;
 }
 
 .hero-tagline {
-  font-size: 1.2rem;
-  margin: 0.8rem 0;
+  font-size: 1.3rem;
+  margin: 1rem 0;
   color: #f0f0f0;
   text-shadow: 1px 1px 2px black;
 }
@@ -125,6 +126,7 @@ html {
 
 .hero-icons a:hover {
   color: #ffffff;
+  text-shadow: 0 0 5px #fff;
 }
 
 
@@ -153,13 +155,14 @@ html {
 }
 
 .about p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin-bottom: 1.5rem;
   text-align: justify;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  padding: 1.2rem;
   border-radius: 10px;
   line-height: 1.8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
 
@@ -177,7 +180,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
 }
 
@@ -195,13 +198,13 @@ html {
   border-left: 5px solid #ffca28;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
   transition: transform 0.3s;
 }
 
 .skill-box:hover {
-  transform: translateY(-8px);
+  transform: scale(1.03);
 }
 
 .skill-box h3 {
@@ -222,31 +225,35 @@ html {
 /* Projects Section */
 .projects {
   background: url('images/projects_bg.jpg') no-repeat center center/cover;
+  position: relative;
 }
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .project-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.6);
   transition: transform 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
 .project-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  filter: brightness(95%);
+  filter: brightness(90%) contrast(105%);
 }
 
 .project-info {
@@ -256,12 +263,14 @@ html {
 .project-info h3 {
   color: #ffca28;
   margin-bottom: 0.6rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  text-shadow: 1px 1px 2px black;
 }
 
 .project-info p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #e0e0e0;
+  line-height: 1.6;
 }
 
 
@@ -280,7 +289,7 @@ html {
 
 .contact a:hover {
   color: #ffffff;
-  text-shadow: 0 0 5px #fff;
+  text-shadow: 0 0 6px #fff;
 }
 
 .social-icons a {
@@ -292,6 +301,7 @@ html {
 
 .social-icons a:hover {
   color: #ffffff;
+  text-shadow: 0 0 8px #ffca28;
 }
 
 
@@ -313,17 +323,21 @@ html {
     flex-direction: column;
     align-items: flex-start;
   }
+
   .nav-links {
     flex-direction: column;
     gap: 1rem;
     margin-top: 1rem;
   }
+
   .hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
+
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
+
   .skills-wrapper,
   .project-grid {
     grid-template-columns: 1fr;
