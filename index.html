@@ -1,35 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhanasankar K | VLSI Portfolio</title>
+  <title>Dhanasankar | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
-
 <body>
-  <nav class="navbar">
-    <div class="logo">Dhanasankar K</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <canvas id="bgCanvas"></canvas>
-    <div class="hero-content">
-      <h1>Hello, I'm <span class="highlight">Dhanasankar K</span></h1>
-      <p class="typed-output"></p>
-      <div class="social-icons">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content" data-animate>
+      <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-photo" />
+      <h1>Hello, I'm <span class="name">Dhanasankar K</span></h1>
+      <p class="typed-text"></p>
+      <div class="hero-icons">
         <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="tel:+919384320190"><i class="fas fa-phone"></i></a>
         <a href="https://github.com/DHANASANKAR2003" target="_blank"><i class="fab fa-github"></i></a>
@@ -38,72 +28,66 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="section fade-in" id="about">
+  <!-- About -->
+  <section id="about" class="section glass" data-animate>
     <h2 class="section-title">About Me</h2>
-    <p class="section-desc">
-      I’m a VLSI enthusiast with hands-on experience in Verilog, FPGA development, and RTL design. My current focus is on real-time image processing using the Artix-7 FPGA and interfacing protocols like I2C and UART.
+    <p>
+      I'm a VLSI enthusiast with hands-on experience in FPGA, Verilog, and RTL design. 
+      Currently pursuing an internship at Silicon Craft, working on digital blocks like UART, I2C, and image processing. 
+      Passionate about real-time hardware challenges and modern chip design.
     </p>
   </section>
 
-  <!-- Skills Section -->
-  <section class="section fade-in" id="skills">
+  <!-- Skills -->
+  <section id="skills" class="section glass" data-animate>
     <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
+    <div class="skills-container">
       <div class="radial-skill" data-label="Verilog" data-percent="95"></div>
-      <div class="radial-skill" data-label="FPGA Design" data-percent="90"></div>
-      <div class="radial-skill" data-label="I2C/SPI" data-percent="85"></div>
-      <div class="radial-skill" data-label="Python" data-percent="80"></div>
+      <div class="radial-skill" data-label="FPGA" data-percent="90"></div>
+      <div class="radial-skill" data-label="Python" data-percent="85"></div>
+      <div class="radial-skill" data-label="I2C/SPI/UART" data-percent="88"></div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section class="section fade-in" id="projects">
+  <!-- Projects -->
+  <section id="projects" class="section glass" data-animate>
     <h2 class="section-title">Projects</h2>
-    <div class="project-filters">
-      <button class="filter-button" data-filter="all">All</button>
-      <button class="filter-button" data-filter="fpga">FPGA</button>
-      <button class="filter-button" data-filter="verilog">Verilog</button>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card" data-category="fpga">
-        <img src="images/sobel_output.png" alt="Sobel Project">
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="images/sobel_output.png" alt="Sobel" />
         <h3>Sobel Edge Detection</h3>
-        <p>Real-time edge detection using Artix-7 FPGA</p>
+        <p>Real-time filtering using Artix-7 + OV5640 camera</p>
       </div>
-      <div class="project-card" data-category="verilog">
-        <img src="images/uart_waveform.png" alt="UART Project">
+      <div class="project-card">
+        <img src="images/uart_waveform.png" alt="UART" />
         <h3>UART Protocol</h3>
-        <p>RTL and testbench for UART communication</p>
+        <p>Complete TX/RX with testbench and waveform verification</p>
       </div>
     </div>
   </section>
 
-  <!-- Resume Section -->
-  <section class="section fade-in" id="resume">
-    <h2 class="section-title">Resume</h2>
-    <div class="glass-panel resume-viewer">
-      <iframe src="resume.pdf" frameborder="0"></iframe>
-    </div>
+  <!-- Resume -->
+  <section id="resume" class="section glass" data-animate>
+    <h2 class="section-title">My Resume</h2>
+    <iframe src="resume.pdf" class="resume-frame" title="Resume"></iframe>
   </section>
 
-  <!-- Contact Section -->
-  <section class="section fade-in" id="contact">
+  <!-- Contact -->
+  <section id="contact" class="section glass" data-animate>
     <h2 class="section-title">Contact</h2>
-    <form action="mailto:kdhanasankar7@gmail.com" method="post" class="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
+    <form action="mailto:kdhanasankar7@gmail.com" method="POST" enctype="text/plain">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
   </section>
 
-  <footer class="footer">
-    <p>&copy; <span id="year"></span> Dhanasankar K. All rights reserved.</p>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Dhanasankar | VLSI Portfolio</p>
   </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
