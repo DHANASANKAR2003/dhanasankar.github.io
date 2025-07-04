@@ -1,253 +1,167 @@
-/* VLSI Portfolio - style.css */
+/* style.css - Enhanced VLSI Portfolio Styles */
 
 body {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', 'Times New Roman', serif;
-  background: #0e0f1a;
-  color: #fff;
-  scroll-behavior: smooth;
+  background: linear-gradient(135deg, #0d0d1a, #1a1a2e);
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
-/* Navigation */
-.navbar {
-  background: linear-gradient(90deg, #1f1f3d, #2b2b59);
-  padding: 1rem 2rem;
+/* Toggle Theme Button */
+#theme-toggle {
   position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.logo {
-  color: #ffca28;
+  top: 20px;
+  right: 20px;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #ffca28;
+  color: #000;
   font-weight: bold;
-  font-size: 1.6rem;
+  cursor: pointer;
+  z-index: 1000;
 }
 
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #ffca28;
-}
-
-/* Hero */
-.hero {
-  height: 100vh;
-  background: url('images/hero_bg.jpg') center/cover no-repeat;
+.hero-section {
   position: relative;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+}
+
+#heroCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background-color: #0d0d1a;
+}
+
+.hero-text {
+  z-index: 2;
   text-align: center;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+.hero-text h1 {
+  font-size: 3rem;
+  color: #ffca28;
+  font-family: 'Orbitron', sans-serif;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-  color: #fff;
-}
-
-.hero-photo {
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  border: 4px solid #ffca28;
-  object-fit: cover;
-  box-shadow: 0 0 15px #ffca28;
+.hero-text p {
+  font-size: 1.2rem;
+  color: #ddd;
   margin-bottom: 1rem;
 }
 
-.hero h1 {
-  font-size: 2.8rem;
+.hero-links a {
   color: #ffca28;
-}
-
-.hero-tagline {
-  font-size: 1.2rem;
-  margin: 1rem 0;
-}
-
-.hero-icons a {
+  font-size: 1.5rem;
   margin: 0 0.5rem;
-  color: #ffca28;
-  font-size: 1.4rem;
+  transition: 0.3s;
 }
 
-/* Section base */
-.section {
-  padding: 5rem 2rem;
+.hero-links a:hover {
+  color: #fff;
+}
+
+section {
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
 
-.section h2 {
+h2 {
+  font-size: 2.2rem;
   color: #ffca28;
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #ffca28;
-  display: inline-block;
-  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-/* About */
-.about {
-  background: url('images/about_bg.jpg') center/cover no-repeat;
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.about p {
-  background: rgba(0, 0, 0, 0.4);
+.event {
+  background: rgba(255, 255, 255, 0.05);
   padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  text-align: justify;
+  border-left: 4px solid #ffca28;
+  border-radius: 10px;
 }
 
-/* Skills */
-.skills {
-  background: url('images/skills_bg.jpg') center/cover no-repeat;
-  position: relative;
+.skills-section canvas {
+  width: 100%;
+  height: 300px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
 }
 
-.skills-wrapper {
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
 
-.skill-box {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 1.2rem;
-  border-left: 5px solid #ffca28;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-}
-
-.skill-box h3 {
-  color: #ffca28;
-  margin-bottom: 1rem;
-}
-
-.skill-box ul {
-  padding-left: 1rem;
-  list-style-type: square;
-}
-
-/* Projects */
-.projects {
-  background: url('images/projects_bg.jpg') center/cover no-repeat;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-}
-
 .project-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
-}
-
-.project-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-.project-info {
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 1rem;
-  color: #ddd;
-}
-
-.project-info h3 {
-  color: #ffca28;
-  margin-bottom: 0.5rem;
-}
-
-/* Resume */
-.resume iframe {
-  border: none;
-  width: 100%;
-  height: 600px;
-  margin-top: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
 }
 
-/* Contact */
-.contact {
-  background: url('images/contact_bg.jpg') center/cover no-repeat;
-  text-align: center;
-  padding: 4rem 2rem;
+.project-card:hover {
+  transform: scale(1.05);
 }
 
-.contact a {
-  color: #ffca28;
-  text-decoration: none;
+.resume-section .glass-panel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.contact-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form input,
+form textarea {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  background: #1a1a2e;
+  color: #fff;
+}
+
+form button {
+  padding: 0.8rem;
+  background: #ffca28;
+  color: #000;
   font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.social-icons a {
-  margin: 0 10px;
-  color: #ffca28;
-  font-size: 1.6rem;
+form button:hover {
+  background: #ffd54f;
 }
 
-/* Footer */
 .footer {
   text-align: center;
-  background: #1a1a2e;
-  padding: 1rem;
-  color: #ccc;
-  font-size: 0.9rem;
-  border-top: 1px solid #333;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero-photo {
-    width: 120px;
-    height: 120px;
-  }
-  .skills-wrapper,
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
+  padding: 2rem;
+  background: #111;
+  color: #aaa;
 }
