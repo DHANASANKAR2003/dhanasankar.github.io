@@ -2,142 +2,78 @@ body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
   background-color: #0f172a;
-  color: #ffffff;
+  color: white;
 }
-a {
-  text-decoration: none;
-  color: inherit;
-}
+
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  background: #1e293b;
   padding: 1rem 2rem;
+  background-color: #1e293b;
 }
 .nav-links a {
   margin: 0 1rem;
-  font-weight: bold;
   color: white;
-}
-.nav-links a:hover {
-  color: #38bdf8;
+  text-decoration: none;
 }
 .social-icons img {
   width: 24px;
   margin-left: 15px;
-  transition: transform 0.2s ease;
-}
-.social-icons img:hover {
-  transform: scale(1.1);
 }
 .toggle-theme {
   background: none;
   border: none;
-  font-size: 20px;
   color: white;
-  cursor: pointer;
-  margin-left: 1rem;
-}
-.toggle-theme:hover {
-  color: #38bdf8;
+  font-size: 20px;
 }
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 3px solid #38bdf8;
-  margin-bottom: 1rem;
 }
 .home-section {
   text-align: center;
-  padding: 10vh 2rem;
-}
-.home-section button {
-  background-color: #38bdf8;
-  border: none;
-  padding: 10px 20px;
-  margin-top: 20px;
-  color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.home-section button:hover {
-  background-color: #0ea5e9;
-}
-.about-section, .skills-section, .projects-section, .contact-section {
   padding: 4rem 2rem;
-  text-align: center;
 }
-.resume-btn {
+.home-section button, .resume-btn {
   background-color: #38bdf8;
-  color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 10px 20px;
+  color: white;
   font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 1rem;
 }
-.resume-btn:hover {
-  background-color: #0ea5e9;
-}
-.skill {
-  margin-bottom: 1rem;
-}
-.bar {
-  background: #2c3e50;
-  border-radius: 8px;
-  height: 20px;
-  margin-top: 5px;
-}
-.progress {
-  background: #00bcd4;
-  height: 100%;
-  border-radius: 8px;
-  transition: width 1s ease;
+.about-section, .projects-section, .contact-section, .map-section {
+  padding: 4rem 2rem;
 }
 .project-card {
-  background-color: #1e293b;
-  padding: 1rem;
   margin: 1rem auto;
-  max-width: 600px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 1rem;
+  background: #1e293b;
+  border-radius: 10px;
+  max-width: 500px;
 }
 .project-card img {
   max-width: 100%;
   border-radius: 10px;
 }
-.contact-section ul {
-  list-style-type: none;
-  padding: 0;
+.map-section iframe {
+  width: 100%;
+  height: 300px;
 }
-.contact-section li {
-  margin: 10px 0;
-  color: #cbd5e1;
+.fade {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease, transform 1s ease;
 }
-.contact-section a {
-  color: #38bdf8;
-}
-.contact-section a:hover {
-  text-decoration: underline;
-}
-.map-section {
-  padding: 3rem 2rem;
-  background-color: #0f172a;
-  color: #fff;
-  text-align: center;
-}
-.map-container {
-  margin-top: 1rem;
-  border: 2px solid #38bdf8;
-  border-radius: 10px;
-  overflow: hidden;
+.animate {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
-/* Light mode */
+/* Light mode toggle */
 body.light-mode {
   background-color: #f9fafb;
   color: #111827;
@@ -148,35 +84,22 @@ body.light-mode .navbar {
 body.light-mode .nav-links a {
   color: #111827;
 }
-body.light-mode .nav-links a:hover {
-  color: #3b82f6;
-}
-body.light-mode .home-section button,
-body.light-mode .resume-btn {
-  background-color: #2563eb;
-}
-body.light-mode .skills-section .bar {
-  background: #d1d5db;
-}
-body.light-mode .skills-section .progress {
-  background: #2563eb;
-}
-body.light-mode .contact-section {
-  background-color: #f3f4f6;
-  color: #1f2937;
-}
-body.light-mode .map-section {
-  background-color: #f3f4f6;
-  color: #111827;
-}
 
-/* Scroll Animations */
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
+/* Moving bubble background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(#38bdf8 1px, transparent 1px),
+                    radial-gradient(#38bdf8 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+  animation: bubbleMove 20s linear infinite;
+  opacity: 0.05;
+  z-index: -1;
 }
-.animate {
-  opacity: 1 !important;
-  transform: translateY(0px) !important;
+@keyframes bubbleMove {
+  from { background-position: 0 0, 10px 10px; }
+  to { background-position: 100px 100px, 110px 110px; }
 }
