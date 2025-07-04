@@ -5,22 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dhanasankar K | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    rel="stylesheet"
+  />
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 </head>
 <body>
-
-  <!-- Theme Toggle -->
-  <div class="theme-toggle">
-    <button id="themeToggle">🌗 Toggle Theme</button>
-  </div>
-
-  <!-- Hero Section with 3D Chip -->
-  <header id="home" class="hero-section">
-    <canvas id="threeCanvas"></canvas>
-    <div class="hero-text">
-      <h1>Hello, I'm <span>Dhanasankar K</span></h1>
+  <!-- Hero Section with Typing Effect -->
+  <section class="hero" id="home">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-content">
+      <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-photo" />
+      <h1>Hello, I'm <span class="name">Dhanasankar K</span></h1>
       <p class="typed-text"></p>
       <div class="hero-icons">
         <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -29,129 +26,110 @@
         <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- About Section with Timeline -->
-  <section id="about" class="fade-section">
+  <!-- About Section -->
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <div class="timeline">
-      <div class="timeline-item">2021 - Joined GCE Erode for B.E. ECE</div>
-      <div class="timeline-item">2023 - Internship @ Silicon Craft</div>
-      <div class="timeline-item">2024 - Real-time FPGA Image Processing Project</div>
-      <div class="timeline-item">2025 - Created 50+ Verilog Projects</div>
-    </div>
+    <p class="about-text">
+      I'm a VLSI enthusiast with hands-on experience in FPGA, Verilog, and RTL
+      design. I’m currently pursuing internship at Silicon Craft, building
+      digital design blocks like UART, I2C, and Sobel filters on Artix-7 FPGA.
+      I’m passionate about solving real-world hardware challenges and
+      continuously learning advanced semiconductor technologies.
+    </p>
   </section>
 
   <!-- Skills Section with Radial Charts -->
-  <section id="skills" class="fade-section">
-    <h2>My Skills</h2>
-    <div class="radial-container">
-      <div class="radial-chart" data-percent="90">Verilog</div>
-      <div class="radial-chart" data-percent="80">FPGA</div>
-      <div class="radial-chart" data-percent="85">I2C/UART</div>
-      <div class="radial-chart" data-percent="75">Vivado</div>
+  <section id="skills" class="section">
+    <h2>Interests & Skills</h2>
+    <div class="skills-container">
+      <div class="radial-skill" data-label="Verilog HDL" data-percent="95"></div>
+      <div class="radial-skill" data-label="FPGA Design" data-percent="90"></div>
+      <div class="radial-skill" data-label="Python" data-percent="85"></div>
+      <div class="radial-skill" data-label="I2C/SPI/UART" data-percent="88"></div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="fade-section">
+  <section id="projects" class="section">
     <h2>Projects</h2>
     <div class="projects-grid">
       <div class="project-card">
-        <img src="images/sobel_output.png" alt="Sobel Edge Detection">
-        <div class="project-content">
+        <img src="images/sobel_output.png" alt="Sobel Edge Detection" />
+        <div class="project-info">
           <h3>Sobel Edge Detection</h3>
-          <p>FPGA Real-Time Image Processing using Artix-7 & OV5640</p>
+          <p>Real-time image filter on Artix-7 FPGA using camera input.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/uart_waveform.png" alt="UART Serial" />
+        <div class="project-info">
+          <h3>UART Protocol</h3>
+          <p>TX & RX logic with testbench verification.</p>
         </div>
       </div>
       <!-- Add more cards -->
     </div>
   </section>
 
-  <!-- Resume Section with Glassmorphism -->
-  <section id="resume" class="fade-section glass-panel">
+  <!-- Resume Glass Panel -->
+  <section id="resume" class="section glass">
     <h2>My Resume</h2>
-    <iframe src="resume.pdf" width="100%" height="500px"></iframe>
+    <iframe src="resume.pdf" width="100%" height="600px" style="border: none; border-radius: 15px;"></iframe>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="fade-section">
-    <h2>Contact Me</h2>
-    <form action="mailto:kdhanasankar7@gmail.com" method="POST" enctype="text/plain">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="5"></textarea>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <form action="mailto:kdhanasankar7@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
       <button type="submit">Send</button>
     </form>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; <span id="year"></span> Dhanasankar K | All Rights Reserved</p>
+    <p>&copy; <span id="year"></span> Dhanasankar K | VLSI Portfolio</p>
   </footer>
 
-  <!-- Scripts -->
   <script>
-    const year = document.getElementById("year");
-    year.textContent = new Date().getFullYear();
-
+    // Typing Effect
     new Typed(".typed-text", {
-      strings: ["Aspiring VLSI Engineer", "FPGA Developer", "RTL Designer", "Open Source Contributor"],
+      strings: ["Aspiring VLSI Engineer", "FPGA Developer", "RTL Designer"],
       typeSpeed: 60,
-      backSpeed: 30,
+      backSpeed: 40,
       loop: true,
     });
 
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
+    // Current Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Radial Skill Loader
+    document.querySelectorAll(".radial-skill").forEach(el => {
+      const label = el.dataset.label;
+      const percent = el.dataset.percent;
+      el.innerHTML = `
+        <svg viewBox="0 0 36 36">
+          <path
+            class="circle-bg"
+            d="M18 2.0845
+               a 15.9155 15.9155 0 0 1 0 31.831
+               a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <path
+            class="circle"
+            stroke-dasharray="${percent}, 100"
+            d="M18 2.0845
+               a 15.9155 15.9155 0 0 1 0 31.831
+               a 15.9155 15.9155 0 0 1 0 -31.831"
+          />
+          <text x="18" y="20.35" class="percentage">${percent}%</text>
+        </svg>
+        <span>${label}</span>
+      `;
     });
-
-    // Fade scroll reveal
-    const fadeSections = document.querySelectorAll(".fade-section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle("visible", entry.isIntersecting);
-      });
-    }, { threshold: 0.1 });
-
-    fadeSections.forEach(section => observer.observe(section));
-
-    // Three.js Simple Cube
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threeCanvas'), alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    const geometry = new THREE.BoxGeometry();
-    const material = new THREE.MeshStandardMaterial({ color: 0xffca28 });
-    const cube = new THREE.Mesh(geometry, material);
-    scene.add(cube);
-
-    const light = new THREE.PointLight(0xffffff, 1, 100);
-    light.position.set(10, 10, 10);
-    scene.add(light);
-
-    camera.position.z = 5;
-
-    function animate() {
-      requestAnimationFrame(animate);
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render(scene, camera);
-    }
-    animate();
   </script>
 </body>
 </html>
