@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dhanasankar K | Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="social-icons">
+      <a href="https://github.com/YOUR_USERNAME" target="_blank">
+        <img src="assets/github-icon.png" alt="GitHub" />
+      </a>
+      <a href="https://linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank">
+        <img src="assets/linkedin-icon.png" alt="LinkedIn" />
+      </a>
+    </div>
+    <button class="toggle-theme" onclick="toggleTheme()">🌓</button>
+  </nav>
+
+  <section id="home" class="home-section">
+    <h1>Hi, I'm Dhanasankar K 💘</h1>
+    <p>FPGA | VLSI | Verilog | Digital Design</p>
+    <a href="#projects"><button>Explore My Work</button></a>
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I’m Dhanasankar K, passionate about VLSI and Digital Systems.</p>
+    <a href="assets/Dhanasankar_Resume.pdf" download>
+      <button class="resume-btn">Download Resume</button>
+    </a>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skill">
+      <label>Verilog</label>
+      <div class="bar"><div class="progress" style="width: 90%;"></div></div>
+    </div>
+    <div class="skill">
+      <label>SystemVerilog</label>
+      <div class="bar"><div class="progress" style="width: 85%;"></div></div>
+    </div>
+    <div class="skill">
+      <label>FPGA / Vivado</label>
+      <div class="bar"><div class="progress" style="width: 80%;"></div></div>
+    </div>
+    <div class="skill">
+      <label>Image Processing</label>
+      <div class="bar"><div class="progress" style="width: 75%;"></div></div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <p>You can reach me via:</p>
+    <ul>
+      <li>Email: <a href="mailto:dhanasankar@example.com">dhanasankar@example.com</a></li>
+      <li>Phone: +91-9876543210</li>
+      <li>LinkedIn: <a href="https://linkedin.com/in/YOUR_LINKEDIN_ID" target="_blank">View Profile</a></li>
+      <li>GitHub: <a href="https://github.com/YOUR_USERNAME" target="_blank">View Repos</a></li>
+    </ul>
+  </section>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle("light-mode");
+    }
+  </script>
+</body>
+</html>
