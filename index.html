@@ -3,33 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhanasankar K | VLSI Portfolio</title>
+  <title>Dhanasankar K | VLSI Engineer Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <div class="logo">Dhanasankar</div>
+      <div class="logo">Dhanasankar K</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero" id="home">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
+    <canvas id="hero3d"></canvas>
+    <div class="hero-overlay">
       <img src="images/myphoto.jpg" alt="Dhanasankar" class="hero-photo">
       <h1>Dhanasankar K</h1>
-      <p class="hero-tagline">Aspiring VLSI Engineer | FPGA | RTL Design | HDL Specialist</p>
+      <p class="hero-tagline">Aspiring VLSI Engineer | RTL | FPGA | Digital Logic</p>
       <div class="hero-icons">
         <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="tel:+919384320190"><i class="fas fa-phone"></i></a>
@@ -39,72 +39,77 @@
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- About -->
   <section class="section about" id="about">
-    <div class="overlay"></div>
     <h2>About Me</h2>
-    <p>I am Dhanasankar K, an enthusiastic and dedicated VLSI design aspirant with a strong foundation in Digital Electronics, RTL Design, and FPGA-based system implementation. Currently pursuing my VLSI internship at Silicon Craft, I am gaining in-depth exposure to real-time digital design flows, including Verilog HDL development, testbench creation, and functional simulation using tools like Vivado and Icarus Verilog. With a deep passion for semiconductor technology, I have taken initiative beyond academics by building various Verilog projects including UART, I2C, and SPI communication protocols, as well as complex image processing filters using FPGAs such as the Artix-7 and DE2-70 platforms.</p>
-    <p>My goal is to innovate reliable and high-performance digital systems that can bridge the gap between theoretical design and real-world applications. I actively contribute to open-source hardware development through GitHub, where I maintain clean, modular code with documentation. Apart from technical skills, I possess strong analytical thinking, effective time management, and a collaborative mindset—making me a proactive learner and an ideal team contributor in the VLSI industry. My long-term vision is to contribute meaningfully to the advancement of chip design and embedded hardware systems.</p>
+    <p>I am Dhanasankar K, an enthusiastic VLSI design student passionate about RTL Design, FPGA prototyping, and digital electronics. Currently interning at Silicon Craft, I have developed robust experience with Verilog HDL, Icarus Verilog, Vivado, and FPGA platforms like Artix-7 and DE2-70. My work includes custom UART, I2C, and image processing designs.</p>
+    <p>Driven by curiosity and determination, I constantly strive to push boundaries of digital logic. I enjoy building optimized circuits and collaborating on GitHub. My ambition is to design next-gen chips that combine power-efficiency and performance.</p>
   </section>
 
-  <!-- Skills Section -->
+  <!-- Skills -->
   <section class="section skills" id="skills">
-    <div class="overlay"></div>
     <h2>Interests & Skills</h2>
     <div class="skills-wrapper">
       <div class="skill-box">
-        <h3>Technical Skills</h3>
+        <h3>Core Skills</h3>
         <ul>
           <li>Verilog HDL</li>
-          <li>RTL Design & Simulation</li>
-          <li>Vivado, Icarus Verilog</li>
-          <li>FPGA Boards: Artix-7, DE2-70</li>
-          <li>Protocols: I2C, SPI, UART, APB</li>
+          <li>RTL Simulation</li>
+          <li>Vivado / Icarus Verilog</li>
+          <li>FPGA (Artix-7, DE2-70)</li>
+          <li>UART / I2C / SPI / APB</li>
           <li>Python (Image Processing)</li>
-          <li>Ubuntu Linux</li>
         </ul>
       </div>
-
       <div class="skill-box">
         <h3>Soft Skills</h3>
         <ul>
-          <li>Time Management</li>
-          <li>Team Collaboration</li>
-          <li>Circuit Debugging</li>
-          <li>Technical Communication</li>
-          <li>Problem Solving</li>
-        </ul>
-      </div>
-
-      <div class="skill-box">
-        <h3>Achievements</h3>
-        <ul>
-          <li>Ranked 1st in HDLBits Verilog Challenges</li>
-          <li>Contributed 40+ Verilog designs to GitHub</li>
-          <li>Selected for National FPGA Innovation Program</li>
-          <li>Completed mini-project on UART Protocol Debugger</li>
+          <li>Collaboration</li>
+          <li>Debugging</li>
+          <li>Technical Writing</li>
+          <li>Documentation</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <section class="section projects" id="projects">
-    <div class="overlay"></div>
     <h2>Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <img src="images/waveform1.png" alt="I2C Project">
+        <img src="images/sobel_output.png" alt="Sobel">
         <div class="project-info">
-          <h3>I2C Master-Slave Communication</h3>
-          <p>Designed multi-slave I2C protocol in Verilog with complete waveform verification and state machine logic.</p>
+          <h3>Sobel Edge Detection</h3>
+          <p>Edge detection using Verilog and FPGA from camera input to VGA output.</p>
         </div>
       </div>
-      <!-- Additional project cards... -->
+      <div class="project-card">
+        <img src="images/uart_waveform.png" alt="UART">
+        <div class="project-info">
+          <h3>UART Communication</h3>
+          <p>Implemented TX/RX with waveform debug in Icarus Verilog.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="images/i2c_lcd.png" alt="I2C LCD">
+        <div class="project-info">
+          <h3>I2C LCD</h3>
+          <p>Interfaced 16x2 LCD via I2C (0x27) using FSM.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Resume -->
+  <section class="section resume" id="resume">
+    <h2>Resume</h2>
+    <div class="glass-panel">
+      <iframe src="Dhanasankar_Resume.pdf" width="100%" height="600px" frameborder="0"></iframe>
+    </div>
+  </section>
+
+  <!-- Contact -->
   <section class="section contact" id="contact">
     <h2>Contact</h2>
     <p><strong>Email:</strong> <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a></p>
@@ -112,15 +117,12 @@
     <div class="social-icons">
       <a href="https://github.com/DHANASANKAR2003"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com/in/dhanasankar-k-23b196291"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
-      <a href="tel:+919384320190"><i class="fas fa-phone"></i></a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p>&copy; 2025 Dhanasankar K | Portfolio Powered by HTML + CSS</p>
+    <p>&copy; 2025 Dhanasankar K | VLSI Portfolio</p>
   </footer>
-
 </body>
 </html>
