@@ -1,89 +1,117 @@
-<!-- index.html with Advanced Features for VLSI Portfolio -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dhanasankar K | VLSI Portfolio</title>
+  <title>Dhanasankar | VLSI Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <!-- Dark/Light Mode Toggle -->
-  <button class="theme-toggle" id="themeToggle">🌓</button>
-
-  <!-- Hero Section with 3D Placeholder + Typed Text -->
-  <header class="hero">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-content">
-      <h1>Dhanasankar K</h1>
-      <span id="typedText"></span>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <h1 class="logo">Dhanasankar</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="toggle-theme" onclick="toggleTheme()">🌓</button>
     </div>
-  </header>
+  </nav>
 
-  <!-- About Section with Timeline -->
-  <section class="about" id="about">
-    <h2>About Me</h2>
-    <div class="timeline">
-      <div class="event">Government College of Engineering, Erode</div>
-      <div class="event">Internship at Silicon Craft</div>
-      <div class="event">Projects: UART, I2C, FPGA Image Processing</div>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-3d-container">
+      <canvas id="chipCanvas"></canvas>
+      <div class="hero-text">
+        <h1><span id="typed-name"></span></h1>
+        <p>Aspiring VLSI & Embedded System Engineer</p>
+      </div>
     </div>
   </section>
 
-  <!-- Skills Section with Radial Charts -->
-  <section class="skills" id="skills">
-    <h2>Technical Skills</h2>
-    <canvas id="skillsChart" width="400" height="400"></canvas>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <div class="timeline">
+      <div class="timeline-event fade-in">Completed ECE at GCE Erode</div>
+      <div class="timeline-event fade-in">VLSI Internship @ Silicon Craft</div>
+      <div class="timeline-event fade-in">Built FPGA-based image processing engine</div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-radar fade-in">
+      <div class="radar-chart" id="radarChart"></div>
+    </div>
   </section>
 
   <!-- Projects Section -->
-  <section class="projects" id="projects">
-    <h2>My Projects</h2>
-    <div class="project-grid">
-      <!-- Add project cards with JS logic later -->
-      <div class="project-card">UART Verilog Module</div>
-      <div class="project-card">FPGA Image Processor</div>
-      <div class="project-card">I2C LCD Display</div>
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+    <div class="project-grid fade-in">
+      <div class="project-card">
+        <img src="images/sobel_output.png" alt="Sobel">
+        <h3>Sobel Edge Detection</h3>
+        <p>FPGA real-time camera-to-VGA design using Verilog</p>
+      </div>
+      <div class="project-card">
+        <img src="images/uart_waveform.png" alt="UART">
+        <h3>UART Communication</h3>
+        <p>Serial protocol with Verilog TX/RX and testbench</p>
+      </div>
     </div>
   </section>
 
-  <!-- Resume Section with Glassmorphic Panel -->
-  <section class="resume" id="resume">
+  <!-- Resume Section -->
+  <section id="resume" class="section">
     <h2>Resume</h2>
-    <div class="glass-container">
-      <iframe src="resume.pdf" type="application/pdf" width="100%" height="500px"></iframe>
+    <div class="glass-box fade-in">
+      <iframe src="resume.pdf" width="100%" height="600px" title="Dhanasankar Resume"></iframe>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section class="contact" id="contact">
+  <section id="contact" class="section">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a></p>
-    <p>Phone: <a href="tel:+919384320190">+91 93843 20190</a></p>
-    <div class="social-icons">
-      <a href="https://github.com/DHANASANKAR2003"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/dhanasankar-k-23b196291"><i class="fab fa-linkedin"></i></a>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> kdhanasankar7@gmail.com</p>
+      <p><i class="fas fa-phone"></i> +91 93843 20190</p>
+      <p>
+        <a href="https://github.com/DHANASANKAR2003" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </p>
     </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; <span id="year"></span> Dhanasankar K. Built with ❤️</p>
+    <p>&copy; <span id="year"></span> Dhanasankar K | Powered by HTML, CSS, JS</p>
   </footer>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="script.js"></script>
   <script>
+    new Typed('#typed-name', {
+      strings: ["Dhanasankar K", "VLSI Engineer", "RTL Designer", "FPGA Enthusiast"],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
     document.getElementById("year").textContent = new Date().getFullYear();
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+    }
   </script>
 </body>
-
 </html>
