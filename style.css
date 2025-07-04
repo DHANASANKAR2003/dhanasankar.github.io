@@ -1,42 +1,27 @@
-/* =========================
-   Dhanasankar Portfolio v2
-   style.css
-   ========================= */
+/* =============================
+   Enhanced Portfolio - style.css
+   ============================= */
 
-/* Reset and Base */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #0f0f1f, #1a1a3c);
+  color: #f0f0f0;
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(to bottom right, #0f0f1f, #1a1a3c);
-  color: #fff;
-  overflow-x: hidden;
-  transition: background 0.5s, color 0.5s;
-}
-
-/* Light mode toggle */
-body.light-mode {
-  background: #f4f4f4;
-  color: #111;
-}
-
-body.light-mode .navbar,
-body.light-mode .glass-box {
-  background: rgba(255, 255, 255, 0.4);
-  color: #111;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Navbar */
+/* NAVBAR */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -45,151 +30,157 @@ body.light-mode .glass-box {
   position: fixed;
   width: 100%;
   top: 0;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
   z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
 }
 
 .logo {
   font-size: 1.8rem;
-  font-weight: 600;
   color: #ffca28;
+  font-weight: bold;
+  text-shadow: 0 0 6px #ffca28;
 }
 
 .nav-links {
-  display: flex;
   list-style: none;
-  gap: 1.8rem;
+  display: flex;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   text-decoration: none;
+  color: white;
   font-size: 1rem;
-  color: #fff;
-  transition: color 0.3s ease;
+  transition: 0.3s;
 }
 
 .nav-links a:hover {
   color: #ffca28;
 }
 
-/* Hero Section */
+/* HERO SECTION */
 .hero {
   height: 100vh;
+  background: radial-gradient(#1a1a3c, #0f0f1f);
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   text-align: center;
-  background: radial-gradient(circle, #1e1e2f, #0a0a14);
   padding: 2rem;
   position: relative;
+}
+
+.hero-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 3px solid #ffca28;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 12px #ffca28;
+  object-fit: cover;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: #ffca28;
-  margin-bottom: 1rem;
 }
 
-.typing {
+.typed-text {
   font-size: 1.2rem;
-  color: #ddd;
-  height: 30px;
+  color: #fff;
+  margin-top: 0.5rem;
+  min-height: 40px;
 }
 
-/* Glass Box */
-.glass-box {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-  margin: 2rem auto;
-  width: 90%;
-  max-width: 1000px;
-}
-
-/* Section Headers */
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
+.hero-icons a {
+  margin: 0 10px;
+  font-size: 1.5rem;
   color: #ffca28;
+  transition: 0.3s;
+}
+
+.hero-icons a:hover {
+  color: #ffffff;
+}
+
+/* SECTION BASE */
+.section {
+  padding: 6rem 2rem 4rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2.2rem;
   text-align: center;
-  position: relative;
+  color: #ffca28;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px #ffca28;
 }
 
-.section-title::after {
-  content: '';
-  width: 60px;
-  height: 3px;
-  background: #ffca28;
-  display: block;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-/* About Section */
-.about p {
+/* ABOUT */
+.about-text {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
   line-height: 1.8;
   font-size: 1.05rem;
-  margin-bottom: 1.2rem;
+  text-align: justify;
 }
 
-/* Skills Section */
+/* SKILLS */
 .skills-container {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  justify-content: space-around;
   gap: 2rem;
 }
 
-.skill-card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 1.2rem;
-  border-radius: 12px;
-  width: 250px;
+.radial-skill {
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
-.skill-card h3 {
-  color: #ffca28;
-  margin-bottom: 1rem;
-}
-
-.skill-card ul {
-  list-style: none;
-  padding: 0;
-}
-
-.skill-card ul li {
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-}
-
-/* Radial Skill Progress (base styles) */
-.radial-chart {
+.radial-skill svg {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  background: conic-gradient(#ffca28 75%, #555 0);
-  margin: 0 auto 1rem;
 }
 
-/* Projects Section */
-.project-grid {
+.circle-bg {
+  fill: none;
+  stroke: #333;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke: #ffca28;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 1s ease;
+}
+
+.percentage {
+  fill: #fff;
+  font-size: 0.5rem;
+  text-anchor: middle;
+}
+
+/* PROJECTS */
+.projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .project-card {
-  background: rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .project-card:hover {
@@ -200,57 +191,86 @@ body.light-mode .glass-box {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  filter: brightness(90%);
 }
 
-.project-card h3 {
-  margin: 1rem;
+.project-info {
+  padding: 1rem;
+}
+
+.project-info h3 {
+  color: #ffca28;
   font-size: 1.2rem;
-  color: #ffca28;
+  margin-bottom: 0.5rem;
 }
 
-.project-card p {
-  padding: 0 1rem 1rem;
-  color: #eee;
+/* RESUME */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Resume Embed */
-.resume-viewer iframe {
-  width: 100%;
-  height: 600px;
+/* CONTACT */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+input, textarea {
+  padding: 0.8rem;
+  border-radius: 6px;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
-/* Contact */
-.contact {
-  text-align: center;
-  margin-top: 4rem;
-}
-
-.contact a {
-  color: #ffca28;
-  text-decoration: none;
+button {
+  background: #ffca28;
+  color: #000;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
   font-weight: bold;
-  font-size: 1.1rem;
-  margin: 0 10px;
+  cursor: pointer;
 }
 
-.contact a:hover {
-  text-shadow: 0 0 6px #ffca28;
+button:hover {
+  background: #fff;
+  color: #000;
 }
 
-/* Footer */
-.footer {
+/* FOOTER */
+footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
   color: #aaa;
   border-top: 1px solid #333;
-  margin-top: 4rem;
 }
 
-/* Scroll Animation (fade-in) */
+/* THEME TOGGLE */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ffca28;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  border: none;
+  box-shadow: 0 0 8px #ffca28;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* ANIMATION (fade-in) */
 [data-animate] {
   opacity: 0;
   transform: translateY(40px);
@@ -262,23 +282,17 @@ body.light-mode .glass-box {
   transform: translateY(0);
 }
 
-/* Light/Dark Toggle Button */
-.theme-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #ffca28;
-  color: #111;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 1000;
-  box-shadow: 0 0 10px #ffca28;
-}
-
-.theme-toggle:hover {
-  background: #fff;
-  color: #000;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
 }
