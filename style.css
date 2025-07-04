@@ -1,33 +1,33 @@
-/* -------------------------------------------------- */
-/* Enhanced VLSI Portfolio - Full Style Sheet        */
-/* Author: Dhanasankar K                              */
-/* -------------------------------------------------- */
+/* ===============================
+   VLSI Portfolio - style.css
+   Author: Dhanasankar K
+   =============================== */
 
-/* Reset and Base Styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #0a0a1a;
-  color: #f8f9fa;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d0d1a;
+  color: #f8f9fa;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
 /* Navbar */
 .navbar {
-  background: linear-gradient(90deg, #111132, #1a1a3c);
+  background: linear-gradient(90deg, #0f0f1f, #1a1a3c);
   padding: 1rem 2rem;
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 999;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -42,11 +42,10 @@ html {
 }
 
 .logo {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #ffca28;
   letter-spacing: 1px;
-  text-shadow: 0 0 6px rgba(255, 202, 40, 0.8);
 }
 
 .nav-links {
@@ -59,7 +58,7 @@ html {
   color: #fff;
   text-decoration: none;
   font-size: 1.1rem;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
@@ -67,32 +66,27 @@ html {
   text-shadow: 0 0 6px #ffca28;
 }
 
-
-/* Hero Section */
+/* Hero */
 .hero {
   background: url('images/hero_bg.jpg') no-repeat center center/cover;
   text-align: center;
-  padding: 9rem 2rem 6rem;
+  padding: 10rem 2rem 6rem;
   position: relative;
 }
 
-.hero::after {
-  content: "";
+.hero::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0,0,0,0.4);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
   z-index: 0;
 }
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   max-width: 800px;
   margin: auto;
-  color: #fff;
 }
 
 .hero-photo {
@@ -101,36 +95,33 @@ html {
   border-radius: 10px;
   border: 4px solid #ffca28;
   object-fit: cover;
-  box-shadow: 0 0 20px #ffca28;
+  box-shadow: 0 0 15px #ffca28;
   margin-bottom: 1rem;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2.8rem;
   color: #ffca28;
 }
 
 .hero-tagline {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: 1rem 0;
   color: #f0f0f0;
-  text-shadow: 1px 1px 2px black;
 }
 
 .hero-icons a {
-  margin: 0 0.6rem;
   color: #ffca28;
   font-size: 1.5rem;
+  margin: 0 10px;
   transition: 0.3s;
 }
 
 .hero-icons a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 5px #fff;
+  color: #fff;
 }
 
-
-/* Section Base */
+/* Sections */
 .section {
   padding: 5rem 2rem;
   max-width: 1200px;
@@ -138,35 +129,27 @@ html {
 }
 
 .section h2 {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   margin-bottom: 2rem;
   color: #ffca28;
   border-bottom: 3px solid #ffca28;
   display: inline-block;
-  padding-bottom: 0.4rem;
-  text-shadow: 0 0 4px #ffca28;
 }
 
-
-/* About Section */
+/* About */
 .about {
   background: url('images/about_bg.jpg') no-repeat center center/cover;
   color: #ffffff;
 }
 
 .about p {
-  font-size: 1.15rem;
-  margin-bottom: 1.5rem;
-  text-align: justify;
+  margin-bottom: 1.2rem;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1.2rem;
+  padding: 1rem;
   border-radius: 10px;
-  line-height: 1.8;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-
-/* Skills Section */
+/* Skills */
 .skills {
   background: url('images/skills_bg.jpg') no-repeat center center/cover;
   position: relative;
@@ -176,10 +159,7 @@ html {
 .skills::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 0;
 }
@@ -197,63 +177,48 @@ html {
   background-color: rgba(255, 255, 255, 0.1);
   border-left: 5px solid #ffca28;
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s;
-}
-
-.skill-box:hover {
-  transform: scale(1.03);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .skill-box h3 {
   color: #ffca28;
   margin-bottom: 1rem;
-  font-size: 1.4rem;
-  text-shadow: 1px 1px 2px black;
 }
 
 .skill-box ul li {
   color: #f2f2f2;
-  font-size: 1.05rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 1px #000;
+  margin-bottom: 0.6rem;
 }
 
-
-/* Projects Section */
+/* Projects */
 .projects {
   background: url('images/projects_bg.jpg') no-repeat center center/cover;
-  position: relative;
 }
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  position: relative;
-  z-index: 1;
 }
 
 .project-card {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.6);
-  transition: transform 0.3s ease;
-  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 
 .project-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  filter: brightness(90%) contrast(105%);
+  filter: brightness(95%);
 }
 
 .project-info {
@@ -262,23 +227,20 @@ html {
 
 .project-info h3 {
   color: #ffca28;
-  margin-bottom: 0.6rem;
-  font-size: 1.3rem;
-  text-shadow: 1px 1px 2px black;
+  margin-bottom: 0.5rem;
 }
 
 .project-info p {
-  font-size: 1rem;
-  color: #e0e0e0;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #ddd;
 }
 
-
-/* Contact Section */
+/* Contact */
 .contact {
   background: url('images/contact_bg.jpg') no-repeat center center/cover;
-  color: #fff;
   text-align: center;
+  padding: 4rem 2rem;
+  color: #fff;
 }
 
 .contact a {
@@ -287,23 +249,16 @@ html {
   font-weight: bold;
 }
 
-.contact a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 6px #fff;
-}
-
 .social-icons a {
-  margin: 0 10px;
+  margin: 0 12px;
   color: #ffca28;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   transition: 0.3s;
 }
 
 .social-icons a:hover {
   color: #ffffff;
-  text-shadow: 0 0 8px #ffca28;
 }
-
 
 /* Footer */
 .footer {
@@ -313,9 +268,7 @@ html {
   color: #ccc;
   font-size: 0.95rem;
   border-top: 1px solid #333;
-  letter-spacing: 0.5px;
 }
-
 
 /* Responsive */
 @media screen and (max-width: 768px) {
@@ -331,11 +284,7 @@ html {
   }
 
   .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.05rem;
+    font-size: 2rem;
   }
 
   .skills-wrapper,
