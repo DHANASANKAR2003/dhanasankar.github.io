@@ -7,42 +7,41 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="academic_projects.html">Academic Projects</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
+  <!-- Main Content -->
   <main>
     <h2>My Projects</h2>
+
+    <!-- Filter Buttons -->
     <div class="filter-buttons">
       <button onclick="filterProjects('all')">All</button>
       <button onclick="filterProjects('fpga')">FPGA</button>
       <button onclick="filterProjects('verilog')">Verilog</button>
     </div>
 
+    <!-- Projects List -->
     <div class="projects">
       <div class="project-card" data-type="fpga">
-        <img src="project1.jpg" alt="FPGA Project" />
+        <img src="project1.jpg" alt="High-Performance Real-Time Image Processing" />
         <p>High-Performance Real-Time Image Processing using Verilog on Artix-7 FPGA</p>
       </div>
       <div class="project-card" data-type="verilog">
-        <img src="project2.jpg" alt="Verilog Project" />
+        <img src="project2.jpg" alt="Secure Digital Voting Machine" />
         <p>Secure Digital Voting Machine using Verilog RTL and FSMs</p>
       </div>
+      <!-- Add more cards here as needed -->
     </div>
   </main>
 
-  <script>
-    function filterProjects(type) {
-      const cards = document.querySelectorAll('.project-card');
-      cards.forEach(card => {
-        card.style.display = (type === 'all' || card.dataset.type === type) ? 'block' : 'none';
-      });
-    }
-  </script>
   <script src="script.js"></script>
 </body>
 </html>
