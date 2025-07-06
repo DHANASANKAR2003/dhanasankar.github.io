@@ -1,16 +1,24 @@
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* VLSI Theme Background */
 body {
   font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(to right, #eef2f3, #8e9eab);
-  color: #333;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-image: url('vlsi.png'); /* optional image */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  color: #e0e0e0;
   line-height: 1.6;
 }
 
+/* Header */
 header {
   background: #1f2937;
   color: white;
@@ -46,7 +54,7 @@ header h1 {
 
 header h2 {
   font-size: 1.2rem;
-  color: #d1d5db;
+  color: #cbd5e1;
 }
 
 header .aspiration {
@@ -64,12 +72,14 @@ header .aspiration {
   text-decoration: none;
 }
 
+/* Main Content */
 main {
   padding: 2rem;
   max-width: 900px;
   margin: auto;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  background: #1a1d21;
+  color: #e0e0e0;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
 }
 
 main section {
@@ -78,8 +88,8 @@ main section {
 
 main h2 {
   font-size: 1.5rem;
-  color: #1f2937;
-  border-bottom: 2px solid #1f2937;
+  color: #10b981;
+  border-bottom: 2px solid #10b981;
   margin-bottom: 1rem;
 }
 
@@ -88,6 +98,7 @@ ul {
   padding-left: 1.5rem;
 }
 
+/* Footer */
 footer {
   background: #1f2937;
   color: white;
@@ -95,7 +106,7 @@ footer {
   padding: 1rem;
 }
 
-
+/* Resume Button */
 .resume-button {
   display: inline-block;
   margin-top: 1rem;
@@ -108,6 +119,7 @@ footer {
   border-radius: 0.5rem;
 }
 
+/* Projects Grid */
 .projects {
   display: flex;
   flex-wrap: wrap;
@@ -116,11 +128,17 @@ footer {
 
 .project-card {
   flex: 1 1 250px;
-  background: #f3f4f6;
+  background: #2a2a2d;
+  color: #e0e0e0;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   overflow: hidden;
   text-align: center;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
 }
 
 .project-card img {
@@ -133,7 +151,7 @@ footer {
   padding: 1rem;
 }
 
-/* Mobile responsive */
+/* Responsive Design */
 @media (max-width: 768px) {
   header .container {
     flex-direction: column;
@@ -153,7 +171,6 @@ footer {
     margin: 1rem auto 0;
   }
 }
-
 
 /* Navbar */
 nav {
@@ -185,7 +202,7 @@ nav a:hover {
 .hero {
   padding: 3rem 1rem;
   text-align: center;
-  background-color: #f9fafb;
+  background-color: rgba(15, 32, 39, 0.9);
 }
 
 .typewriter {
@@ -193,7 +210,7 @@ nav a:hover {
   font-family: monospace;
   overflow: hidden;
   white-space: nowrap;
-  border-right: 3px solid;
+  border-right: 3px solid #10b981;
   width: 0;
   animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
 }
