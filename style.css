@@ -376,6 +376,21 @@ main i {
   }
 }
 
+/* Image Zoom-In Animation for Modal */
+#imgModal img {
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 @keyframes pulseGlow {
   0%   { box-shadow: 0 0 5px #00cfff; }
