@@ -318,6 +318,59 @@ main i {
   color: #00cfff;
   margin-right: 0.5rem;
 }
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  background-color: #2a2a2d;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.contact-photo img {
+  width: 200px;
+  border-radius: 50%;
+  border: 4px solid #00cfff;
+  box-shadow: 0 0 15px #00cfff;
+}
+
+.contact-details {
+  flex: 1;
+  min-width: 250px;
+}
+
+.contact-details p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact-details i {
+  color: #00cfff;
+  margin-right: 0.5rem;
+}
+
+.contact-details a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  color: #00cfff;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-photo img {
+    margin: auto;
+  }
+}
 
 
 @keyframes pulseGlow {
