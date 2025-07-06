@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   modal.style.display = "none";
   modal.innerHTML = `
     <span class="close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
-    <img class="modal-content" id="imgInModal" style="max-width:180%;max-height:180vh;margin:auto;display:block;">
+    <img class="modal-content" id="imgInModal" style="max-width:90vw;max-height:90vh;margin:auto;display:block;">
     <div id="caption" style="text-align:center;color:white;margin-top:10px;"></div>
   `;
   Object.assign(modal.style, {
