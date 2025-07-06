@@ -246,6 +246,10 @@ nav a:hover {
   padding: 2rem;
   border-radius: 1rem;
 }
+.highlight {
+      color: #00cfff;
+      font-weight: bold;
+    }
 
 .about-photo {
   width: 200px;
