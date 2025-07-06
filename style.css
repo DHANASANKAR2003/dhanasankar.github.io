@@ -7,7 +7,7 @@
 
 /* VLSI Theme Background */
 body {
-  font-family: "Segoe UI", sans-serif;
+  font-family: 'Sawarabi Gothic', sans-serif;
   background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   background-image: url('vlsi.png'); /* optional image */
   background-repeat: no-repeat;
