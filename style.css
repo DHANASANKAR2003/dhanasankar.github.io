@@ -281,6 +281,22 @@ nav a:hover {
   color: black;
   box-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff;
 }
+/* ===== Contact Section Styles ===== */
+section i {
+  color: #00cfff;
+  margin-right: 0.5rem;
+}
+
+section a {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+
+section a:hover {
+  text-decoration: underline;
+  color: #00cfff;
+}
+
 
 /* Optional Pulse Glow Animation */
 .glow-pulse {
