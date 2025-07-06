@@ -58,3 +58,48 @@ function filterProjects(type) {
     card.style.display = match ? "block" : "none";
   });
 }
+
+// ============================
+// Rotating Typewriter Effect
+// ============================
+document.addEventListener("DOMContentLoaded", () => {
+  const phrases = [
+    "Hi, I'm Dhanasankar 🚀",
+    "VLSI Enthusiast 🧠",
+    "RTL & FPGA Designer 💡",
+    "Verilog | Vivado | Icarus 💻",
+    "Let's build silicon together!"
+  ];
+
+  const typewriter = document.querySelector(".typewriter");
+  let phraseIndex = 0;
+  let letterIndex = 0;
+  let isDeleting = false;
+  let speed = 100;
+
+  function typeLoop() {
+    const currentPhrase = phrases[phraseIndex];
+    if (isDeleting) {
+      typewriter.textContent = currentPhrase.substring(0, letterIndex--);
+      speed = 50;
+      if (letterIndex < 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 500;
+      }
+    } else {
+      typewriter.textContent = currentPhrase.substring(0, letterIndex++);
+      speed = 100;
+      if (letterIndex > currentPhrase.length) {
+        isDeleting = true;
+        speed = 2000; // Pause before deleting
+      }
+    }
+    setTimeout(typeLoop, speed);
+  }
+
+  if (typewriter) {
+    typeLoop();
+  }
+});
+
