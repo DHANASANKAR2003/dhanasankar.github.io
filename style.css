@@ -36,8 +36,8 @@ header .container {
 }
 
 header .photo img {
-  width: 220px;               /* Increased from 180px to 220px */
-  height: 220px;
+  width: 280px;               /* Increased from 180px to 220px */
+  height: 320px;
   object-fit: cover;
   border-radius: 0.5rem;      /* Slightly rounded corners */
   border: 4px solid #00cfff;
@@ -331,8 +331,8 @@ main i {
 }
 
 .contact-photo img {
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 250px;
   object-fit: cover;
   border-radius: 0.5rem; /* Optional: remove this for sharp edges */
   border: 4px solid #00cfff;
