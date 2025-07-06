@@ -331,10 +331,13 @@ main i {
 
 .contact-photo img {
   width: 200px;
-  /* border-radius: 50%; */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0.5rem; /* Optional: remove this for sharp edges */
   border: 4px solid #00cfff;
   box-shadow: 0 0 15px #00cfff;
 }
+
 
 .contact-details {
   flex: 1;
