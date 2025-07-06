@@ -303,6 +303,23 @@ section a:hover {
   animation: pulseGlow 2s infinite;
 }
 
+/* Contact Section Styles */
+main a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+main a:hover {
+  color: #00cfff;
+  text-decoration: underline;
+}
+
+main i {
+  color: #00cfff;
+  margin-right: 0.5rem;
+}
+
+
 @keyframes pulseGlow {
   0%   { box-shadow: 0 0 5px #00cfff; }
   50%  { box-shadow: 0 0 20px #00cfff; }
