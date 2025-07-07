@@ -54,12 +54,13 @@
     <!-- Contact Message Form & Info -->
     <div class="contact-extra">
       <h3>📬 Send a Message</h3>
-      <form class="contact-form">
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" rows="5" required></textarea>
+      <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
         <button type="submit" class="resume-button">Send Message</button>
       </form>
+  
 
       <h3>📌 Availability</h3>
       <ul>
@@ -87,6 +88,19 @@
   <footer>
     <p>&copy; 2025 Dhanasankar K</p>
   </footer>
+
+  <!-- JavaScript to show alert on message submit -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector(".contact-form");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        alert("✅ Thank you! Your message has been sent successfully.");
+        form.reset();
+      });
+    });
+  </script>
 
 </body>
 </html>
