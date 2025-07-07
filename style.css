@@ -276,19 +276,20 @@ nav a:hover {
 .typewriter {
   font-size: 2.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #00cfff; /* Matching VLSI theme */
+  color: orange;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #00cfff;
+  border-right: 3px solid orange;
   padding-right: 10px;
   text-shadow:
-    0 0 5px #00cfff,
-    0 0 10px #00cfff,
-    0 0 20px #00cfff,
-    0 0 40px rgba(0, 207, 255, 0.6);
+    0 0 5px orange,
+    0 0 10px orange,
+    0 0 20px orange,
+    0 0 40px rgba(255, 165, 0, 0.6);
   animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
   width: 0;
 }
+
 
 
 @keyframes typing {
