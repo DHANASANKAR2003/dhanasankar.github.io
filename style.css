@@ -250,25 +250,20 @@ nav a:hover {
   z-index: 1;
   font-size: 2.4rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #00cfff !important;  /* ✅ Force Electric Cyan */
+  color: red !important;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #00cfff !important;
+  border-right: 3px solid red !important;
   padding-right: 10px;
   text-shadow:
-    0 0 5px #00cfff,
-    0 0 10px #00eaff,
-    0 0 20px #1de9b6,
-    0 0 40px rgba(0, 207, 255, 0.6);
+    0 0 5px red,
+    0 0 10px red,
+    0 0 20px rgba(255, 0, 0, 0.6),
+    0 0 40px rgba(255, 0, 0, 0.4);
   animation: typing 3s steps(40, end) forwards,
-             blink 0.75s step-end infinite,
-             colorGlowCycle 4s ease-in-out infinite;
+             blink 0.75s step-end infinite;
   width: 0;
 }
-
-
-
-
 
 @keyframes glowPulse {
   0% {
@@ -288,21 +283,18 @@ nav a:hover {
 .typewriter {
   font-size: 2.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #00cfff !important;
-  border-right: 3px solid #00cfff !important;
+  color: red !important;
+  border-right: 3px solid red !important;
   white-space: nowrap;
   overflow: hidden;
   padding-right: 10px;
   animation: none !important;
   width: auto !important;
   text-shadow:
-    0 0 5px #00cfff,
-    0 0 10px #00eaff,
-    0 0 15px #1de9b6;
+    0 0 5px red,
+    0 0 10px red,
+    0 0 15px rgba(255, 0, 0, 0.5);
 }
-
-
-
 
 @keyframes typing {
   from { width: 0; }
@@ -312,6 +304,7 @@ nav a:hover {
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
 
 /* About Section */
 .about-section {
