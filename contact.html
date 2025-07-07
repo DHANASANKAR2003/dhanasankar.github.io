@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Navbar -->
+
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -19,16 +20,19 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
+  <!-- Main Section -->
   <main>
-    <h2 class="centered-heading">Contact Me</h2>
+    <h2 class="centered-heading glow-pulse">Contact Me</h2>
 
-    <!-- Contact Card -->
+    <!-- Contact Box -->
     <div class="contact-wrapper">
       <div class="contact-container">
+        <!-- Photo -->
         <div class="contact-photo">
-          <img src="your-photo.jpg" alt="Dhanasankar Photo">
+          <img src="your-photo.jpg" alt="Dhanasankar K Photo">
         </div>
+
+        <!-- Contact Details -->
         <div class="contact-details">
           <p><i class="fas fa-phone-alt"></i> +91 9384320190</p>
           <p><i class="fas fa-envelope"></i> 
@@ -40,42 +44,49 @@
           <p><i class="fab fa-github"></i> 
             <a href="https://github.com/" target="_blank">GitHub Profile</a>
           </p>
+          <p><i class="fas fa-map-marker-alt"></i> 
+            <a href="https://maps.google.com/?q=Chennai" target="_blank">Chennai, India</a>
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Extended Contact Information -->
+    <!-- Contact Message Form & Info -->
     <div class="contact-extra">
-      <h3>Availability</h3>
-      <p>Actively seeking:</p>
+      <h3>📬 Send a Message</h3>
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button type="submit" class="resume-button">Send Message</button>
+      </form>
+
+      <h3>📌 Availability</h3>
       <ul>
-        <li>Internship or entry-level roles in <span class="highlight">VLSI</span>, <span class="highlight">FPGA Design</span>, or <span class="highlight">Digital Design</span></li>
-        <li>Freelance or collaboration projects in <span class="highlight">RTL Design</span>, <span class="highlight">Verilog</span>, and <span class="highlight">FPGA-based Systems</span></li>
+        <li>Actively seeking roles in <strong class="highlight">VLSI</strong>, <strong class="highlight">FPGA Design</strong></li>
+        <li>Open for freelance & collaborations in <strong class="highlight">RTL Design</strong></li>
       </ul>
 
-      <h3>Resume Access</h3>
-      <a class="resume-button" href="resume.pdf" download>Download Resume</a>
-      <p>Request a customized version for specific roles via email or LinkedIn.</p>
+      <h3>💡 Portfolio Updates</h3>
+      <p>🔁 Stay updated on new projects by following me on 
+        <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">LinkedIn</a>.
+      </p>
 
-      <h3>Communication Channels</h3>
-      <p><strong>Preferred time:</strong> 9 AM – 9 PM IST</p>
-      <p>Available on <strong>WhatsApp</strong>, <strong>Email</strong>, and <strong>LinkedIn</strong></p>
-
-      <h3>Message for Collaboration</h3>
       <blockquote>
-        💬 "If you're working on something exciting in the VLSI or FPGA space — academic, startup, or industry — I'm open to connect and contribute."
+        💬 "If you're building something in the VLSI or FPGA domain, I’d love to contribute and collaborate."
       </blockquote>
-
-      <h3>Portfolio Updates</h3>
-      <p>🌐 This site is frequently updated. Stay connected via <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">LinkedIn</a> for the latest.</p>
     </div>
   </main>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 Dhanasankar K</p>
   </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
