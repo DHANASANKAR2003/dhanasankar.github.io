@@ -281,25 +281,30 @@ nav a:hover {
 }
 
 .typewriter {
-  font-size: 2rem;
-  font-family: monospace;
-  color: #00cfff;
+  font-size: 2.2rem;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00cfff; /* Matching VLSI theme */
   white-space: nowrap;
   overflow: hidden;
   border-right: 3px solid #00cfff;
-  padding-right: 8px;
-  text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff;
+  padding-right: 10px;
+  text-shadow:
+    0 0 5px #00cfff,
+    0 0 10px #00cfff,
+    0 0 20px #00cfff,
+    0 0 40px rgba(0, 207, 255, 0.6);
   animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
   width: 0;
 }
 
+
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink {
-  50% { border-color: transparent }
+  50% { border-color: transparent; }
 }
 
 /* About Section */
