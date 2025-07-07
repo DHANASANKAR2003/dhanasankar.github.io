@@ -8,15 +8,24 @@
 /* VLSI Theme Background */
 body {
   font-family: 'Times New Roman', Times, serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  background-image: url('vlsi.png'); /* optional image */
-  background-repeat: no-repeat;
+  background: radial-gradient(circle, rgba(0, 207, 255, 0.1), rgba(0, 0, 0, 0.95)),
+              url('vlsi.png');
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-blend-mode: overlay;
   color: #e0e0e0;
   line-height: 1.6;
+  animation: bodyGlow 10s ease-in-out infinite;
 }
+
+@keyframes bodyGlow {
+  0%   { filter: brightness(1) blur(0px); }
+  50%  { filter: brightness(1.15) blur(2px); }
+  100% { filter: brightness(1) blur(0px); }
+}
+
 
 /* Header */
 header {
