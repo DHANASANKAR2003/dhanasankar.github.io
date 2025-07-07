@@ -633,10 +633,3 @@ main i {
   100% { box-shadow: 0 0 5px #00cfff; }
 }
 
-@keyframes colorGlowCycle {
-  0%   { text-shadow: 0 0 10px #00cfff; }
-  33%  { text-shadow: 0 0 10px #00eaff; }
-  66%  { text-shadow: 0 0 10px #1de9b6; }
-  100% { text-shadow: 0 0 10px #00cfff; }
-}
-
