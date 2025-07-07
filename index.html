@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
   <!-- Navigation Bar -->
   <nav>
     <ul>
@@ -19,24 +20,23 @@
     </ul>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero Section with Typewriter -->
   <div class="hero">
     <h1 class="typewriter"></h1>
   </div>
 
-  <!-- Header Intro -->
+  <!-- Header with Photo and Intro -->
   <header>
     <div class="container">
       <div class="photo">
-        <img src="your-photo.jpg" alt="Dhanasankar Photo" />
+        <img src="your-photo.jpg" alt="Dhanasankar K Photo" />
       </div>
       <div class="intro">
         <h1>Dhanasankar K</h1>
         <h2>Electronics & Communication Engineer (2021–2025)</h2>
         <p class="aspiration">
-          Motivated and detail-oriented trained fresher with a strong interest in VLSI and digital system design.
-          Building a solid foundation in Verilog and digital circuit simulation. Eager to contribute to real-world projects 
-          and grow in a dynamic, innovation-driven semiconductor environment.
+          Motivated and detail-oriented fresher trained in VLSI, passionate about building high-performance digital systems.
+          Experienced in Verilog, FPGA design, and real-time simulations.
         </p>
         <div class="links">
           <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
@@ -48,19 +48,20 @@
     </div>
   </header>
 
-  <!-- Main Sections -->
+  <!-- Main Content -->
   <main>
+
     <!-- Projects Section -->
     <section>
       <h2>Projects</h2>
       <div class="projects">
-        <div class="project-card">
-          <img src="project1.jpg" alt="Project 1 Screenshot">
+        <div class="project-card" data-type="fpga">
+          <img src="project1.jpg" alt="High-Performance Image Processing using Verilog" />
           <p>High-Performance Real-Time Image Processing using Verilog on Artix-7 FPGA</p>
         </div>
-        <div class="project-card">
-          <img src="project2.jpg" alt="Project 2 Screenshot">
-          <p>Secure Digital Voting Machine using Verilog RTL and FSMs</p>
+        <div class="project-card" data-type="fsm">
+          <img src="project2.jpg" alt="FSM-Based Voting Machine" />
+          <p>Secure Digital Voting Machine using RTL Design and FSM Architecture</p>
         </div>
       </div>
     </section>
@@ -69,14 +70,13 @@
     <section>
       <h2>Technical Skills</h2>
       <ul>
-        <li><strong>Area of Interest:</strong> Digital Design</li>
-        <li><strong>HDL:</strong> Verilog</li>
-        <li><strong>Simulation Tools:</strong> Icarus Verilog, Xilinx Vivado 2019.1</li>
-        <li><strong>FPGA Platforms:</strong> DE2-70 (Altera), Artix-7 (Xilinx)</li>
+        <li><strong>Areas:</strong> RTL Design, Digital Logic</li>
+        <li><strong>Languages:</strong> Verilog, SystemVerilog (Learning)</li>
+        <li><strong>Tools:</strong> Icarus Verilog, GTKWave, Vivado</li>
+        <li><strong>FPGA:</strong> DE2-70, Artix-7</li>
         <li><strong>Protocols:</strong> UART, SPI, I2C, APB</li>
-        <li><strong>Version Control:</strong> Git, GitHub</li>
-        <li><strong>OS:</strong> Ubuntu Linux</li>
-        <li><strong>Programming:</strong> C (basic), Python (image processing)</li>
+        <li><strong>Platforms:</strong> Ubuntu Linux, GitHub</li>
+        <li><strong>Languages:</strong> Python (Image Processing), C (Basics)</li>
       </ul>
     </section>
 
@@ -84,43 +84,51 @@
     <section>
       <h2>Internship Experience</h2>
       <article>
-        <h3>TechVolt Pvt. Ltd, Coimbatore – Embedded & IoT</h3>
-        <p>Gained experience in ESP32, NodeMCU, sensors & real-time data acquisition using Arduino.</p>
+        <h3>TechVolt Pvt. Ltd – Embedded & IoT</h3>
+        <p>Worked with NodeMCU/ESP32, real-time sensor data acquisition using Arduino IDE.</p>
       </article>
       <article>
-        <h3>Silicon Craft, Chennai – VLSI Intern (Jul–Aug 2024)</h3>
-        <p>Simulated RTL designs using Verilog, Icarus Verilog, GTKWave; contributed to voting machine project.</p>
+        <h3>Silicon Craft – VLSI RTL Design</h3>
+        <p>Designed FSM-based systems, simulated RTL modules using Verilog, GTKWave.</p>
       </article>
       <article>
-        <h3>Silicon Craft, Chennai – Design Verification (Feb 2025 – Present)</h3>
-        <p>Worked on FSMs, APB-to-I2C bridge, protocol handshaking, and RTL-to-gate-level synthesis.</p>
+        <h3>Silicon Craft – Design Verification (Present)</h3>
+        <p>Focused on SystemVerilog, UVM, protocol-level verification and RTL-to-gate flow.</p>
       </article>
     </section>
 
     <!-- Co-Curricular -->
     <section>
-      <h2>Co-Curricular Activities</h2>
+      <h2>Co-Curricular Highlights</h2>
       <ul>
-        <li>Rank 1 on HDLBits; all solutions organized on GitHub</li>
-        <li>Practiced many Verilog projects with organized repos</li>
+        <li>Rank #1 on HDLBits (all Verilog solutions published)</li>
+        <li>Created 46+ FPGA-based image processing filters</li>
+        <li>Developed reusable testbenches for complex designs</li>
       </ul>
     </section>
 
-    <!-- Contact Info -->
+    <!-- Contact Short Section -->
     <section>
-      <h2>Contact</h2>
+      <h2>Quick Contact</h2>
       <p><i class="fas fa-phone-alt"></i> +91 9384320190</p>
       <p><i class="fas fa-envelope"></i> <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a></p>
       <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">LinkedIn Profile</a></p>
       <p><i class="fab fa-github"></i> <a href="https://github.com/" target="_blank">GitHub Profile</a></p>
-</section>
+    </section>
 
   </main>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Dhanasankar K</p>
   </footer>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
