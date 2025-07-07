@@ -278,19 +278,22 @@ nav a:hover {
 }
 
 .typewriter {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-family: 'Courier New', Courier, monospace;
-  color: red !important;
-  border-right: 2px solid red !important;
+  color: white !important;                  /* 🔷 White text */
+  border-right: 3px solid red !important;   /* 🔺 Red blinking cursor */
   white-space: nowrap;
   overflow: hidden;
   padding-right: 10px;
-  animation: none !important;
   width: auto !important;
-  text-shadow:
-    0 0 2px red,
-    0 0 4px rgba(255, 0, 0, 0.5);
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+
+  text-shadow:                               /* 🔥 Red glow around white text */
+    0 0 3px red,
+    0 0 6px red,
+    0 0 12px red;
 }
+
 
 @keyframes typing {
   from { width: 0; }
