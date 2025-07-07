@@ -248,13 +248,15 @@ nav a:hover {
 /* About Section */
 .about-section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-direction: column;
   align-items: center;
-  background-color: #2a2a2d;
+  gap: 2rem;
+  background: rgba(25, 55, 95, 0.95); /* Bluish background */
   padding: 2rem;
   border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.3);
 }
+
 .highlight {
       color: #00cfff;
       font-weight: bold;
