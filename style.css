@@ -270,11 +270,26 @@ nav a:hover {
   font-size: 2rem;
 }
 
+.centered-heading {
+  text-align: center;
+  font-size: 2rem;
+  color: #00cfff;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #00cfff;
+  padding-bottom: 0.5rem;
+}
+
+.photo-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
 .about-photo {
   width: 200px;
   height: 240px;
   object-fit: cover;
-  border-radius: 1rem; /* Optional: use 0 for sharp square */
+  border-radius: 1rem; /* change to 0 if you want sharp corners */
   border: 4px solid #00cfff;
   box-shadow: 0 0 15px #00cfff;
 }
