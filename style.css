@@ -270,18 +270,46 @@ nav a:hover {
   font-size: 2rem;
 }
 
+.about-text h3 {
+  color: #00cfff;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.about-text ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-text blockquote {
+  background-color: #1f2937;
+  border-left: 5px solid #00cfff;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-style: italic;
+  color: #cbd5e1;
+}
+
+
 .centered-heading {
   text-align: center;
   font-size: 2rem;
   color: #00cfff;
-  margin-bottom: 1rem;
   border-bottom: 2px solid #00cfff;
   padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .photo-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-bottom: 2rem;
 }
 
@@ -289,7 +317,7 @@ nav a:hover {
   width: 200px;
   height: 240px;
   object-fit: cover;
-  border-radius: 1rem; /* change to 0 if you want sharp corners */
+  border-radius: 1rem;
   border: 4px solid #00cfff;
   box-shadow: 0 0 15px #00cfff;
 }
