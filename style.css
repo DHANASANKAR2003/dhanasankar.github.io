@@ -235,14 +235,14 @@ nav a:hover {
   left: -20%;
   width: 150%;
   height: 150%;
-  background: url('vlsi.png'), radial-gradient(circle, rgba(0, 207, 255, 0.2), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.15), transparent 70%);
   background-size: cover;
   background-position: center;
-  background-blend-mode: overlay;
-  filter: blur(10px) brightness(1.2);
+  background-blend-mode: normal;
+  filter: blur(5px) brightness(1.0);
   animation: glowPulse 6s ease-in-out infinite;
   z-index: 0;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .hero h1.typewriter {
@@ -250,19 +250,19 @@ nav a:hover {
   z-index: 1;
   font-size: 2.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: orange;
+  color: orange !important;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid orange;
+  border-right: 3px solid orange !important;
   padding-right: 10px;
   text-shadow:
     0 0 5px orange,
     0 0 10px orange,
-    0 0 20px orange,
-    0 0 40px rgba(255, 165, 0, 0.6);
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-  width: 0;
+    0 0 20px orange;
+  animation: none !important;
+  width: auto !important;
 }
+
 
 
 @keyframes glowPulse {
@@ -283,18 +283,18 @@ nav a:hover {
 .typewriter {
   font-size: 2.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: orange;
+  color: orange !important;
+  border-right: 3px solid orange !important;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid orange;
   padding-right: 10px;
+  animation: none !important;
+  width: auto !important;
+
   text-shadow:
     0 0 5px orange,
     0 0 10px orange,
-    0 0 20px orange,
-    0 0 40px rgba(255, 165, 0, 0.6);
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-  width: 0;
+    0 0 15px orange;
 }
 
 
