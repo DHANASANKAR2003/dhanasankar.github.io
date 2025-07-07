@@ -1,7 +1,7 @@
-// ============================
-// Rotating Typewriter Effect
-// ============================
 document.addEventListener("DOMContentLoaded", () => {
+  // ============================
+  // Rotating Typewriter Effect
+  // ============================
   const phrases = [
     "Hi, I'm Dhanasankar 🚀",
     "VLSI Enthusiast 🧠",
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ============================
-  // Modal for Image View
+  // Modal Image Viewer
   // ============================
   const modal = document.createElement("div");
   modal.id = "imgModal";
@@ -79,17 +79,42 @@ document.addEventListener("DOMContentLoaded", () => {
   closeBtn.onclick = () => {
     modal.style.display = "none";
   };
+
   modal.addEventListener("click", (e) => {
-  if (e.target === modal) modal.style.display = "none";
-});
+    if (e.target === modal) modal.style.display = "none";
+  });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") modal.style.display = "none";
   });
+
+  // ============================
+  // Scroll-To-Top Button
+  // ============================
+  const scrollBtn = document.querySelector(".scroll-top");
+  if (scrollBtn) {
+    window.addEventListener("scroll", () => {
+      scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+  }
+
+  // ============================
+  // Project Card Scroll Animation
+  // ============================
+  const cards = document.querySelectorAll('.project-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
 });
 
 // ============================
-// Filter Projects (Optional)
+// Project Filter Function
 // ============================
 function filterProjects(type) {
   const cards = document.querySelectorAll(".project-card");
