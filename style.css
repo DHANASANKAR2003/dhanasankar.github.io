@@ -260,7 +260,7 @@ nav a:hover {
     0 0 10px #00eaff,
     0 0 20px #00eaff,
     0 0 40px rgba(0, 207, 255, 0.6);
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite, colorGlowCycle 4s ease-in-out infinite;
   width: 0;
 }
 
@@ -635,4 +635,11 @@ main i {
   0%   { box-shadow: 0 0 5px #00cfff; }
   50%  { box-shadow: 0 0 20px #00cfff; }
   100% { box-shadow: 0 0 5px #00cfff; }
+}
+
+@keyframes colorGlowCycle {
+  0%   { text-shadow: 0 0 10px #00cfff; }
+  33%  { text-shadow: 0 0 10px #00eaff; }
+  66%  { text-shadow: 0 0 10px #1de9b6; }
+  100% { text-shadow: 0 0 10px #00cfff; }
 }
