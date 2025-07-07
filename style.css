@@ -318,11 +318,45 @@ nav a:hover {
 }
 
 .photo-wrapper {
+  position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   margin-bottom: 2rem;
 }
+
+/* Decorative animated glow background */
+.photo-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 340px;
+  height: 360px;
+  background: radial-gradient(circle at center, #00cfff55, transparent 70%);
+  border-radius: 40% 60% 70% 30% / 50% 30% 60% 40%;
+  z-index: 1;
+  filter: blur(20px);
+  animation: floatBlob 6s ease-in-out infinite;
+}
+
+/* Actual photo */
+.photo-wrapper img {
+  width: 280px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  border: 4px solid #00cfff;
+  box-shadow: 0 0 15px #00cfff;
+  z-index: 2;
+}
+
+/* Blob animation */
+@keyframes floatBlob {
+  0%   { transform: scale(1)   translateY(0px); }
+  50%  { transform: scale(1.05) translateY(-8px); }
+  100% { transform: scale(1)   translateY(0px); }
+}
+
 
 .about-photo {
   width: 200px;
