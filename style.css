@@ -250,19 +250,22 @@ nav a:hover {
   z-index: 1;
   font-size: 2.4rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #00cfff;
+  color: #00cfff !important;  /* ✅ Force Electric Cyan */
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #00cfff;
+  border-right: 3px solid #00cfff !important;
   padding-right: 10px;
   text-shadow:
     0 0 5px #00cfff,
     0 0 10px #00eaff,
-    0 0 20px #00eaff,
+    0 0 20px #1de9b6,
     0 0 40px rgba(0, 207, 255, 0.6);
-  animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite, colorGlowCycle 4s ease-in-out infinite;
+  animation: typing 3s steps(40, end) forwards,
+             blink 0.75s step-end infinite,
+             colorGlowCycle 4s ease-in-out infinite;
   width: 0;
 }
+
 
 
 
@@ -285,19 +288,19 @@ nav a:hover {
 .typewriter {
   font-size: 2.2rem;
   font-family: 'Courier New', Courier, monospace;
-  color: orange !important;
-  border-right: 3px solid orange !important;
+  color: #00cfff !important;
+  border-right: 3px solid #00cfff !important;
   white-space: nowrap;
   overflow: hidden;
   padding-right: 10px;
   animation: none !important;
   width: auto !important;
-
   text-shadow:
-    0 0 5px orange,
-    0 0 10px orange,
-    0 0 15px orange;
+    0 0 5px #00cfff,
+    0 0 10px #00eaff,
+    0 0 15px #1de9b6;
 }
+
 
 
 
@@ -643,3 +646,4 @@ main i {
   66%  { text-shadow: 0 0 10px #1de9b6; }
   100% { text-shadow: 0 0 10px #00cfff; }
 }
+
