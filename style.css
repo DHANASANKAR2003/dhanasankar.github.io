@@ -16,6 +16,8 @@ body {
   background-blend-mode: overlay;
   color: #e0e0e0;
   line-height: 1.6;
+
+  filter: brightness(1.15) contrast(1.2);
 }
 
 
@@ -244,6 +246,25 @@ nav a:hover {
   z-index: 0;
   opacity: 0.7;
 }
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(0,207,255,0.1), rgba(255,0,0,0.1), rgba(0,207,255,0.1));
+  background-size: 200%;
+  animation: slideGradient 10s infinite;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Gradient animation */
+@keyframes slideGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
 
 .hero h1.typewriter {
   position: relative;
