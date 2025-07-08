@@ -24,10 +24,11 @@ body {
 
 /* Header */
 header {
-  background: #1f2937;
+  background: transparent;  /* ✅ Removes the dark box */
   color: white;
   padding: 2rem 0;
 }
+
 
 header .container {
   display: flex;
