@@ -275,7 +275,7 @@ nav a:hover {
 
 .tech-contact-wrapper {
   background: rgba(15, 30, 50, 0.85); /* Dark bluish translucent background */
-  padding: 1rem;                      /* More space inside the box */
+  padding: 1rem 1rem 2rem 1rem;                      /* More space inside the box */
   border-radius: 1rem;
   box-shadow:
     0 0 25px rgba(0, 207, 255, 0.4),  /* Stronger glow */
