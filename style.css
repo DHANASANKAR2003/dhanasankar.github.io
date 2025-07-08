@@ -391,6 +391,11 @@ nav a:hover {
   }
 }
 
+.skills-list li {
+  margin-bottom: 0.5rem; /* Adjust spacing between each line */
+  line-height: 1.6;       /* Improve readability */
+}
+
 
 /* About Section */
 .about-section {
