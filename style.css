@@ -281,8 +281,6 @@ nav a:hover {
   backdrop-filter: blur(8px); /* glass effect */
   color: #e0e0e0;
   margin-top: 2rem;
-
-  animation: glowPulse 6s infinite ease-in-out;
 }
 
 
