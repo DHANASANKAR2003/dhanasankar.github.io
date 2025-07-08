@@ -313,6 +313,15 @@ nav a:hover {
   width: 0;
 }
 
+@media (max-width: 768px) {
+  .hero h1.typewriter {
+    font-size: 1.6rem;          /* smaller font to fit */
+    width: 100% !important;     /* full width */
+    padding-right: 6px;         /* reduce padding */
+    white-space: nowrap;        /* still animate in one line */
+  }
+}
+
 @keyframes glowPulse {
   0% {
     transform: scale(1);
