@@ -98,6 +98,49 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ============= Project Card Modal =============
+const modal = document.createElement("div");
+modal.id = "projectModal";
+modal.style.display = "none";
+modal.innerHTML = `
+  <span class="close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
+  <div class="modal-box" style="max-width:90vw;max-height:85vh;overflow:auto;background:#111;padding:20px;border-radius:10px;color:white;">
+    <h2 id="modalTitle" style="text-align:center;"></h2>
+    <div id="modalContent" style="margin-top:20px;font-size:1em;"></div>
+  </div>
+`;
+Object.assign(modal.style, {
+  position: "fixed",
+  top: 0, left: 0, right: 0, bottom: 0,
+  backgroundColor: "rgba(0,0,0,0.9)",
+  zIndex: 9999,
+  justifyContent: "center",
+  alignItems: "center"
+});
+document.body.appendChild(modal);
+
+const modalTitle = modal.querySelector("#modalTitle");
+const modalContent = modal.querySelector("#modalContent");
+const closeBtn = modal.querySelector(".close");
+
+document.querySelectorAll(".project-card").forEach(card => {
+  card.style.cursor = "pointer";
+  card.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalTitle.textContent = card.dataset.title || "Project Details";
+    modalContent.innerHTML = card.dataset.content || "No content provided.";
+  });
+});
+
+closeBtn.onclick = () => modal.style.display = "none";
+modal.addEventListener("click", e => {
+  if (e.target === modal) modal.style.display = "none";
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") modal.style.display = "none";
+});
+
+
   // ============================
   // Project Card Scroll Animation
   // ============================
