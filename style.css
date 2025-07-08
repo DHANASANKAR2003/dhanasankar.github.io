@@ -107,8 +107,12 @@ main h3 {
   margin-top: 2rem;
   margin-bottom: 0.5rem;
   font-size: 1.3rem;
-  /* border-bottom: 2px solid #00cfff;*/
+  border-bottom: 2px solid #00cfff;
   padding-bottom: 0.3rem;
+}
+
+.internship-item * {
+  border-bottom: none !important;
 }
 
 ul {
