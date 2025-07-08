@@ -402,6 +402,12 @@ nav a:hover {
   line-height: 1.6;       /* Improve readability */
 }
 
+.logo-glow {
+  width: 60px; /* or your desired size */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px white) drop-shadow(0 0 16px white);
+}
 
 /* About Section */
 .about-section {
