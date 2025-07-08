@@ -274,18 +274,20 @@ nav a:hover {
 
 .tech-contact-wrapper {
   background: rgba(15, 30, 50, 0.85); /* Dark bluish translucent background */
-  padding: 2rem;
+  padding: 3rem;                      /* More space inside the box */
   border-radius: 1rem;
   box-shadow:
-    0 0 15px rgba(0, 207, 255, 0.3),
-    0 0 30px rgba(0, 207, 255, 0.1);
-  backdrop-filter: blur(8px); /* glass effect */
+    0 0 25px rgba(0, 207, 255, 0.4),  /* Stronger glow */
+    0 0 50px rgba(0, 207, 255, 0.15);
+  backdrop-filter: blur(8px);        /* Glass effect */
   color: #e0e0e0;
   margin-top: 2rem;
+
+  max-width: 1200px;     /* Allows it to grow on large screens */
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;            /* Fills most of the page */
 }
-
-
-
 
 .hero h1.typewriter {
   position: relative;
