@@ -281,26 +281,18 @@ nav a:hover {
 .typewriter {
   font-size: 2.4rem;
   font-family: 'Courier New', Courier, monospace;
-  color: white !important;
+  color: white !important;                  /* 🔷 White text */
+  border-right: 3px solid red !important;   /* 🔺 Red blinking cursor */
   white-space: nowrap;
   overflow: hidden;
-  padding: 0.5rem 1rem;
-  width: fit-content;
-  border-right: 3px solid red !important;
-
+  padding-right: 10px;
+  width: auto !important;
   animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
 
-  text-shadow:
+  text-shadow:                               /* 🔥 Red glow around white text */
     0 0 3px red,
     0 0 6px red,
     0 0 12px red;
-
-  background: radial-gradient(circle, rgba(255, 0, 0, 0.2), rgba(255, 0, 0, 0));
-  box-shadow:
-    0 0 10px red,
-    0 0 20px red,
-    0 0 30px red;
-  border-radius: 0.5rem;
 }
 
 
