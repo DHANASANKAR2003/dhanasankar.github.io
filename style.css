@@ -300,17 +300,23 @@ nav a:hover {
   z-index: 1;
   font-size: 2.4rem;
   font-family: 'Courier New', Courier, monospace;
-  color: #00cfff;
+  color: #00cfff; /* 🌟 Theme color */
   white-space: nowrap;
   overflow: hidden;
   border-right: 2px solid #00cfff;
   padding-right: 10px;
-  text-shadow: none; /* ⛔ Removes blur glow */
+
+  /* Remove blurry glow */
+  text-shadow: none;
+
+  /* Typing animation */
   animation: typing 3s steps(40, end) forwards,
              blink 0.75s step-end infinite;
   width: 0;
-  -webkit-font-smoothing: antialiased;  /* ✅ Crisp text on WebKit */
-  -moz-osx-font-smoothing: grayscale;   /* ✅ Crisp text on Firefox */
+
+  /* Make text sharp on all browsers */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 
