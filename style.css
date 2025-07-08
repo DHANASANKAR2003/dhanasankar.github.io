@@ -409,6 +409,12 @@ nav a:hover {
   filter: drop-shadow(0 0 8px white) drop-shadow(0 0 16px white);
 }
 
+.highlight-line {
+  color: #00cfff;
+  font-weight: bold;
+  text-shadow: 0 0 8px #00cfff, 0 0 12px rgba(0, 207, 255, 0.5);
+}
+
 /* About Section */
 .about-section {
   display: flex;
