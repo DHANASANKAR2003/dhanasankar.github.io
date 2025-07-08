@@ -225,11 +225,12 @@ nav a:hover {
 /* Hero Section with Glowing Text */
 .hero {
   position: relative;
-  padding: 4rem 1rem;
+  padding: 2rem 1rem 1rem 1rem; /* top, right, bottom, left */
   text-align: center;
   color: #e0e0e0;
   overflow: hidden;
 }
+
 
 .hero::before {
   content: "";
@@ -281,8 +282,18 @@ nav a:hover {
     0 0 50px rgba(0, 207, 255, 0.15);
   backdrop-filter: blur(8px);        /* Glass effect */
   color: #e0e0e0;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 1rem;
+  }
+  .tech-contact-wrapper {
+    margin-top: 0.5rem;
+  }
+}
+
 
 .hero h1.typewriter {
   position: relative;
