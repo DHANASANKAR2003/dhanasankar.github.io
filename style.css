@@ -501,11 +501,11 @@ main i {
   flex-wrap: wrap;
   gap: 2rem;
   align-items: center;
-  background-color: #2a2a2d;
   padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background: transparent; /* ✅ remove colored box */
+  box-shadow: none;         /* ✅ no glow */
 }
+
 
 .contact-wrapper {
   background: transparent;
