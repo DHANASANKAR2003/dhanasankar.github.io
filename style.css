@@ -508,11 +508,11 @@ main i {
 }
 
 .contact-wrapper {
-  background: rgba(25, 55, 95, 0.95); /* Bluish box */
-  padding: 2rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0, 207, 255, 0.3);
-  margin-top: 1rem;
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 0;
 }
 
 .contact-photo img {
