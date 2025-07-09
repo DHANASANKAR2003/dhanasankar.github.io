@@ -207,7 +207,7 @@ body.modal-open {
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 20px; /* Keeps modal away from screen edges */
