@@ -193,15 +193,14 @@ footer {
 ======================================== */
 /* Lock page scroll when modal is open */
 body.modal-open {
+  overflow: hidden;
   position: fixed;
   width: 100%;
 }
 
 /* Modal Box Styling */
 #projectModal {
-  display: none;
   position: fixed;
-  z-index: 9999;
   top: 0;
   left: 0;
   width: 100vw;
@@ -212,27 +211,28 @@ body.modal-open {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: auto;
+  padding: 20px; /* Keeps modal away from screen edges */
+  z-index: 9999;
+  overflow: hidden; /* ✅ No scrollbars on modal overlay */
 }
 
 .modal-box {
-  background: rgba(15, 30, 50, 0.75);
+  background: rgba(15, 30, 50, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: white;
   max-width: 90vw;
   max-height: 85vh;
-  overflow-y: auto;
+  overflow-y: auto;  /* ✅ Only vertical scrollbar */
+  overflow-x: hidden; /* ❌ Remove horizontal scroll */
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 
+
 scroll-behavior: smooth;
-
-
-  /* Optional: Scrollbar Styling */
-  scrollbar-width: thin;
-  scrollbar-color: #666 #222;
+scrollbar-width: thin;
+scrollbar-color: #666 #222;
 }
 
 @media (max-width: 600px) {
