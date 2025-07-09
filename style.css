@@ -166,6 +166,18 @@ footer {
   cursor: pointer;
 }
 
+.project-card p {
+  background: rgba(0, 255, 255, 0.08); /* Teal-ish transparent box */
+  padding: 10px 12px;
+  color: #00ffe7; /* Match your accent */
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  backdrop-filter: blur(4px); /* Optional: subtle glow */
+}
+
 .project-card img {
   width: 100%;
   border-radius: 8px;
