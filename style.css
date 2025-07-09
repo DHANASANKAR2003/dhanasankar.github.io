@@ -156,7 +156,7 @@ footer {
 }
 
 .project-card {
-  background: #1e1e1e;
+  background: rgba(20, 20, 20, 0.4);
   border-radius: 12px;
   padding: 20px;
   max-width: 300px;
