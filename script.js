@@ -37,22 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(typeLoop, speed);
   }
 
-  if (typewriter) {
-    typeLoop();
-  }
+  if (typewriter) typeLoop();
 
   // ============================
   // Modal Image Viewer
   // ============================
-  const modal = document.createElement("div");
-  modal.id = "imgModal";
-  modal.style.display = "none";
-  modal.innerHTML = `
-    <span class="close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
+  const imgModal = document.createElement("div");
+  imgModal.id = "imgModal";
+  imgModal.style.display = "none";
+  imgModal.innerHTML = `
+    <span class="img-close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
     <img class="modal-content" id="imgInModal" style="max-width:90vw;max-height:90vh;margin:auto;display:block;">
     <div id="caption" style="text-align:center;color:white;margin-top:10px;"></div>
   `;
-  Object.assign(modal.style, {
+  Object.assign(imgModal.style, {
     position: "fixed",
     top: 0, left: 0, right: 0, bottom: 0,
     backgroundColor: "rgba(0,0,0,0.85)",
@@ -61,31 +59,27 @@ document.addEventListener("DOMContentLoaded", () => {
     alignItems: "center",
     textAlign: "center"
   });
-  document.body.appendChild(modal);
+  document.body.appendChild(imgModal);
 
-  const modalImg = modal.querySelector("#imgInModal");
-  const captionText = modal.querySelector("#caption");
-  const closeBtn = modal.querySelector(".close");
+  const imgModalImg = imgModal.querySelector("#imgInModal");
+  const imgCaption = imgModal.querySelector("#caption");
+  const imgCloseBtn = imgModal.querySelector(".img-close");
 
   document.querySelectorAll(".project-card img").forEach(img => {
     img.style.cursor = "pointer";
     img.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modalImg.src = img.src;
-      captionText.textContent = img.alt;
+      imgModal.style.display = "flex";
+      imgModalImg.src = img.src;
+      imgCaption.textContent = img.alt;
     });
   });
 
-  closeBtn.onclick = () => {
-    modal.style.display = "none";
-  };
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.style.display = "none";
+  imgCloseBtn.onclick = () => (imgModal.style.display = "none");
+  imgModal.addEventListener("click", e => {
+    if (e.target === imgModal) imgModal.style.display = "none";
   });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") modal.style.display = "none";
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") imgModal.style.display = "none";
   });
 
   // ============================
@@ -98,57 +92,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ============= Project Card Modal =============
-const modal = document.createElement("div");
-modal.id = "projectModal";
-modal.style.display = "none";
-modal.innerHTML = `
-  <span class="close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
-  <div class="modal-box" style="max-width:90vw;max-height:85vh;overflow:auto;background:#111;padding:20px;border-radius:10px;color:white;">
-    <h2 id="modalTitle" style="text-align:center;"></h2>
-    <div id="modalContent" style="margin-top:20px;font-size:1em;"></div>
-  </div>
-`;
-Object.assign(modal.style, {
-  position: "fixed",
-  top: 0, left: 0, right: 0, bottom: 0,
-  backgroundColor: "rgba(0,0,0,0.9)",
-  zIndex: 9999,
-  justifyContent: "center",
-  alignItems: "center"
-});
-document.body.appendChild(modal);
-
-const modalTitle = modal.querySelector("#modalTitle");
-const modalContent = modal.querySelector("#modalContent");
-const closeBtn = modal.querySelector(".close");
-
-document.querySelectorAll(".project-card").forEach(card => {
-  card.style.cursor = "pointer";
-  card.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalTitle.textContent = card.dataset.title || "Project Details";
-    modalContent.innerHTML = card.dataset.content || "No content provided.";
+  // ============================
+  // Project Card Modal
+  // ============================
+  const projectModal = document.createElement("div");
+  projectModal.id = "projectModal";
+  projectModal.style.display = "none";
+  projectModal.innerHTML = `
+    <span class="project-close" style="position:absolute;top:10px;right:20px;font-size:30px;color:white;cursor:pointer;">&times;</span>
+    <div class="modal-box" style="max-width:90vw;max-height:85vh;overflow:auto;background:#111;padding:20px;border-radius:10px;color:white;">
+      <h2 id="modalTitle" style="text-align:center;"></h2>
+      <div id="modalContent" style="margin-top:20px;font-size:1em;"></div>
+    </div>
+  `;
+  Object.assign(projectModal.style, {
+    position: "fixed",
+    top: 0, left: 0, right: 0, bottom: 0,
+    backgroundColor: "rgba(0,0,0,0.9)",
+    zIndex: 9999,
+    justifyContent: "center",
+    alignItems: "center"
   });
-});
+  document.body.appendChild(projectModal);
 
-closeBtn.onclick = () => modal.style.display = "none";
-modal.addEventListener("click", e => {
-  if (e.target === modal) modal.style.display = "none";
-});
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") modal.style.display = "none";
-});
+  const projectTitle = projectModal.querySelector("#modalTitle");
+  const projectContent = projectModal.querySelector("#modalContent");
+  const projectCloseBtn = projectModal.querySelector(".project-close");
 
+  document.querySelectorAll(".project-card").forEach(card => {
+    card.style.cursor = "pointer";
+    card.addEventListener("click", () => {
+      projectModal.style.display = "flex";
+      projectTitle.textContent = card.dataset.title || "Project Details";
+      projectContent.innerHTML = card.dataset.content || "No content provided.";
+    });
+  });
+
+  projectCloseBtn.onclick = () => (projectModal.style.display = "none");
+  projectModal.addEventListener("click", e => {
+    if (e.target === projectModal) projectModal.style.display = "none";
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") projectModal.style.display = "none";
+  });
 
   // ============================
   // Project Card Scroll Animation
   // ============================
-  const cards = document.querySelectorAll('.project-card');
+  const cards = document.querySelectorAll(".project-card");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
       }
     });
   }, { threshold: 0.2 });
