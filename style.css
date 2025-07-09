@@ -200,16 +200,18 @@ body.modal-open {
 #projectModal {
   display: none;
   position: fixed;
-  inset: 0;
   z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   background: rgba(20, 20, 20, 0.4);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-
-  display: flex;              /* FLEX for centering */
-  justify-content: center;    /* Horizontal center */
-  align-items: center;        /* Vertical center */
-  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
 }
 
 .modal-box {
@@ -217,16 +219,14 @@ body.modal-open {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: white;
-
-  width: 90%;
-  max-width: 800px;
+  max-width: 90vw;
   max-height: 85vh;
-
   overflow-y: auto;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-  margin: auto;
+
+scroll-behavior: smooth;
 
 
   /* Optional: Scrollbar Styling */
