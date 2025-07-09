@@ -18,63 +18,62 @@
     </ul>
   </nav>
 
-  <!-- Main Content -->
-  <main
-    <div class="tech-contact-wrapper">
-      <h2>Academic Projects</h2>
+  <!-- ✅ FIXED: Replaced <main> tag with a valid <div> -->
+  <div class="tech-contact-wrapper">
+    <h2>Academic Projects</h2>
 
-      <div class="projects">
-        <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
-  <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
-  A hardware-based embedded system designed to automatically <span class="highlight-line">track the sun’s position</span> in real-time across both <span class="highlight-line">horizontal</span> (azimuth) and <span class="highlight-line">vertical</span> (elevation) axes to maximize energy efficiency.<br><br>
+    <div class="projects">
+      <!-- Project Card 1 -->
+      <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
+        <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
+        A hardware-based embedded system designed to automatically <span class="highlight-line">track the sun’s position</span>...<br><br>
 
-  <strong><span class="highlight-line">🧠 Concept Behind the Project:</span></strong><br>
-  Solar panels generate <span class="highlight-line">maximum power</span> when sunlight hits them perpendicularly...<br><br>
+        <strong><span class="highlight-line">🧠 Concept Behind the Project:</span></strong><br>
+        Solar panels generate <span class="highlight-line">maximum power</span>...<br><br>
 
-  <strong><span class="highlight-line">🔧 Hardware Components Used:</span></strong><br>
-  <ul>
-    <li><span class="highlight-line">Arduino Uno</span> – Main controller...</li>
-    <li><span class="highlight-line">4 LDR Sensors</span> – Detect sunlight...</li>
-    <li><span class="highlight-line">2 Servo Motors</span> – Rotate panel...</li>
-  </ul>
+        <strong><span class="highlight-line">🔧 Hardware Components Used:</span></strong><br>
+        <ul>
+          <li><span class="highlight-line">Arduino Uno</span> – Main controller...</li>
+          <li><span class="highlight-line">4 LDR Sensors</span> – Detect sunlight...</li>
+          <li><span class="highlight-line">2 Servo Motors</span> – Rotate panel...</li>
+        </ul>
 
-  <strong><span class="highlight-line">⚙️ Working Principle:</span></strong><br>
-  <ul>
-    <li>If <span class="highlight-line">left LDR</span> &gt; <span class="highlight-line">right LDR</span>, rotate left.</li>
-    <li>If <span class="highlight-line">top LDR</span> &gt; <span class="highlight-line">bottom LDR</span>, tilt up.</li>
-  </ul>
+        <strong><span class="highlight-line">⚙️ Working Principle:</span></strong><br>
+        <ul>
+          <li>If <span class="highlight-line">left LDR</span> &gt; <span class="highlight-line">right LDR</span>, rotate left.</li>
+          <li>If <span class="highlight-line">top LDR</span> &gt; <span class="highlight-line">bottom LDR</span>, tilt up.</li>
+        </ul>
 
-  <br><strong><span class="highlight-line">🏆 Achievements:</span></strong><br>
-  Won <span class="highlight-line">1st Prize</span> in inter-college fests like <span class="highlight-line">Galaxy Fest</span>, <span class="highlight-line">SSM College</span>, and <span class="highlight-line">Karpagam College of Technology</span>.
-'>
-          <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
-          <p><strong>Click to view full project details</strong></p>
-        </div>
+        <br><strong><span class="highlight-line">🏆 Achievements:</span></strong><br>
+        Won <span class="highlight-line">1st Prize</span> in inter-college fests like <span class="highlight-line">Galaxy Fest</span>...'>
+        <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
+        <p><strong>Click to view full project details</strong></p>
+      </div>
 
-        <div class="project-card" data-title="Real-Time Sobel Edge Detection" data-content='
-  <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
-  FPGA-based image processing system using the <span class="highlight-line">Sobel filter</span>.<br><br>
+      <!-- Project Card 2 -->
+      <div class="project-card" data-title="Real-Time Sobel Edge Detection" data-content='
+        <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
+        FPGA-based image processing system using the <span class="highlight-line">Sobel filter</span>.<br><br>
 
-  <strong><span class="highlight-line">🔍 Filters Supported:</span></strong><br>
-  <ul>
-    <li>Edge Detection</li>
-    <li>Thresholding</li>
-    <li>Inversion</li>
-    <li>Brightness & Contrast Adjustments</li>
-  </ul>
+        <strong><span class="highlight-line">🔍 Filters Supported:</span></strong><br>
+        <ul>
+          <li>Edge Detection</li>
+          <li>Thresholding</li>
+          <li>Inversion</li>
+          <li>Brightness & Contrast Adjustments</li>
+        </ul>
 
-  <strong><span class="highlight-line">⚙️ FPGA Hardware:</span></strong><br>
-  Implemented on <span class="highlight-line">Artix-7 FPGA</span> with Verilog modules<br><br>
+        <strong><span class="highlight-line">⚙️ FPGA Hardware:</span></strong><br>
+        Implemented on <span class="highlight-line">Artix-7 FPGA</span> with Verilog modules<br><br>
 
-  <strong><span class="highlight-line">🏆 Highlights:</span></strong><br>
-  Total of <span class="highlight-line">46 real-time filters</span> supported using pipeline processing.
-'>
-          <img src="academic2.jpg" alt="Real-Time Sobel Edge Detection" />
-          <p><strong>Click to view full project details</strong></p>
-        </div>
+        <strong><span class="highlight-line">🏆 Highlights:</span></strong><br>
+        Total of <span class="highlight-line">46 real-time filters</span> supported using pipeline processing.
+      '>
+        <img src="academic2.jpg" alt="Real-Time Sobel Edge Detection" />
+        <p><strong>Click to view full project details</strong></p>
       </div>
     </div>
-  </main>
+  </div> <!-- ✅ Properly closed the wrapper -->
 
   <!-- Modal Container -->
   <div id="projectModal">
