@@ -21,10 +21,10 @@
   <!-- Main Content -->
   <main
     <div class="tech-contact-wrapper">
-    <h2>Academic Projects</h2>
+      <h2>Academic Projects</h2>
 
-    <div class="projects">
-      <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
+      <div class="projects">
+        <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
   <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
   A hardware-based embedded system designed to automatically <span class="highlight-line">track the sun’s position</span> in real-time across both <span class="highlight-line">horizontal</span> (azimuth) and <span class="highlight-line">vertical</span> (elevation) axes to maximize energy efficiency.<br><br>
 
@@ -47,27 +47,43 @@
   <br><strong><span class="highlight-line">🏆 Achievements:</span></strong><br>
   Won <span class="highlight-line">1st Prize</span> in inter-college fests like <span class="highlight-line">Galaxy Fest</span>, <span class="highlight-line">SSM College</span>, and <span class="highlight-line">Karpagam College of Technology</span>.
 '>
-  <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
-  <p><strong>Click to view full project details</strong></p>
-</div>
+          <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
+          <p><strong>Click to view full project details</strong></p>
+        </div>
 
-      <div class="project-card">
-        <img src="academic2.jpg" alt="Real-Time Sobel Edge Detection" />
-        <p><strong>Real-Time Sobel Edge Detection</strong><br>
-        Implemented Sobel filter on Artix-7 FPGA with 46 filter features.</p>
+        <div class="project-card" data-title="Real-Time Sobel Edge Detection" data-content='
+  <strong><span class="highlight-line">📌 Project Overview:</span></strong><br>
+  FPGA-based image processing system using the <span class="highlight-line">Sobel filter</span>.<br><br>
+
+  <strong><span class="highlight-line">🔍 Filters Supported:</span></strong><br>
+  <ul>
+    <li>Edge Detection</li>
+    <li>Thresholding</li>
+    <li>Inversion</li>
+    <li>Brightness & Contrast Adjustments</li>
+  </ul>
+
+  <strong><span class="highlight-line">⚙️ FPGA Hardware:</span></strong><br>
+  Implemented on <span class="highlight-line">Artix-7 FPGA</span> with Verilog modules<br><br>
+
+  <strong><span class="highlight-line">🏆 Highlights:</span></strong><br>
+  Total of <span class="highlight-line">46 real-time filters</span> supported using pipeline processing.
+'>
+          <img src="academic2.jpg" alt="Real-Time Sobel Edge Detection" />
+          <p><strong>Click to view full project details</strong></p>
+        </div>
       </div>
-    </div>
     </div>
   </main>
 
   <!-- Modal Container -->
-<div id="projectModal">
-  <span class="close">&times;</span>
-  <div class="modal-box">
-    <h2 id="modalTitle"></h2>
-    <div id="modalContent"></div>
+  <div id="projectModal">
+    <span class="close">&times;</span>
+    <div class="modal-box">
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </div>
   </div>
-</div>
 
   <script src="script.js"></script>
 </body>
