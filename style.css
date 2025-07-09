@@ -201,22 +201,25 @@ body.modal-open {
   display: none;
   position: fixed;
   z-index: 9999;
-  left: 0; top: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.95);
+  inset: 0;
+  background: rgba(20, 20, 20, 0.4); /* Semi-transparent dark */
+  backdrop-filter: blur(8px);      /* Strong glass blur */
+  -webkit-backdrop-filter: blur(8px);
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
-
 .modal-box {
-  background: #111;
+  background: rgba(15, 30, 50, 0.75); /* Same tone as wrapper */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: white;
-  width: 90vw;
-  height: 85vh;
+  max-width: 90vw;
+  max-height: 85vh;
   overflow-y: auto;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
 
   /* Optional: Scrollbar Styling */
   scrollbar-width: thin;
