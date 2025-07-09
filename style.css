@@ -186,7 +186,7 @@ footer {
 
 .project-card:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(0, 255, 231, 0.3);
+  box-shadow: 0 0 20px rgba(20, 20, 20, 0.8);
 }
 
 .project-card p {
