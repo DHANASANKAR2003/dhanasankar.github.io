@@ -244,29 +244,29 @@
 
   <!-- JS -->
   <script>
-    const cards = document.querySelectorAll('.project-card');
-    const modal = document.getElementById('projectModal');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalContent = document.getElementById('modalContent');
-    const closeBtn = document.querySelector('.close');
+    const modal = document.getElementById("projectModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+const closeBtn = document.querySelector(".close");
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        modalTitle.innerHTML = card.getAttribute('data-title');
-        modalContent.innerHTML = card.getAttribute('data-content');
-        modal.style.display = 'flex';
-      });
-    });
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('click', () => {
+    modalTitle.innerHTML = card.getAttribute('data-title');
+    modalContent.innerHTML = card.getAttribute('data-content');
+    modal.style.display = "flex";
 
-    closeBtn.onclick = () => {
-      modal.style.display = 'none';
-    };
+    // Lock page scroll
+    document.body.classList.add("modal-open");
+  });
+});
 
-    window.onclick = (e) => {
-      if (e.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+
+  // Unlock page scroll
+  document.body.classList.remove("modal-open");
+});
+
   </script>
 </body>
 </html>
