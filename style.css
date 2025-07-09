@@ -194,6 +194,7 @@ footer {
 /* Lock page scroll when modal is open */
 body.modal-open {
   overflow: hidden;
+  position: fixed;
   width: 100%;
 }
 
@@ -227,10 +228,6 @@ body.modal-open {
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
-  
-  scroll-behavior: smooth;
-  scrollbar-width: thin;
-  scrollbar-color: #666 #222;
 }
 
 @media (max-width: 600px) {
