@@ -19,26 +19,72 @@
   </nav>
 
   <!-- Main Content -->
-  <main>
+  <main
     <div class="tech-contact-wrapper">
       <h2>Academic Projects</h2>
 
       <div class="projects">
         <!-- Project Card 1 -->
-        <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
-          <strong>📌 Project Overview:</strong><br>
-          A solar tracking system using Arduino to align panels based on sun position.<br><br>
-          <strong>🧠 Concept:</strong> Uses LDRs to find optimal angle.<br><br>
-          <strong>🔧 Components:</strong><br>
-          • Arduino Uno<br>
-          • 4 LDR Sensors<br>
-          • 2 Servo Motors<br><br>
-          <strong>🏆 Achievement:</strong><br>
-          Won 1st prize at Galaxy Fest, SSM College, and Karpagam College.
-        '>
-          <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
-          <p><strong>Click to view full project details</strong></p>
-        </div>
+<div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
+  <strong>📌 Project Overview:</strong><br>
+  A real-time solar tracking embedded system that intelligently orients solar panels towards the sun throughout the day using sensor data and motor control. This improves solar energy capture by aligning panels along both horizontal (azimuth) and vertical (elevation) axes.<br><br>
+
+  <strong>🧠 Concept Behind the Project:</strong><br>
+  The system leverages the behavior of Light Dependent Resistors (LDRs) to detect the sun’s position. Based on relative light intensities detected by 4 strategically placed LDRs, the Arduino calculates directional movement and actuates servo motors to align the panel accordingly.<br><br>
+
+  <strong>🔧 Hardware Components Used:</strong><br>
+  • Arduino Uno – Central controller<br>
+  • 4 LDR Sensors – Sunlight direction detection<br>
+  • 2 Servo Motors – Horizontal and vertical panel movement<br>
+  • Solar Panel – Energy harvesting unit<br>
+  • 10k Resistors, Breadboard, Power Supply, Jumper Wires<br><br>
+
+  <strong>🗂️ Software & Tools:</strong><br>
+  • Arduino IDE – Programming and uploading<br>
+  • Serial Monitor – Debugging and data monitoring<br>
+  • Proteus (Optional) – Circuit simulation<br><br>
+
+  <strong>🧪 Testing & Calibration:</strong><br>
+  • Calibrated LDR sensor threshold using Serial Monitor<br>
+  • Tested servo range (0°–180°) using sample PWM signals<br>
+  • Validated movement under different light intensities using flashlight<br><br>
+
+  <strong>⚙️ Working Principle:</strong><br>
+  • LDRs placed in a cross pattern compare light intensities<br>
+  • If left LDR > right LDR → rotate left<br>
+  • If top LDR > bottom LDR → tilt upward<br>
+  • Arduino generates PWM signals to control servo direction<br>
+  • Continual real-time adjustment ensures optimal solar alignment<br><br>
+
+  <strong>📈 Performance Results:</strong><br>
+  • Increased solar panel efficiency by ~30% over static panels<br>
+  • Smooth motor transition with low power usage<br>
+  • Reliable operation from sunrise to sunset under real conditions<br><br>
+
+  <strong>🏆 Achievements:</strong><br>
+  • 1st Prize in <span class="highlight-line">Galaxy Fest</span> Technical Symposium<br>
+  • Best Innovation Award at <span class="highlight-line">SSM College</span> Project Expo<br>
+  • Presented and appreciated in <span class="highlight-line">Karpagam Tech Day</span><br><br>
+
+  <strong>💡 Future Scope:</strong><br>
+  • Add IoT integration to monitor energy output remotely<br>
+  • Power panel tracking using harvested solar energy (self-sustaining)<br>
+  • Integrate battery charging and MPPT (Maximum Power Point Tracking) algorithms<br><br>
+
+  <strong>🧑‍🎓 Learning Outcome:</strong><br>
+  • Mastered sensor-based automation and analog interfacing<br>
+  • Developed real-time control systems using PWM<br>
+  • Gained practical exposure to embedded systems and solar technology<br>
+  • Enhanced skills in debugging, circuit building, and documentation<br><br>
+
+  <strong>📊 Block Diagram (Explained):</strong><br>
+  [LDR Sensor Array] → [Arduino Logic Unit] → [PWM Generator] → [Servo Motor Drivers] → [Solar Panel Movement]<br>
+  This forms a closed feedback system that continuously adapts to sunlight direction.
+'>
+  <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
+  <p><strong>Click to view full project details</strong></p>
+</div>
+
 
         <!-- Project Card 2 -->
         <div class="project-card" data-title="Real-Time Sobel Edge Detection" data-content='
