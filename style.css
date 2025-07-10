@@ -257,11 +257,11 @@ footer {
   padding: 20px;
   max-width: 300px;
   text-align: center;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 255, 231, 0.15);
+  box-shadow: 0 0 15px rgba(0, 128, 255, 0.15); /* initial bluish glow */
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* ✅ add this line */
-
+  border: 2px solid transparent;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+  transform: translateY(0); /* default */
 }
 
 .project-card p {
@@ -283,9 +283,11 @@ footer {
 }
 
 .project-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+  transform: translateY(-10px) scale(1.05); /* pop up */
+  box-shadow: 0 0 25px rgba(0, 174, 255, 0.6); /* bluish glow on hover */
+  border: 2px solid #00aaff; /* bluish border */
 }
+
 
 .project-card p {
   color: #ccc;
