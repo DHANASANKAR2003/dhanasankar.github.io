@@ -32,10 +32,121 @@
 
     <!-- Projects List -->
     <div class="projects">
-      <div class="project-card" data-type="fpga">
-        <img src="project1.jpg" alt="High-Performance Real-Time Image Processing" />
-        <p>High-Performance Real-Time Image Processing using Verilog on Artix-7 FPGA</p>
-      </div>
+      <div class="project-card" data-type="fpga" data-title="Real-Time FPGA Image Processing with 46 Filters" data-content='
+  <strong>🚀 Project Overview</strong><br><br>
+
+  I am proud to share my advanced project titled <strong>“High-Performance FPGA-Based Real-Time Image Processing for Sobel Edge Detection and Noise Reduction”</strong>, implemented using the <span class="highlight-line">Edge Artix-7 FPGA Board</span> and developed with the <span class="highlight-line">Xilinx Vivado Design Suite</span>.<br><br>
+
+  This project brings real-time image processing capabilities into hardware using <strong>Verilog HDL</strong>, enabling high-speed edge detection and dynamic noise reduction with <strong>46 unique pixel-level filters</strong>. It showcases the power of FPGAs in embedded computer vision and edge computing applications.<br><br>
+
+  <strong>⚙️ System Architecture & Workflow</strong><br>
+  <u><strong>Image Input:</strong></u><br>
+  • Grayscale image captured using an OV5640 camera module<br>
+  • Each 8-bit pixel is streamed into the FPGA for processing<br><br>
+
+  <u><strong>Filter Engine:</strong></u><br>
+  • 46 unique filters built using Verilog<br>
+  • Controlled via <code>SW[5:0]</code> (6-bit filter selector)<br>
+  • Supports both basic and complex filters including Sobel, blur, threshold, etc.<br><br>
+
+  <u><strong>Sobel Edge Detection Core:</strong></u><br>
+  • 3×3 sliding window convolution logic for horizontal and vertical edges<br><br>
+
+  <u><strong>Noise Reduction & Enhancement:</strong></u><br>
+  • Gaussian, box, and motion blur<br>
+  • Morphological erosion/dilation<br><br>
+
+  <u><strong>Output:</strong></u><br>
+  • Real-time VGA display output<br>
+  • Switch between filters instantly using on-board switches<br><br>
+
+  <strong>🧠 6-Bit Switch-Controlled Filter Selection</strong><br>
+  • <code>SW[5:0]</code> defines the active filter<br>
+  • Examples:<br>
+    • <code>000000</code> → Threshold<br>
+    • <code>000001</code> → Brighten<br>
+    • <code>000100</code> → Sobel + Erosion<br>
+    • <code>001010</code> → Laplacian Edge Detection<br>
+    • ... up to <code>101101</code> → Histogram Equalization (total 46 filters)<br><br>
+
+  <strong>🔍 All 46 Verilog Filters Implemented:</strong><br><br>
+
+  🔹 <u>Basic Pixel Operations:</u><br>
+  Brighten, Darken, Invert, Threshold, Half Brightness, Double Brightness, Safe Double Brightness<br><br>
+
+  🔹 <u>Frequency Filters:</u><br>
+  High-Pass, Low-Pass, Band-Pass<br><br>
+
+  🔹 <u>Contrast & Histogram:</u><br>
+  Contrast Enhance, Contrast Reduce, Histogram Equalization (approx), Contrast Stretching<br><br>
+
+  🔹 <u>Bitwise & Logical Filters:</u><br>
+  Bitwise Invert, Mask Upper/Lower 4 Bits, XOR Pattern (0xAA/0x55), Narrow Band Shift<br><br>
+
+  🔹 <u>Thresholding & Binarization:</u><br>
+  Mid Binarize, Smart Threshold, Inverted Binarize, LSB Binarize, Binary Edge Map, Threshold + Dilation<br><br>
+
+  🔹 <u>Add/Subtract Operations:</u><br>
+  Manual Add, Manual Subtract, Offset + Shrink<br><br>
+
+  🔹 <u>Smoothing & Blur:</u><br>
+  Gaussian Blur, Box Blur, Motion Blur, Median Filter (placeholder)<br><br>
+
+  🔹 <u>Edge Detection & Enhancements:</u><br>
+  Sobel, Sobel + Erosion, Laplacian, Emboss, Sharpen, Gradient Magnitude, Gx, Gy<br><br>
+
+  🔹 <u>Morphological Filters:</u><br>
+  Erosion, Dilation<br><br>
+
+  🔹 <u>Custom Kernels:</u><br>
+  XOR-based Custom Kernel 1, Kernel 2, Noise-Isolated Map<br><br>
+
+  <strong>🧪 Simulation and Implementation</strong><br>
+  • RTL Simulation: <strong>Icarus Verilog</strong><br>
+  • Waveform: <strong>GTKWave</strong><br>
+  • Synthesis: <strong>Vivado 2023</strong><br>
+  • Real-time Display: <strong>VGA Monitor</strong><br>
+  • Filter Switching: <strong>FSM + MUX Logic</strong><br><br>
+
+  <strong>💡 Highlights:</strong><br>
+  ✅ Multi-stage filter pipeline<br>
+  ✅ Switch-controlled real-time filter switching<br>
+  ✅ Fully synthesizable Verilog RTL<br>
+  ✅ Camera-to-VGA live video processing<br><br>
+
+  <strong>📸 Live Output Flow:</strong><br>
+  OV5640 Camera → FPGA → Filter Engine → VGA Monitor<br><br>
+
+  <strong>🙏 Acknowledgements:</strong><br>
+  Special thanks to <strong>Dr. Swami, Ph.D, iFellow</strong> (Silicon Craft VLSI) and <strong>Silicic Innova Technologies Pvt Ltd</strong> for their support and mentorship.<br><br>
+
+  <strong>🔗 GitHub:</strong><br>
+  <a href="https://github.com/DHANASANKAR2003" target="_blank">
+    <i class="fab fa-github"></i> GitHub
+  </a><br><br>
+
+  <strong>🖼️ Project Snapshots:</strong><br>
+
+  <img src="images/fpga_project1.jpeg" alt="FPGA Project Setup" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 1: Artix-7 Board and Camera Setup</em><br><br>
+
+  <img src="images/fpga_project2.jpeg" alt="Filter Block Diagram" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 2: Verilog Block Diagram for Filter Engine</em><br><br>
+
+  <img src="images/fpga_project3.jpeg" alt="Verilog Filter Code Screenshot" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 3: Sample Verilog Case Structure for Filter Selection</em><br><br>
+
+  <img src="images/fpga_project4.jpeg" alt="Vivado Implementation Screenshot" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 4: Vivado Implementation & Constraints</em><br><br>
+
+  <img src="images/fpga_output_image.jpeg" alt="Filtered Output via VGA" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 5: Real-time Filtered Output on VGA Display</em><br><br>
+'>
+  <img src="images/fpga_project2.jpeg" alt="FPGA Real-Time Filtered Output" />
+  <p><strong><span class="highlight-line">Real-Time FPGA Image Processing</span></strong></p>
+  <p><strong>Click to view full project</strong></p>
+</div>
+
       <div class="project-card" data-type="verilog">
         <img src="project2.jpg" alt="Secure Digital Voting Machine" />
         <p>Secure Digital Voting Machine using Verilog RTL and FSMs</p>
