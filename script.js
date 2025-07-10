@@ -7,9 +7,34 @@ document.addEventListener("DOMContentLoaded", () => {
     "Let's build silicon together!"
   ];
 
-  const scrollText = document.getElementById("scrollText");
-  const fullText = phrases.join("   •   ");
-  scrollText.innerText = (fullText + "   •   ").repeat(10);
+  const typewriter = document.querySelector(".typewriter");
+  let phraseIndex = 0;
+  let letterIndex = 0;
+  let isDeleting = false;
+  let speed = 100;
+
+  function typeLoop() {
+    const currentPhrase = phrases[phraseIndex];
+    if (isDeleting) {
+      typewriter.textContent = currentPhrase.substring(0, letterIndex--);
+      speed = 50;
+      if (letterIndex < 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        speed = 400;
+      }
+    } else {
+      typewriter.textContent = currentPhrase.substring(0, letterIndex++);
+      speed = 100;
+      if (letterIndex > currentPhrase.length) {
+        isDeleting = true;
+        speed = 2000;
+      }
+    }
+    setTimeout(typeLoop, speed);
+  }
+
+  if (typewriter) typeLoop();
 });
 
   
