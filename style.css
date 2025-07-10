@@ -154,8 +154,14 @@ header h2 {
   color: #cbd5e1;
 }
 
-header .aspiration {
+
+.aspiration {
   margin-top: 1rem;
+  text-align: justify;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ccc;
+  padding: 0 10px;
 }
 
 .links {
