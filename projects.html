@@ -147,10 +147,365 @@
   <p><strong>Click to view full project</strong></p>
 </div>
 
-      <div class="project-card" data-type="verilog">
-        <img src="project2.jpg" alt="Secure Digital Voting Machine" />
-        <p>Secure Digital Voting Machine using Verilog RTL and FSMs</p>
-      </div>
+        <div class="project-card" data-type="verilog" data-title="I²C Protocol in Verilog (Master + 5 Slaves)" data-content='
+  <strong>🚀 Successfully Designed Bit-Level I²C Protocol using Verilog!</strong><br><br>
+
+  This project simulates a complete <strong>I²C Master-Slave Communication System</strong> with <span class="highlight-line">1 Master</span> and <span class="highlight-line">5 unique Slaves</span>, each identified by its 7-bit address. Designed fully in <strong>Verilog HDL</strong>, this project explores FSM-based protocol logic, data transfer, and ACK/NACK handling.<br><br>
+
+  <strong>📌 Core Features:</strong><br>
+  ✅ Master initiates START & STOP conditions<br>
+  ✅ Slave address decoding logic<br>
+  ✅ FSM for both master & slaves<br>
+  ✅ ACK/NACK response system<br>
+  ✅ Read and Write data support<br>
+  ✅ SDA line handling with tri-state control<br><br>
+
+  <strong>🧠 Tools Used:</strong><br>
+  • Verilog HDL<br>
+  • Icarus Verilog (Simulation)<br>
+  • GTKWave (Waveform Viewer)<br><br>
+
+  <strong>🔗 GitHub:</strong><br>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/I2C%20Protocol" target="_blank">
+    <i class="fab fa-github"></i> GitHub
+  </a><br><br>
+
+  <strong>📷 Project Snapshots:</strong><br>
+
+  <img src="images/i2c_master_code.jpeg" alt="I2C Master Verilog Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 1: I²C Master FSM Code (Verilog)</em><br><br>
+
+  <img src="images/i2c_slave1_code.jpeg" alt="Slave 1 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 2: Slave 1 Verilog RTL</em><br><br>
+
+  <img src="images/i2c_slave2_code.jpeg" alt="Slave 2 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 3: Slave 2 Verilog RTL</em><br><br>
+
+  <img src="images/i2c_slave3_code.jpeg" alt="Slave 3 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 4: Slave 3 Verilog RTL</em><br><br>
+
+  <img src="images/i2c_slave4_code.jpeg" alt="Slave 4 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 5: Slave 4 Verilog RTL</em><br><br>
+
+  <img src="images/i2c_slave5_code.jpeg" alt="Slave 5 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 6: Slave 5 Verilog RTL</em><br><br>
+
+  <img src="images/i2c_waveform.jpeg" alt="I2C Waveform" style="max-width:100%; border-radius:8px; margin:10px 0;">
+  <em style="color:#aaa">Figure 7: GTKWave Output – SDA and SCL line transitions</em><br><br>
+'>
+  <img src="images/i2c_waveform.jpeg" alt="I2C Protocol Thumbnail" />
+  <p><strong><span class="highlight-line">I²C Protocol (Master + 5 Slaves)</span></strong></p>
+  <p><strong>Click to view full project</strong></p>
+</div>
+
+
+      
+      <div class="project-card" data-type="verilog" data-title="Sobel Edge Detection using Verilog + Python Automation" data-content='
+  <strong>🎓 Acknowledgements:</strong><br>
+  I would like to express my sincere gratitude to <span class="highlight-line">Dr. Swami, Ph.D, iFellow</span> from Silicon Craft VLSI for his exceptional guidance, as well as <span class="highlight-line">Prof. Raja (HoD/ECE, GCE-Erode)</span> and <span class="highlight-line">Dr. Senthilkumar R & Prof. Fairose Banu A</span> for inspiring me throughout this project journey.<br><br>
+
+  <strong>🔍 Project Title:</strong><br>
+  <span class="highlight-line">High-Performance Sobel Edge Detection using Verilog + Python Automation</span><br><br>
+
+  <strong>📌 Objective:</strong><br>
+  To implement a real-time hardware-based edge detection module using the Sobel filter in Verilog, integrating Python for image preprocessing and post-simulation reconstruction. This project demonstrates how image processing can be translated to RTL hardware logic.<br><br>
+
+  <strong>🛠️ Tools Used:</strong><br>
+  • Verilog HDL for RTL design<br>
+  • Icarus Verilog and GTKWave for simulation and debugging<br>
+  • Python (NumPy, PIL, OpenCV) for image processing and automation<br>
+  • Ubuntu Linux environment for build automation<br><br>
+
+  <strong>🧠 Core Concepts:</strong><br>
+  • Line Buffering and 3×3 kernel sliding window<br>
+  • Horizontal and Vertical edge gradient calculation<br>
+  • Signed to unsigned conversion<br>
+  • Thresholding and clamping for visualization<br>
+  • File I/O interfacing between Python and Verilog<br><br>
+
+  <strong>📐 Project Flow:</strong><br>
+  <u>Step 1: Image Preprocessing using Python</u><br>
+  • 256×256 grayscale image loaded and converted to 8-bit pixel values<br>
+  • Pixel values exported into a text file formatted for the Verilog testbench<br><br>
+
+  <u>Step 2: RTL Design in Verilog</u><br>
+  • Designed a 3×3 Sobel filter module with horizontal (Gx) and vertical (Gy) masks:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;Gx = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;Gy = [[1, 2, 1], [0, 0, 0], [-1, -2, -1]]<br>
+  • Used three line buffers to implement a sliding 3x3 window<br>
+  • Computed gradient magnitude using: <code>G = |Gx| + |Gy|</code><br>
+  • Output pixels were written to a simulation text file<br><br>
+
+  <u>Step 3: Testbench Simulation</u><br>
+  • Verilog testbench read pixel input file and generated synchronized pixel streams<br>
+  • Collected filtered edge output (sobel_out)<br>
+  • Debugged simulation using GTKWave to verify timing, values, and correctness<br><br>
+
+  <u>Step 4: Image Reconstruction using Python</u><br>
+  • Parsed Verilog output into a new grayscale matrix<br>
+  • Saved output image using Python Pillow/OpenCV libraries<br><br>
+
+  <strong>📈 Performance & Output:</strong><br>
+  • Accurately detected horizontal, vertical, and diagonal edges<br>
+  • Latency: 3 clock cycles after window fill<br>
+  • Achieved strong contrast between edges and flat regions<br><br>
+
+  <strong>📸 Project Visuals:</strong><br><br>
+
+  <img src="sobel_output.png" alt="Sobel Output Image" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Final edge-detected image from Verilog output</em><br><br>
+
+  <img src="sobel_design_code.png" alt="RTL Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Sobel filter RTL design module (Verilog)</em><br><br>
+
+  <img src="sobel_testbench.png" alt="Testbench Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Testbench to feed image pixel data</em><br><br>
+
+  <img src="sobel_waveform.png" alt="Waveform Output" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ GTKWave simulation output (sobel_out)</em><br><br>
+
+  <strong>🏆 Achievements:</strong><br>
+  • Successfully implemented a scalable edge detection architecture in RTL<br>
+  • Learned real-time image-to-pixel conversion techniques<br>
+  • Developed simulation automation flow using Python and Verilog<br><br>
+
+  <strong>🚀 Future Work:</strong><br>
+  • Deploy design on DE2-70 FPGA with camera interface (OV5640)<br>
+  • Real-time VGA output display for hardware-based image edge detection<br>
+  • Implement additional filters (Gaussian blur, sharpening, erosion)<br><br>
+
+  <strong>📚 Learning Outcome:</strong><br>
+  • RTL pipelining, convolution kernel implementation<br>
+  • Python–Verilog integration via file I/O<br>
+  • Debugging Verilog designs using GTKWave<br>
+  • FPGA implementation planning and performance optimization<br><br>
+
+  <strong>💬 Final Thought:</strong><br>
+  This project solidified my passion for image processing in hardware. The satisfaction of reconstructing a full image from pixel outputs proves the power of RTL design.<br><br>
+
+  <strong>🔗 GitHub:</strong>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing" 
+   target="_blank" 
+   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
+  <i class="fab fa-github" style="font-size: 20px;"></i>
+  <span>GitHub</span>
+</a>
+'>
+  <img src="sobel_output1.png" alt="Sobel Edge Detection" />
+  <p><strong><span class="highlight-line">Sobel Edge Detection (Verilog + Python)</span></strong></p>
+  <p><strong>Click to view full project details</strong></p>
+</div>
+
+      <div class="project-card" data-type="verilog" data-title="46-Filter Image Processing Engine (Verilog + Python)" data-content='
+  <strong>🚀 Successfully Simulated 46-Filter Image Processing Engine in Verilog!</strong><br><br>
+
+  I’ve completed the simulation of a high-performance image processing pipeline using <span class="highlight-line">Verilog HDL</span>, featuring 46 individual filters and effects applied on an 8-bit grayscale image. All simulations were performed using <strong>Icarus Verilog</strong> and visualized using Python.<br><br>
+
+  <strong>💡 Features of This Engine:</strong><br>
+  🔹 Brightness/Contrast Filters (Brighten, Darken, Contrast Boost)<br>
+  🔹 Bitwise Filters (Mask, XOR, Invert)<br>
+  🔹 Thresholding & Edge Detection (Sobel, Laplacian, Binarize, Edge Map)<br>
+  🔹 Morphological Operations (Erosion, Dilation)<br>
+  🔹 Histogram Equalization, Gaussian Blur, Custom Kernels<br><br>
+
+  <strong>🧪 Workflow:</strong><br>
+  1️⃣ <span class="highlight-line">Python Preprocessing</span>: Converted 256×256 grayscale image to memory file for Verilog<br>
+  2️⃣ <span class="highlight-line">Verilog Testbench</span>: Pixel stream driven through all 46 filters<br>
+  3️⃣ <span class="highlight-line">Waveform Simulation</span>: Verified output timing using GTKWave<br>
+  4️⃣ <span class="highlight-line">Python Postprocessing</span>: Converted Verilog output into 46 image previews<br><br>
+
+  <strong>📊 Tools Used:</strong><br>
+  • Verilog (Icarus Verilog, GTKWave)<br>
+  • Python (NumPy, Matplotlib, PIL)<br><br>
+
+  <strong>🔗 GitHub:</strong>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing" 
+   target="_blank" 
+   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
+  <i class="fab fa-github" style="font-size: 20px;"></i>
+  <span>GitHub</span>
+</a>
+
+  <strong>🖼️ Project Snapshots:</strong><br>
+
+  <img src="images/46filters_code.png" alt="Verilog Code" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 1: Sample Verilog RTL for Filter Selection</em><br><br>
+
+  <img src="images/46filters_waveform.png" alt="GTKWave Simulation" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 2: GTKWave output for selected filter with valid/ready handshake</em><br><br>
+
+  <img src="images/46filters_input.png" alt="Input Image" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 3: Original 256×256 grayscale input image</em><br><br>
+
+  <img src="images/46filters_alloutput.png" alt="All Filters Output" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 4: Python visualization of all 46 filtered outputs</em><br><br>
+
+  <strong>🎯 Next Step:</strong> Implement this design on an <span class="highlight-line">Artix-7 FPGA board</span> for real-time camera-based image processing!
+'>
+  <img src="images/46filters_alloutput.png" alt="46 Filter Output Preview" />
+  <p><strong><span class="highlight-line">46-Filter Verilog Image Engine</span></strong></p>
+  <p><strong>Click to view full project</strong></p>
+</div>
+
+
+      <div class="project-card" data-type="verilog" data-title="Synchronous FIFO Design in Verilog" data-content='
+  <strong>🚀 Successfully Completed a Synchronous FIFO Design in Verilog!</strong><br><br>
+
+  <strong>📌 Highlights of the Design:</strong><br>
+  • Parameterized <span class="highlight-line">depth</span> and <span class="highlight-line">data width</span><br>
+  • Used <code>$clog2</code> for pointer sizing (write/read pointers)<br>
+  • Full and Empty status flag logic<br>
+  • <span class="highlight-line">Self-checking Verilog testbench</span> for simulation<br>
+  • Verified using <span class="highlight-line">Icarus Verilog (iverilog)</span> and GTKWave<br><br>
+
+  <strong>🧪 Key Testing Scenarios:</strong><br>
+  • Multiple write/read cycles with varying gaps<br>
+  • Full → empty → full cycles<br>
+  • Edge case debugging (e.g., invalid pointer wrap, data overwrite prevention)<br><br>
+
+  <strong>💡 What I Learned:</strong><br>
+  • Sequential logic design (FSM-style FIFO logic)<br>
+  • Circular buffer implementation with careful pointer wrapping<br>
+  • Importance of accurate timing and handshaking in RTL<br>
+  • Debugging waveform-based RTL errors<br><br>
+
+  <strong>📊 Tools Used:</strong><br>
+  • Verilog HDL<br>
+  • Icarus Verilog, GTKWave<br><br>
+
+  <strong>🔗 GitHub:</strong>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/COMBINATIONAL/DAY%207%20" 
+   target="_blank" 
+   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
+  <i class="fab fa-github" style="font-size: 20px;"></i>
+  <span>GitHub</span>
+</a>
+
+  <strong>🖼️ Project Images:</strong><br>
+
+  <img src="images/fifo_code.png" alt="FIFO Verilog Code" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
+  <em style="color: #aaa;">Figure 1: Verilog RTL Code (FIFO Logic)</em><br><br>
+
+  <img src="images/fifo_output.png" alt="FIFO Simulation Output" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
+  <em style="color: #aaa;">Figure 2: FIFO Console Output from Simulation</em><br><br>
+
+  <img src="images/fifo_waveform.png" alt="FIFO GTKWave" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
+  <em style="color: #aaa;">Figure 3: Waveform in GTKWave showing Write/Read Pointers</em><br><br>
+'>
+  <img src="images/fifo_code1.png" alt="FIFO Design Project Thumbnail" />
+  <p><strong><span class="highlight-line">Synchronous FIFO (Verilog)</span></strong></p>
+  <p><strong>Click to view full project details</strong></p>
+</div>
+
+      <div class="project-card" data-type="verilog" data-title="Smart Traffic Light Controller (Verilog FSM)" data-content='
+  <strong>🚦 Successfully Designed a Smart Traffic Light Controller using Verilog!</strong><br><br>
+
+  I’ve designed a real-time Traffic Light Controller that simulates a <strong>4-way intersection</strong> using <span class="highlight-line">Verilog FSM (Finite State Machine)</span>. This design supports:<br>
+  ✅ Adaptive signal timing based on traffic sensor input<br>
+  ✅ Pedestrian crossing control with countdown indicators<br>
+  ✅ Emergency vehicle priority override logic<br><br>
+
+  <strong>💡 Core Concepts Implemented:</strong><br>
+  • Mealy & Moore FSM principles<br>
+  • Timer counters for red/yellow/green sequencing<br>
+  • Edge detection for emergency signal & pedestrian button<br>
+  • Output encoding for LEDs and countdown displays<br>
+  • Simulation via Icarus Verilog and waveform debug in GTKWave<br><br>
+
+  <strong>🛠️ Tools & Skills:</strong><br>
+  • Verilog HDL<br>
+  • Icarus Verilog (Simulation)<br>
+  • GTKWave (Debug & Visualization)<br>
+  • FSM Optimization Techniques<br><br>
+
+  <strong>🎓 Mentorship Acknowledgement:</strong><br>
+  I sincerely thank <strong>Swami, Ph.D, iFellow</strong> at Silicon Craft VLSI for mentoring me in FSM design and helping refine real-time control logic. Thanks also to <strong>Silicic Innova Technologies Pvt Ltd</strong> for technical support and project-based learning exposure.<br><br>
+
+  <strong>📊 System Behavior:</strong><br>
+  🚥 Each signal includes Red, Yellow, Green for North, South, East, West<br>
+  🚨 Emergency vehicle detection instantly prioritizes safe direction<br>
+  🚶 Pedestrian signals operate asynchronously with walk/don’t-walk logic<br>
+  ⏱️ Adaptive timers change based on `traffic_count` inputs (sensor)<br><br>
+
+  <strong>🔗 GitHub:</strong><br>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/blob/main/Verilog%20Project/Traffic_Light_Controller.v" target="_blank">
+    <i class="fab fa-github"></i> GitHub
+  </a><br><br>
+
+  <strong>🖼️ Project Snapshots:</strong><br>
+
+  <img src="images/tfc_code.png" alt="Verilog FSM Code" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 1: FSM Code for Smart Traffic Light Sequencing</em><br><br>
+
+  <img src="images/tfc_output.png" alt="Output LED State" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 2: Simulated Output Timing for Directional Lights</em><br><br>
+
+  <img src="images/tfc_waveform.png" alt="GTKWave FSM Debug" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 3: GTKWave showing FSM state transitions and pedestrian timing</em><br><br>
+
+  <strong>🚀 Future Improvements:</strong><br>
+  • Add night mode with blinking yellow pattern<br>
+  • FPGA implementation for real intersection signal box<br>
+  • Integrate with camera or IR sensors for smarter vehicle detection<br>
+'>
+  <img src="images/tfc_output1.png" alt="Traffic Light Simulation" />
+  <p><strong><span class="highlight-line">Smart Traffic Light FSM</span></strong></p>
+  <p><strong>Click to view full project</strong></p>
+</div>
+
+
+      <div class="project-card" data-type="verilog" data-title="Sequential Circuits Design using Verilog HDL" data-content='
+  <strong>🎉 Project Milestone Achieved! 🎉</strong><br><br>
+
+  I’m excited to share that I have successfully designed and simulated major <strong>Sequential Circuits</strong> using <span class="highlight-line">Verilog HDL</span>!<br><br>
+
+  ✅ D Flip-Flop  ✅ T Flip-Flop  ✅ JK Flip-Flop  ✅ SR Flip-Flop<br>
+  ✅ Up/Down Counters  ✅ Ring Counter  ✅ SISO, SIPO, PISO, PIPO Registers<br>
+  ✅ Bidirectional & Universal Shift Registers<br><br>
+
+  <strong>🔬 Key Learnings:</strong><br>
+  • Clocked sequential behavior in HDL<br>
+  • Register transfer and control logic<br>
+  • Edge-sensitive triggering & asynchronous resets<br>
+  • Synthesis-friendly RTL coding<br><br>
+
+  <strong>🧠 Tools Used:</strong><br>
+  • Verilog HDL<br>
+  • Icarus Verilog<br>
+  • GTKWave<br><br>
+
+  <strong>📈 Project Verification:</strong><br>
+  I analyzed both digital and analog waveform views to confirm data storage, propagation, and timing correctness.<br><br>
+
+  <strong>🎓 Mentorship:</strong><br>
+  Thank you <strong>Swami, Ph.D, iFellow</strong> (Silicon Craft VLSI) and <strong>Silicic Innova Technologies</strong> for their invaluable support and mentorship throughout this project.<br><br>
+
+  <strong>🔗 GitHub:</strong><br>
+  <a href="https://github.com/DHANASANKAR2003" target="_blank">
+    <i class="fab fa-github"></i> GitHub
+  </a><br><br>
+
+  <strong>🖼️ Project Snapshots:</strong><br>
+
+  <img src="images/seq_code1.jpeg" alt="Verilog Code - Flip-Flops" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 1: Verilog Code </em><br><br>
+
+  <img src="images/seq_code2.jpeg" alt="Verilog Code - Counters" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 2: Verilog Code </em><br><br>
+
+  <img src="images/seq_output1.jpeg" alt="Output - Shift Register Simulation" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 3: Output1 </em><br><br>
+
+  <img src="images/seq_output2.jpeg" alt="Counter Output" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 4: Output2 </em><br><br>
+
+  <img src="images/seq_waveform.jpeg" alt="GTKWave waveform" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
+  <em style="color:#aaa">Figure 5: GTKWave showing state transitions of flip-flops</em><br><br>
+'>
+  <img src="images/seq_output1.jpeg" alt="Sequential Circuits Simulation" />
+  <p><strong><span class="highlight-line">Sequential Circuits in Verilog</span></strong></p>
+  <p><strong>Click to view full project</strong></p>
+</div>
       <!-- Add more cards here as needed -->
     </div>
       </div>
