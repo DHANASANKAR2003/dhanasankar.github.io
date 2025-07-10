@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // ============================
+  // Rotating Typewriter Effect
+  // ============================
   const phrases = [
     "Hi, I'm Dhanasankar 🚀",
     "VLSI Enthusiast 🧠",
@@ -35,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (typewriter) typeLoop();
-});
 
+  
   
   // ============================
   // Scroll-To-Top Button
