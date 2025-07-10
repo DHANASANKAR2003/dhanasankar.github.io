@@ -62,6 +62,103 @@
     <!-- Projects Section -->
       <h2>Projects</h2>
     <div class="projects">
+
+      <div class="project-card" data-title="Sobel Edge Detection using Verilog + Python Automation" data-content='
+  <strong>🎓 Acknowledgements:</strong><br>
+  I would like to express my sincere gratitude to <span class="highlight-line">Dr. Swami, Ph.D, iFellow</span> from Silicon Craft VLSI for his exceptional guidance, as well as <span class="highlight-line">Prof. Raja (HoD/ECE, GCE-Erode)</span> and <span class="highlight-line">Dr. Senthilkumar R & Prof. Fairose Banu A</span> for inspiring me throughout this project journey.<br><br>
+
+  <strong>🔍 Project Title:</strong><br>
+  <span class="highlight-line">High-Performance Sobel Edge Detection using Verilog + Python Automation</span><br><br>
+
+  <strong>📌 Objective:</strong><br>
+  To implement a real-time hardware-based edge detection module using the Sobel filter in Verilog, integrating Python for image preprocessing and post-simulation reconstruction. This project demonstrates how image processing can be translated to RTL hardware logic.<br><br>
+
+  <strong>🛠️ Tools Used:</strong><br>
+  • Verilog HDL for RTL design<br>
+  • Icarus Verilog and GTKWave for simulation and debugging<br>
+  • Python (NumPy, PIL, OpenCV) for image processing and automation<br>
+  • Ubuntu Linux environment for build automation<br><br>
+
+  <strong>🧠 Core Concepts:</strong><br>
+  • Line Buffering and 3×3 kernel sliding window<br>
+  • Horizontal and Vertical edge gradient calculation<br>
+  • Signed to unsigned conversion<br>
+  • Thresholding and clamping for visualization<br>
+  • File I/O interfacing between Python and Verilog<br><br>
+
+  <strong>📐 Project Flow:</strong><br>
+  <u>Step 1: Image Preprocessing using Python</u><br>
+  • 256×256 grayscale image loaded and converted to 8-bit pixel values<br>
+  • Pixel values exported into a text file formatted for the Verilog testbench<br><br>
+
+  <u>Step 2: RTL Design in Verilog</u><br>
+  • Designed a 3×3 Sobel filter module with horizontal (Gx) and vertical (Gy) masks:<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;Gx = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;Gy = [[1, 2, 1], [0, 0, 0], [-1, -2, -1]]<br>
+  • Used three line buffers to implement a sliding 3x3 window<br>
+  • Computed gradient magnitude using: <code>G = |Gx| + |Gy|</code><br>
+  • Output pixels were written to a simulation text file<br><br>
+
+  <u>Step 3: Testbench Simulation</u><br>
+  • Verilog testbench read pixel input file and generated synchronized pixel streams<br>
+  • Collected filtered edge output (sobel_out)<br>
+  • Debugged simulation using GTKWave to verify timing, values, and correctness<br><br>
+
+  <u>Step 4: Image Reconstruction using Python</u><br>
+  • Parsed Verilog output into a new grayscale matrix<br>
+  • Saved output image using Python Pillow/OpenCV libraries<br><br>
+
+  <strong>📈 Performance & Output:</strong><br>
+  • Accurately detected horizontal, vertical, and diagonal edges<br>
+  • Latency: 3 clock cycles after window fill<br>
+  • Achieved strong contrast between edges and flat regions<br><br>
+
+  <strong>📸 Project Visuals:</strong><br><br>
+
+  <img src="sobel_output.png" alt="Sobel Output Image" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Final edge-detected image from Verilog output</em><br><br>
+
+  <img src="sobel_design_code.png" alt="RTL Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Sobel filter RTL design module (Verilog)</em><br><br>
+
+  <img src="sobel_testbench.png" alt="Testbench Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ Testbench to feed image pixel data</em><br><br>
+
+  <img src="sobel_waveform.png" alt="Waveform Output" style="width:100%; border-radius:10px; margin-bottom:12px;" />
+  <em>▲ GTKWave simulation output (sobel_out)</em><br><br>
+
+  <strong>🏆 Achievements:</strong><br>
+  • Successfully implemented a scalable edge detection architecture in RTL<br>
+  • Learned real-time image-to-pixel conversion techniques<br>
+  • Developed simulation automation flow using Python and Verilog<br><br>
+
+  <strong>🚀 Future Work:</strong><br>
+  • Deploy design on DE2-70 FPGA with camera interface (OV5640)<br>
+  • Real-time VGA output display for hardware-based image edge detection<br>
+  • Implement additional filters (Gaussian blur, sharpening, erosion)<br><br>
+
+  <strong>📚 Learning Outcome:</strong><br>
+  • RTL pipelining, convolution kernel implementation<br>
+  • Python–Verilog integration via file I/O<br>
+  • Debugging Verilog designs using GTKWave<br>
+  • FPGA implementation planning and performance optimization<br><br>
+
+  <strong>💬 Final Thought:</strong><br>
+  This project solidified my passion for image processing in hardware. The satisfaction of reconstructing a full image from pixel outputs proves the power of RTL design.<br><br>
+
+  <strong>🔗 GitHub:</strong>
+  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing" 
+   target="_blank" 
+   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
+  <i class="fab fa-github" style="font-size: 20px;"></i>
+  <span>GitHub</span>
+</a>
+'>
+  <img src="sobel_output.png" alt="Sobel Edge Detection" />
+  <p><strong><span class="highlight-line">Sobel Edge Detection (Verilog + Python)</span></strong></p>
+  <p><strong>Click to view full project details</strong></p>
+</div>
+
       <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
   <strong>📌 Project Overview:</strong><br>
   A real-time solar tracking embedded system that intelligently orients solar panels towards the sun throughout the day using sensor data and motor control. This improves solar energy capture by aligning panels along both horizontal (azimuth) and vertical (elevation) axes.<br><br>
