@@ -147,6 +147,15 @@ footer {
   font-weight: bold;
 }
 
+.scroll-banner .typewriter {
+  font-family: 'Courier New', monospace;
+  font-size: 1.8rem;
+  color: #00cfff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #00cfff;
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0%);
