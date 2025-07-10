@@ -260,6 +260,8 @@ footer {
   transition: transform 0.3s ease;
   box-shadow: 0 0 15px rgba(0, 255, 231, 0.15);
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; /* ✅ add this line */
+
 }
 
 .project-card p {
