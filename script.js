@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const scrollText = document.getElementById("scrollText");
   const fullText = phrases.join("   •   ");
-  scrollText.innerText = (fullText + "   •   ").repeat(20); // long repeat for endless scroll
+  scrollText.innerText = (fullText + "   •   ").repeat(10);
 });
 
   
