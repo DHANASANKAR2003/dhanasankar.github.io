@@ -40,14 +40,39 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ✅ SCROLLING BANNER BASE */
+.scroll-container {
+  width: 100%;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #00cfff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 2px solid #00cfff;
+  border-bottom: 2px solid #00cfff;
+  padding: 14px 0;
+  position: relative;
+  font-family: 'Orbitron', sans-serif; /* Stylish tech font */
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  z-index: 1000;
+
+  /* Neon-glow border effect */
+  box-shadow: 0 0 12px rgba(0, 207, 255, 0.3);
+  text-shadow: 0 0 5px #00cfff, 0 0 10px rgba(0, 207, 255, 0.6);
+  backdrop-filter: blur(2px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* ✅ TEXT SCROLLING EFFECT */
 .scroll-text {
   display: inline-block;
   padding-left: 100%;
   animation: scroll-left 45s linear infinite;
-  font-weight: 500;
-  transform: translateZ(0);
   will-change: transform;
+  transform: translateZ(0);
+  transition: all 0.3s ease-in-out;
 }
 
 /* ✅ KEYFRAMES */
@@ -64,15 +89,24 @@ body {
 .scroll-text:hover {
   animation-play-state: paused;
   cursor: pointer;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
 }
 
 /* ✅ MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .scroll-container {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     padding: 12px 0;
+    background: linear-gradient(to right, #111827, #1f2937);
+  }
+
+  .scroll-text {
+    animation-duration: 35s;
   }
 }
+
+
 
 
 
