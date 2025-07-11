@@ -8,30 +8,19 @@
 /* VLSI Theme Background */
 body {
   font-family: 'Times New Roman', Times, serif;
-  background-color: #0f2027;
-  background-image: url('vlsi.png');
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  background-image: url('vlsi.png'); /* optional image */
   background-repeat: no-repeat;
-  background-size: contain; /* ⬅️ ensures image is fully shown without stretching */
-  background-position: center center;
+  background-size: cover;
   background-attachment: fixed;
+  background-blend-mode: overlay;
   color: #e0e0e0;
   line-height: 1.6;
+
+  filter: brightness(1.15) contrast(1.2);
+
   font-size: 18px;
-
-  filter: none; /* Remove if it makes image look dull */
-
-  /* Optional: Slow subtle zoom animation */
-  animation: backgroundZoom 40s ease-in-out infinite alternate;
 }
-@keyframes backgroundZoom {
-  0% {
-    background-size: contain;
-  }
-  100% {
-    background-size: 110%;
-  }
-}
-
 
 /* ✅ SCROLLING BANNER BASE */
 .scroll-container {
