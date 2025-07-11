@@ -278,12 +278,12 @@ footer {
   text-decoration: none;
   font-weight: bold;
   border-radius: 0.5rem;
-  box-shadow: 0 0 8px #00cfff, 0 0 16px #00cfff;
+  box-shadow: 0 0 8px #00cfff, 0 0 13px #00cfff;
   transition: 0.3s;
 }
 
 .resume-button:hover {
-  box-shadow: 0 0 12px #00cfff, 0 0 24px #00cfff, 0 0 36px #00cfff;
+  box-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff, 0 0 30px #00cfff;
 }
 
 /* Projects Grid */
