@@ -483,6 +483,38 @@ nav a:hover {
   text-shadow: 0 0 5px #00cfff, 0 0 10px #00cfff;
 }
 
+@media (max-width: 768px) {
+  nav {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #2c3e50;
+  }
+
+  nav a.active,
+  nav a:hover {
+    color: #00cfff;
+    text-shadow: none;
+    background-color: rgba(0, 207, 255, 0.1);
+    border-left: 3px solid #00cfff;
+    padding-left: 0.5rem;
+  }
+}
+
+
 /* Hero Section with Glowing Text */
 .hero {
   position: relative;
