@@ -504,6 +504,64 @@ class NavbarController {
     }
 }
 
+// Text Scramble Effect for Section Titles
+class TextScramble {
+    constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+    }
+
+    setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+    }
+
+    update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+                complete++;
+                output += to;
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar();
+                    this.queue[i].char = char;
+                }
+                output += `<span class="dud">${char}</span>`;
+            } else {
+                output += from;
+            }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+            this.resolve();
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+        }
+    }
+
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize main app
@@ -519,6 +577,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.querySelector('.hero-section')?.classList.add('revealed');
     }, 100);
+
+    // Initialize Text Scramble for headings
+    const headings = document.querySelectorAll('.section-title');
+    headings.forEach(h => {
+        // Store original text
+        if (!h.dataset.originalText) {
+            h.dataset.originalText = h.innerText;
+        }
+
+        const scrambler = new TextScramble(h);
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !h.classList.contains('scrambled')) {
+                    scrambler.setText(h.dataset.originalText);
+                    h.classList.add('scrambled');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(h);
+    });
 
     console.log('%c🚀 Portfolio Loaded Successfully!', 'color: #00cfff; font-size: 16px; font-weight: bold;');
     console.log('%c💡 Designed & Developed by Dhanasankar K', 'color: #00ffe7; font-size: 12px;');
