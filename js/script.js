@@ -14,15 +14,24 @@ class PortfolioApp {
     }
 
     setupLoadingScreen() {
-        window.addEventListener('load', () => {
-            const loadingScreen = document.getElementById('loadingScreen');
+        const loadingScreen = document.getElementById('loadingScreen');
+
+        const hideLoader = () => {
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
+                // Remove from DOM after transition
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
                 }, 500);
-            }, 1500);
-        });
+            }, 1500); // Minimum 1.5s loading time for effect
+        };
+
+        // Check if page is already loaded
+        if (document.readyState === 'complete') {
+            hideLoader();
+        } else {
+            window.addEventListener('load', hideLoader);
+        }
     }
 
     setupThemeToggle() {
