@@ -418,10 +418,99 @@ class PerformanceMonitor {
     }
 }
 
+// Navbar Controller
+class NavbarController {
+    constructor() {
+        this.header = document.getElementById('header');
+        this.navbar = document.getElementById('navbar');
+        this.navMenu = document.getElementById('navMenu');
+        this.indicator = document.querySelector('.nav-indicator');
+        this.links = document.querySelectorAll('.nav-link');
+        this.activeLink = document.querySelector('.nav-link.active');
+
+        this.init();
+    }
+
+    init() {
+        this.setupScrollEffect();
+        this.setupMagneticIndicator();
+        this.setupMobileMenu();
+
+        // Initial position
+        if (this.activeLink) {
+            setTimeout(() => this.moveIndicator(this.activeLink), 100);
+        }
+    }
+
+    setupScrollEffect() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                this.header.classList.add('scrolled');
+            } else {
+                this.header.classList.remove('scrolled');
+            }
+        });
+    }
+
+    setupMagneticIndicator() {
+        this.links.forEach(link => {
+            link.addEventListener('mouseenter', (e) => {
+                this.moveIndicator(e.target);
+            });
+        });
+
+        this.navMenu.addEventListener('mouseleave', () => {
+            const active = document.querySelector('.nav-link.active');
+            if (active) {
+                this.moveIndicator(active);
+            } else {
+                this.indicator.style.opacity = '0';
+            }
+        });
+
+        // Update on click
+        this.links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                this.links.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+                this.moveIndicator(e.target);
+            });
+        });
+
+        // Update on scroll spy
+        window.addEventListener('scroll', utils.debounce(() => {
+            const active = document.querySelector('.nav-link.active');
+            if (active) this.moveIndicator(active);
+        }, 100));
+    }
+
+    moveIndicator(element) {
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+        const parentRect = this.navMenu.getBoundingClientRect();
+
+        const left = rect.left - parentRect.left;
+        const width = rect.width;
+
+        this.indicator.style.left = `${left}px`;
+        this.indicator.style.width = `${width}px`;
+        this.indicator.style.opacity = '1';
+    }
+
+    setupMobileMenu() {
+        // Existing mobile menu logic is handled by PortfolioApp, 
+        // but we can add specific enhancements here if needed
+    }
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize main app
     new PortfolioApp();
+
+    // Initialize Navbar Controller
+    new NavbarController();
 
     // Initialize performance monitoring
     new PerformanceMonitor();
