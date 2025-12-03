@@ -5,37 +5,12 @@ class PortfolioApp {
     }
 
     init() {
-        this.setupLoadingScreen();
+
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
         this.setupContactForm();
         this.setupImageLazyLoading();
-    }
-
-    setupLoadingScreen() {
-        const loadingScreen = document.getElementById('loadingScreen');
-
-        const hideLoader = () => {
-            if (loadingScreen.classList.contains('hidden')) return;
-
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                // Remove from DOM after transition
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 1500); // Minimum 1.5s loading time for effect
-        };
-
-        // Check if page is already loaded
-        if (document.readyState === 'complete') {
-            hideLoader();
-        } else {
-            window.addEventListener('load', hideLoader);
-            // Fallback: Force hide after 5 seconds max to prevent getting stuck
-            setTimeout(hideLoader, 5000);
-        }
     }
 
     setupThemeToggle() {
