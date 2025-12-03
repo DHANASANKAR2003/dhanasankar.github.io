@@ -3,785 +3,548 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dhanasankar K | VLSI Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Dhanasankar K - VLSI Design Engineer Portfolio showcasing RTL Design, FPGA Implementation, and Digital Verification projects"/>
+  <meta name="keywords" content="VLSI, RTL Design, Verilog, SystemVerilog, FPGA, Digital Design, Verification"/>
+  <meta name="author" content="Dhanasankar K"/>
+  <title>Dhanasankar K | VLSI Design Engineer Portfolio</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Share+Tech+Mono&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
-<body>
+<body data-theme="dark">
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="loading-screen">
+    <div class="circuit-loader">
+      <div class="circuit-line circuit-line-1"></div>
+      <div class="circuit-line circuit-line-2"></div>
+      <div class="circuit-line circuit-line-3"></div>
+      <div class="circuit-node"></div>
+      <div class="loading-text">Initializing<span class="dots"></span></div>
+    </div>
+  </div>
+
+  <!-- Particle Background Canvas -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
 
   <!-- Navigation Bar -->
-  <nav>
-    <ul>
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="academic_projects.html">Academic Projects</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span class="logo-text">DK</span>
+        <span class="logo-subtitle">VLSI</span>
+      </div>
+      
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
   </nav>
 
- <!-- Hero Section with Typewriter -->
-  <!-- 🔁 Scrolling News Banner -->
-<div class="scroll-container">
-  <div class="scroll-text" id="scrollText">
-    Hi, I'm Dhanasankar — a passionate VLSI enthusiast aiming for a core electronics career.    I specialize in Verilog and SystemVerilog for RTL design, verification, and digital system development.    With strong experience in Vivado and Icarus Verilog, I’ve worked on FPGA-based real-time projects including image processing, I²C communication, and sequential logic design.    Feel free to explore the Projects section — where I’ve provided detailed explanations, code snapshots, waveforms, and implementation results.
-  </div>
-</div>
-
-
-
-
-
-
-
- <!-- Header with Photo and Intro -->
- <header>
-   <div class="tech-contact-wrapper">
-  <div class="container">
-      <div class="photo">
-        <img src="your-photo.jpg" alt="Dhanasankar K Photo" />
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <div class="hero-image-wrapper animate-on-scroll">
+        <div class="image-glow"></div>
+        <img src="your-photo.jpg" alt="Dhanasankar K" class="hero-image" />
       </div>
-      <div class="intro">
-        <h1>Dhanasankar K</h1>
-        <h2>Electronics & Communication Engineer (2021–2025)</h2>
-        <p class="aspiration">
-    <span class="highlight-line">Motivated and detail-oriented</span> VLSI-trained fresher with a strong passion for <span class="highlight-line">digital system design</span> and <span class="highlight-line">functional verification</span>. Proficient in <span class="highlight-line">Verilog and SystemVerilog</span>, with hands-on experience in writing RTL code, 
-    simulating digital circuits, and debugging timing issues. Known for <span class="highlight-line">quick learning</span>, <span class="highlight-line">analytical thinking</span>, and strong problem-solving skills. Currently undergoing advanced training in <span class="highlight-line">UVM-based verification</span> to strengthen practical knowledge in protocol-level testing 
-    and coverage-driven verification. Eager to contribute to <span class="highlight-line">real-time hardware projects</span> and grow within a <span class="highlight-line">fast-paced, innovation-driven</span> VLSI development environment.
-  </p>
-        <div class="links">
-          <a href="mailto:kdhanasankar7@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-" target="_blank"><i class="fab fa-github"></i></a>
-        </div>
-        <a class="resume-button" href="resume.pdf" download>Download Resume</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-
-  <!-- Main Content -->
-  <main
-    <div class="tech-contact-wrapper">
-
-    <!-- Projects Section -->
-      <h2>Projects</h2>
-    <div class="projects">
-
-      <div class="project-card" data-title="I²C Protocol in Verilog (Master + 5 Slaves)" data-content='
-  <strong>🚀 Successfully Designed Bit-Level I²C Protocol using Verilog!</strong><br><br>
-
-  This project simulates a complete <strong>I²C Master-Slave Communication System</strong> with <span class="highlight-line">1 Master</span> and <span class="highlight-line">5 unique Slaves</span>, each identified by its 7-bit address. Designed fully in <strong>Verilog HDL</strong>, this project explores FSM-based protocol logic, data transfer, and ACK/NACK handling.<br><br>
-
-  <strong>📌 Core Features:</strong><br>
-  ✅ Master initiates START & STOP conditions<br>
-  ✅ Slave address decoding logic<br>
-  ✅ FSM for both master & slaves<br>
-  ✅ ACK/NACK response system<br>
-  ✅ Read and Write data support<br>
-  ✅ SDA line handling with tri-state control<br><br>
-
-  <strong>🧠 Tools Used:</strong><br>
-  • Verilog HDL<br>
-  • Icarus Verilog (Simulation)<br>
-  • GTKWave (Waveform Viewer)<br><br>
-
-  <strong>🔗 GitHub:</strong><br>
-  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/I2C%20Protocol" target="_blank">
-    <i class="fab fa-github"></i> GitHub
-  </a><br><br>
-
-  <strong>📷 Project Snapshots:</strong><br>
-
-  <img src="images/i2c_master_code.jpeg" alt="I2C Master Verilog Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 1: I²C Master FSM Code (Verilog)</em><br><br>
-
-  <img src="images/i2c_slave1_code.jpeg" alt="Slave 1 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 2: Slave 1 Verilog RTL</em><br><br>
-
-  <img src="images/i2c_slave2_code.jpeg" alt="Slave 2 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 3: Slave 2 Verilog RTL</em><br><br>
-
-  <img src="images/i2c_slave3_code.jpeg" alt="Slave 3 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 4: Slave 3 Verilog RTL</em><br><br>
-
-  <img src="images/i2c_slave4_code.jpeg" alt="Slave 4 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 5: Slave 4 Verilog RTL</em><br><br>
-
-  <img src="images/i2c_slave5_code.jpeg" alt="Slave 5 Code" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 6: Slave 5 Verilog RTL</em><br><br>
-
-  <img src="images/i2c_waveform.jpeg" alt="I2C Waveform" style="max-width:100%; border-radius:8px; margin:10px 0;">
-  <em style="color:#aaa">Figure 7: GTKWave Output – SDA and SCL line transitions</em><br><br>
-'>
-  <img src="images/i2c_waveform.jpeg" alt="I2C Protocol Thumbnail" />
-  <p><strong><span class="highlight-line">I²C Protocol (Master + 5 Slaves)</span></strong></p>
-  <p><strong>Click to view full project</strong></p>
-</div>
-
-
       
-      <div class="project-card" data-title="Sobel Edge Detection using Verilog + Python Automation" data-content='
-  <strong>🎓 Acknowledgements:</strong><br>
-  I would like to express my sincere gratitude to <span class="highlight-line">Dr. Swami, Ph.D, iFellow</span> from Silicon Craft VLSI for his exceptional guidance, as well as <span class="highlight-line">Prof. Raja (HoD/ECE, GCE-Erode)</span> and <span class="highlight-line">Dr. Senthilkumar R & Prof. Fairose Banu A</span> for inspiring me throughout this project journey.<br><br>
-
-  <strong>🔍 Project Title:</strong><br>
-  <span class="highlight-line">High-Performance Sobel Edge Detection using Verilog + Python Automation</span><br><br>
-
-  <strong>📌 Objective:</strong><br>
-  To implement a real-time hardware-based edge detection module using the Sobel filter in Verilog, integrating Python for image preprocessing and post-simulation reconstruction. This project demonstrates how image processing can be translated to RTL hardware logic.<br><br>
-
-  <strong>🛠️ Tools Used:</strong><br>
-  • Verilog HDL for RTL design<br>
-  • Icarus Verilog and GTKWave for simulation and debugging<br>
-  • Python (NumPy, PIL, OpenCV) for image processing and automation<br>
-  • Ubuntu Linux environment for build automation<br><br>
-
-  <strong>🧠 Core Concepts:</strong><br>
-  • Line Buffering and 3×3 kernel sliding window<br>
-  • Horizontal and Vertical edge gradient calculation<br>
-  • Signed to unsigned conversion<br>
-  • Thresholding and clamping for visualization<br>
-  • File I/O interfacing between Python and Verilog<br><br>
-
-  <strong>📐 Project Flow:</strong><br>
-  <u>Step 1: Image Preprocessing using Python</u><br>
-  • 256×256 grayscale image loaded and converted to 8-bit pixel values<br>
-  • Pixel values exported into a text file formatted for the Verilog testbench<br><br>
-
-  <u>Step 2: RTL Design in Verilog</u><br>
-  • Designed a 3×3 Sobel filter module with horizontal (Gx) and vertical (Gy) masks:<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;Gx = [[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]]<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;Gy = [[1, 2, 1], [0, 0, 0], [-1, -2, -1]]<br>
-  • Used three line buffers to implement a sliding 3x3 window<br>
-  • Computed gradient magnitude using: <code>G = |Gx| + |Gy|</code><br>
-  • Output pixels were written to a simulation text file<br><br>
-
-  <u>Step 3: Testbench Simulation</u><br>
-  • Verilog testbench read pixel input file and generated synchronized pixel streams<br>
-  • Collected filtered edge output (sobel_out)<br>
-  • Debugged simulation using GTKWave to verify timing, values, and correctness<br><br>
-
-  <u>Step 4: Image Reconstruction using Python</u><br>
-  • Parsed Verilog output into a new grayscale matrix<br>
-  • Saved output image using Python Pillow/OpenCV libraries<br><br>
-
-  <strong>📈 Performance & Output:</strong><br>
-  • Accurately detected horizontal, vertical, and diagonal edges<br>
-  • Latency: 3 clock cycles after window fill<br>
-  • Achieved strong contrast between edges and flat regions<br><br>
-
-  <strong>📸 Project Visuals:</strong><br><br>
-
-  <img src="sobel_output.png" alt="Sobel Output Image" style="width:100%; border-radius:10px; margin-bottom:12px;" />
-  <em>▲ Final edge-detected image from Verilog output</em><br><br>
-
-  <img src="sobel_design_code.png" alt="RTL Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
-  <em>▲ Sobel filter RTL design module (Verilog)</em><br><br>
-
-  <img src="sobel_testbench.png" alt="Testbench Code" style="width:100%; border-radius:10px; margin-bottom:12px;" />
-  <em>▲ Testbench to feed image pixel data</em><br><br>
-
-  <img src="sobel_waveform.png" alt="Waveform Output" style="width:100%; border-radius:10px; margin-bottom:12px;" />
-  <em>▲ GTKWave simulation output (sobel_out)</em><br><br>
-
-  <strong>🏆 Achievements:</strong><br>
-  • Successfully implemented a scalable edge detection architecture in RTL<br>
-  • Learned real-time image-to-pixel conversion techniques<br>
-  • Developed simulation automation flow using Python and Verilog<br><br>
-
-  <strong>🚀 Future Work:</strong><br>
-  • Deploy design on DE2-70 FPGA with camera interface (OV5640)<br>
-  • Real-time VGA output display for hardware-based image edge detection<br>
-  • Implement additional filters (Gaussian blur, sharpening, erosion)<br><br>
-
-  <strong>📚 Learning Outcome:</strong><br>
-  • RTL pipelining, convolution kernel implementation<br>
-  • Python–Verilog integration via file I/O<br>
-  • Debugging Verilog designs using GTKWave<br>
-  • FPGA implementation planning and performance optimization<br><br>
-
-  <strong>💬 Final Thought:</strong><br>
-  This project solidified my passion for image processing in hardware. The satisfaction of reconstructing a full image from pixel outputs proves the power of RTL design.<br><br>
-
-  <strong>🔗 GitHub:</strong>
-  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing" 
-   target="_blank" 
-   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
-  <i class="fab fa-github" style="font-size: 20px;"></i>
-  <span>GitHub</span>
-</a>
-'>
-  <img src="sobel_output1.png" alt="Sobel Edge Detection" />
-  <p><strong><span class="highlight-line">Sobel Edge Detection (Verilog + Python)</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-      <div class="project-card" data-title="46-Filter Image Processing Engine (Verilog + Python)" data-content='
-  <strong>🚀 Successfully Simulated 46-Filter Image Processing Engine in Verilog!</strong><br><br>
-
-  I’ve completed the simulation of a high-performance image processing pipeline using <span class="highlight-line">Verilog HDL</span>, featuring 46 individual filters and effects applied on an 8-bit grayscale image. All simulations were performed using <strong>Icarus Verilog</strong> and visualized using Python.<br><br>
-
-  <strong>💡 Features of This Engine:</strong><br>
-  🔹 Brightness/Contrast Filters (Brighten, Darken, Contrast Boost)<br>
-  🔹 Bitwise Filters (Mask, XOR, Invert)<br>
-  🔹 Thresholding & Edge Detection (Sobel, Laplacian, Binarize, Edge Map)<br>
-  🔹 Morphological Operations (Erosion, Dilation)<br>
-  🔹 Histogram Equalization, Gaussian Blur, Custom Kernels<br><br>
-
-  <strong>🧪 Workflow:</strong><br>
-  1️⃣ <span class="highlight-line">Python Preprocessing</span>: Converted 256×256 grayscale image to memory file for Verilog<br>
-  2️⃣ <span class="highlight-line">Verilog Testbench</span>: Pixel stream driven through all 46 filters<br>
-  3️⃣ <span class="highlight-line">Waveform Simulation</span>: Verified output timing using GTKWave<br>
-  4️⃣ <span class="highlight-line">Python Postprocessing</span>: Converted Verilog output into 46 image previews<br><br>
-
-  <strong>📊 Tools Used:</strong><br>
-  • Verilog (Icarus Verilog, GTKWave)<br>
-  • Python (NumPy, Matplotlib, PIL)<br><br>
-
-  <strong>🔗 GitHub:</strong>
-  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing" 
-   target="_blank" 
-   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
-  <i class="fab fa-github" style="font-size: 20px;"></i>
-  <span>GitHub</span>
-</a>
-
-  <strong>🖼️ Project Snapshots:</strong><br>
-
-  <img src="images/46filters_code.png" alt="Verilog Code" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 1: Sample Verilog RTL for Filter Selection</em><br><br>
-
-  <img src="images/46filters_waveform.png" alt="GTKWave Simulation" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 2: GTKWave output for selected filter with valid/ready handshake</em><br><br>
-
-  <img src="images/46filters_input.png" alt="Input Image" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 3: Original 256×256 grayscale input image</em><br><br>
-
-  <img src="images/46filters_alloutput.png" alt="All Filters Output" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 4: Python visualization of all 46 filtered outputs</em><br><br>
-
-  <strong>🎯 Next Step:</strong> Implement this design on an <span class="highlight-line">Artix-7 FPGA board</span> for real-time camera-based image processing!
-'>
-  <img src="images/46filters_alloutput.png" alt="46 Filter Output Preview" />
-  <p><strong><span class="highlight-line">46-Filter Verilog Image Engine</span></strong></p>
-  <p><strong>Click to view full project</strong></p>
-</div>
-
-
-      <div class="project-card" data-title="Synchronous FIFO Design in Verilog" data-content='
-  <strong>🚀 Successfully Completed a Synchronous FIFO Design in Verilog!</strong><br><br>
-
-  <strong>📌 Highlights of the Design:</strong><br>
-  • Parameterized <span class="highlight-line">depth</span> and <span class="highlight-line">data width</span><br>
-  • Used <code>$clog2</code> for pointer sizing (write/read pointers)<br>
-  • Full and Empty status flag logic<br>
-  • <span class="highlight-line">Self-checking Verilog testbench</span> for simulation<br>
-  • Verified using <span class="highlight-line">Icarus Verilog (iverilog)</span> and GTKWave<br><br>
-
-  <strong>🧪 Key Testing Scenarios:</strong><br>
-  • Multiple write/read cycles with varying gaps<br>
-  • Full → empty → full cycles<br>
-  • Edge case debugging (e.g., invalid pointer wrap, data overwrite prevention)<br><br>
-
-  <strong>💡 What I Learned:</strong><br>
-  • Sequential logic design (FSM-style FIFO logic)<br>
-  • Circular buffer implementation with careful pointer wrapping<br>
-  • Importance of accurate timing and handshaking in RTL<br>
-  • Debugging waveform-based RTL errors<br><br>
-
-  <strong>📊 Tools Used:</strong><br>
-  • Verilog HDL<br>
-  • Icarus Verilog, GTKWave<br><br>
-
-  <strong>🔗 GitHub:</strong>
-  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/COMBINATIONAL/DAY%207%20" 
-   target="_blank" 
-   style="display:inline-flex; align-items:center; gap:6px; text-decoration:none; color:#00ffe7; font-weight:bold;">
-  <i class="fab fa-github" style="font-size: 20px;"></i>
-  <span>GitHub</span>
-</a>
-
-  <strong>🖼️ Project Images:</strong><br>
-
-  <img src="images/fifo_code.png" alt="FIFO Verilog Code" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
-  <em style="color: #aaa;">Figure 1: Verilog RTL Code (FIFO Logic)</em><br><br>
-
-  <img src="images/fifo_output.png" alt="FIFO Simulation Output" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
-  <em style="color: #aaa;">Figure 2: FIFO Console Output from Simulation</em><br><br>
-
-  <img src="images/fifo_waveform.png" alt="FIFO GTKWave" style="max-width:100%; border-radius:8px; margin:8px 0;"><br>
-  <em style="color: #aaa;">Figure 3: Waveform in GTKWave showing Write/Read Pointers</em><br><br>
-'>
-  <img src="images/fifo_code1.png" alt="FIFO Design Project Thumbnail" />
-  <p><strong><span class="highlight-line">Synchronous FIFO (Verilog)</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-      <div class="project-card" data-title="Smart Traffic Light Controller (Verilog FSM)" data-content='
-  <strong>🚦 Successfully Designed a Smart Traffic Light Controller using Verilog!</strong><br><br>
-
-  I’ve designed a real-time Traffic Light Controller that simulates a <strong>4-way intersection</strong> using <span class="highlight-line">Verilog FSM (Finite State Machine)</span>. This design supports:<br>
-  ✅ Adaptive signal timing based on traffic sensor input<br>
-  ✅ Pedestrian crossing control with countdown indicators<br>
-  ✅ Emergency vehicle priority override logic<br><br>
-
-  <strong>💡 Core Concepts Implemented:</strong><br>
-  • Mealy & Moore FSM principles<br>
-  • Timer counters for red/yellow/green sequencing<br>
-  • Edge detection for emergency signal & pedestrian button<br>
-  • Output encoding for LEDs and countdown displays<br>
-  • Simulation via Icarus Verilog and waveform debug in GTKWave<br><br>
-
-  <strong>🛠️ Tools & Skills:</strong><br>
-  • Verilog HDL<br>
-  • Icarus Verilog (Simulation)<br>
-  • GTKWave (Debug & Visualization)<br>
-  • FSM Optimization Techniques<br><br>
-
-  <strong>🎓 Mentorship Acknowledgement:</strong><br>
-  I sincerely thank <strong>Swami, Ph.D, iFellow</strong> at Silicon Craft VLSI for mentoring me in FSM design and helping refine real-time control logic. Thanks also to <strong>Silicic Innova Technologies Pvt Ltd</strong> for technical support and project-based learning exposure.<br><br>
-
-  <strong>📊 System Behavior:</strong><br>
-  🚥 Each signal includes Red, Yellow, Green for North, South, East, West<br>
-  🚨 Emergency vehicle detection instantly prioritizes safe direction<br>
-  🚶 Pedestrian signals operate asynchronously with walk/don’t-walk logic<br>
-  ⏱️ Adaptive timers change based on `traffic_count` inputs (sensor)<br><br>
-
-  <strong>🔗 GitHub:</strong><br>
-  <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/blob/main/Verilog%20Project/Traffic_Light_Controller.v" target="_blank">
-    <i class="fab fa-github"></i> GitHub
-  </a><br><br>
-
-  <strong>🖼️ Project Snapshots:</strong><br>
-
-  <img src="images/tfc_code.png" alt="Verilog FSM Code" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 1: FSM Code for Smart Traffic Light Sequencing</em><br><br>
-
-  <img src="images/tfc_output.png" alt="Output LED State" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 2: Simulated Output Timing for Directional Lights</em><br><br>
-
-  <img src="images/tfc_waveform.png" alt="GTKWave FSM Debug" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 3: GTKWave showing FSM state transitions and pedestrian timing</em><br><br>
-
-  <strong>🚀 Future Improvements:</strong><br>
-  • Add night mode with blinking yellow pattern<br>
-  • FPGA implementation for real intersection signal box<br>
-  • Integrate with camera or IR sensors for smarter vehicle detection<br>
-'>
-  <img src="images/tfc_output1.png" alt="Traffic Light Simulation" />
-  <p><strong><span class="highlight-line">Smart Traffic Light FSM</span></strong></p>
-  <p><strong>Click to view full project</strong></p>
-</div>
-
-
-      <div class="project-card" data-title="Sequential Circuits Design using Verilog HDL" data-content='
-  <strong>🎉 Project Milestone Achieved! 🎉</strong><br><br>
-
-  I’m excited to share that I have successfully designed and simulated major <strong>Sequential Circuits</strong> using <span class="highlight-line">Verilog HDL</span>!<br><br>
-
-  ✅ D Flip-Flop  ✅ T Flip-Flop  ✅ JK Flip-Flop  ✅ SR Flip-Flop<br>
-  ✅ Up/Down Counters  ✅ Ring Counter  ✅ SISO, SIPO, PISO, PIPO Registers<br>
-  ✅ Bidirectional & Universal Shift Registers<br><br>
-
-  <strong>🔬 Key Learnings:</strong><br>
-  • Clocked sequential behavior in HDL<br>
-  • Register transfer and control logic<br>
-  • Edge-sensitive triggering & asynchronous resets<br>
-  • Synthesis-friendly RTL coding<br><br>
-
-  <strong>🧠 Tools Used:</strong><br>
-  • Verilog HDL<br>
-  • Icarus Verilog<br>
-  • GTKWave<br><br>
-
-  <strong>📈 Project Verification:</strong><br>
-  I analyzed both digital and analog waveform views to confirm data storage, propagation, and timing correctness.<br><br>
-
-  <strong>🎓 Mentorship:</strong><br>
-  Thank you <strong>Swami, Ph.D, iFellow</strong> (Silicon Craft VLSI) and <strong>Silicic Innova Technologies</strong> for their invaluable support and mentorship throughout this project.<br><br>
-
-  <strong>🔗 GitHub:</strong><br>
-  <a href="https://github.com/DHANASANKAR2003" target="_blank">
-    <i class="fab fa-github"></i> GitHub
-  </a><br><br>
-
-  <strong>🖼️ Project Snapshots:</strong><br>
-
-  <img src="images/seq_code1.jpeg" alt="Verilog Code - Flip-Flops" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 1: Verilog Code </em><br><br>
-
-  <img src="images/seq_code2.jpeg" alt="Verilog Code - Counters" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 2: Verilog Code </em><br><br>
-
-  <img src="images/seq_output1.jpeg" alt="Output - Shift Register Simulation" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 3: Output1 </em><br><br>
-
-  <img src="images/seq_output2.jpeg" alt="Counter Output" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 4: Output2 </em><br><br>
-
-  <img src="images/seq_waveform.jpeg" alt="GTKWave waveform" style="max-width:100%; border-radius:8px; margin:10px 0;"><br>
-  <em style="color:#aaa">Figure 5: GTKWave showing state transitions of flip-flops</em><br><br>
-'>
-  <img src="images/seq_output1.jpeg" alt="Sequential Circuits Simulation" />
-  <p><strong><span class="highlight-line">Sequential Circuits in Verilog</span></strong></p>
-  <p><strong>Click to view full project</strong></p>
-</div>
-
-
-      <div class="project-card" data-title="Dual Axis Solar Tracker" data-content='
-  <strong>📌 Project Overview:</strong><br>
-  A real-time solar tracking embedded system that intelligently orients solar panels towards the sun throughout the day using sensor data and motor control. This improves solar energy capture by aligning panels along both horizontal (azimuth) and vertical (elevation) axes.<br><br>
-
-  <strong>🧠 Concept Behind the Project:</strong><br>
-  The system leverages the behavior of Light Dependent Resistors (LDRs) to detect the sun’s position. Based on relative light intensities detected by 4 strategically placed LDRs, the Arduino calculates directional movement and actuates servo motors to align the panel accordingly.<br><br>
-
-  <strong>🔧 Hardware Components Used:</strong><br>
-  • Arduino Uno – Central controller<br>
-  • 4 LDR Sensors – Sunlight direction detection<br>
-  • 2 Servo Motors – Horizontal and vertical panel movement<br>
-  • Solar Panel – Energy harvesting unit<br>
-  • 10k Resistors, Breadboard, Power Supply, Jumper Wires<br><br>
-
-  <strong>🗂️ Software & Tools:</strong><br>
-  • Arduino IDE – Programming and uploading<br>
-  • Serial Monitor – Debugging and data monitoring<br>
-  • Proteus (Optional) – Circuit simulation<br><br>
-
-  <strong>🧪 Testing & Calibration:</strong><br>
-  • Calibrated LDR sensor threshold using Serial Monitor<br>
-  • Tested servo range (0°–180°) using sample PWM signals<br>
-  • Validated movement under different light intensities using flashlight<br><br>
-
-  <strong>⚙️ Working Principle:</strong><br>
-  • LDRs placed in a cross pattern compare light intensities<br>
-  • If left LDR > right LDR → rotate left<br>
-  • If top LDR > bottom LDR → tilt upward<br>
-  • Arduino generates PWM signals to control servo direction<br>
-  • Continual real-time adjustment ensures optimal solar alignment<br><br>
-
-  <strong>📈 Performance Results:</strong><br>
-  • Increased solar panel efficiency by ~30% over static panels<br>
-  • Smooth motor transition with low power usage<br>
-  • Reliable operation from sunrise to sunset under real conditions<br><br>
-
-  <strong>🏆 Achievements:</strong><br>
-  • 1st Prize in <span class="highlight-line">Galaxy Fest</span> Technical Symposium<br>
-  • Best Innovation Award at <span class="highlight-line">SSM College</span> Project Expo<br>
-  • Presented and appreciated in <span class="highlight-line">Karpagam Tech Day</span><br><br>
-
-  <strong>💡 Future Scope:</strong><br>
-  • Add IoT integration to monitor energy output remotely<br>
-  • Power panel tracking using harvested solar energy (self-sustaining)<br>
-  • Integrate battery charging and MPPT (Maximum Power Point Tracking) algorithms<br><br>
-
-  <strong>🧑‍🎓 Learning Outcome:</strong><br>
-  • Mastered sensor-based automation and analog interfacing<br>
-  • Developed real-time control systems using PWM<br>
-  • Gained practical exposure to embedded systems and solar technology<br>
-  • Enhanced skills in debugging, circuit building, and documentation<br><br>
-
-  <strong>📊 Block Diagram (Explained):</strong><br>
-  [LDR Sensor Array] → [Arduino Logic Unit] → [PWM Generator] → [Servo Motor Drivers] → [Solar Panel Movement]<br>
-  This forms a closed feedback system that continuously adapts to sunlight direction.
-'>
-  <img src="academic1.jpg" alt="Dual Axis Solar Tracker" />
-  <p><strong><span class="highlight-line">Dual Axis Solar Tracker</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-
-        <!-- Project Card 2 -->
-<div class="project-card" data-title="Electric Bike - FIRE STAR" data-content='
-  <strong>📌 Project Overview:</strong><br>
-  A student-built electric bike named <span class="highlight-line">"FIRE STAR"</span>, developed as part of the <span class="highlight-line">National Electric Bike Challenge (NEBC)</span> – Season 2. The bike showcases energy-efficient design, sustainable mobility, and real-world engineering implementation.<br><br>
-
-  <strong>🏁 Event Participation:</strong><br>
-  • Competition: <span class="highlight-line">NEBC 2024</span><br>
-  • Venue: <span class="highlight-line">Kumaraguru College of Technology, Coimbatore</span><br>
-  • Achievement: <span class="highlight-line">🏆 1st Runner-Up (🥈)</span> out of national-level competitors<br>
-  • Prize: ₹35,000 Cash Award<br><br>
-
-  <strong>⚙️ Technical Specifications:</strong><br>
-  • Battery: <span class="highlight-line">48V – 26Ah Lithium-ion</span><br>
-  • Motor: <span class="highlight-line">1000W BLDC Hub Motor</span><br>
-  • Range: Approx. <span class="highlight-line">60–70 km per charge</span><br>
-  • Top Speed: <span class="highlight-line">45 km/h</span><br>
-  • Charging Time: ~4 hours<br><br>
-
-  <strong>🔧 Key Features:</strong><br>
-  • Regenerative braking system<br>
-  • Strong chassis for endurance events<br>
-  • Compact and lightweight design<br>
-  • Energy-efficient transmission<br><br>
-
-  <strong>🧠 Team Contribution:</strong><br>
-  • Role: Electrical design, battery integration, and motor controller setup<br>
-  • Team: <span class="highlight-line">TEAM GALAXY</span> – Government College of Engineering, Erode<br>
-  • Collaboration: Electrical + Mechanical + Design teams working in synergy<br><br>
-
-  <strong>🔬 Testing & Validation:</strong><br>
-  • Acceleration and endurance tests<br>
-  • Brake efficiency and motor torque validation<br>
-  • Range tests under different loads and terrain<br><br>
-
-  <strong>🏆 Achievements & Recognition:</strong><br>
-  • Runner-up at NEBC 2024 with national recognition<br>
-  • Featured by NEBC organizing committee for innovation and build quality<br>
-  • Inspired junior teams for EV competitions in the campus<br><br>
-
-  <strong>💡 Future Enhancements:</strong><br>
-  • IoT-based real-time tracking and battery monitoring<br>
-  • Integration of solar panels for auxiliary charging<br>
-  • Enhanced regenerative braking and BMS (Battery Management System)<br><br>
-
-  <strong>🎯 Learning Outcomes:</strong><br>
-  • Gained hands-on skills in <span class="highlight-line">EV drivetrain design</span>, power electronics, and team coordination<br>
-  • Practical exposure to project planning, testing, and industry-level presentations<br><br>
-
-  <strong>📷 Caption:</strong><br>
-  Award received by Team Leader at Kumaraguru College of Technology, showcasing the FIRE STAR prototype.
-'>
-  <img src="academic2.jpg" alt="Electric Bike - FIRE STAR" />
-  <p><strong><span class="highlight-line">FIRE STAR Electric Bike</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-        <!-- Project Card 3 -->
-<div class="project-card" data-title="Mini Roboto - 1st Place in Robotics Competition" data-content='
-  <strong>📌 Project Overview:</strong><br>
-  Introducing <span class="highlight-line">Mini Roboto</span>, a creative and functional robot built for a department-level competition to demonstrate intelligent movement, design thinking, and automation principles.<br><br>
-
-  <strong>🏁 Event Participation:</strong><br>
-  • Organized by: <span class="highlight-line">Center for Excellence in Robotics and Automation</span><br>
-  • Event: <span class="highlight-line">Intra-Department Robotics Competition</span><br>
-  • Team Name: <span class="highlight-line">THINK INNOVATIVE</span><br>
-  • Achievement: <span class="highlight-line">🏆 1st Place Winner</span><br><br>
-
-  <strong>🤖 Robot Features:</strong><br>
-  • Head with dual LED horns and animated face<br>
-  • Sharp horn sensor aesthetics<br>
-  • Compact base with movement mechanisms<br>
-  • Eye-like sensors and front panel lighting<br><br>
-
-  <strong>🧠 Concept & Innovation:</strong><br>
-  • Designed to resemble a humanoid with expressive visual indicators<br>
-  • Lightweight materials and minimalistic body shell<br>
-  • LED signal control via microcontroller logic<br><br>
-
-  <strong>💡 Key Contributions:</strong><br>
-  • Design and fabrication of body structure<br>
-  • Circuitry for LEDs and sensor interaction<br>
-  • Team role: Embedded control logic & appearance modeling<br><br>
-
-  <strong>🏆 Recognition:</strong><br>
-  • Praised for best creativity and engineering integration<br>
-  • Inspired junior teams to develop modular robotic models<br><br>
-
-  <strong>🎯 Learning Outcome:</strong><br>
-  • Hands-on exposure in robotics modeling, embedded system interfacing, and group collaboration<br><br>
-
-  <strong>📷 Caption:</strong><br>
-  Mini Roboto model with glowing LED horns—Winner of 1st place at the Robotics Center of Excellence.
-'>
-  <img src="academic3.jpg" alt="Mini Roboto Project" />
-  <p><strong><span class="highlight-line">Mini Roboto</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-
-        <!-- Project Card 4 -->
-<div class="project-card" data-title="Color-Based Product Sorting with IoT" data-content='
-  <strong>📌 Project Overview:</strong><br>
-  This project showcases a smart, automated color sorting system using an <span class="highlight-line">ESP8266 Wi-Fi-enabled microcontroller</span>. The system identifies the color of incoming products using a <span class="highlight-line">TCS3200 color sensor</span> and sorts them using <span class="highlight-line">servo motors</span> into different bins. Designed to streamline industrial sorting processes, it’s scalable, affordable, and IoT-ready.<br><br>
-
-  <strong>🏆 Award:</strong><br>
-  🥇 <span class="highlight-line">1st Prize</span> winner at the <span class="highlight-line">Government College of Engineering, Erode</span> for excellence in automation and embedded IoT solutions.<br><br>
-
-  <strong>🔧 Technical Components:</strong><br>
-  • <span class="highlight-line">TCS3200 Color Sensor</span> – Detects color of each product<br>
-  • <span class="highlight-line">Servo Motor</span> – Directs product to correct bin<br>
-  • <span class="highlight-line">ESP8266</span> – Microcontroller with built-in Wi-Fi<br>
-  • <span class="highlight-line">Embedded C</span> – For real-time decision-making<br><br>
-
-  <strong>🌐 IoT Features:</strong><br>
-  • Wireless data logging of sorted items<br>
-  • Live dashboard view using Blynk/Thingspeak integration<br>
-  • Sorting history for analytics and monitoring<br><br>
-
-  <strong>💡 Innovation Highlights:</strong><br>
-  • Eliminates need for manual sorting, reducing error and labor cost<br>
-  • IoT-based transparency into the production line<br>
-  • Compact design adaptable to conveyor belts and packaging systems<br>
-  • Color classification can be extended to <span class="highlight-line">shape or barcode sorting</span><br><br>
-
-  <strong>📦 Real-World Applications:</strong><br>
-  • FMCG product packaging (capsule/box sorting)<br>
-  • Smart waste management (plastic, metal, paper color bins)<br>
-  • Small-scale factories & quality control labs<br><br>
-
-  <strong>🎓 Learning Outcomes:</strong><br>
-  • Embedded system interfacing & sensor calibration<br>
-  • IoT protocols & real-time cloud dashboard integration<br>
-  • Actuator (servo) synchronization with sensor logic<br><br>
-
-  <strong>💬 Project Impact:</strong><br>
-  This model can drastically improve productivity in micro-industries with minimal investment. Future enhancements include <span class="highlight-line">machine learning-based sorting</span> and <span class="highlight-line">voice-controlled IoT access</span>.<br><br>
-
-  <strong>🙏 Gratitude:</strong><br>
-  Special thanks to our faculty mentors and the organizing team at <span class="highlight-line">GCE Erode</span> for the opportunity and guidance. This win has strengthened our passion for automation and intelligent systems. 🚀
-'>
-  <img src="academic4.jpg" alt="Product-Based Colour Sorting Project" />
-  <p><strong><span class="highlight-line">Color-Based Product Sorting with IoT</span></strong></p>
-  <p><strong>Click to view full project details</strong></p>
-</div>
-
-</div>
+      <div class="hero-text">
+        <h1 class="hero-title">
+          <span class="gradient-text">Dhanasankar K</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          <span class="typewriter" id="typewriter"></span>
+          <span class="cursor">|</span>
+        </h2>
+        <p class="hero-description animate-on-scroll">
+          Passionate <span class="highlight">VLSI Design Engineer</span> specializing in 
+          <span class="highlight">RTL Design</span>, <span class="highlight">Verification</span>, 
+          and <span class="highlight">FPGA Implementation</span>
+        </p>
+        
+        <div class="hero-buttons animate-on-scroll">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-code"></i> View Projects
+          </a>
+          <a href="resume.pdf" download class="btn btn-secondary">
+            <i class="fas fa-download"></i> Download Resume
+          </a>
+        </div>
+
+        <div class="social-links animate-on-scroll">
+          <a href="mailto:kdhanasankar7@gmail.com" aria-label="Email" class="social-icon">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank" aria-label="LinkedIn" class="social-icon">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-" target="_blank" aria-label="GitHub" class="social-icon">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
       </div>
     </div>
-    
 
-    <!-- Technical Skills -->
-<section>
-  <h2>Technical Skills</h2>
-  <ul class="skills-list">
-    <li><strong>Area of Interest:</strong> Digital Design</li>
-    <li><strong>HDL:</strong> Verilog</li>
-    <li><strong>Simulation Tools:</strong> Icarus Verilog, Xilinx Vivado 2019.1</li>
-    <li><strong>FPGA Platforms:</strong> DE2-70 (Altera Cyclone II), Artix-7 (Xilinx)</li>
-    <li><strong>Protocols:</strong> UART, SPI, I2C, APB</li>
-    <li><strong>Version Control:</strong> Git, GitHub</li>
-    <li><strong>OS:</strong> Ubuntu Linux</li>
-    <li><strong>Programming:</strong> C (basic), Python (image processing and visualization)</li>
-  </ul>
-</section>
-
-
-    <!-- Internship Experience -->
-<section>
-  <h2>Internship Experience</h2>
-
-  <!-- TechVolt Pvt. Ltd -->
-  <article class="internship-item">
-    <h3>
-      <img src="images/techvolt-logo.png" alt="TechVolt Logo" class="company-logo logo-glow">
-      TechVolt Pvt. Ltd, Coimbatore – Embedded Systems and IoT <span class="duration">(Jun – Jul 2023)</span>
-    </h3>
-    <ul>
-      <li>Gained hands-on experience in embedded system design and IoT development workflows.</li>
-      <li>Programmed ESP8266, ESP32, and NodeMCU microcontrollers for real-time sensor data collection.</li>
-      <li>Interfaced DHT11, PIR, and ultrasonic sensors using Arduino IDE.</li>
-      <li>Created cloud-connected dashboards using ThingSpeak and Blynk for remote monitoring.</li>
-      <li>Built real-time monitoring systems for temperature, humidity, and motion detection with alerts.</li>
-      <li>Learned circuit-level interfacing, GPIO handling, and debugging sensor-related issues.</li>
-    </ul>
-  </article>
-
-  <!-- Silicon Craft – VLSI Intern -->
-  <article class="internship-item">
-    <h3>
-      <img src="images/siliconcraft-logo.png" alt="Silicon Craft Logo" class="company-logo logo-glow">
-      Silicon Craft – VLSI Intern <span class="duration">(Jul – Aug 2024)</span>
-    </h3>
-    <ul>
-      <li>Worked on core digital design topics: multiplexers, decoders, adders, counters, and FSMs.</li>
-      <li>Wrote Verilog RTL for combinational and sequential designs and verified them using Icarus Verilog.</li>
-      <li>Visualized timing behavior through GTKWave for debugging and waveform analysis.</li>
-      <li>Contributed to the design of a secure digital voting machine with FSM-based control logic.</li>
-      <li>Explored clock division, reset logic, edge detection, and debouncing techniques in RTL.</li>
-      <li>Understood synthesis flow and project implementation on FPGA (DE2-70 development board).</li>
-    </ul>
-  </article>
-
-  <!-- Silicon Craft – Design Verification Trainee -->
-  <article class="internship-item">
-    <h3>
-      <img src="images/siliconcraft-logo.png" alt="Silicon Craft Logo" class="company-logo logo-glow">
-      Silicon Craft – Design Verification Trainee <span class="duration">(Feb 2025 – Present)</span>
-    </h3>
-    <ul>
-      <li>Learning and applying SystemVerilog and UVM for functional verification of digital systems.</li>
-      <li>Created constrained-random stimulus and coverage-driven verification environments.</li>
-      <li>Verified APB to I2C bridge design ensuring proper handshaking, arbitration, and protocol timing.</li>
-      <li>Designed reusable testbenches and scoreboards for protocol-level verification.</li>
-      <li>Practiced test plan writing, assertion-based verification, and coverage metrics collection.</li>
-      <li>Explored testbenches with driver, monitor, and checker components in UVM environment.</li>
-      <li>Currently working on a complete verification project with functional coverage goals and bug tracking.</li>
-    </ul>
-  </article>
-</section>
-
-
-
-    <!-- Co-Curricular -->
-    <section>
-      <h2>Co-Curricular Activities</h2>
-  <ul class="cocurricular-list">
-    <li><span class="highlight-line">Achieved Rank #1 on HDLBits</span>: Solved all digital design problems on the HDLBits platform using Verilog and organized all solutions in a dedicated GitHub repository.</li>
-    <li><span class="highlight-line">Extensive Verilog Practice</span>: Practiced numerous digital design problems in Verilog, creating well-structured GitHub repositories organized by module, testbench, and functionality.</li>
-  </ul>
-    </section>
-
-    <!-- Contact Short Section -->
-    <section>
-      <h2>Quick Contact</h2>
-      <p><i class="fas fa-phone-alt"></i> +91 9384320190</p>
-      <p><i class="fas fa-envelope"></i> <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a></p>
-      <p><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">LinkedIn Profile</a></p>
-      <p><i class="fab fa-github"></i> <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-" target="_blank">GitHub Profile</a></p>
-    </section>
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <p>Scroll Down</p>
     </div>
+  </section>
 
-  </main>
-
-  <!-- Modal -->
-  <div id="projectModal">
-    <span class="close">&times;</span>
-    <div class="modal-box">
-      <h2 id="modalTitle"></h2>
-      <div id="modalContent"></div>
+  <!-- Statistics Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <div class="stat-number" data-target="50">0</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="stat-number" data-target="46">0</div>
+          <div class="stat-label">FPGA Filters Designed</div>
+        </div>
+        
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="stat-number" data-target="1">0</div>
+          <div class="stat-label">HDLBits Rank</div>
+        </div>
+        
+        <div class="stat-card animate-on-scroll">
+          <div class="stat-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="stat-number" data-target="5">0</div>
+          <div class="stat-label">Competition Wins</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        <span class="title-number">01.</span> About Me
+        <div class="title-line"></div>
+      </h2>
+
+      <div class="about-content">
+        <div class="about-text animate-on-scroll">
+          <p>
+            Hi, I'm <span class="highlight">Dhanasankar K</span>, an enthusiastic and dedicated 
+            <span class="highlight">Electronics and Communication Engineering</span> graduate (B.E., Class of 2025) 
+            with a deep-rooted passion for <span class="highlight">digital system design</span> at the hardware level.
+          </p>
+
+          <p>
+            Currently undergoing advanced <span class="highlight">Design Verification (DV)</span> training at 
+            <span class="highlight">Silicon Craft VLSI Training & Research Institute</span>, Chennai, where I am 
+            expanding my expertise in <span class="highlight">Verilog</span>, 
+            <span class="highlight">SystemVerilog</span>, and the 
+            <span class="highlight">Universal Verification Methodology (UVM)</span>.
+          </p>
+
+          <div class="passion-areas">
+            <h3>Areas of Passion</h3>
+            <ul class="passion-list">
+              <li><i class="fas fa-check-circle"></i> RTL Design & Digital Logic Architecture</li>
+              <li><i class="fas fa-check-circle"></i> FPGA System Integration</li>
+              <li><i class="fas fa-check-circle"></i> Functional Verification & Testbench Creation</li>
+              <li><i class="fas fa-check-circle"></i> Digital Protocol Implementation (UART, SPI, I2C, APB)</li>
+              <li><i class="fas fa-check-circle"></i> Timing Closure & Clock Domain Crossing</li>
+              <li><i class="fas fa-check-circle"></i> Image Processing on FPGA</li>
+            </ul>
+          </div>
+
+          <blockquote class="career-goal">
+            <i class="fas fa-quote-left"></i>
+            My goal is to contribute to the semiconductor industry by designing reliable, 
+            high-performance hardware systems and eventually grow into a Silicon Design Engineer.
+            <i class="fas fa-quote-right"></i>
+          </blockquote>
+        </div>
+
+        <div class="about-image animate-on-scroll">
+          <div class="image-frame">
+            <img src="your-photo.jpg" alt="Dhanasankar K" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        <span class="title-number">02.</span> Technical Skills
+        <div class="title-line"></div>
+      </h2>
+
+      <div class="skills-grid">
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fas fa-code"></i> Hardware Description Languages</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Verilog</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="95"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>SystemVerilog</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fas fa-tools"></i> EDA Tools</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Xilinx Vivado</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Icarus Verilog</span>
+              <span>95%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="95"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>GTKWave</span>
+              <span>90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="90"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fas fa-microchip"></i> FPGA Platforms</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Artix-7 (Xilinx)</span>
+              <span>85%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="85"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>DE2-70 (Altera Cyclone II)</span>
+              <span>80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="80"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fas fa-network-wired"></i> Protocols</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">UART</span>
+            <span class="skill-tag">SPI</span>
+            <span class="skill-tag">I2C</span>
+            <span class="skill-tag">APB</span>
+          </div>
+        </div>
+
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fas fa-laptop-code"></i> Programming</h3>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>Python</span>
+              <span>75%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="75"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <span>C</span>
+              <span>70%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress" data-progress="70"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-category animate-on-scroll">
+          <h3><i class="fab fa-git-alt"></i> Tools & OS</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Ubuntu Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        <span class="title-number">03.</span> Featured Projects
+        <div class="title-line"></div>
+      </h2>
+
+      <div class="project-filters animate-on-scroll">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="fpga">FPGA</button>
+        <button class="filter-btn" data-filter="verilog">Verilog</button>
+        <button class="filter-btn" data-filter="verification">Verification</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project cards will be dynamically loaded -->
+      </div>
+
+      <div class="load-more-container">
+        <button class="btn btn-primary" id="loadMoreBtn">
+          <i class="fas fa-plus-circle"></i> Load More Projects
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        <span class="title-number">04.</span> Experience & Education
+        <div class="title-line"></div>
+      </h2>
+
+      <div class="timeline">
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Feb 2025 - Present</div>
+            <h3>Design Verification Trainee</h3>
+            <h4>Silicon Craft VLSI Training & Research Institute</h4>
+            <p>Learning SystemVerilog and UVM for functional verification. Working on APB to I2C bridge verification project.</p>
+            <div class="timeline-tags">
+              <span>SystemVerilog</span>
+              <span>UVM</span>
+              <span>Verification</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Jul - Aug 2024</div>
+            <h3>VLSI Intern</h3>
+            <h4>Silicon Craft VLSI Training & Research Institute</h4>
+            <p>Worked on RTL design projects including FSM-based voting machine and digital circuit implementations.</p>
+            <div class="timeline-tags">
+              <span>Verilog</span>
+              <span>RTL Design</span>
+              <span>FPGA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Jun - Jul 2023</div>
+            <h3>Embedded Systems Intern</h3>
+            <h4>TechVolt Pvt. Ltd, Coimbatore</h4>
+            <p>Developed IoT projects using ESP8266, ESP32, and various sensors with cloud integration.</p>
+            <div class="timeline-tags">
+              <span>IoT</span>
+              <span>Embedded C</span>
+              <span>Arduino</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item animate-on-scroll">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2021 - 2025</div>
+            <h3>B.E. Electronics & Communication Engineering</h3>
+            <h4>Government College of Engineering, Erode</h4>
+            <p>Specialized in VLSI design and digital electronics with hands-on FPGA projects.</p>
+            <div class="timeline-tags">
+              <span>VLSI</span>
+              <span>Digital Design</span>
+              <span>Embedded Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll">
+        <span class="title-number">05.</span> Get In Touch
+        <div class="title-line"></div>
+      </h2>
+
+      <div class="contact-content">
+        <div class="contact-info animate-on-scroll">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Phone</h3>
+              <a href="tel:+919384320190">+91 9384320190</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Location</h3>
+              <p>Chennai, India</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="contact-details">
+              <h3>LinkedIn</h3>
+              <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">Connect with me</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper animate-on-scroll">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required />
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" placeholder="Subject" required />
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 Dhanasankar K. All rights reserved.</p>
+        <p>Designed & Built with <i class="fas fa-heart"></i> for VLSI</p>
+      </div>
+    </div>
+  </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Dhanasankar K</p>
-  </footer>
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
-  
+  <!-- Project Modal -->
+  <div id="projectModal" class="modal">
+    <button class="modal-close" aria-label="Close modal">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle"></h2>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
 
-  <!-- JS -->
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("projectModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalContent = document.getElementById("modalContent");
-  const closeBtn = document.querySelector(".close");
-
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('click', () => {
-      modalTitle.innerHTML = card.getAttribute('data-title');
-      modalContent.innerHTML = card.getAttribute('data-content');
-      modal.style.display = "flex";
-      document.querySelector(".modal-box").scrollTop = 0;
-      document.body.classList.add("modal-open");
-    });
-  });
-
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-    document.body.classList.remove("modal-open");
-  });
-});
-</script>
-
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
