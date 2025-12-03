@@ -20,6 +20,10 @@
 
 <body data-theme="dark">
 
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
 
 
   <!-- Particle Background Canvas -->
@@ -29,46 +33,56 @@
   <div class="scroll-progress"></div>
 
   <!-- Navigation Bar -->
-  <nav id="navbar" class="navbar">
-    <div class="nav-container">
-      <div class="nav-logo">
-        <span class="logo-text">DK</span>
-        <span class="logo-subtitle">VLSI</span>
+  <header id="header" class="header">
+    <nav id="navbar" class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo" data-tilt>
+          <div class="logo-chip">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="logo-text-wrapper">
+            <span class="logo-text">DK</span>
+            <span class="logo-subtitle">VLSI</span>
+          </div>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="nav-menu-wrapper">
+          <ul class="nav-menu" id="navMenu">
+            <div class="nav-indicator"></div>
+            <li><a href="#home" class="nav-link active" data-text="Home">Home</a></li>
+            <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+            <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
+            <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
+            <li><a href="#experience" class="nav-link" data-text="Experience">Experience</a></li>
+            <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
       </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
-      <ul class="nav-menu" id="navMenu">
-        <li><a href="#home" class="nav-link active">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#experience" class="nav-link">Experience</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-    </div>
-  </nav>
+    </nav>
+  </header>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="hero-content">
       <div class="hero-image-wrapper animate-on-scroll">
         <div class="image-glow"></div>
-        <img src="images/your-photo.jpg" alt="Dhanasankar K Photo"
+        <img src="https://via.placeholder.com/210x250/0f2027/00cfff?text=Contact+Photo" alt="Dhanasankar K Photo"
           class="hero-image" />
       </div>
 
       <div class="hero-text">
         <h1 class="hero-title">
-          <span class="gradient-text">Dhanasankar K</span>
+          <span class="gradient-text glitch" data-text="Dhanasankar K">Dhanasankar K</span>
         </h1>
         <h2 class="hero-subtitle">
           <span class="typewriter" id="typewriter"></span>
@@ -199,7 +213,7 @@
 
         <div class="about-image animate-on-scroll">
           <div class="image-frame">
-            <img src="images/your-photo.jpg" alt="Dhanasankar K" />
+            <img src="https://via.placeholder.com/400x480/0f2027/00cfff?text=About+Photo" alt="Dhanasankar K" />
           </div>
         </div>
       </div>
