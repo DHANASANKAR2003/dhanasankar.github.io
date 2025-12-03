@@ -17,6 +17,8 @@ class PortfolioApp {
         const loadingScreen = document.getElementById('loadingScreen');
 
         const hideLoader = () => {
+            if (loadingScreen.classList.contains('hidden')) return;
+
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
                 // Remove from DOM after transition
@@ -31,6 +33,8 @@ class PortfolioApp {
             hideLoader();
         } else {
             window.addEventListener('load', hideLoader);
+            // Fallback: Force hide after 5 seconds max to prevent getting stuck
+            setTimeout(hideLoader, 5000);
         }
     }
 
