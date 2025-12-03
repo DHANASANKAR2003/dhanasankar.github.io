@@ -262,6 +262,7 @@ class ProjectManager {
     const grid = document.getElementById('projectsGrid');
     if (!grid) return;
 
+    // Clear grid but keep the reference
     grid.innerHTML = '';
 
     const filteredProjects = this.currentFilter === 'all'
@@ -293,19 +294,39 @@ class ProjectManager {
     card.style.animationDelay = `${index * 0.1}s`;
     card.setAttribute('data-project-id', project.id);
 
+    // Generate a deterministic gradient based on project ID for fallback
+    const hue = (project.id * 137.5) % 360;
+    const fallbackGradient = `linear-gradient(135deg, hsl(${hue}, 60%, 20%), hsl(${hue + 40}, 60%, 30%))`;
+
     card.innerHTML = `
-      <img src="${project.image}" alt="${project.title}" class="project-image" onerror="this.src='https://via.placeholder.com/400x250?text=Project+Image'" />
-      <div class="project-content">
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-description">${project.description}</p>
-        <div class="project-tags">
-          ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+      <div class="card-inner">
+        <div class="card-image-wrapper">
+          <div class="card-overlay"></div>
+          <img 
+            src="${project.image}" 
+            alt="${project.title}" 
+            class="project-image" 
+            onerror="this.onerror=null; this.parentElement.style.background='${fallbackGradient}'; this.style.display='none';"
+          />
+          <div class="card-actions">
+            <button class="btn-icon view-details" aria-label="View Details">
+              <i class="fas fa-eye"></i>
+            </button>
+            ${project.github ? `
+              <a href="${project.github}" target="_blank" class="btn-icon" aria-label="View Code" onclick="event.stopPropagation()">
+                <i class="fab fa-github"></i>
+              </a>
+            ` : ''}
+          </div>
         </div>
-        ${project.github ? `
-          <a href="${project.github}" target="_blank" class="project-link" onclick="event.stopPropagation()">
-            <i class="fab fa-github"></i> View on GitHub
-          </a>
-        ` : ''}
+        <div class="project-content">
+          <div class="project-category">${project.category.toUpperCase()}</div>
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-description">${project.description}</p>
+          <div class="project-tags">
+            ${project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+          </div>
+        </div>
       </div>
     `;
 
@@ -324,23 +345,18 @@ class ProjectManager {
 
         this.currentFilter = btn.getAttribute('data-filter');
         this.displayedProjects = 6;
-        this.renderProjects();
 
-        // Re-trigger animations
+        // Animate grid out
+        const grid = document.getElementById('projectsGrid');
+        grid.style.opacity = '0';
+        grid.style.transform = 'translateY(20px)';
+
         setTimeout(() => {
-          const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-              }
-            });
-          }, { threshold: 0.1 });
-
-          document.querySelectorAll('.project-card').forEach(card => {
-            card.classList.remove('animated');
-            observer.observe(card);
-          });
-        }, 100);
+          this.renderProjects();
+          // Animate grid in
+          grid.style.opacity = '1';
+          grid.style.transform = 'translateY(0)';
+        }, 300);
       });
     });
   }
