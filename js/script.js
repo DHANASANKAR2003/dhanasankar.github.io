@@ -1,3 +1,73 @@
+// Custom Cursor
+class CustomCursor {
+    constructor() {
+        this.dot = document.querySelector('.cursor-dot');
+        this.outline = document.querySelector('.cursor-outline');
+        this.bounds = { x: 0, y: 0 };
+        this.mouse = { x: 0, y: 0 };
+
+        if (this.dot && this.outline) {
+            this.init();
+        }
+    }
+
+    init() {
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
+
+            // Immediate update for dot
+            this.dot.style.transform = `translate(${this.mouse.x}px, ${this.mouse.y}px)`;
+        });
+
+        // Smooth follow for outline
+        this.animate();
+
+        // Hover effects
+        const interactiveElements = document.querySelectorAll('a, button, .project-card, input, textarea');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+        });
+    }
+
+    animate() {
+        // Lerp for smooth movement
+        this.bounds.x += (this.mouse.x - this.bounds.x) * 0.2;
+        this.bounds.y += (this.mouse.y - this.bounds.y) * 0.2;
+
+        this.outline.style.transform = `translate(${this.bounds.x}px, ${this.bounds.y}px)`;
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+// Magnetic Button Effect
+class MagneticButton {
+    constructor(element) {
+        this.element = element;
+        this.boundingRect = this.element.getBoundingClientRect();
+        this.init();
+    }
+
+    init() {
+        window.addEventListener('resize', () => {
+            this.boundingRect = this.element.getBoundingClientRect();
+        });
+
+        this.element.addEventListener('mousemove', (e) => {
+            const x = e.clientX - this.boundingRect.left - this.boundingRect.width / 2;
+            const y = e.clientY - this.boundingRect.top - this.boundingRect.height / 2;
+
+            this.element.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        this.element.addEventListener('mouseleave', () => {
+            this.element.style.transform = 'translate(0, 0)';
+        });
+    }
+}
+
 // Main Script - Interactive Features
 class PortfolioApp {
     constructor() {
@@ -5,12 +75,19 @@ class PortfolioApp {
     }
 
     init() {
-
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
         this.setupContactForm();
         this.setupImageLazyLoading();
+
+        // Initialize Premium Features
+        new CustomCursor();
+
+        // Initialize Magnetic Buttons
+        document.querySelectorAll('.btn, .social-icon').forEach(btn => {
+            new MagneticButton(btn);
+        });
     }
 
     setupThemeToggle() {
