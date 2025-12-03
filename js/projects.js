@@ -39,7 +39,7 @@ const projectsData = [
     id: 2,
     title: 'Sobel Edge Detection',
     category: 'verilog',
-    image: 'images/sobel_output.png',
+    image: 'images/sobel_output1.png',
     description: 'High-performance Sobel edge detection using Verilog with Python automation for image processing.',
     tags: ['Verilog', 'Image Processing', 'Python'],
     github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing',
@@ -274,6 +274,11 @@ class ProjectManager {
       const card = this.createProjectCard(project, index);
       grid.appendChild(card);
     });
+
+    // Re-initialize tilt effect for new cards
+    if (window.initTilt) {
+      setTimeout(window.initTilt, 100);
+    }
 
     // Show/hide load more button
     const loadMoreBtn = document.getElementById('loadMoreBtn');
