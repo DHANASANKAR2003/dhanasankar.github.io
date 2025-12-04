@@ -24,6 +24,12 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
+  <!-- Simulation Loader -->
+  <div id="simulationLoader" class="simulation-loader"></div>
+
+  <!-- Waveform Background Canvas -->
+  <canvas id="waveformCanvas"></canvas>
+
   <!-- Particle Background Canvas -->
   <canvas id="particleCanvas"></canvas>
 
@@ -54,12 +60,12 @@
           <ul class="nav-menu" id="navMenu">
             <div class="nav-indicator"></div>
             <li><a href="#home" class="nav-link active" data-text="Home">Home</a></li>
-            <li><a href="#about" class="nav-link" data-text="About">About</a></li>
+            <li><a href="#about" class="nav-link" data-text="About">Module Info</a></li>
             <li><a href="#education" class="nav-link" data-text="Education">Education</a></li>
-            <li><a href="#skills" class="nav-link" data-text="Skills">Skills</a></li>
-            <li><a href="#projects" class="nav-link" data-text="Projects">Projects</a></li>
-            <li><a href="#certificates" class="nav-link" data-text="Certificates">Certificates</a></li>
-            <li><a href="#contact" class="nav-link" data-text="Contact">Contact</a></li>
+            <li><a href="#skills" class="nav-link" data-text="Skills">Tech Stack</a></li>
+            <li><a href="#projects" class="nav-link" data-text="Projects">IP Cores</a></li>
+            <li><a href="#certificates" class="nav-link" data-text="Certificates">Certifications</a></li>
+            <li><a href="#contact" class="nav-link" data-text="Contact">I/O Interface</a></li>
           </ul>
         </div>
 
@@ -75,8 +81,7 @@
     <div class="hero-content">
       <div class="hero-image-wrapper animate-on-scroll">
         <div class="image-glow"></div>
-        <img src="images/your-photo.jpg" alt="Dhanasankar K Photo"
-          class="hero-image" />
+        <img src="images/your-photo.jpg" alt="Dhanasankar K Photo" class="hero-image" />
       </div>
 
       <div class="hero-text">
@@ -172,7 +177,7 @@
   <section id="about" class="about-section">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        <span class="title-number">01.</span> About Me
+        <span class="title-number">01.</span> Module Description
         <div class="title-line"></div>
       </h2>
 
@@ -266,7 +271,7 @@
   <section id="skills" class="skills-section">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        <span class="title-number">03.</span> Technical Skills
+        <span class="title-number">03.</span> Technical Stack
         <div class="title-line"></div>
       </h2>
 
@@ -387,7 +392,8 @@
             <i class="fas fa-trophy"></i>
           </div>
           <h3>HDLBits Rank 1</h3>
-          <p class="stat-label">Solved all digital design problems on the HDLBits platform using Verilog and organized all solutions in a dedicated GitHub repository.</p>
+          <p class="stat-label">Solved all digital design problems on the HDLBits platform using Verilog and organized
+            all solutions in a dedicated GitHub repository.</p>
         </div>
 
         <div class="stat-card animate-on-scroll">
@@ -395,7 +401,8 @@
             <i class="fas fa-code-branch"></i>
           </div>
           <h3>Extensive Coding Practice</h3>
-          <p class="stat-label">Practiced numerous digital design problems in Verilog, creating well-structured GitHub repositories with topics organized by module, testbench, and functionality.</p>
+          <p class="stat-label">Practiced numerous digital design problems in Verilog, creating well-structured GitHub
+            repositories with topics organized by module, testbench, and functionality.</p>
         </div>
       </div>
     </div>
@@ -405,7 +412,7 @@
   <section id="projects" class="projects-section">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        <span class="title-number">05.</span> Featured Projects
+        <span class="title-number">05.</span> IP Cores & Designs
         <div class="title-line"></div>
       </h2>
 
@@ -439,7 +446,8 @@
       <div class="certificates-grid">
         <!-- Certificate 1 -->
         <div class="certificate-card animate-on-scroll">
-          <img src="images/cert1.jpg" alt="Certificate 1" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
+          <img src="images/cert1.jpg" alt="Certificate 1" class="certificate-image"
+            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
           <div class="certificate-content">
             <h3 class="certificate-title">VLSI Design Internship</h3>
             <p class="certificate-issuer">Silicon Craft VLSI Training & Research Institute</p>
@@ -449,7 +457,8 @@
 
         <!-- Certificate 2 -->
         <div class="certificate-card animate-on-scroll">
-          <img src="images/cert2.jpg" alt="Certificate 2" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
+          <img src="images/cert2.jpg" alt="Certificate 2" class="certificate-image"
+            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
           <div class="certificate-content">
             <h3 class="certificate-title">Embedded Systems Internship</h3>
             <p class="certificate-issuer">TechVolt Pvt. Ltd</p>
@@ -459,7 +468,8 @@
 
         <!-- Certificate 3 -->
         <div class="certificate-card animate-on-scroll">
-          <img src="images/cert3.jpg" alt="Certificate 3" class="certificate-image" onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
+          <img src="images/cert3.jpg" alt="Certificate 3" class="certificate-image"
+            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
           <div class="certificate-content">
             <h3 class="certificate-title">Technical Symposium Winner</h3>
             <p class="certificate-issuer">Galaxy Fest</p>
@@ -532,7 +542,7 @@
   <section id="contact" class="contact-section">
     <div class="container">
       <h2 class="section-title animate-on-scroll">
-        <span class="title-number">08.</span> Get In Touch
+        <span class="title-number">08.</span> I/O Interface
         <div class="title-line"></div>
       </h2>
 
@@ -636,6 +646,7 @@
   </div>
 
   <!-- Scripts -->
+  <script src="js/waveforms.js"></script>
   <script src="js/particles.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/projects.js"></script>
