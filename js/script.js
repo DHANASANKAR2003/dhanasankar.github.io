@@ -75,6 +75,7 @@ class PortfolioApp {
     }
 
     init() {
+        this.runSimulationBoot();
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
@@ -88,6 +89,45 @@ class PortfolioApp {
         document.querySelectorAll('.btn, .social-icon').forEach(btn => {
             new MagneticButton(btn);
         });
+    }
+
+    runSimulationBoot() {
+        const loader = document.getElementById('simulationLoader');
+        if (!loader) return;
+
+        const logs = [
+            { text: 'Initializing Kernel...', type: 'info', delay: 100 },
+            { text: 'Loading Modules...', type: 'info', delay: 300 },
+            { text: 'Compiling RTL Design...', type: 'info', delay: 600 },
+            { text: 'Elaborating Design...', type: 'info', delay: 900 },
+            { text: 'Optimizing Logic...', type: 'info', delay: 1200 },
+            { text: 'Checking Timing Constraints...', type: 'warning', delay: 1500 },
+            { text: 'Timing Met (0 violations)', type: 'success', delay: 1800 },
+            { text: 'Generating Bitstream...', type: 'info', delay: 2100 },
+            { text: 'Bitstream Generation Complete.', type: 'success', delay: 2400 },
+            { text: 'Booting Portfolio OS v2.0...', type: 'success', delay: 2700 }
+        ];
+
+        let totalDelay = 0;
+
+        logs.forEach(log => {
+            setTimeout(() => {
+                const line = document.createElement('div');
+                line.className = `log-line ${log.type}`;
+                line.textContent = `[${(totalDelay / 1000).toFixed(3)}] ${log.text}`;
+                loader.appendChild(line);
+                loader.scrollTop = loader.scrollHeight;
+            }, log.delay);
+            totalDelay = log.delay;
+        });
+
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.classList.add('loaded');
+            }, 500);
+        }, 3200);
     }
 
     setupThemeToggle() {
