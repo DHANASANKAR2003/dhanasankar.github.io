@@ -34,6 +34,12 @@
     --font-body: 'Rajdhani', sans-serif;
     --font-code: 'Fira Code', monospace;
 
+    /* VLSI Specific */
+    --waveform-color: rgba(0, 207, 255, 0.1);
+    --terminal-bg: #0f2027;
+    --terminal-text: #00ff00;
+
+
     /* Transitions */
     --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -180,6 +186,15 @@ body {
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
+}
+
+/* Waveform Canvas */
+#waveformCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    /* Behind particles */
+    opacity: 0.4;
 }
 
 /* Particle Canvas */
@@ -1475,6 +1490,112 @@ section {
     border: 1px solid rgba(0, 207, 255, 0.2);
 }
 
+/* Simulation Log Loader */
+.simulation-loader {
+    position: fixed;
+    inset: 0;
+    background: var(--terminal-bg);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    font-family: var(--font-code);
+    color: var(--terminal-text);
+    overflow: hidden;
+    transition: opacity 0.5s ease-out;
+}
+
+.log-line {
+    margin: 2px 0;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+}
+
+.log-line.error {
+    color: #ff0055;
+}
+
+.log-line.warning {
+    color: #ffe600;
+}
+
+.log-line.success {
+    color: #00ff00;
+}
+
+.log-line.info {
+    color: #00cfff;
+}
+
+/* Logic Gate Backgrounds */
+.logic-gate-bg {
+    position: absolute;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+/* Hardware Borders */
+.hardware-border {
+    position: relative;
+    border: 1px solid var(--primary);
+}
+
+.hardware-border::before,
+.hardware-border::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--primary);
+    background: var(--bg-dark);
+    transition: all 0.3s;
+}
+
+.hardware-border::before {
+    top: -5px;
+    left: -5px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.hardware-border::after {
+    bottom: -5px;
+    right: -5px;
+    border-left: none;
+    border-top: none;
+}
+
+.project-card,
+.skill-category,
+.timeline-content {
+    border: 1px solid rgba(0, 207, 255, 0.2);
+    background: linear-gradient(180deg, rgba(15, 32, 39, 0.9) 0%, rgba(15, 32, 39, 0.7) 100%);
+}
+
+/* Coverage Bar Style */
+.skill-bar {
+    background: #333;
+    border: 1px solid #555;
+    height: 14px;
+    border-radius: 2px;
+}
+
+.skill-progress {
+    background: repeating-linear-gradient(45deg,
+            var(--primary),
+            var(--primary) 10px,
+            var(--secondary) 10px,
+            var(--secondary) 20px);
+    border-radius: 1px;
+}
+
+/* Terminal Text */
+.terminal-text {
+    font-family: var(--font-code);
+    color: var(--terminal-text);
+}
+
 /* Animations */
 .animate-on-scroll {
     opacity: 0;
@@ -1987,34 +2108,34 @@ body.hovering .cursor-outline {
     .cursor-outline {
         display: none !important;
     }
-    
+
     /* Mobile-Specific Adjustments */
     .about-content {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-content {
         grid-template-columns: 1fr;
     }
-    
+
     .timeline::before {
         left: 20px;
     }
-    
+
     .timeline-item {
         grid-template-columns: 1fr;
         padding-left: 40px;
     }
-    
+
     .timeline-item:nth-child(even) .timeline-content {
         grid-column: 1;
         text-align: left;
     }
-    
+
     .timeline-marker {
         left: 20px;
     }
-    
+
     .timeline-item:nth-child(even) .timeline-tags {
         justify-content: flex-start;
     }
