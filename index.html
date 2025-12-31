@@ -4,18 +4,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Dhanasankar K - VLSI Design Engineer Portfolio showcasing RTL Design, FPGA Implementation, and Digital Verification projects" />
-  <meta name="keywords" content="VLSI, RTL Design, Verilog, SystemVerilog, FPGA, Digital Design, Verification" />
+  <meta name="description" content="Dhanasankar K - VLSI Design Engineer Portfolio" />
+  <meta name="keywords" content="VLSI, RTL Design, Verilog, FPGA, Engineering, Portfolio" />
   <meta name="author" content="Dhanasankar K" />
-  <title>Dhanasankar K | VLSI Design Engineer Portfolio</title>
+  <title>Dhanasankar K | VLSI Design Engineer</title>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css" /> 
+  <!-- Ensure you have font-awesome linked -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body data-theme="dark">
@@ -24,633 +22,307 @@
   <div class="cursor-dot"></div>
   <div class="cursor-outline"></div>
 
-  <!-- Simulation Loader -->
-  <div id="simulationLoader" class="simulation-loader"></div>
-
-  <!-- Waveform Background Canvas -->
+  <!-- Background Canvases -->
   <canvas id="waveformCanvas"></canvas>
-
-  <!-- Particle Background Canvas -->
   <canvas id="particleCanvas"></canvas>
 
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-progress"></div>
-
-  <!-- Navigation Bar -->
+  <!-- Top Navigation -->
   <header id="header" class="header">
     <nav id="navbar" class="navbar">
       <div class="nav-container">
-        <div class="nav-logo" data-tilt>
-          <div class="logo-chip">
-            <i class="fas fa-microchip"></i>
-          </div>
+        <!-- Logo -->
+        <div class="nav-logo">
+          <div class="logo-chip"><i class="fas fa-microchip"></i></div>
           <div class="logo-text-wrapper">
             <span class="logo-text">DK</span>
             <span class="logo-subtitle">VLSI</span>
           </div>
         </div>
 
+        <!-- Hamburger Menu -->
         <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </button>
 
+        <!-- Navigation Links -->
         <div class="nav-menu-wrapper">
           <ul class="nav-menu" id="navMenu">
             <div class="nav-indicator"></div>
-            <li><a href="#home" class="nav-link active" data-text="Home">Home</a></li>
-            <li><a href="#about" class="nav-link" data-text="About">Module Info</a></li>
-            <li><a href="#education" class="nav-link" data-text="Education">Education</a></li>
-            <li><a href="#skills" class="nav-link" data-text="Skills">Tech Stack</a></li>
-            <li><a href="#projects" class="nav-link" data-text="Projects">IP Cores</a></li>
-            <li><a href="#certificates" class="nav-link" data-text="Certificates">Certifications</a></li>
-            <li><a href="#contact" class="nav-link" data-text="Contact">I/O Interface</a></li>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
           </ul>
         </div>
 
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch Theme">
           <i class="fas fa-moon"></i>
         </button>
       </div>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="hero-section">
-    <div class="hero-content">
-      <div class="hero-image-wrapper animate-on-scroll">
-        <div class="image-glow"></div>
-        <img src="images/your-photo.jpg" alt="Dhanasankar K Photo" class="hero-image" />
-      </div>
-
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <div class="glitch-wrapper">
-            <span class="glitch" data-text="Dhanasankar K">Dhanasankar K</span>
-          </div>
-        </h1>
-        <h2 class="hero-subtitle">
-          <span class="typewriter" id="typewriter"></span>
-          <span class="cursor">|</span>
-        </h2>
-        <p class="hero-description animate-on-scroll">
-          Passionate <span class="highlight">VLSI Design Engineer</span> specializing in
-          <span class="highlight">RTL Design</span>, <span class="highlight">Verification</span>,
-          and <span class="highlight">FPGA Implementation</span>
-        </p>
-
-        <div class="hero-buttons animate-on-scroll">
-          <a href="#projects" class="btn btn-primary">
-            <i class="fas fa-code"></i> View Projects
-          </a>
-          <a href="resume.pdf" download class="btn btn-secondary">
-            <i class="fas fa-download"></i> Download Resume
-          </a>
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <div class="hero-image-wrapper animate-on-scroll">
+          <div class="image-glow"></div>
+          <img src="images/your-photo.jpg" alt="Dhanasankar K" class="hero-image" />
         </div>
 
-        <div class="social-links animate-on-scroll">
-          <a href="mailto:kdhanasankar7@gmail.com" aria-label="Email" class="social-icon">
-            <i class="fas fa-envelope"></i>
-          </a>
-          <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank" aria-label="LinkedIn"
-            class="social-icon">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-" target="_blank"
-            aria-label="GitHub" class="social-icon">
-            <i class="fab fa-github"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Scroll Down Indicator -->
-    <div class="scroll-indicator">
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
-      <p>Scroll Down</p>
-    </div>
-  </section>
-
-  <!-- Statistics Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <div class="stat-number" data-target="50">0</div>
-          <div class="stat-label">Projects Completed</div>
-        </div>
-
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <div class="stat-number" data-target="46">0</div>
-          <div class="stat-label">FPGA Filters Designed</div>
-        </div>
-
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="stat-number" data-target="1">0</div>
-          <div class="stat-label">HDLBits Rank</div>
-        </div>
-
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-award"></i>
-          </div>
-          <div class="stat-number" data-target="5">0</div>
-          <div class="stat-label">Competition Wins</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">01.</span> Module Description
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="about-content">
-        <div class="about-text animate-on-scroll">
-          <p>
-            Hi, I'm <span class="highlight">Dhanasankar K</span>, an enthusiastic and dedicated
-            <span class="highlight">Electronics and Communication Engineering</span> graduate (B.E., Class of 2025)
-            with a deep-rooted passion for <span class="highlight">digital system design</span> at the hardware level.
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <div class="glitch-wrapper">
+              <span class="glitch" data-text="Dhanasankar K">Dhanasankar K</span>
+            </div>
+          </h1>
+          <h2 class="hero-subtitle">
+            <span class="typewriter" id="typewriter">VLSI Design Engineer</span>
+          </h2>
+          <p class="hero-description animate-on-scroll">
+            Transforming concepts into silicon. Specializing in <span class="highlight">RTL Design</span>, 
+            <span class="highlight">FPGA Acceleration</span>, and <span class="highlight">UVM Verification</span>.
           </p>
 
-          <p>
-            Currently undergoing advanced <span class="highlight">Design Verification (DV)</span> training at
-            <span class="highlight">Silicon Craft VLSI Training & Research Institute</span>, Chennai, where I am
-            expanding my expertise in <span class="highlight">Verilog</span>,
-            <span class="highlight">SystemVerilog</span>, and the
-            <span class="highlight">Universal Verification Methodology (UVM)</span>.
-          </p>
-
-          <div class="passion-areas">
-            <h3>Areas of Passion</h3>
-            <ul class="passion-list">
-              <li><i class="fas fa-check-circle"></i> RTL Design & Digital Logic Architecture</li>
-              <li><i class="fas fa-check-circle"></i> FPGA System Integration</li>
-              <li><i class="fas fa-check-circle"></i> Functional Verification & Testbench Creation</li>
-              <li><i class="fas fa-check-circle"></i> Digital Protocol Implementation (UART, SPI, I2C, APB)</li>
-              <li><i class="fas fa-check-circle"></i> Timing Closure & Clock Domain Crossing</li>
-              <li><i class="fas fa-check-circle"></i> Image Processing on FPGA</li>
-            </ul>
+          <div class="hero-buttons animate-on-scroll">
+            <a href="#projects" class="btn btn-primary"><i class="fas fa-code"></i> View IP Cores</a>
+            <a href="resume.pdf" download class="btn btn-secondary"><i class="fas fa-file-download"></i> Download CV</a>
           </div>
 
-          <blockquote class="career-goal">
-            <i class="fas fa-quote-left"></i>
-            My goal is to contribute to the semiconductor industry by designing reliable,
-            high-performance hardware systems and eventually grow into a Silicon Design Engineer.
-            <i class="fas fa-quote-right"></i>
-          </blockquote>
-        </div>
-
-        <div class="about-image animate-on-scroll">
-          <div class="image-frame">
-            <img src="images/your-photo.jpg" alt="Dhanasankar K" />
+          <div class="social-links animate-on-scroll">
+            <a href="mailto:kdhanasankar7@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/DHANASANKAR2003" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Education Section -->
-  <section id="education" class="education-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">02.</span> Education
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="timeline">
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2021 - 2025</div>
-            <h3>B.E. Electronics & Communication Engineering</h3>
-            <h4>Government College of Engineering, Erode</h4>
-            <p>CGPA: 7.6</p>
-            <div class="timeline-tags">
-              <span>VLSI</span>
-              <span>Embedded Systems</span>
-              <span>Digital Electronics</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">2021</div>
-            <h3>Higher Secondary Education</h3>
-            <h4>Government Boys Higher Secondary School, Gandarvakkottai, Pudukottai</h4>
-            <p>Percentage: 76.8%</p>
-            <div class="timeline-tags">
-              <span>State Board</span>
-              <span>Science Stream</span>
-            </div>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll"><span class="title-number">01.</span> About Me</h2>
+        <div class="about-content">
+          <div class="about-text animate-on-scroll">
+            <p>
+              I am an <strong>Electronics and Communication Engineering</strong> graduate (Class of 2025) with a passion for 
+              Digital System Design. My focus is on creating reliable, high-performance hardware architectures.
+            </p>
+            <p>
+              Currently, I am expanding my expertise in <strong>SystemVerilog and UVM</strong> for functional verification 
+              at Silicon Craft VLSI Training & Research Institute. I enjoy solving complex logic problems and optimization challenges.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">03.</span> Technical Stack
-        <div class="title-line"></div>
-      </h2>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll"><span class="title-number">02.</span> Technical Stack</h2>
+        <div class="skills-grid">
+          
+          <div class="skill-category animate-on-scroll">
+            <h3><i class="fas fa-microchip"></i> Core Design</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Verilog HDL</span>
+              <span class="skill-tag">SystemVerilog</span>
+              <span class="skill-tag">Digital Logic</span>
+              <span class="skill-tag">FSM Design</span>
+            </div>
+          </div>
 
-      <div class="skills-grid">
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fas fa-code"></i> Hardware Description Languages</h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Verilog</span>
-              <span>95%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="95"></div>
+          <div class="skill-category animate-on-scroll">
+            <h3><i class="fas fa-check-double"></i> Verification</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">UVM</span>
+              <span class="skill-tag">SystemVerilog Assertions</span>
+              <span class="skill-tag">Functional Coverage</span>
+              <span class="skill-tag">Testbench Architecture</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>SystemVerilog</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="85"></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fas fa-check-double"></i> Verification</h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>UVM (Universal Verification Methodology)</span>
-              <span>80%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="80"></div>
+          <div class="skill-category animate-on-scroll">
+            <h3><i class="fas fa-tools"></i> Tools</h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Xilinx Vivado</span>
+              <span class="skill-tag">ModelSim / Questasim</span>
+              <span class="skill-tag">GTKWave</span>
+              <span class="skill-tag">Git / GitHub</span>
             </div>
           </div>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>SystemVerilog Assertions (SVA)</span>
-              <span>75%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="75"></div>
-            </div>
-          </div>
-        </div>
 
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fas fa-tools"></i> EDA Tools</h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Vivado 2019.2 (IP Integrator, Block Design)</span>
-              <span>90%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="90"></div>
-            </div>
-          </div>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Icarus Verilog & GTKWave</span>
-              <span>95%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="95"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fas fa-microchip"></i> FPGA Platforms</h3>
-          <div class="skill-item">
-            <div class="skill-info">
-              <span>Xilinx Artix-7 (EDGE Board)</span>
-              <span>85%</span>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-progress" data-progress="85"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fas fa-network-wired"></i> Protocols</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">UART</span>
-            <span class="skill-tag">I²C</span>
-            <span class="skill-tag">AMBA APB</span>
-            <span class="skill-tag">AMBA AHB</span>
-          </div>
-        </div>
-
-        <div class="skill-category animate-on-scroll">
-          <h3><i class="fab fa-linux"></i> OS & Tools</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Linux</span>
-            <span class="skill-tag">Windows</span>
-            <span class="skill-tag">Git</span>
-            <span class="skill-tag">GitHub</span>
-          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Co-curricular Activities Section -->
-  <section id="co-curricular" class="co-curricular-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">04.</span> Co-Curricular Activities
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="stats-grid">
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <h3>HDLBits Rank 1</h3>
-          <p class="stat-label">Solved all digital design problems on the HDLBits platform using Verilog and organized
-            all solutions in a dedicated GitHub repository.</p>
+    <!-- Projects Section (Populated by JS) -->
+    <section id="projects" class="projects-section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll"><span class="title-number">03.</span> IP Cores & Projects</h2>
+        
+        <div class="project-filters animate-on-scroll">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="verilog">Verilog</button>
+          <button class="filter-btn" data-filter="fpga">FPGA</button>
         </div>
 
-        <div class="stat-card animate-on-scroll">
-          <div class="stat-icon">
-            <i class="fas fa-code-branch"></i>
-          </div>
-          <h3>Extensive Coding Practice</h3>
-          <p class="stat-label">Practiced numerous digital design problems in Verilog, creating well-structured GitHub
-            repositories with topics organized by module, testbench, and functionality.</p>
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Projects are injected here by js/projects.js -->
+        </div>
+        
+        <div class="load-more-container">
+          <button class="btn btn-primary" id="loadMoreBtn">Load More</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">05.</span> IP Cores & Designs
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="project-filters animate-on-scroll">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="fpga">FPGA</button>
-        <button class="filter-btn" data-filter="verilog">Verilog</button>
-        <button class="filter-btn" data-filter="verification">Verification</button>
-      </div>
-
-      <div class="projects-grid" id="projectsGrid">
-        <!-- Project cards will be dynamically loaded -->
-      </div>
-
-      <div class="load-more-container">
-        <button class="btn btn-primary" id="loadMoreBtn">
-          <i class="fas fa-plus-circle"></i> Load More Projects
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Certificates Section -->
-  <section id="certificates" class="certificates-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">06.</span> Certificates
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="certificates-grid">
-        <!-- Certificate 1 -->
-        <div class="certificate-card animate-on-scroll">
-          <img src="images/cert1.jpg" alt="Certificate 1" class="certificate-image"
-            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
-          <div class="certificate-content">
-            <h3 class="certificate-title">VLSI Design Internship</h3>
-            <p class="certificate-issuer">Silicon Craft VLSI Training & Research Institute</p>
-            <p class="certificate-date">August 2024</p>
-          </div>
-        </div>
-
-        <!-- Certificate 2 -->
-        <div class="certificate-card animate-on-scroll">
-          <img src="images/cert2.jpg" alt="Certificate 2" class="certificate-image"
-            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
-          <div class="certificate-content">
-            <h3 class="certificate-title">Embedded Systems Internship</h3>
-            <p class="certificate-issuer">TechVolt Pvt. Ltd</p>
-            <p class="certificate-date">July 2023</p>
-          </div>
-        </div>
-
-        <!-- Certificate 3 -->
-        <div class="certificate-card animate-on-scroll">
-          <img src="images/cert3.jpg" alt="Certificate 3" class="certificate-image"
-            onerror="this.src='https://via.placeholder.com/400x300/0f2027/00cfff?text=Certificate+Image'" />
-          <div class="certificate-content">
-            <h3 class="certificate-title">Technical Symposium Winner</h3>
-            <p class="certificate-issuer">Galaxy Fest</p>
-            <p class="certificate-date">2023</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Timeline -->
-  <section id="experience" class="experience-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">07.</span> Experience
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="timeline">
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Feb 2025 - Present</div>
-            <h3>Design Verification Trainee</h3>
-            <h4>Silicon Craft VLSI Training & Research Institute</h4>
-            <p>Learning SystemVerilog and UVM for functional verification. Working on APB to I2C bridge verification
-              project.</p>
-            <div class="timeline-tags">
-              <span>SystemVerilog</span>
-              <span>UVM</span>
-              <span>Verification</span>
+    <!-- Achievements & Certifications Section (Updated) -->
+    <section id="achievements" class="certificates-section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll"><span class="title-number">04.</span> Honors & Certifications</h2>
+        
+        <div class="certificates-grid">
+          
+          <!-- Competitions -->
+          <div class="certificate-card animate-on-scroll">
+            <div class="certificate-content">
+              <div class="cert-icon award"><i class="fas fa-trophy"></i></div>
+              <h3 class="certificate-title">1st Prize - Project Presentation</h3>
+              <p class="certificate-issuer">Government College of Engineering, Erode</p>
             </div>
           </div>
-        </div>
 
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Jul - Aug 2024</div>
-            <h3>VLSI Intern</h3>
-            <h4>Silicon Craft VLSI Training & Research Institute</h4>
-            <p>Worked on RTL design projects including FSM-based voting machine and digital circuit implementations.</p>
-            <div class="timeline-tags">
-              <span>Verilog</span>
-              <span>RTL Design</span>
-              <span>FPGA</span>
-            </div>
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon award"><i class="fas fa-trophy"></i></div>
+              <h3 class="certificate-title">1st Prize - Arduino Project</h3>
+              <p class="certificate-issuer">Karpagam College of Engineering</p>
+             </div>
           </div>
-        </div>
 
-        <div class="timeline-item animate-on-scroll">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <div class="timeline-date">Jun - Jul 2023</div>
-            <h3>Embedded Systems Intern</h3>
-            <h4>TechVolt Pvt. Ltd, Coimbatore</h4>
-            <p>Developed IoT projects using ESP8266, ESP32, and various sensors with cloud integration.</p>
-            <div class="timeline-tags">
-              <span>IoT</span>
-              <span>Embedded C</span>
-              <span>Arduino</span>
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon award"><i class="fas fa-trophy"></i></div>
+              <h3 class="certificate-title">1st Prize - Project Presentation</h3>
+              <p class="certificate-issuer">SSM College of Engineering, Salem</p>
+             </div>
+          </div>
+
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon award"><i class="fas fa-medal"></i></div>
+              <h3 class="certificate-title">2nd Prize - E-Bike Design</h3>
+              <p class="certificate-issuer">Kumaraguru College of Technology</p>
+             </div>
+          </div>
+
+          <!-- Certifications -->
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon cert"><i class="fas fa-certificate"></i></div>
+              <h3 class="certificate-title">Soft Skills Certification</h3>
+              <p class="certificate-issuer">NPTEL</p>
+             </div>
+          </div>
+
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon cert"><i class="fas fa-certificate"></i></div>
+              <h3 class="certificate-title">AI Certification</h3>
+              <p class="certificate-issuer">Pantech E-Learning</p>
+             </div>
+          </div>
+
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon cert"><i class="fas fa-code"></i></div>
+              <h3 class="certificate-title">Python Quiz Certificate</h3>
+              <p class="certificate-issuer">GCD Erode</p>
+             </div>
+          </div>
+
+          <div class="certificate-card animate-on-scroll">
+             <div class="certificate-content">
+              <div class="cert-icon cert"><i class="fas fa-laptop-code"></i></div>
+              <h3 class="certificate-title">Learnathon Certificate</h3>
+              <p class="certificate-issuer">Naan Mudhalvan</p>
+             </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <h2 class="section-title animate-on-scroll"><span class="title-number">05.</span> I/O Interface</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i>
+              <div>
+                <h3>Email</h3>
+                <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone contact-icon"></i>
+              <div>
+                <h3>Phone</h3>
+                <a href="tel:+919384320190">+91 9384320190</a>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fab fa-linkedin contact-icon"></i>
+              <div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">Connect</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <div class="container">
-      <h2 class="section-title animate-on-scroll">
-        <span class="title-number">08.</span> I/O Interface
-        <div class="title-line"></div>
-      </h2>
-
-      <div class="contact-content">
-        <div class="contact-info animate-on-scroll">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Phone</h3>
-              <a href="tel:+919384320190">+91 9384320190</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Email</h3>
-              <a href="mailto:kdhanasankar7@gmail.com">kdhanasankar7@gmail.com</a>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-details">
-              <h3>Location</h3>
-              <p>Chennai, India</p>
-            </div>
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fab fa-linkedin"></i>
-            </div>
-            <div class="contact-details">
-              <h3>LinkedIn</h3>
-              <a href="https://linkedin.com/in/dhanasankar-k-23b196291" target="_blank">Connect with me</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-form-wrapper animate-on-scroll">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Your Name" required />
-            </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Your Email" required />
-            </div>
-            <div class="form-group">
-              <input type="text" name="subject" placeholder="Subject" required />
-            </div>
-            <div class="form-group">
-              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
         <p>&copy; 2025 Dhanasankar K. All rights reserved.</p>
-        <p>Designed & Built with <i class="fas fa-heart"></i> for VLSI</p>
+        <p>Built with <i class="fas fa-heart" style="color:var(--primary)"></i> for VLSI</p>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-    <i class="fas fa-arrow-up"></i>
-  </button>
+  </main>
 
   <!-- Project Modal -->
   <div id="projectModal" class="modal">
-    <button class="modal-close" aria-label="Close modal">
-      <i class="fas fa-times"></i>
-    </button>
+    <button class="modal-close"><i class="fas fa-times"></i></button>
     <div class="modal-content">
       <div class="modal-header">
-        <h2 id="modalTitle"></h2>
+        <h2 id="modalTitle">Project Title</h2>
       </div>
-      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-body" id="modalBody">
+        <!-- Details injected via JS -->
+      </div>
     </div>
   </div>
 
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/919384320190" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
   <!-- Scripts -->
-  <script src="js/waveforms.js"></script>
-  <script src="js/particles.js"></script>
-  <script src="js/animations.js"></script>
+  <!-- Make sure these files exist in your js/ folder -->
   <script src="js/projects.js"></script>
   <script src="js/script.js"></script>
-</body>
 
+</body>
 </html>
