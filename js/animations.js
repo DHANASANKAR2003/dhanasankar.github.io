@@ -1,4 +1,3 @@
-
 // Scroll Animations and Intersection Observer
 class ScrollAnimations {
     constructor() {
@@ -398,4 +397,3 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(h);
     });
 });
-
