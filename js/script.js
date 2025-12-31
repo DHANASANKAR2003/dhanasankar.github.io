@@ -75,7 +75,6 @@ class PortfolioApp {
     }
 
     init() {
-        this.runSimulationBoot();
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
@@ -89,45 +88,6 @@ class PortfolioApp {
         document.querySelectorAll('.btn, .social-icon').forEach(btn => {
             new MagneticButton(btn);
         });
-    }
-
-    runSimulationBoot() {
-        const loader = document.getElementById('simulationLoader');
-        if (!loader) return;
-
-        const logs = [
-            { text: 'Initializing Kernel...', type: 'info', delay: 100 },
-            { text: 'Loading Modules...', type: 'info', delay: 300 },
-            { text: 'Compiling RTL Design...', type: 'info', delay: 600 },
-            { text: 'Elaborating Design...', type: 'info', delay: 900 },
-            { text: 'Optimizing Logic...', type: 'info', delay: 1200 },
-            { text: 'Checking Timing Constraints...', type: 'warning', delay: 1500 },
-            { text: 'Timing Met (0 violations)', type: 'success', delay: 1800 },
-            { text: 'Generating Bitstream...', type: 'info', delay: 2100 },
-            { text: 'Bitstream Generation Complete.', type: 'success', delay: 2400 },
-            { text: 'Booting Portfolio OS v2.0...', type: 'success', delay: 2700 }
-        ];
-
-        let totalDelay = 0;
-
-        logs.forEach(log => {
-            setTimeout(() => {
-                const line = document.createElement('div');
-                line.className = `log-line ${log.type}`;
-                line.textContent = `[${(totalDelay / 1000).toFixed(3)}] ${log.text}`;
-                loader.appendChild(line);
-                loader.scrollTop = loader.scrollHeight;
-            }, log.delay);
-            totalDelay = log.delay;
-        });
-
-        setTimeout(() => {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-                loader.style.display = 'none';
-                document.body.classList.add('loaded');
-            }, 500);
-        }, 3200);
     }
 
     setupThemeToggle() {
@@ -544,6 +504,64 @@ class NavbarController {
     }
 }
 
+// Text Scramble Effect for Section Titles
+class TextScramble {
+    constructor(el) {
+        this.el = el;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
+    }
+
+    setText(newText) {
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => this.resolve = resolve);
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
+    }
+
+    update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+                complete++;
+                output += to;
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar();
+                    this.queue[i].char = char;
+                }
+                output += `<span class="dud">${char}</span>`;
+            } else {
+                output += from;
+            }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+            this.resolve();
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
+        }
+    }
+
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+}
+
 // Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize main app
@@ -559,6 +577,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         document.querySelector('.hero-section')?.classList.add('revealed');
     }, 100);
+
+    // Initialize Text Scramble for headings
+    const headings = document.querySelectorAll('.section-title');
+    headings.forEach(h => {
+        // Store original text
+        if (!h.dataset.originalText) {
+            h.dataset.originalText = h.innerText;
+        }
+
+        const scrambler = new TextScramble(h);
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !h.classList.contains('scrambled')) {
+                    scrambler.setText(h.dataset.originalText);
+                    h.classList.add('scrambled');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(h);
+    });
 
     console.log('%c🚀 Portfolio Loaded Successfully!', 'color: #00cfff; font-size: 16px; font-weight: bold;');
     console.log('%c💡 Designed & Developed by Dhanasankar K', 'color: #00ffe7; font-size: 12px;');
