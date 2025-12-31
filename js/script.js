@@ -3,10 +3,9 @@ class CustomCursor {
     constructor() {
         this.dot = document.querySelector('.cursor-dot');
         this.outline = document.querySelector('.cursor-outline');
-        this.mouse = { x: 0, y: 0 };
         this.bounds = { x: 0, y: 0 };
+        this.mouse = { x: 0, y: 0 };
 
-        // Only initialize if elements exist
         if (this.dot && this.outline) {
             this.init();
         }
@@ -76,7 +75,7 @@ class PortfolioApp {
     }
 
     init() {
-        // Removed runSimulationBoot() to skip initial processing
+        this.runSimulationBoot();
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
@@ -90,8 +89,45 @@ class PortfolioApp {
         document.querySelectorAll('.btn, .social-icon').forEach(btn => {
             new MagneticButton(btn);
         });
+    }
 
-        console.log("Portfolio App Initialized");
+    runSimulationBoot() {
+        const loader = document.getElementById('simulationLoader');
+        if (!loader) return;
+
+        const logs = [
+            { text: 'Initializing Kernel...', type: 'info', delay: 100 },
+            { text: 'Loading Modules...', type: 'info', delay: 300 },
+            { text: 'Compiling RTL Design...', type: 'info', delay: 600 },
+            { text: 'Elaborating Design...', type: 'info', delay: 900 },
+            { text: 'Optimizing Logic...', type: 'info', delay: 1200 },
+            { text: 'Checking Timing Constraints...', type: 'warning', delay: 1500 },
+            { text: 'Timing Met (0 violations)', type: 'success', delay: 1800 },
+            { text: 'Generating Bitstream...', type: 'info', delay: 2100 },
+            { text: 'Bitstream Generation Complete.', type: 'success', delay: 2400 },
+            { text: 'Booting Portfolio OS v2.0...', type: 'success', delay: 2700 }
+        ];
+
+        let totalDelay = 0;
+
+        logs.forEach(log => {
+            setTimeout(() => {
+                const line = document.createElement('div');
+                line.className = `log-line ${log.type}`;
+                line.textContent = `[${(totalDelay / 1000).toFixed(3)}] ${log.text}`;
+                loader.appendChild(line);
+                loader.scrollTop = loader.scrollHeight;
+            }, log.delay);
+            totalDelay = log.delay;
+        });
+
+        setTimeout(() => {
+            loader.style.opacity = '0';
+            setTimeout(() => {
+                loader.style.display = 'none';
+                document.body.classList.add('loaded');
+            }, 500);
+        }, 3200);
     }
 
     setupThemeToggle() {
@@ -103,22 +139,18 @@ class PortfolioApp {
         body.setAttribute('data-theme', savedTheme);
         this.updateThemeIcon(savedTheme);
 
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = body.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-                body.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                this.updateThemeIcon(newTheme);
-            });
-        }
+            body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            this.updateThemeIcon(newTheme);
+        });
     }
 
     updateThemeIcon(theme) {
         const themeToggle = document.getElementById('themeToggle');
-        if (!themeToggle) return;
-
         const icon = themeToggle.querySelector('i');
 
         if (theme === 'dark') {
@@ -451,7 +483,6 @@ class NavbarController {
     }
 
     setupScrollEffect() {
-        if (!this.header) return;
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 this.header.classList.add('scrolled');
@@ -462,24 +493,20 @@ class NavbarController {
     }
 
     setupMagneticIndicator() {
-        if (!this.links.length) return;
-
         this.links.forEach(link => {
             link.addEventListener('mouseenter', (e) => {
                 this.moveIndicator(e.target);
             });
         });
 
-        if (this.navMenu) {
-            this.navMenu.addEventListener('mouseleave', () => {
-                const active = document.querySelector('.nav-link.active');
-                if (active) {
-                    this.moveIndicator(active);
-                } else if (this.indicator) {
-                    this.indicator.style.opacity = '0';
-                }
-            });
-        }
+        this.navMenu.addEventListener('mouseleave', () => {
+            const active = document.querySelector('.nav-link.active');
+            if (active) {
+                this.moveIndicator(active);
+            } else {
+                this.indicator.style.opacity = '0';
+            }
+        });
 
         // Update on click
         this.links.forEach(link => {
@@ -498,7 +525,7 @@ class NavbarController {
     }
 
     moveIndicator(element) {
-        if (!element || !this.indicator || !this.navMenu) return;
+        if (!element) return;
 
         const rect = element.getBoundingClientRect();
         const parentRect = this.navMenu.getBoundingClientRect();
@@ -512,65 +539,8 @@ class NavbarController {
     }
 
     setupMobileMenu() {
-        // Handled in PortfolioApp
-    }
-}
-
-// Text Scramble Effect
-class TextScramble {
-    constructor(el) {
-        this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#________';
-        this.update = this.update.bind(this);
-    }
-
-    setText(newText) {
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => this.resolve = resolve);
-        this.queue = [];
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || '';
-            const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 40);
-            const end = start + Math.floor(Math.random() * 40);
-            this.queue.push({ from, to, start, end });
-        }
-        cancelAnimationFrame(this.frameRequest);
-        this.frame = 0;
-        this.update();
-        return promise;
-    }
-
-    update() {
-        let output = '';
-        let complete = 0;
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i];
-            if (this.frame >= end) {
-                complete++;
-                output += to;
-            } else if (this.frame >= start) {
-                if (!char || Math.random() < 0.28) {
-                    char = this.randomChar();
-                    this.queue[i].char = char;
-                }
-                output += `<span class="dud">${char}</span>`;
-            } else {
-                output += from;
-            }
-        }
-        this.el.innerHTML = output;
-        if (complete === this.queue.length) {
-            this.resolve();
-        } else {
-            this.frameRequest = requestAnimationFrame(this.update);
-            this.frame++;
-        }
-    }
-
-    randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)];
+        // Existing mobile menu logic is handled by PortfolioApp, 
+        // but we can add specific enhancements here if needed
     }
 }
 
@@ -590,22 +560,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.hero-section')?.classList.add('revealed');
     }, 100);
 
-    // Initialize Text Scramble for headings
-    const headings = document.querySelectorAll('.section-title');
-    headings.forEach(h => {
-        if (!h.textContent.trim()) return;
-        const scrambler = new TextScramble(h);
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('scrambled')) {
-                    scrambler.setText(entry.target.textContent);
-                    entry.target.classList.add('scrambled');
-                }
-            });
-        });
-        observer.observe(h);
-    });
-
     console.log('%c🚀 Portfolio Loaded Successfully!', 'color: #00cfff; font-size: 16px; font-weight: bold;');
     console.log('%c💡 Designed & Developed by Dhanasankar K', 'color: #00ffe7; font-size: 12px;');
 });
@@ -622,3 +576,4 @@ document.addEventListener('visibilitychange', () => {
 // Export for use in other modules if needed
 window.PortfolioApp = PortfolioApp;
 window.utils = utils;
+
