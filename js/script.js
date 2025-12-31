@@ -3,9 +3,10 @@ class CustomCursor {
     constructor() {
         this.dot = document.querySelector('.cursor-dot');
         this.outline = document.querySelector('.cursor-outline');
-        this.bounds = { x: 0, y: 0 };
         this.mouse = { x: 0, y: 0 };
+        this.bounds = { x: 0, y: 0 };
 
+        // Only initialize if elements exist
         if (this.dot && this.outline) {
             this.init();
         }
@@ -75,6 +76,7 @@ class PortfolioApp {
     }
 
     init() {
+        // Removed runSimulationBoot() to skip initial processing
         this.setupThemeToggle();
         this.setupMobileMenu();
         this.setupScrollToTop();
@@ -88,6 +90,8 @@ class PortfolioApp {
         document.querySelectorAll('.btn, .social-icon').forEach(btn => {
             new MagneticButton(btn);
         });
+
+        console.log("Portfolio App Initialized");
     }
 
     setupThemeToggle() {
@@ -99,18 +103,22 @@ class PortfolioApp {
         body.setAttribute('data-theme', savedTheme);
         this.updateThemeIcon(savedTheme);
 
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-            body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            this.updateThemeIcon(newTheme);
-        });
+                body.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                this.updateThemeIcon(newTheme);
+            });
+        }
     }
 
     updateThemeIcon(theme) {
         const themeToggle = document.getElementById('themeToggle');
+        if (!themeToggle) return;
+
         const icon = themeToggle.querySelector('i');
 
         if (theme === 'dark') {
@@ -443,6 +451,7 @@ class NavbarController {
     }
 
     setupScrollEffect() {
+        if (!this.header) return;
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 this.header.classList.add('scrolled');
@@ -453,20 +462,24 @@ class NavbarController {
     }
 
     setupMagneticIndicator() {
+        if (!this.links.length) return;
+
         this.links.forEach(link => {
             link.addEventListener('mouseenter', (e) => {
                 this.moveIndicator(e.target);
             });
         });
 
-        this.navMenu.addEventListener('mouseleave', () => {
-            const active = document.querySelector('.nav-link.active');
-            if (active) {
-                this.moveIndicator(active);
-            } else {
-                this.indicator.style.opacity = '0';
-            }
-        });
+        if (this.navMenu) {
+            this.navMenu.addEventListener('mouseleave', () => {
+                const active = document.querySelector('.nav-link.active');
+                if (active) {
+                    this.moveIndicator(active);
+                } else if (this.indicator) {
+                    this.indicator.style.opacity = '0';
+                }
+            });
+        }
 
         // Update on click
         this.links.forEach(link => {
@@ -485,7 +498,7 @@ class NavbarController {
     }
 
     moveIndicator(element) {
-        if (!element) return;
+        if (!element || !this.indicator || !this.navMenu) return;
 
         const rect = element.getBoundingClientRect();
         const parentRect = this.navMenu.getBoundingClientRect();
@@ -499,12 +512,11 @@ class NavbarController {
     }
 
     setupMobileMenu() {
-        // Existing mobile menu logic is handled by PortfolioApp, 
-        // but we can add specific enhancements here if needed
+        // Handled in PortfolioApp
     }
 }
 
-// Text Scramble Effect for Section Titles
+// Text Scramble Effect
 class TextScramble {
     constructor(el) {
         this.el = el;
@@ -581,22 +593,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Text Scramble for headings
     const headings = document.querySelectorAll('.section-title');
     headings.forEach(h => {
-        // Store original text
-        if (!h.dataset.originalText) {
-            h.dataset.originalText = h.innerText;
-        }
-
+        if (!h.textContent.trim()) return;
         const scrambler = new TextScramble(h);
-
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting && !h.classList.contains('scrambled')) {
-                    scrambler.setText(h.dataset.originalText);
-                    h.classList.add('scrambled');
+                if (entry.isIntersecting && !entry.target.classList.contains('scrambled')) {
+                    scrambler.setText(entry.target.textContent);
+                    entry.target.classList.add('scrambled');
                 }
             });
-        }, { threshold: 0.5 });
-
+        });
         observer.observe(h);
     });
 
