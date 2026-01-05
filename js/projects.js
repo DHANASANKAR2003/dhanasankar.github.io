@@ -1,6 +1,35 @@
 // Projects Data and Management
 const projectsData = [
     {
+        id: 0,
+        title: 'AXI4 to SPI with CDC Bridge',
+        category: 'verification',
+        image: 'images/axi_spi_cdc.png',
+        description: 'Advanced RTL Design and Verification of AXI4 to SPI bridge featuring Clock Domain Crossing (CDC) with Asynchronous FIFO.',
+        tags: ['Verilog', 'UVM', 'CDC', 'FIFO'],
+        github: 'https://github.com/DHANASANKAR2003',
+        details: `
+      <h3>🚀 AXI4 to SPI CDC Bridge (RTL & DV)</h3>
+      <p>This project implements a robust <strong>AXI4-Lite to SPI Bridge</strong> designed for high-performance SoC integration, handling asynchronous clock domains with high reliability.</p>
+      
+      <h4>📌 Key Technical Highlights:</h4>
+      <ul>
+        <li>✅ <strong>RTL Design:</strong> Implemented AXI4-Lite slave interface and SPI Master controller with configurable CPOL/CPHA.</li>
+        <li>✅ <strong>CDC Architecture:</strong> Utilized <strong>Asynchronous FIFO</strong> with Gray Code counters to safely transfer data between AXI (Fast) and SPI (Slow) clock domains.</li>
+        <li>✅ <strong>Verification:</strong> Developed a comprehensive <strong>UVM Testbench</strong> with constrained-random stimulus and functional coverage.</li>
+        <li>✅ <strong>CDC Analysis:</strong> Verified synchronizer chains and handled multi-bit signal transitions using FIFO based synchronization.</li>
+      </ul>
+      
+      <h4>🛠️ Tools & Methodologies:</h4>
+      <ul>
+        <li>Verilog HDL / SystemVerilog</li>
+        <li>UVM (Universal Verification Methodology)</li>
+        <li>Asynchronous FIFO Design</li>
+        <li>Xilinx Vivado / Questasim</li>
+      </ul>
+    `
+    },
+    {
         id: 1,
         title: 'I²C Protocol Implementation',
         category: 'verilog',
@@ -18,21 +47,7 @@ const projectsData = [
         <li>✅ Slave address decoding logic</li>
         <li>✅ FSM for both master & slaves</li>
         <li>✅ ACK/NACK response system</li>
-        <li>✅ Read and Write data support</li>
-        <li>✅ SDA line handling with tri-state control</li>
       </ul>
-      
-      <h4>🧠 Tools Used:</h4>
-      <ul>
-        <li>Verilog HDL</li>
-        <li>Icarus Verilog (Simulation)</li>
-        <li>GTKWave (Waveform Viewer)</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/i2c_master_code.jpeg" alt="I2C Master Code" />
-        <img src="images/i2c_waveform.jpeg" alt="I2C Waveform" />
-      </div>
     `
     },
     {
@@ -45,29 +60,7 @@ const projectsData = [
         github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing',
         details: `
       <h3>🔍 Sobel Edge Detection using Verilog + Python</h3>
-      <p>Real-time hardware-based edge detection module using the Sobel filter in Verilog, integrating Python for image preprocessing and post-simulation reconstruction.</p>
-      
-      <h4>🛠️ Tools Used:</h4>
-      <ul>
-        <li>Verilog HDL for RTL design</li>
-        <li>Icarus Verilog and GTKWave for simulation</li>
-        <li>Python (NumPy, PIL, OpenCV) for image processing</li>
-        <li>Ubuntu Linux environment</li>
-      </ul>
-      
-      <h4>🧠 Core Concepts:</h4>
-      <ul>
-        <li>Line Buffering and 3×3 kernel sliding window</li>
-        <li>Horizontal and Vertical edge gradient calculation</li>
-        <li>Signed to unsigned conversion</li>
-        <li>Thresholding and clamping for visualization</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="sobel_output.png" alt="Sobel Output" />
-        <img src="sobel_design_code.png" alt="Sobel RTL Code" />
-        <img src="sobel_waveform.png" alt="Sobel Waveform" />
-      </div>
+      <p>Real-time hardware-based edge detection module using the Sobel filter in Verilog.</p>
     `
     },
     {
@@ -77,25 +70,7 @@ const projectsData = [
         image: 'images/46filters_alloutput.png',
         description: 'Comprehensive image processing pipeline with 46 individual filters implemented in Verilog.',
         tags: ['Verilog', 'Image Processing', 'FPGA'],
-        github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing',
-        details: `
-      <h3>🚀 46-Filter Image Processing Engine</h3>
-      <p>High-performance image processing pipeline featuring 46 individual filters and effects applied on an 8-bit grayscale image.</p>
-      
-      <h4>💡 Features:</h4>
-      <ul>
-        <li>🔹 Brightness/Contrast Filters</li>
-        <li>🔹 Bitwise Filters (Mask, XOR, Invert)</li>
-        <li>🔹 Thresholding & Edge Detection (Sobel, Laplacian)</li>
-        <li>🔹 Morphological Operations (Erosion, Dilation)</li>
-        <li>🔹 Histogram Equalization, Gaussian Blur</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/46filters_code.png" alt="Filter Code" />
-        <img src="images/46filters_alloutput.png" alt="All Filters Output" />
-      </div>
-    `
+        github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing'
     },
     {
         id: 4,
@@ -103,26 +78,7 @@ const projectsData = [
         category: 'verilog',
         image: 'images/fifo_code1.png',
         description: 'Parameterized synchronous FIFO with full/empty flags and comprehensive testbench.',
-        tags: ['Verilog', 'Memory', 'RTL Design'],
-        github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/COMBINATIONAL/DAY%207%20',
-        details: `
-      <h3>🚀 Synchronous FIFO Design in Verilog</h3>
-      <p>Parameterized depth and data width FIFO with comprehensive verification.</p>
-      
-      <h4>📌 Highlights:</h4>
-      <ul>
-        <li>Parameterized depth and data width</li>
-        <li>Used $clog2 for pointer sizing</li>
-        <li>Full and Empty status flag logic</li>
-        <li>Self-checking Verilog testbench</li>
-        <li>Verified using Icarus Verilog and GTKWave</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/fifo_code.png" alt="FIFO Code" />
-        <img src="images/fifo_waveform.png" alt="FIFO Waveform" />
-      </div>
-    `
+        tags: ['Verilog', 'Memory', 'RTL Design']
     },
     {
         id: 5,
@@ -130,116 +86,7 @@ const projectsData = [
         category: 'verilog',
         image: 'images/tfc_output1.png',
         description: 'FSM-based traffic light controller with adaptive timing and emergency vehicle priority.',
-        tags: ['Verilog', 'FSM', 'Control Systems'],
-        github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/blob/main/Verilog%20Project/Traffic_Light_Controller.v',
-        details: `
-      <h3>🚦 Smart Traffic Light Controller</h3>
-      <p>Real-time Traffic Light Controller simulating a 4-way intersection using Verilog FSM.</p>
-      
-      <h4>💡 Core Concepts:</h4>
-      <ul>
-        <li>Mealy & Moore FSM principles</li>
-        <li>Timer counters for red/yellow/green sequencing</li>
-        <li>Edge detection for emergency signal</li>
-        <li>Pedestrian crossing control</li>
-        <li>Adaptive signal timing</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/tfc_code.png" alt="Traffic Light Code" />
-        <img src="images/tfc_waveform.png" alt="Traffic Light Waveform" />
-      </div>
-    `
-    },
-    {
-        id: 6,
-        title: 'Sequential Circuits Design',
-        category: 'verilog',
-        image: 'images/seq_output1.jpeg',
-        description: 'Comprehensive collection of sequential circuits including flip-flops, counters, and shift registers.',
-        tags: ['Verilog', 'Sequential Logic', 'RTL'],
-        github: 'https://github.com/DHANASANKAR2003',
-        details: `
-      <h3>🎉 Sequential Circuits in Verilog</h3>
-      <p>Successfully designed and simulated major sequential circuits using Verilog HDL.</p>
-      
-      <h4>Implemented Circuits:</h4>
-      <ul>
-        <li>✅ D, T, JK, SR Flip-Flops</li>
-        <li>✅ Up/Down Counters</li>
-        <li>✅ Ring Counter</li>
-        <li>✅ SISO, SIPO, PISO, PIPO Registers</li>
-        <li>✅ Bidirectional & Universal Shift Registers</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/seq_code1.jpeg" alt="Sequential Code 1" />
-        <img src="images/seq_waveform.jpeg" alt="Sequential Waveform" />
-      </div>
-    `
-    },
-    {
-        id: 7,
-        title: 'Real-Time FPGA Image Processing',
-        category: 'fpga',
-        image: 'images/fpga_project2.jpeg',
-        description: 'High-performance FPGA-based real-time image processing with 46 filters on Artix-7.',
-        tags: ['FPGA', 'Vivado', 'Real-Time'],
-        github: 'https://github.com/DHANASANKAR2003',
-        details: `
-      <h3>🚀 Real-Time FPGA Image Processing</h3>
-      <p>Advanced project implementing real-time image processing on Edge Artix-7 FPGA Board.</p>
-      
-      <h4>⚙️ System Architecture:</h4>
-      <ul>
-        <li>OV5640 camera module for image capture</li>
-        <li>46 unique pixel-level filters</li>
-        <li>6-bit switch-controlled filter selection</li>
-        <li>Real-time VGA display output</li>
-        <li>Sobel edge detection core</li>
-      </ul>
-      
-      <h4>🧠 Tools Used:</h4>
-      <ul>
-        <li>Xilinx Vivado Design Suite</li>
-        <li>Verilog HDL</li>
-        <li>Edge Artix-7 FPGA Board</li>
-      </ul>
-      
-      <div class="project-images">
-        <img src="images/fpga_project1.jpeg" alt="FPGA Setup" />
-        <img src="images/fpga_project3.jpeg" alt="Verilog Code" />
-        <img src="images/fpga_output_image.jpeg" alt="FPGA Output" />
-      </div>
-    `
-    },
-    {
-        id: 8,
-        title: 'Dual Axis Solar Tracker',
-        category: 'embedded',
-        image: 'academic1.jpg',
-        description: 'Real-time solar tracking system using Arduino and LDR sensors with servo motor control.',
-        tags: ['Arduino', 'Embedded', 'IoT'],
-        github: '',
-        details: `
-      <h3>📌 Dual Axis Solar Tracker</h3>
-      <p>Real-time solar tracking embedded system that intelligently orients solar panels towards the sun.</p>
-      
-      <h4>🔧 Hardware Components:</h4>
-      <ul>
-        <li>Arduino Uno – Central controller</li>
-        <li>4 LDR Sensors – Sunlight direction detection</li>
-        <li>2 Servo Motors – Panel movement</li>
-        <li>Solar Panel – Energy harvesting unit</li>
-      </ul>
-      
-      <h4>🏆 Achievements:</h4>
-      <ul>
-        <li>1st Prize in Galaxy Fest Technical Symposium</li>
-        <li>Best Innovation Award at SSM College</li>
-        <li>30% efficiency improvement over static panels</li>
-      </ul>
-    `
+        tags: ['Verilog', 'FSM', 'Control Systems']
     }
 ];
 
@@ -260,9 +107,11 @@ class ProjectManager {
 
     renderProjects() {
         const grid = document.getElementById('projectsGrid');
-        if (!grid) return;
+        if (!grid) {
+            console.error('Project grid not found!');
+            return;
+        }
 
-        // Clear grid but keep the reference
         grid.innerHTML = '';
 
         const filteredProjects = this.currentFilter === 'all'
@@ -276,7 +125,7 @@ class ProjectManager {
             grid.appendChild(card);
         });
 
-        // Re-initialize tilt effect for new cards
+        // Initialize tilt effect if available
         if (window.initTilt) {
             setTimeout(window.initTilt, 100);
         }
@@ -290,16 +139,14 @@ class ProjectManager {
 
     createProjectCard(project, index) {
         const card = document.createElement('div');
-        card.className = 'project-card animate-on-scroll';
+        card.className = 'project-card animate-on-scroll animated'; // Added 'animated' fix
         card.style.animationDelay = `${index * 0.1}s`;
         card.setAttribute('data-project-id', project.id);
 
-        // Generate a deterministic gradient based on project ID for fallback
         const hue = (project.id * 137.5) % 360;
         const fallbackGradient = `linear-gradient(135deg, hsl(${hue}, 60%, 20%), hsl(${hue + 40}, 60%, 30%))`;
 
         card.innerHTML = `
-      <div class="card-inner">
         <div class="card-image-wrapper">
           <div class="card-overlay"></div>
           <img 
@@ -309,14 +156,8 @@ class ProjectManager {
             onerror="this.onerror=null; this.parentElement.style.background='${fallbackGradient}'; this.style.display='none';"
           />
           <div class="card-actions">
-            <button class="btn-icon view-details" aria-label="View Details">
-              <i class="fas fa-eye"></i>
-            </button>
-            ${project.github ? `
-              <a href="${project.github}" target="_blank" class="btn-icon" aria-label="View Code" onclick="event.stopPropagation()">
-                <i class="fab fa-github"></i>
-              </a>
-            ` : ''}
+            <button class="btn-icon view-details"><i class="fas fa-eye"></i></button>
+            ${project.github ? `<a href="${project.github}" target="_blank" class="btn-icon"><i class="fab fa-github"></i></a>` : ''}
           </div>
         </div>
         <div class="project-content">
@@ -324,10 +165,9 @@ class ProjectManager {
           <h3 class="project-title">${project.title}</h3>
           <p class="project-description">${project.description}</p>
           <div class="project-tags">
-            ${project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+            ${project.tags ? project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('') : ''}
           </div>
         </div>
-      </div>
     `;
 
         card.addEventListener('click', () => this.openModal(project));
@@ -337,35 +177,19 @@ class ProjectManager {
 
     setupFilters() {
         const filterBtns = document.querySelectorAll('.filter-btn');
-
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-
                 this.currentFilter = btn.getAttribute('data-filter');
-                this.displayedProjects = 6;
-
-                // Animate grid out
-                const grid = document.getElementById('projectsGrid');
-                grid.style.opacity = '0';
-                grid.style.transform = 'translateY(20px)';
-
-                setTimeout(() => {
-                    this.renderProjects();
-                    // Animate grid in
-                    grid.style.opacity = '1';
-                    grid.style.transform = 'translateY(0)';
-                }, 300);
+                this.renderProjects();
             });
         });
     }
 
     setupLoadMore() {
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        if (!loadMoreBtn) return;
-
-        loadMoreBtn.addEventListener('click', () => {
+        const btn = document.getElementById('loadMoreBtn');
+        if (btn) btn.addEventListener('click', () => {
             this.displayedProjects += 6;
             this.renderProjects();
         });
@@ -374,42 +198,20 @@ class ProjectManager {
     setupModal() {
         const modal = document.getElementById('projectModal');
         const closeBtn = modal.querySelector('.modal-close');
-
-        closeBtn.addEventListener('click', () => this.closeModal());
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                this.closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                this.closeModal();
-            }
-        });
+        if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
     }
 
     openModal(project) {
         const modal = document.getElementById('projectModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalBody = document.getElementById('modalBody');
+        const title = document.getElementById('modalTitle');
+        const body = document.getElementById('modalBody');
 
-        modalTitle.textContent = project.title;
-        modalBody.innerHTML = project.details;
-
+        title.textContent = project.title;
+        body.innerHTML = project.details || project.description;
         modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    closeModal() {
-        const modal = document.getElementById('projectModal');
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
     }
 }
 
-// Initialize project manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new ProjectManager();
 });
