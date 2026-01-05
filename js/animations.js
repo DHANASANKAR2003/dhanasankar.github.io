@@ -19,6 +19,7 @@ class ScrollAnimations {
 
     setupScrollProgress() {
         const progressBar = document.querySelector('.scroll-progress');
+        if (!progressBar) return;
 
         window.addEventListener('scroll', () => {
             const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -92,18 +93,14 @@ class ScrollAnimations {
 
     setupNavbarScroll() {
         const navbar = document.getElementById('navbar');
-        let lastScroll = 0;
+        if (!navbar) return;
 
         window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-
-            if (currentScroll > 100) {
+            if (window.pageYOffset > 100) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
-
-            lastScroll = currentScroll;
         });
     }
 }
@@ -150,102 +147,10 @@ class TypeWriter {
     }
 }
 
-// Parallax Effect
-class ParallaxEffect {
-    constructor() {
-        this.elements = document.querySelectorAll('[data-parallax]');
-        this.init();
-    }
-
-    init() {
-        window.addEventListener('scroll', () => {
-            this.elements.forEach(element => {
-                const speed = element.getAttribute('data-parallax') || 0.5;
-                const yPos = -(window.pageYOffset * speed);
-                element.style.transform = `translateY(${yPos}px)`;
-            });
-        });
-    }
-}
-
-// Smooth Scroll for Navigation Links
-class SmoothScroll {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-
-                if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(link => {
-                        link.classList.remove('active');
-                    });
-                    anchor.classList.add('active');
-
-                    // Close mobile menu if open
-                    const navMenu = document.getElementById('navMenu');
-                    const hamburger = document.getElementById('hamburger');
-                    if (navMenu.classList.contains('active')) {
-                        navMenu.classList.remove('active');
-                        hamburger.classList.remove('active');
-                    }
-                }
-            });
-        });
-    }
-}
-
-// Active Section Highlighter
-class ActiveSectionHighlighter {
-    constructor() {
-        this.sections = document.querySelectorAll('section[id]');
-        this.navLinks = document.querySelectorAll('.nav-link');
-        this.init();
-    }
-
-    init() {
-        window.addEventListener('scroll', () => {
-            let current = '';
-
-            this.sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-
-                if (window.pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            this.navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    }
-}
-
 // 3D Tilt Effect
 class TiltEffect {
     constructor(element) {
         this.element = element;
-        this.content = element.querySelector('.project-content') || element;
-        this.glare = document.createElement('div');
-        this.glare.className = 'tilt-glare';
-        this.element.appendChild(this.glare);
-
         this.init();
     }
 
@@ -258,117 +163,34 @@ class TiltEffect {
         const rect = this.element.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
-
-        const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg rotation
+        const rotateX = ((y - centerY) / centerY) * -10;
         const rotateY = ((x - centerX) / centerX) * 10;
-
         this.element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-
-        // Glare effect
-        const glareX = (x / rect.width) * 100;
-        const glareY = (y / rect.height) * 100;
-        this.glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255,255,255,0.3), transparent 50%)`;
-        this.glare.style.opacity = '1';
     }
 
     handleLeave() {
         this.element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        this.glare.style.opacity = '0';
     }
 }
 
-// Text Scramble Effect
-class TextScramble {
-    constructor(el) {
-        this.el = el;
-        this.chars = '!<>-_\\/[]{}—=+*^?#________';
-        this.update = this.update.bind(this);
-    }
-
-    setText(newText) {
-        const oldText = this.el.innerText;
-        const length = Math.max(oldText.length, newText.length);
-        const promise = new Promise((resolve) => this.resolve = resolve);
-        this.queue = [];
-        for (let i = 0; i < length; i++) {
-            const from = oldText[i] || '';
-            const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 40);
-            const end = start + Math.floor(Math.random() * 40);
-            this.queue.push({ from, to, start, end });
-        }
-        cancelAnimationFrame(this.frameRequest);
-        this.frame = 0;
-        this.update();
-        return promise;
-    }
-
-    update() {
-        let output = '';
-        let complete = 0;
-        for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i];
-            if (this.frame >= end) {
-                complete++;
-                output += to;
-            } else if (this.frame >= start) {
-                if (!char || Math.random() < 0.28) {
-                    char = this.randomChar();
-                    this.queue[i].char = char;
-                }
-                output += `<span class="dud">${char}</span>`;
-            } else {
-                output += from;
-            }
-        }
-        this.el.innerHTML = output;
-        if (complete === this.queue.length) {
-            this.resolve();
-        } else {
-            this.frameRequest = requestAnimationFrame(this.update);
-            this.frame++;
-        }
-    }
-
-    randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)];
-    }
-}
-
-// Initialize all animations when DOM is loaded
+// Setup smooth scroll and active state
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize scroll animations
     new ScrollAnimations();
 
-    // Initialize typewriter effect
     const typewriterElement = document.getElementById('typewriter');
     if (typewriterElement) {
-        const phrases = [
+        new TypeWriter(typewriterElement, [
             'VLSI Design Engineer',
             'RTL Design Specialist',
-            'FPGA Developer',
-            'Verification Engineer',
-            'Digital Design Expert'
-        ];
-        new TypeWriter(typewriterElement, phrases);
+            'Design Verification Expert',
+            'FPGA Developer'
+        ]);
     }
 
-    // Initialize parallax effect
-    new ParallaxEffect();
-
-    // Initialize smooth scroll
-    new SmoothScroll();
-
-    // Initialize active section highlighter
-    new ActiveSectionHighlighter();
-
     // Initialize 3D Tilt for cards
-    // Wait for projects to load or use mutation observer, but for now select existing ones
-    // Note: Project cards are dynamic, so we might need to call this after rendering
-    // We'll expose a global init function for tilt
+    // Expose as global for ProjectManager to call after rendering
     window.initTilt = () => {
         document.querySelectorAll('.project-card, .hero-image-wrapper').forEach(el => {
             if (!el.classList.contains('tilt-initialized')) {
@@ -380,20 +202,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial call
     setTimeout(window.initTilt, 1000);
-
-    // Initialize Text Scramble for headings
-    const headings = document.querySelectorAll('.section-title');
-    headings.forEach(h => {
-        const scrambler = new TextScramble(h);
-        // Optional: Trigger on scroll
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !entry.target.classList.contains('scrambled')) {
-                    scrambler.setText(entry.target.innerText);
-                    entry.target.classList.add('scrambled');
-                }
-            });
-        });
-        observer.observe(h);
-    });
 });
