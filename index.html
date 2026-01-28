@@ -53,8 +53,6 @@
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
-    <!-- Waveform Background Canvas -->
-    <canvas id="waveformCanvas"></canvas>
 
     <!-- Particle Background Canvas -->
     <canvas id="particleCanvas"></canvas>
@@ -109,6 +107,36 @@
         <div class="hud-corner hud-corner-bl"></div>
         <div class="hud-corner hud-corner-br"></div>
         <div class="hero-content">
+            <!-- AI HUD System Status -->
+            <div class="ai-hud-panel animate-on-scroll">
+                <div class="hud-header">
+                    <span class="hud-title">NEURAL INTERFACE</span>
+                    <span class="hud-status">SYNC: ONLINE</span>
+                </div>
+                <div class="hud-metrics">
+                    <div class="metric-item">
+                        <span class="label">NEURAL LOAD</span>
+                        <div class="progress-mini">
+                            <div class="bar" style="width: 74%;"></div>
+                        </div>
+                        <span class="value">74.2%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="label">LATENCY</span>
+                        <span class="value">0.003ms</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="label">CORE TEMP</span>
+                        <span class="value">42°C</span>
+                    </div>
+                </div>
+                <div class="hud-console" id="aiConsole">
+                    <div class="console-line">> Initializing AI Core...</div>
+                    <div class="console-line">> Neural mapping complete.</div>
+                    <div class="console-line">> System status: Nominal.</div>
+                </div>
+            </div>
+
             <div class="hero-image-wrapper animate-on-scroll">
                 <div class="image-glow"></div>
                 <img src="images/your-photo.jpg" alt="Dhanasankar K Photo" class="hero-image" />
@@ -641,7 +669,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/waveforms.js"></script>
     <script src="js/particles.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/projects.js"></script>
