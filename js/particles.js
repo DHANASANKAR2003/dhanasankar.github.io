@@ -1,144 +1,144 @@
-/**
- * ==========================================================================
- * DHANASANKAR K - INDUSTRIAL PARTICLE KERNEL
- * Architecture: Optimized Canvas-Based Signal Node Simulation
- * 
- * Logic Modules:
- * - Fluid Dynamic Node Physics
- * - Quad-Tree Link Logic
- * - Adaptive High-DPI Scaling
- * ==========================================================================
- */
-
-class IndustrialParticleSystem {
-    constructor(config = {}) {
-        this.canvas = document.createElement('canvas');
-        this.ctx = this.canvas.getContext('2d');
-        this.config = {
-            count: config.count || 50,
-            radius: config.radius || 150,
-            color: config.color || '#00e5ff',
-            opacity: config.opacity || 0.4
-        };
+// Circuit Board Particle System - Optimized for Background Video
+class ParticleSystem {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d');
         this.particles = [];
-        this.mouse = { x: null, y: null };
+        this.particleCount = 50; // Reduced for performance over video
+        this.mouse = { x: null, y: null, radius: 180 };
 
         this.init();
+        this.setupEventListeners();
+        this.animate();
     }
 
     init() {
-        this.canvas.id = 'industrialParticleCanvas';
-        this.applyIndustrialStyling();
-        document.body.appendChild(this.canvas);
-
         this.resize();
-        this.generateInfrastructure();
-        this.attachListeners();
-        this.bootSequence();
-    }
-
-    applyIndustrialStyling() {
-        Object.assign(this.canvas.style, {
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            width: '100%',
-            height: '100%',
-            zIndex: '-5',
-            pointerEvents: 'none',
-            opacity: this.config.opacity
-        });
+        this.createParticles();
     }
 
     resize() {
-        const dpr = window.devicePixelRatio || 1;
-        this.canvas.width = window.innerWidth * dpr;
-        this.canvas.height = window.innerHeight * dpr;
-        this.ctx.scale(dpr, dpr);
+        this.canvas.width = window.innerWidth;
+        this.canvas.height = window.innerHeight;
     }
 
-    generateInfrastructure() {
-        this.particles = Array.from({ length: this.config.count }, () => ({
-            x: Math.random() * window.innerWidth,
-            y: Math.random() * window.innerHeight,
-            size: Math.random() * 2 + 0.5,
-            vx: (Math.random() - 0.5) * 0.4,
-            vy: (Math.random() - 0.5) * 0.4
-        }));
+    createParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push(new Particle(this.canvas));
+        }
     }
 
-    attachListeners() {
+    setupEventListeners() {
         window.addEventListener('resize', () => {
             this.resize();
-            this.generateInfrastructure();
+            this.createParticles();
         });
+
         window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
+            this.mouse.x = e.x;
+            this.mouse.y = e.y;
         });
     }
 
-    bootSequence() {
-        const render = () => {
-            this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-            this.ctx.fillStyle = this.config.color;
-            this.ctx.strokeStyle = this.config.color;
+    drawConnections() {
+        this.ctx.lineWidth = 0.8;
 
-            this.particles.forEach((p, i) => {
-                p.x += p.vx;
-                p.y += p.vy;
+        for (let i = 0; i < this.particles.length; i++) {
+            for (let j = i + 1; j < this.particles.length; j++) {
+                const p1 = this.particles[i];
+                const p2 = this.particles[j];
 
-                // Screen Boundary Wrap
-                if (p.x < 0) p.x = window.innerWidth;
-                if (p.x > window.innerWidth) p.x = 0;
-                if (p.y < 0) p.y = window.innerHeight;
-                if (p.y > window.innerHeight) p.y = 0;
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
 
-                this.ctx.beginPath();
-                this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                this.ctx.fill();
+                if (distance < 160) {
+                    const opacity = (1 - (distance / 160)) * 0.2;
+                    this.ctx.strokeStyle = `rgba(0, 242, 255, ${opacity})`;
 
-                // Advanced Proximity Connection Logic
-                for (let j = i + 1; j < this.particles.length; j++) {
-                    const p2 = this.particles[j];
-                    const dx = p.x - p2.x;
-                    const dy = p.y - p2.y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(p1.x, p1.y);
 
-                    if (dist < 150) {
-                        this.ctx.globalAlpha = (1 - dist / 150) * 0.2;
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(p.x, p.y);
-                        this.ctx.lineTo(p2.x, p2.y);
-                        this.ctx.stroke();
-                        this.ctx.globalAlpha = 1;
+                    // Circuit-like connections (Manhattan style)
+                    if ((i + j) % 2 === 0) {
+                        this.ctx.lineTo(p2.x, p1.y);
+                    } else {
+                        this.ctx.lineTo(p1.x, p2.y);
                     }
+                    this.ctx.lineTo(p2.x, p2.y);
+                    this.ctx.stroke();
                 }
+            }
+        }
+    }
 
-                // Interactive Mouse Connection
-                if (this.mouse.x) {
-                    const mdx = p.x - this.mouse.x;
-                    const mdy = p.y - this.mouse.y;
-                    const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-                    if (mdist < this.config.radius) {
-                        this.ctx.globalAlpha = (1 - mdist / this.config.radius) * 0.3;
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(p.x, p.y);
-                        this.ctx.lineTo(this.mouse.x, this.mouse.y);
-                        this.ctx.stroke();
-                        this.ctx.globalAlpha = 1;
-                    }
-                }
-            });
+    animate() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-            requestAnimationFrame(render);
-        };
-        render();
+        this.particles.forEach(particle => {
+            particle.update(this.mouse);
+            particle.draw(this.ctx);
+        });
+
+        this.drawConnections();
+
+        requestAnimationFrame(() => this.animate());
+    }
+}
+
+class Particle {
+    constructor(canvas) {
+        this.canvas = canvas;
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speed = Math.random() * 0.4 + 0.1;
+        this.direction = Math.floor(Math.random() * 4);
+        this.color = `rgba(0, 242, 255, ${Math.random() * 0.4 + 0.3})`;
+    }
+
+    update(mouse) {
+        switch (this.direction) {
+            case 0: this.y -= this.speed; break;
+            case 1: this.x += this.speed; break;
+            case 2: this.y += this.speed; break;
+            case 3: this.x -= this.speed; break;
+        }
+
+        if (this.x > this.canvas.width) this.x = 0;
+        if (this.x < 0) this.x = this.canvas.width;
+        if (this.y > this.canvas.height) this.y = 0;
+        if (this.y < 0) this.y = this.canvas.height;
+
+        if (mouse.x !== null && mouse.y !== null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius) {
+                const force = (mouse.radius - distance) / mouse.radius;
+                const angle = Math.atan2(dy, dx);
+                this.x -= Math.cos(angle) * force * 1.5;
+                this.y -= Math.sin(angle) * force * 1.5;
+            }
+        }
+    }
+
+    draw(ctx) {
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.SYS_PARTICLES = new IndustrialParticleSystem();
+    const canvas = document.getElementById('particleCanvas');
+    if (canvas) new ParticleSystem(canvas);
 });
-
-console.log('✔ INDUSTRIAL_PARTICLE_KERNEL: DEPLOYED');
