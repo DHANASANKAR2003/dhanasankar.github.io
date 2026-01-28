@@ -51,8 +51,51 @@ class PortfolioApp {
         this.setupMobileMenu();
         this.setupContactForm();
         this.setupThemeToggle();
+        this.setupAIHUD();
 
-        console.log('🚀 VLSI Portfolio Ready');
+        console.log('🚀 AI-Enhanced Portfolio Active');
+    }
+
+    setupAIHUD() {
+        const consoleEl = document.getElementById('aiConsole');
+        const loadBar = document.querySelector('.ai-hud-panel .bar');
+        const loadValue = document.querySelector('.ai-hud-panel .metric-item:first-child .value');
+
+        if (!consoleEl) return;
+
+        const messages = [
+            "Analyzing hardware architecture...",
+            "Loading RTL design modules...",
+            "Synchronizing neural pathways...",
+            "Optimization level: MAXIMUM",
+            "VLSI system status: NOMINAL",
+            "AI Core: Active and stable",
+            "Scanning for IP cores...",
+            "Verification engine: RUNNING",
+            "CDC Bridge: LOCKED",
+            "Interface protocol: HANDSHAKE"
+        ];
+
+        let msgIdx = 0;
+        setInterval(() => {
+            const line = document.createElement('div');
+            line.className = 'console-line';
+            line.textContent = `> ${messages[msgIdx]}`;
+            consoleEl.appendChild(line);
+            consoleEl.scrollTop = consoleEl.scrollHeight;
+            msgIdx = (msgIdx + 1) % messages.length;
+
+            if (consoleEl.children.length > 20) {
+                consoleEl.removeChild(consoleEl.firstChild);
+            }
+        }, 3000);
+
+        // Simulate metric fluctuations
+        setInterval(() => {
+            const load = (70 + Math.random() * 10).toFixed(1);
+            if (loadBar) loadBar.style.width = `${load}%`;
+            if (loadValue) loadValue.textContent = `${load}%`;
+        }, 2000);
     }
 
     setupMobileMenu() {
@@ -82,7 +125,7 @@ class PortfolioApp {
         if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Connection established! Your message has been routed to the local host.');
+                alert('Connection established! Your message has been routed to the AI core.');
                 form.reset();
             });
         }
