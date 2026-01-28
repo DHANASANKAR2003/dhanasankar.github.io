@@ -1,3 +1,7 @@
+/**
+ * VLSI PORTFOLIO - WAVEFORM VISUALIZER
+ * Simulates high-precision digital signal traces on background canvas.
+ */
 class WaveformSystem {
     constructor(canvas) {
         this.canvas = canvas;
@@ -5,10 +9,8 @@ class WaveformSystem {
         this.signals = [];
         this.signalCount = 8;
         this.time = 0;
-        this.speed = 2;
-        this.scale = 20;
-
-        this.colors = ['#00ff00', '#00cfff', '#ff0055', '#ffe600'];
+        this.speed = 1.5;
+        this.colors = ['#00ff00', '#3fa2f6', '#ff3366', '#ffe600'];
         this.init();
     }
 
@@ -22,16 +24,17 @@ class WaveformSystem {
     resize() {
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;
-        this.signalHeight = this.canvas.height / (this.signalCount + 2);
+        this.signalHeight = this.canvas.height / (this.signalCount + 4);
     }
 
     createSignals() {
         this.signals = [
-            { name: 'CLK', type: 'clock', period: 40, color: this.colors[1], data: [] },
-            { name: 'RST_N', type: 'stable', value: 1, color: this.colors[2], data: [] },
-            { name: 'ADDR[31:0]', type: 'bus', color: this.colors[0], data: [] },
-            { name: 'WDATA[31:0]', type: 'bus', color: this.colors[3], data: [] },
-            { name: 'READY', type: 'bit', color: this.colors[1], data: [], changeProb: 0.02 }
+            { name: 'CLK_50M', type: 'clock', period: 30, color: this.colors[1], data: [] },
+            { name: 'RST_ASYNC_N', type: 'stable', value: 1, color: this.colors[2], data: [] },
+            { name: 'AXI4_ADDR[31:0]', type: 'bus', color: this.colors[0], data: [] },
+            { name: 'AXI4_WDATA[31:0]', type: 'bus', color: this.colors[3], data: [] },
+            { name: 'SPI_MOSI', type: 'bit', color: this.colors[1], data: [], changeProb: 0.05 },
+            { name: 'FIFO_EMPTY', type: 'bit', color: this.colors[2], data: [], changeProb: 0.02 }
         ];
     }
 
@@ -47,29 +50,31 @@ class WaveformSystem {
                 }
                 signal.data.push({ t: this.time, v: signal.value || 0 });
             }
-            signal.data = signal.data.filter(d => d.t > this.time - this.canvas.width - 100);
+            // Keep buffer reasonable
+            if (signal.data.length > 1000) signal.data.shift();
         });
     }
 
     draw() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.globalAlpha = 0.3;
         this.ctx.lineWidth = 1;
-        this.ctx.font = '10px "Fira Code", monospace';
+        this.ctx.font = '9px "Fira Code", monospace';
 
         this.signals.forEach((signal, index) => {
-            const yBase = (index + 1) * this.signalHeight;
-            const yHigh = yBase - 15;
-            const yLow = yBase + 15;
+            const yBase = (index + 2) * this.signalHeight;
+            const yHigh = yBase - 12;
+            const yLow = yBase + 12;
 
             this.ctx.strokeStyle = signal.color;
             this.ctx.fillStyle = signal.color;
-            this.ctx.fillText(signal.name, 10, yBase);
+            this.ctx.fillText(signal.name, 20, yBase);
 
             this.ctx.beginPath();
             let first = true;
             signal.data.forEach(point => {
-                const x = point.t - (this.time - this.canvas.width);
-                if (x < 100) return;
+                const x = this.canvas.width - (this.time - point.t);
+                if (x < 120 || x > this.canvas.width) return;
                 const yLevel = point.v ? yHigh : yLow;
                 if (first) {
                     this.ctx.moveTo(x, yLevel);
@@ -90,6 +95,18 @@ class WaveformSystem {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('waveformCanvas');
-    if (canvas) new WaveformSystem(canvas);
+    // Only inject waveform canvas if it exists in HTML
+    let canvas = document.getElementById('waveformCanvas');
+    if (!canvas) {
+        canvas = document.createElement('canvas');
+        canvas.id = 'waveformCanvas';
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '-3';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.opacity = '0.4';
+        document.body.appendChild(canvas);
+    }
+    new WaveformSystem(canvas);
 });
