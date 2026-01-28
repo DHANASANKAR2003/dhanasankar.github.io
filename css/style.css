@@ -106,7 +106,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.65) contrast(1.1) saturate(1.2);
     opacity: 1;
     transition: opacity 1s ease;
 }
@@ -118,8 +117,7 @@ body {
     width: 100%;
     height: 100%;
     background: radial-gradient(circle at 50% 50%, transparent 20%, var(--bg-dark) 100%),
-        rgba(10, 14, 20, 0.45);
-    backdrop-filter: blur(1.5px);
+        rgba(10, 14, 20, 0.3);
 }
 
 .video-overlay::after {
@@ -135,87 +133,6 @@ body {
     pointer-events: none;
 }
 
-/* Side HUD Systems */
-.side-hud {
-    position: fixed;
-    top: 120px;
-    z-index: 100;
-    pointer-events: none;
-}
-
-.side-hud-left {
-    left: 40px;
-}
-
-.side-hud-right {
-    right: 40px;
-}
-
-.hud-box {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 242, 255, 0.1);
-    padding: 1rem;
-    width: 180px;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    animation: slideInHUD 1s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.hud-box-header {
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    color: var(--primary);
-    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.3rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-.hud-stat {
-    font-family: var(--font-code);
-    font-size: 0.7rem;
-    color: var(--text-muted);
-    margin-bottom: 0.3rem;
-}
-
-.hud-mini-graph {
-    display: flex;
-    align-items: flex-end;
-    gap: 4px;
-    height: 40px;
-    margin-top: 0.5rem;
-}
-
-.graph-bar {
-    flex: 1;
-    background: var(--primary);
-    opacity: 0.5;
-    transition: height 0.3s ease;
-}
-
-.hud-log {
-    font-family: var(--font-code);
-    font-size: 0.55rem;
-    color: var(--primary);
-    opacity: 0.7;
-    height: 60px;
-    overflow: hidden;
-}
-
-@keyframes slideInHUD {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
 
 /* Advanced Navigation */
 .header {
