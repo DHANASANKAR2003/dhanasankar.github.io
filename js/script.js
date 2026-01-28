@@ -134,7 +134,6 @@ class PortfolioController {
 
     setupHUDSystem() {
         const aiConsole = document.getElementById('aiConsole');
-        const miniLog = document.getElementById('miniLog');
         const metricBar = document.querySelector('.ai-hud-panel .bar');
         const metricVal = document.querySelector('.ai-hud-panel .value');
 
@@ -147,10 +146,6 @@ class PortfolioController {
             'CDC boundary check: Zero errors',
             'Power dissipation optimized',
             'SoC interface handshake successful'
-        ];
-
-        const miniMsgs = [
-            'COV: 89.2%', 'PASS', 'SEQ_BUSY', 'DRV_STBL', 'MON_ACTV'
         ];
 
         // Central HUD Console
@@ -169,18 +164,6 @@ class PortfolioController {
             if (metricVal) metricVal.textContent = `${randomLoad}%`;
 
         }, 3000);
-
-        // Sidebar Mini-Log
-        setInterval(() => {
-            if (miniLog) {
-                miniLog.textContent = `> ${miniMsgs[Math.floor(Math.random() * miniMsgs.length)]}\n> ${miniMsgs[Math.floor(Math.random() * miniMsgs.length)]}`;
-
-                // Animate bars in left HUD
-                document.querySelectorAll('.graph-bar').forEach(bar => {
-                    bar.style.height = (Math.random() * 80 + 20) + '%';
-                });
-            }
-        }, 2000);
     }
 
     setupScrollEffects() {
