@@ -297,9 +297,12 @@ body {
 .hero-text.full-width-hero {
     text-align: center;
     width: 100%;
+    max-width: 1200px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 2rem;
+    overflow: visible;
 }
 
 .ai-hud-panel {
@@ -315,13 +318,15 @@ body {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 4rem;
-    line-height: 1.2;
+    font-size: 3.5rem;
+    line-height: 1.3;
     margin-bottom: 1rem;
     color: var(--text-light);
     text-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     width: 100%;
+    white-space: nowrap;
+    overflow: visible;
 }
 
 .hero-tagline {
@@ -1149,7 +1154,9 @@ body {
     }
 
     .hero-title {
-        font-size: 4rem;
+        font-size: 2.8rem !important;
+        white-space: normal !important;
+        letter-spacing: 1px !important;
     }
 
     .hero-content {
@@ -1169,11 +1176,12 @@ body {
     }
 
     .hero-title {
-        font-size: 3rem;
+        font-size: 2rem !important;
+        white-space: normal !important;
     }
 
-    .hero-subtitle {
-        font-size: 1.5rem;
+    .hero-tagline {
+        font-size: 1.3rem !important;
     }
 
     .contact-detailed-grid {
