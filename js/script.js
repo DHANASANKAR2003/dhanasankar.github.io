@@ -1,122 +1,94 @@
-/**
- * ==========================================================================
- * DHANASANKAR K - PROFESSIONAL SYSTEM ORCHESTRATOR
- * Architecture: Event-Driven Industrial Interface Controller
- * 
- * Logic Modules:
- * - Adaptive Navigation Tracking
- * - Smooth-Scroll Interception
- * - Custom Industrial Cursor Physics
- * - System Signal Confirmation (Forms)
- * ==========================================================================
- */
-
-class IndustrialOrchestrator {
+// Custom Cursor
+class CustomCursor {
     constructor() {
-        this.header = document.getElementById('header');
-        this.cursor = document.querySelector('.industrial-cursor');
-        this.cursorDot = document.querySelector('.industrial-cursor-dot');
-        this.navLinks = document.querySelectorAll('.nav-link-industrial');
+        this.dot = document.querySelector('.cursor-dot');
+        this.outline = document.querySelector('.cursor-outline');
+        if (!this.dot || !this.outline) return;
+
+        this.mouse = { x: 0, y: 0 };
+        this.dotPos = { x: 0, y: 0 };
+        this.outlinePos = { x: 0, y: 0 };
 
         this.init();
     }
 
     init() {
-        this.initializeScrollHandling();
-        this.initializeCursorPhysics();
-        this.initializeNavigationlogic();
-        this.initializeSignalTransmission();
-
-        console.log('%c [SYSTEM_READY] Professional Portfolio Orchestrator Active ', 'background: #00e5ff; color: #03030d; font-weight: bold; border-radius: 4px; padding: 4px 8px;');
-    }
-
-    initializeScrollHandling() {
-        const checkScroll = () => {
-            if (window.scrollY > 100) {
-                this.header.classList.add('scrolled');
-            } else {
-                this.header.classList.remove('scrolled');
-            }
-        };
-
-        window.addEventListener('scroll', checkScroll);
-        checkScroll();
-    }
-
-    initializeCursorPhysics() {
-        if (!this.cursor) return;
-
-        document.addEventListener('mousemove', (e) => {
-            // Main ring follows with lag
-            setTimeout(() => {
-                this.cursor.style.left = `${e.clientX}px`;
-                this.cursor.style.top = `${e.clientY}px`;
-            }, 50);
-
-            // Dot follows immediately
-            this.cursorDot.style.left = `${e.clientX}px`;
-            this.cursorDot.style.top = `${e.clientY}px`;
+        window.addEventListener('mousemove', (e) => {
+            this.mouse.x = e.clientX;
+            this.mouse.y = e.clientY;
         });
 
-        // Hover expansions for interactive modules
-        document.querySelectorAll('a, button, .glass-card-industrial, .project-industrial-item').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                this.cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-                this.cursor.style.background = 'rgba(0, 229, 255, 0.1)';
-            });
-            el.addEventListener('mouseleave', () => {
-                this.cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-                this.cursor.style.background = 'rgba(0, 229, 255, 0.05)';
-            });
+        this.animate();
+
+        document.querySelectorAll('a, button, .project-card, input, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
         });
     }
 
-    initializeNavigationlogic() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = anchor.getAttribute('href');
-                const targetEl = document.querySelector(targetId);
+    animate() {
+        this.dotPos.x += (this.mouse.x - this.dotPos.x) * 0.3;
+        this.dotPos.y += (this.mouse.y - this.dotPos.y) * 0.3;
+        this.dot.style.transform = `translate(${this.dotPos.x}px, ${this.dotPos.y}px)`;
 
-                if (targetEl) {
-                    const offset = 100;
-                    const position = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+        this.outlinePos.x += (this.mouse.x - this.outlinePos.x) * 0.15;
+        this.outlinePos.y += (this.mouse.y - this.outlinePos.y) * 0.15;
+        this.outline.style.transform = `translate(${this.outlinePos.x}px, ${this.outlinePos.y}px)`;
 
-                    window.scrollTo({
-                        top: position,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
-
-    initializeSignalTransmission() {
-        const contactForm = document.getElementById('contact-gate');
-        if (!contactForm) return;
-
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const submitBtn = contactForm.querySelector('button');
-            const originalMarkup = submitBtn.innerHTML;
-
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING_SIGNAL...';
-            submitBtn.disabled = true;
-
-            // Simulate high-performance industrial processing delay
-            setTimeout(() => {
-                alert('SIGNAL_TRANSMITTED: Dhanasankar K has successfully received your data packet.');
-                submitBtn.innerHTML = originalMarkup;
-                submitBtn.disabled = false;
-                contactForm.reset();
-            }, 2500);
-        });
+        requestAnimationFrame(() => this.animate());
     }
 }
 
-/**
- * [SYSTEM_BOOT]
- */
+// Portfolio App Controller
+class PortfolioApp {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        document.body.classList.add('loaded');
+        new CustomCursor();
+        this.setupMobileMenu();
+        this.setupContactForm();
+        this.setupThemeToggle();
+
+        console.log('🚀 VLSI Portfolio Ready');
+    }
+
+    setupMobileMenu() {
+        const ham = document.getElementById('hamburger');
+        const menu = document.getElementById('navMenu');
+        if (ham && menu) {
+            ham.addEventListener('click', () => {
+                ham.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+        }
+    }
+
+    setupThemeToggle() {
+        const btn = document.getElementById('themeToggle');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+            const current = document.body.getAttribute('data-theme');
+            const target = current === 'dark' ? 'light' : 'dark';
+            document.body.setAttribute('data-theme', target);
+            btn.querySelector('i').className = target === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+        });
+    }
+
+    setupContactForm() {
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Connection established! Your message has been routed to the local host.');
+                form.reset();
+            });
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    window.V_SYSTEM = new IndustrialOrchestrator();
+    new PortfolioApp();
 });
