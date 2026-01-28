@@ -80,34 +80,6 @@
         </nav>
     </header>
 
-    <!-- Side HUD Panels -->
-    <div class="side-hud side-hud-left">
-        <div class="hud-box">
-            <div class="hud-box-header">SYSTEM ARCH</div>
-            <div class="hud-stat">CORE_0: ACTIVE</div>
-            <div class="hud-stat">FREQ: 2.4GHz</div>
-            <div class="hud-stat">LOAD: 12%</div>
-            <div class="hud-mini-graph">
-                <div class="graph-bar" style="height: 40%"></div>
-                <div class="graph-bar" style="height: 60%"></div>
-                <div class="graph-bar" style="height: 30%"></div>
-                <div class="graph-bar" style="height: 80%"></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="side-hud side-hud-right">
-        <div class="hud-box">
-            <div class="hud-box-header">VERIF STATS</div>
-            <div class="hud-stat">COV: 89.4%</div>
-            <div class="hud-stat">PASS: 24/25</div>
-            <div class="hud-stat">ERR: 0</div>
-            <div class="hud-log" id="miniLog">
-                > Initializing UVM...
-                > Sequence Started
-            </div>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
@@ -116,25 +88,7 @@
         <div class="hud-corner hud-corner-bl"></div>
         <div class="hud-corner hud-corner-br"></div>
         <div class="hero-content">
-            <!-- Left: System Panel -->
-            <div class="ai-hud-panel animate-on-scroll">
-                <div class="hud-header">
-                    <span class="hud-title">NEURAL INTERFACE</span>
-                    <span class="hud-status">SYNC: ONLINE</span>
-                </div>
-                <div class="hud-metrics">
-                    <div class="metric-item">
-                        <span class="label">NEURAL LOAD</span>
-                        <div class="progress-mini">
-                            <div class="bar" style="width: 74%;"></div>
-                        </div>
-                        <span class="value">74.2%</span>
-                    </div>
-                </div>
-                <div class="hud-console" id="aiConsole"></div>
-            </div>
-
-            <!-- Center: Core Identity -->
+            <!-- Left: Core Identity -->
             <div class="hero-text">
                 <h1 class="hero-title">Dhanasankar K</h1>
                 <div class="hero-tagline">
@@ -156,6 +110,24 @@
                         <i class="fas fa-download"></i> Tech Resume
                     </a>
                 </div>
+            </div>
+
+            <!-- Right: Neural Interface Status Panel -->
+            <div class="ai-hud-panel animate-on-scroll">
+                <div class="hud-header">
+                    <span class="hud-title">NEURAL INTERFACE</span>
+                    <span class="hud-status">SYNC: ONLINE</span>
+                </div>
+                <div class="hud-metrics">
+                    <div class="metric-item">
+                        <span class="label">NEURAL LOAD</span>
+                        <div class="progress-mini">
+                            <div class="bar" style="width: 74%;"></div>
+                        </div>
+                        <span class="value">74.2%</span>
+                    </div>
+                </div>
+                <div class="hud-console" id="aiConsole"></div>
             </div>
         </div>
 
