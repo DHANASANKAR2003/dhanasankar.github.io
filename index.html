@@ -21,11 +21,11 @@
 
 <body data-theme="dark">
 
-    <!-- Background Video -->
+    <!-- Background Engine -->
     <div class="video-container">
-        <video autoplay muted loop playsinline class="bg-video">
+        <video id="vbg" autoplay muted loop playsinline class="bg-video">
             <source src="website_video.mp4" type="video/mp4">
-            <img src="images/bg-fallback.jpg" alt="Background Fallback">
+            <source src="videos/website_video.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -116,6 +116,7 @@
         <div class="hud-corner hud-corner-bl"></div>
         <div class="hud-corner hud-corner-br"></div>
         <div class="hero-content">
+            <!-- Left: System Panel -->
             <div class="ai-hud-panel animate-on-scroll">
                 <div class="hud-header">
                     <span class="hud-title">NEURAL INTERFACE</span>
@@ -133,17 +134,18 @@
                 <div class="hud-console" id="aiConsole"></div>
             </div>
 
+            <!-- Center: Core Identity -->
             <div class="hero-text">
                 <h1 class="hero-title">Dhanasankar K</h1>
-                <h2 class="hero-subtitle">
+                <div class="hero-tagline">
                     <span class="typewriter" id="typewriter"></span>
                     <span class="cursor">|</span>
-                </h2>
+                </div>
                 <p class="hero-description animate-on-scroll">
-                    High-caliber <span class="highlight">VLSI Design Engineer (Trained Fresher)</span> specializing in
-                    architecting robust <span class="highlight">RTL Designs</span>, implementing scalable
-                    <span class="highlight">UVM Verification</span> environments, and deploying optimized
-                    <span class="highlight">FPGA</span> systems.
+                    Professional <span class="highlight">VLSI Design Engineer</span> specializing in
+                    advanced <span class="highlight">RTL Design</span>, scalable <span class="highlight">UVM
+                        Verification</span> environments, and high-performance <span class="highlight">FPGA</span>
+                    systems.
                 </p>
 
                 <div class="hero-buttons animate-on-scroll">
@@ -151,11 +153,20 @@
                         <i class="fas fa-microchip"></i> IP Inventory
                     </a>
                     <a href="#" class="btn btn-secondary">
-                        <i class="fas fa-file-invoice"></i> Tech Spec (Resume)
+                        <i class="fas fa-download"></i> Tech Resume
                     </a>
                 </div>
             </div>
         </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator animate-on-scroll">
+            <span class="scroll-text">SCANNING_DOWN</span>
+            <div class="scroll-bar-trail">
+                <div class="scroll-bar-dot"></div>
+            </div>
+        </div>
+
         <canvas id="particleCanvas"></canvas>
     </section>
 
