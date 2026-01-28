@@ -325,7 +325,6 @@ body {
     text-shadow: 0 0 30px rgba(0, 242, 255, 0.5);
     letter-spacing: 3px;
     width: 100%;
-    white-space: nowrap;
     overflow: visible;
 }
 
