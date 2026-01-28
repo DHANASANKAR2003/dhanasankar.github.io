@@ -289,10 +289,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1400px;
     z-index: 1;
+}
+
+.hero-text.full-width-hero {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .ai-hud-panel {
