@@ -73,7 +73,7 @@ body {
     border-radius: 10px;
 }
 
-/* Video Engine */
+/* Video Engine & Premium Background Fallback */
 .video-container {
     position: fixed;
     top: 0;
@@ -82,13 +82,33 @@ body {
     height: 100%;
     z-index: -5;
     overflow: hidden;
+    /* High-end animated fallback */
+    background: linear-gradient(-45deg, #0a0e14, #15202b, #0a192f, #020c1b);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .bg-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6) contrast(1.1) saturate(1.2);
+    filter: brightness(0.65) contrast(1.1) saturate(1.2);
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
 .video-overlay {
@@ -97,9 +117,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%),
-        rgba(10, 14, 20, 0.4);
-    backdrop-filter: blur(1px);
+    background: radial-gradient(circle at 50% 50%, transparent 20%, var(--bg-dark) 100%),
+        rgba(10, 14, 20, 0.45);
+    backdrop-filter: blur(1.5px);
 }
 
 .video-overlay::after {
@@ -109,9 +129,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
-    background-size: 30px 30px;
+    background: linear-gradient(rgba(0, 242, 255, 0.02) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(0, 242, 255, 0.02) 1.5px, transparent 1.5px);
+    background-size: 40px 40px;
     pointer-events: none;
 }
 
@@ -337,22 +357,24 @@ body {
     box-shadow: var(--glow);
 }
 
-/* Hero Engine */
+/* Hero Engine - Refined Centering */
 .hero-section {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 10%;
+    padding: 120px 5%;
     position: relative;
+    z-index: 10;
 }
 
 .hero-content {
     display: flex;
     align-items: center;
-    gap: 6rem;
+    justify-content: center;
+    gap: 4rem;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1300px;
     z-index: 1;
 }
 
@@ -369,16 +391,22 @@ body {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: 5rem;
+    font-size: 5.5rem;
     line-height: 1.1;
     margin-bottom: 0.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
 }
 
-.hero-subtitle {
+.hero-tagline {
     font-size: 2.5rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
     height: 1.2em;
+    font-family: var(--font-heading);
 }
 
 .typewriter {
@@ -432,6 +460,67 @@ body {
 .btn-secondary:hover {
     background: rgba(0, 242, 255, 0.1);
     transform: translateY(-3px);
+}
+
+/* Scroll Indicator - Dynamic */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 20;
+}
+
+.scroll-text {
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    color: var(--primary);
+    letter-spacing: 3px;
+    opacity: 0.6;
+}
+
+.scroll-bar-trail {
+    width: 2px;
+    height: 60px;
+    background: rgba(0, 242, 255, 0.1);
+    position: relative;
+    border-radius: 2px;
+}
+
+.scroll-bar-dot {
+    width: 100%;
+    height: 20px;
+    background: var(--primary);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 2px;
+    animation: scrollDot 2s ease-in-out infinite;
+    box-shadow: var(--glow);
+}
+
+@keyframes scrollDot {
+    0% {
+        top: 0;
+        height: 2px;
+        opacity: 0;
+    }
+
+    30% {
+        top: 0;
+        height: 30px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        height: 2px;
+        opacity: 0;
+    }
 }
 
 /* Section Architecture */
