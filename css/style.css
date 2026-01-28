@@ -325,10 +325,11 @@ body {
 
 .hero-content {
     max-width: 1400px;
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 6rem;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+    gap: 4rem;
 }
 
 .hero-image-wrapper {
@@ -667,7 +668,8 @@ section {
 /* Responsive */
 @media (max-width: 1024px) {
     .hero-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        justify-content: center;
         text-align: center;
     }
 
@@ -682,6 +684,11 @@ section {
     .hero-title {
         font-size: 4rem;
     }
+
+    .ai-hud-panel {
+        margin: 0 auto;
+        order: 2;
+    }
 }
 
 @media (max-width: 768px) {
@@ -691,5 +698,130 @@ section {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+}
+
+/* AI HUD Panel Styling */
+.ai-hud-panel {
+    background: rgba(10, 25, 47, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 242, 255, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+    z-index: 5;
+    margin-right: 2rem;
+}
+
+.hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.hud-title {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--primary);
+}
+
+.hud-status {
+    font-size: 0.6rem;
+    color: var(--secondary);
+    animation: hud-pulse 1.5s infinite;
+}
+
+.hud-metrics {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.metric-item .label {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.progress-mini {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-mini .bar {
+    height: 100%;
+    background: var(--gradient-primary);
+    box-shadow: var(--glow);
+    transition: width 0.5s ease;
+}
+
+.metric-item .value {
+    font-size: 0.9rem;
+    font-family: var(--font-code);
+    color: var(--primary);
+    text-align: right;
+}
+
+.hud-console {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 0.8rem;
+    font-family: var(--font-code);
+    font-size: 0.7rem;
+    height: 80px;
+    overflow-y: auto;
+    color: var(--primary);
+    opacity: 0.8;
+}
+
+.console-line {
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+}
+
+/* AI Animations */
+@keyframes hud-pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
+/* Neural Network Pulse Effect on Particles */
+@keyframes neural-pulse {
+    0% {
+        filter: drop-shadow(0 0 2px var(--primary));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 10px var(--primary));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 2px var(--primary));
     }
 }
