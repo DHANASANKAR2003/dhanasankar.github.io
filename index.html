@@ -68,7 +68,7 @@
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">Module Info</a></li>
                 <li><a href="#training" class="nav-link">Training</a></li>
-                <li><a href="#skills" class="nav-link">Tech Stack</a></li>
+                <li><a href="#technical" class="nav-link">Technical Pillars</a></li>
                 <li><a href="#projects" class="nav-link">IP Cores</a></li>
                 <li><a href="#insights" class="nav-link">Insights</a></li>
                 <li><a href="#contact" class="nav-link">I/O</a></li>
@@ -253,97 +253,111 @@
         </div>
     </section>
 
-    <!-- Detailed Tech Stack -->
-    <section id="skills" class="container">
+    <!-- Technical Pillars Section -->
+    <section id="technical" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">03.</span> Technical Specification
+            <span class="title-number">03.</span> Technical Mastery Pillars
             <div class="title-line"></div>
         </h2>
-        <div class="skills-detailed-grid">
-            <!-- Front-end Design -->
-            <div class="skill-category-box project-card animate-on-scroll">
-                <div class="category-icon"><i class="fas fa-pencil-ruler"></i></div>
-                <h3>Front-end RTL Design</h3>
-                <div class="skill-meter">
-                    <div class="label">Verilog HDL <span>95%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 95%;"></div>
-                    </div>
+        <div class="technical-grid">
+            <!-- Digital Design Pillar -->
+            <div class="technical-card project-card animate-on-scroll">
+                <div class="pillar-header">
+                    <i class="fas fa-layer-group"></i>
+                    <h3>Digital Design Fundamentals</h3>
                 </div>
-                <div class="skill-meter">
-                    <div class="label">SystemVerilog (Synthesizable) <span>85%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill-meter">
-                    <div class="label">FSM Design (Mealy/Moore) <span>98%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 98%;"></div>
-                    </div>
-                </div>
+                <ul class="technical-bullets">
+                    <li><strong>Number Systems:</strong> Proficient in Binary, Hex, Gray code conversions & arithmetic.
+                    </li>
+                    <li><strong>Combinational Logic:</strong> Expert in K-Map optimization, Mux/De-mux,
+                        Encoders/Decoders, and Adders/Subtractors.</li>
+                    <li><strong>Sequential Logic:</strong> Deep understanding of Latches, Flip-Flops (SR, JK, D, T),
+                        Counters (Sync/Async), and Shift Registers.</li>
+                    <li><strong>Finite State Machines (FSM):</strong> Skilled in Mealy and Moore machine architectures,
+                        state reduction, and transition optimization.</li>
+                    <li><strong>Timing Analysis:</strong> Understanding of Setup time, Hold time, Clock Skew, and
+                        Metastability in digital circuits.</li>
+                </ul>
             </div>
 
-            <!-- Verification -->
-            <div class="skill-category-box project-card animate-on-scroll">
-                <div class="category-icon"><i class="fas fa-vial"></i></div>
-                <h3>Verification Methodology</h3>
-                <div class="skill-meter">
-                    <div class="label">UVM Frameworks <span>80%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 80%;"></div>
-                    </div>
+            <!-- Verilog Pillar -->
+            <div class="technical-card project-card animate-on-scroll">
+                <div class="pillar-header">
+                    <i class="fas fa-code"></i>
+                    <h3>Verilog HDL & RTL Design</h3>
                 </div>
-                <div class="skill-meter">
-                    <div class="label">Assertions (SVA) <span>75%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 75%;"></div>
-                    </div>
-                </div>
-                <div class="skill-meter">
-                    <div class="label">Coverage Driven Verification <span>85%</span></div>
-                    <div class="progress-mini">
-                        <div class="bar" style="width: 85%;"></div>
-                    </div>
-                </div>
+                <ul class="technical-bullets">
+                    <li><strong>Coding Styles:</strong> Expertise in Structural, Dataflow, and Behavioral modeling
+                        styles.</li>
+                    <li><strong>Synthesizable RTL:</strong> Writing clean, synthesizable code avoiding unintended
+                        latches and inferred logic.</li>
+                    <li><strong>Assignments:</strong> In-depth understanding of Blocking vs Non-blocking assignments and
+                        their impact on hardware.</li>
+                    <li><strong>Constructs:</strong> Proficient with Tasks, Functions, Generate blocks, and
+                        Parameterized modeling.</li>
+                    <li><strong>Testbench:</strong> Developing robust self-checking testbenches using file I/O and
+                        timing controls.</li>
+                </ul>
             </div>
 
-            <!-- Tools & Platforms -->
-            <div class="skill-category-box project-card animate-on-scroll">
-                <div class="category-icon"><i class="fas fa-tools"></i></div>
-                <h3>Engineering Ecosystem</h3>
-                <div class="skill-tags">
-                    <span class="tag-item">Vivado 2019.2</span>
-                    <span class="tag-item">Questasim</span>
-                    <span class="tag-item">Icarus Verilog</span>
-                    <span class="tag-item">GTKWave</span>
-                    <span class="tag-item">Xilinx Artix-7</span>
-                    <span class="tag-item">Git/GitHub</span>
-                    <span class="tag-item">Linux/TCL</span>
+            <!-- SystemVerilog Pillar -->
+            <div class="technical-card project-card animate-on-scroll">
+                <div class="pillar-header">
+                    <i class="fas fa-microchip"></i>
+                    <h3>SystemVerilog Verification</h3>
                 </div>
+                <ul class="technical-bullets">
+                    <li><strong>OOP Concepts:</strong> Mastering Classes, Objects, Inheritance, Polymorphism, and
+                        Encapsulation for verification.</li>
+                    <li><strong>Randomization:</strong> Implementing constrained-random stimulus generation using `rand`
+                        and `randc`.</li>
+                    <li><strong>IPC Mechanisms:</strong> Expertise in using Mailboxes, Semaphores, and Events for
+                        synchronization.</li>
+                    <li><strong>Functional Coverage:</strong> Developing Covergroups and Coverpoints to track
+                        verification progress.</li>
+                    <li><strong>Interfaces & Modports:</strong> Using Interfaces to simplify connection between design
+                        and testbench.</li>
+                </ul>
             </div>
 
-            <!-- Protocols -->
-            <div class="skill-category-box project-card animate-on-scroll">
-                <div class="category-icon"><i class="fas fa-network-wired"></i></div>
-                <h3>Interface Protocols</h3>
-                <div class="protocol-list">
-                    <div class="proto-item"><span>AXI4-Lite</span>
-                        <div class="dot active"></div>
-                    </div>
-                    <div class="proto-item"><span>APB 3.0</span>
-                        <div class="dot active"></div>
-                    </div>
-                    <div class="proto-item"><span>I2C</span>
-                        <div class="dot active"></div>
-                    </div>
-                    <div class="proto-item"><span>SPI</span>
-                        <div class="dot active"></div>
-                    </div>
-                    <div class="proto-item"><span>UART</span>
-                        <div class="dot active"></div>
-                    </div>
+            <!-- UVM Pillar -->
+            <div class="technical-card project-card animate-on-scroll">
+                <div class="pillar-header">
+                    <i class="fas fa-check-double"></i>
+                    <h3>UVM Methodology Expertise</h3>
                 </div>
+                <ul class="technical-bullets">
+                    <li><strong>UVM Architecture:</strong> Building scalable environments with Agents, Drivers,
+                        Monitors, Scoreboards, and Envs.</li>
+                    <li><strong>Phase Management:</strong> Understanding of Build, Connect, End_of_elaboration, and Run
+                        phases (objections).</li>
+                    <li><strong>Factory Mechanism:</strong> Implementing component and object overrides for flexible
+                        testbench modification.</li>
+                    <li><strong>Config DB:</strong> Efficiently passing configuration and interface handles using
+                        `uvm_config_db`.</li>
+                    <li><strong>TLM Interfaces:</strong> Mastery of TLM Put/Get ports and Analysis ports for component
+                        communication.</li>
+                </ul>
+            </div>
+
+            <!-- Communication Protocols Pillar -->
+            <div class="technical-card project-card animate-on-scroll">
+                <div class="pillar-header">
+                    <i class="fas fa-network-wired"></i>
+                    <h3>Protocols & Bus Interfaces</h3>
+                </div>
+                <ul class="technical-bullets">
+                    <li><strong>AMBA APB:</strong> Understanding of Peripheral Bus protocol with PSEL, PENABLE, and
+                        PREADY handshaking.</li>
+                    <li><strong>AMBA AXI4-Lite:</strong> Knowledge of high-performance burst communications and
+                        memory-mapped interfaces.</li>
+                    <li><strong>I2C Protocol:</strong> Mastering Start/Stop conditions, 7-bit addressing, and ACK/NACK
+                        handshake logic.</li>
+                    <li><strong>SPI Interface:</strong> Expertise in full-duplex communication with CPOL/CPHA
+                        configuration.</li>
+                    <li><strong>UART:</strong> Implementation of asynchronous serial communication with
+                        Start/Stop/Parity bit logic.</li>
+                </ul>
             </div>
         </div>
     </section>
