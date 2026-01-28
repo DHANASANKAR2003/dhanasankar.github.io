@@ -42,9 +42,20 @@ class PortfolioController {
         this.setupHUDSystem();
         this.setupScrollEffects();
         this.setupFormHandling();
+        this.setupVideoFallback();
         this.startSystemClock();
 
         console.log('🚀 VLSI Infrastructure: Stable');
+    }
+
+    setupVideoFallback() {
+        const vbg = document.getElementById('vbg');
+        if (vbg) {
+            vbg.onerror = () => {
+                console.log("Background video source not found. Using premium CSS fallback.");
+                vbg.style.display = 'none';
+            };
+        }
     }
 
     setupCursor() {
