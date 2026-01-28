@@ -1,132 +1,76 @@
-// Custom Cursor
-class CustomCursor {
-    constructor() {
-        this.dot = document.querySelector('.cursor-dot');
-        this.outline = document.querySelector('.cursor-outline');
-        this.bounds = { x: 0, y: 0 };
-        this.mouse = { x: 0, y: 0 };
-
-        if (this.dot && this.outline) {
-            this.init();
-        }
-    }
-
-    init() {
-        window.addEventListener('mousemove', (e) => {
-            this.mouse.x = e.clientX;
-            this.mouse.y = e.clientY;
-            this.dot.style.transform = `translate(${this.mouse.x}px, ${this.mouse.y}px)`;
-        });
-
-        this.animate();
-
-        const interactiveElements = document.querySelectorAll('a, button, .project-card, input, textarea');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
-        });
-    }
-
-    animate() {
-        this.bounds.x += (this.mouse.x - this.bounds.x) * 0.2;
-        this.bounds.y += (this.mouse.y - this.bounds.y) * 0.2;
-        this.outline.style.transform = `translate(${this.bounds.x}px, ${this.bounds.y}px)`;
-        requestAnimationFrame(() => this.animate());
-    }
-}
-
-// Magnetic Button Effect
-class MagneticButton {
-    constructor(element) {
-        this.element = element;
-        this.init();
-    }
-
-    init() {
-        this.element.addEventListener('mousemove', (e) => {
-            const rect = this.element.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-            this.element.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-        });
-
-        this.element.addEventListener('mouseleave', () => {
-            this.element.style.transform = 'translate(0, 0)';
-        });
-    }
-}
-
-// Main Script
-class PortfolioApp {
-    constructor() {
-        this.init();
-    }
-
-    init() {
-        // Removed runSimulationBoot() for instant load
-        document.body.classList.add('loaded');
-
-        this.setupThemeToggle();
-        this.setupMobileMenu();
-        this.setupScrollToTop();
-        this.setupContactForm();
-
-        new CustomCursor();
-        document.querySelectorAll('.btn, .social-icon').forEach(btn => {
-            new MagneticButton(btn);
-        });
-    }
-
-    setupThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.body.setAttribute('data-theme', savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.body.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            this.updateThemeIcon(newTheme);
-        });
-    }
-
-    updateThemeIcon(theme) {
-        const icon = document.querySelector('#themeToggle i');
-        if (icon) icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-
-    setupMobileMenu() {
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
-        if (!hamburger || !navMenu) return;
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-    }
-
-    setupScrollToTop() {
-        const btn = document.getElementById('scrollToTop');
-        if (!btn) return;
-        window.addEventListener('scroll', () => {
-            btn.classList.toggle('visible', window.pageYOffset > 300);
-        });
-        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    }
-
-    setupContactForm() {
-        const form = document.getElementById('contactForm');
-        if (!form) return;
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Functional Contact Form logic would go here. Message received!');
-        });
-    }
-}
-
+/**
+ * VLSI PORTFOLIO - CORE ORCHESTRATOR
+ * Version: 4.0.0-Stable
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    new PortfolioApp();
-    console.log('🚀 Portfolio Ready');
+    const header = document.getElementById('header');
+
+    // Sticky Header Evolution
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth Scrolling with Header Offset
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const offset = 90;
+                window.scrollTo({
+                    top: target.offsetTop - offset,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Handle Contact Form Signal Transmission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING_DATA...';
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert('SIGNAL_RECEIVED: Dhanasankar K will respond to your transmission shortly.');
+                btn.innerHTML = originalText;
+                btn.style.pointerEvents = 'auto';
+                btn.style.opacity = '1';
+                contactForm.reset();
+            }, 2000);
+        });
+    }
+
+    // Scroll Indicator Logic
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            scrollIndicator.style.opacity = '0';
+        } else {
+            scrollIndicator.style.opacity = '1';
+        }
+    });
+
+    // Terminal Button Easter Egg
+    const termBtn = document.querySelector('.nav-controls .btn');
+    if (termBtn) {
+        termBtn.addEventListener('click', () => {
+            console.log("%c TERMINAL_INIT: Kernel versionArtix7 v4.0.1 ", "color: #00ff00; background: #000; font-family: monospace;");
+            console.log("%c >> Initializing Vivado environment... ", "color: #00ff00;");
+            console.log("%c >> Loading Dhanasankar RTL cores... DONE ", "color: #00ff00;");
+            alert('SYSTEM_STATUS: OK\nCORES_LOADED: 50+\nVERIFICATION_READY: UVM_ACTIVE');
+        });
+    }
 });
+
+// Final System Report
+console.log('🚀 DHANASANKAR_VLSI_PORTFOLIO ORCHESTRATOR: ONLINE');
