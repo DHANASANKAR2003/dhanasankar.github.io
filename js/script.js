@@ -1,76 +1,122 @@
 /**
- * VLSI PORTFOLIO - CORE ORCHESTRATOR
- * Version: 4.0.0-Stable
+ * ==========================================================================
+ * DHANASANKAR K - PROFESSIONAL SYSTEM ORCHESTRATOR
+ * Architecture: Event-Driven Industrial Interface Controller
+ * 
+ * Logic Modules:
+ * - Adaptive Navigation Tracking
+ * - Smooth-Scroll Interception
+ * - Custom Industrial Cursor Physics
+ * - System Signal Confirmation (Forms)
+ * ==========================================================================
  */
-document.addEventListener('DOMContentLoaded', () => {
-    const header = document.getElementById('header');
 
-    // Sticky Header Evolution
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+class IndustrialOrchestrator {
+    constructor() {
+        this.header = document.getElementById('header');
+        this.cursor = document.querySelector('.industrial-cursor');
+        this.cursorDot = document.querySelector('.industrial-cursor-dot');
+        this.navLinks = document.querySelectorAll('.nav-link-industrial');
 
-    // Smooth Scrolling with Header Offset
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offset = 90;
-                window.scrollTo({
-                    top: target.offsetTop - offset,
-                    behavior: 'smooth'
-                });
+        this.init();
+    }
+
+    init() {
+        this.initializeScrollHandling();
+        this.initializeCursorPhysics();
+        this.initializeNavigationlogic();
+        this.initializeSignalTransmission();
+
+        console.log('%c [SYSTEM_READY] Professional Portfolio Orchestrator Active ', 'background: #00e5ff; color: #03030d; font-weight: bold; border-radius: 4px; padding: 4px 8px;');
+    }
+
+    initializeScrollHandling() {
+        const checkScroll = () => {
+            if (window.scrollY > 100) {
+                this.header.classList.add('scrolled');
+            } else {
+                this.header.classList.remove('scrolled');
             }
-        });
-    });
+        };
 
-    // Handle Contact Form Signal Transmission
-    const contactForm = document.querySelector('.contact-form');
-    if (contactForm) {
+        window.addEventListener('scroll', checkScroll);
+        checkScroll();
+    }
+
+    initializeCursorPhysics() {
+        if (!this.cursor) return;
+
+        document.addEventListener('mousemove', (e) => {
+            // Main ring follows with lag
+            setTimeout(() => {
+                this.cursor.style.left = `${e.clientX}px`;
+                this.cursor.style.top = `${e.clientY}px`;
+            }, 50);
+
+            // Dot follows immediately
+            this.cursorDot.style.left = `${e.clientX}px`;
+            this.cursorDot.style.top = `${e.clientY}px`;
+        });
+
+        // Hover expansions for interactive modules
+        document.querySelectorAll('a, button, .glass-card-industrial, .project-industrial-item').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                this.cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                this.cursor.style.background = 'rgba(0, 229, 255, 0.1)';
+            });
+            el.addEventListener('mouseleave', () => {
+                this.cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                this.cursor.style.background = 'rgba(0, 229, 255, 0.05)';
+            });
+        });
+    }
+
+    initializeNavigationlogic() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = anchor.getAttribute('href');
+                const targetEl = document.querySelector(targetId);
+
+                if (targetEl) {
+                    const offset = 100;
+                    const position = targetEl.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: position,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+    initializeSignalTransmission() {
+        const contactForm = document.getElementById('contact-gate');
+        if (!contactForm) return;
+
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING_DATA...';
-            btn.style.pointerEvents = 'none';
-            btn.style.opacity = '0.7';
+            const submitBtn = contactForm.querySelector('button');
+            const originalMarkup = submitBtn.innerHTML;
 
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> TRANSMITTING_SIGNAL...';
+            submitBtn.disabled = true;
+
+            // Simulate high-performance industrial processing delay
             setTimeout(() => {
-                alert('SIGNAL_RECEIVED: Dhanasankar K will respond to your transmission shortly.');
-                btn.innerHTML = originalText;
-                btn.style.pointerEvents = 'auto';
-                btn.style.opacity = '1';
+                alert('SIGNAL_TRANSMITTED: Dhanasankar K has successfully received your data packet.');
+                submitBtn.innerHTML = originalMarkup;
+                submitBtn.disabled = false;
                 contactForm.reset();
-            }, 2000);
+            }, 2500);
         });
     }
+}
 
-    // Scroll Indicator Logic
-    const scrollIndicator = document.querySelector('.scroll-indicator');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-        }
-    });
-
-    // Terminal Button Easter Egg
-    const termBtn = document.querySelector('.nav-controls .btn');
-    if (termBtn) {
-        termBtn.addEventListener('click', () => {
-            console.log("%c TERMINAL_INIT: Kernel versionArtix7 v4.0.1 ", "color: #00ff00; background: #000; font-family: monospace;");
-            console.log("%c >> Initializing Vivado environment... ", "color: #00ff00;");
-            console.log("%c >> Loading Dhanasankar RTL cores... DONE ", "color: #00ff00;");
-            alert('SYSTEM_STATUS: OK\nCORES_LOADED: 50+\nVERIFICATION_READY: UVM_ACTIVE');
-        });
-    }
+/**
+ * [SYSTEM_BOOT]
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    window.V_SYSTEM = new IndustrialOrchestrator();
 });
-
-// Final System Report
-console.log('🚀 DHANASANKAR_VLSI_PORTFOLIO ORCHESTRATOR: ONLINE');
