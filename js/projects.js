@@ -1,4 +1,7 @@
-// Projects Data and Management
+/**
+ * VLSI PORTFOLIO - PROJECT MANAGEMENT SYSTEM
+ * Handles: Filtering, Modal Injection, and Async Card Loading
+ */
 const projectsData = [
     {
         id: 0,
@@ -9,25 +12,14 @@ const projectsData = [
         tags: ['Verilog', 'UVM', 'CDC', 'FIFO'],
         github: 'https://github.com/DHANASANKAR2003',
         details: `
-      <h3>🚀 AXI4 to SPI CDC Bridge (RTL & DV)</h3>
-      <p>This project implements a robust <strong>AXI4-Lite to SPI Bridge</strong> designed for high-performance SoC integration, handling asynchronous clock domains with high reliability.</p>
-      
-      <h4>📌 Key Technical Highlights:</h4>
-      <ul>
-        <li>✅ <strong>RTL Design:</strong> Implemented AXI4-Lite slave interface and SPI Master controller with configurable CPOL/CPHA.</li>
-        <li>✅ <strong>CDC Architecture:</strong> Utilized <strong>Asynchronous FIFO</strong> with Gray Code counters to safely transfer data between AXI (Fast) and SPI (Slow) clock domains.</li>
-        <li>✅ <strong>Verification:</strong> Developed a comprehensive <strong>UVM Testbench</strong> with constrained-random stimulus and functional coverage.</li>
-        <li>✅ <strong>CDC Analysis:</strong> Verified synchronizer chains and handled multi-bit signal transitions using FIFO based synchronization.</li>
-      </ul>
-      
-      <h4>🛠️ Tools & Methodologies:</h4>
-      <ul>
-        <li>Verilog HDL / SystemVerilog</li>
-        <li>UVM (Universal Verification Methodology)</li>
-        <li>Asynchronous FIFO Design</li>
-        <li>Xilinx Vivado / Questasim</li>
-      </ul>
-    `
+          <h3>🚀 AXI4 to SPI CDC Bridge (RTL & DV)</h3>
+          <p>This project implements a robust <strong>AXI4-Lite to SPI Bridge</strong> designed for high-performance SoC integration, handling asynchronous clock domains with high reliability.</p>
+          <ul>
+            <li>✅ <strong>RTL Design:</strong> Implemented AXI4-Lite slave interface and SPI Master controller with configurable CPOL/CPHA.</li>
+            <li>✅ <strong>CDC Architecture:</strong> Utilized <strong>Asynchronous FIFO</strong> with Gray Code counters to safely transfer data between AXI (Fast) and SPI (Slow) clock domains.</li>
+            <li>✅ <strong>Verification:</strong> Developed a comprehensive <strong>UVM Testbench</strong> with constrained-random stimulus and functional coverage.</li>
+          </ul>
+        `
     },
     {
         id: 1,
@@ -38,17 +30,15 @@ const projectsData = [
         tags: ['Verilog', 'Protocol', 'FSM'],
         github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/I2C%20Protocol',
         details: `
-      <h3>🚀 I²C Protocol in Verilog (Master + 5 Slaves)</h3>
-      <p>This project simulates a complete <strong>I²C Master-Slave Communication System</strong> with 1 Master and 5 unique Slaves, each identified by its 7-bit address.</p>
-      
-      <h4>📌 Core Features:</h4>
-      <ul>
-        <li>✅ Master initiates START & STOP conditions</li>
-        <li>✅ Slave address decoding logic</li>
-        <li>✅ FSM for both master & slaves</li>
-        <li>✅ ACK/NACK response system</li>
-      </ul>
-    `
+          <h3>🚀 I²C Protocol in Verilog (Master + 5 Slaves)</h3>
+          <p>This project simulates a complete <strong>I²C Master-Slave Communication System</strong> with 1 Master and 5 unique Slaves, each identified by its 7-bit address.</p>
+          <ul>
+            <li>✅ Master initiates START & STOP conditions</li>
+            <li>✅ Slave address decoding logic</li>
+            <li>✅ FSM for both master & slaves</li>
+            <li>✅ ACK/NACK response system</li>
+          </ul>
+        `
     },
     {
         id: 2,
@@ -59,9 +49,9 @@ const projectsData = [
         tags: ['Verilog', 'Image Processing', 'Python'],
         github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing',
         details: `
-      <h3>🔍 Sobel Edge Detection using Verilog + Python</h3>
-      <p>Real-time hardware-based edge detection module using the Sobel filter in Verilog.</p>
-    `
+          <h3>🔍 Sobel Edge Detection using Verilog + Python</h3>
+          <p>Real-time hardware-based edge detection module using the Sobel filter in Verilog.</p>
+        `
     },
     {
         id: 3,
@@ -71,22 +61,6 @@ const projectsData = [
         description: 'Comprehensive image processing pipeline with 46 individual filters implemented in Verilog.',
         tags: ['Verilog', 'Image Processing', 'FPGA'],
         github: 'https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing'
-    },
-    {
-        id: 4,
-        title: 'Synchronous FIFO Design',
-        category: 'verilog',
-        image: 'images/fifo_code1.png',
-        description: 'Parameterized synchronous FIFO with full/empty flags and comprehensive testbench.',
-        tags: ['Verilog', 'Memory', 'RTL Design']
-    },
-    {
-        id: 5,
-        title: 'Smart Traffic Light Controller',
-        category: 'verilog',
-        image: 'images/tfc_output1.png',
-        description: 'FSM-based traffic light controller with adaptive timing and emergency vehicle priority.',
-        tags: ['Verilog', 'FSM', 'Control Systems']
     }
 ];
 
@@ -95,91 +69,58 @@ class ProjectManager {
         this.projects = projectsData;
         this.currentFilter = 'all';
         this.displayedProjects = 6;
+        this.grid = document.getElementById('projectsGrid');
         this.init();
     }
 
     init() {
+        if (!this.grid) return;
         this.renderProjects();
         this.setupFilters();
-        this.setupLoadMore();
-        this.setupModal();
     }
 
     renderProjects() {
-        const grid = document.getElementById('projectsGrid');
-        if (!grid) {
-            console.error('Project grid not found!');
-            return;
-        }
-
-        grid.innerHTML = '';
-
-        const filteredProjects = this.currentFilter === 'all'
+        this.grid.innerHTML = '';
+        const filtered = this.currentFilter === 'all'
             ? this.projects
             : this.projects.filter(p => p.category === this.currentFilter);
 
-        const projectsToShow = filteredProjects.slice(0, this.displayedProjects);
-
-        projectsToShow.forEach((project, index) => {
-            const card = this.createProjectCard(project, index);
-            grid.appendChild(card);
+        filtered.forEach((p, i) => {
+            const el = this.createCard(p, i);
+            this.grid.appendChild(el);
         });
-
-        // Initialize tilt effect if available
-        if (window.initTilt) {
-            setTimeout(window.initTilt, 100);
-        }
-
-        // Show/hide load more button
-        const loadMoreBtn = document.getElementById('loadMoreBtn');
-        if (loadMoreBtn) {
-            loadMoreBtn.style.display = filteredProjects.length > this.displayedProjects ? 'inline-flex' : 'none';
-        }
     }
 
-    createProjectCard(project, index) {
-        const card = document.createElement('div');
-        card.className = 'project-card animate-on-scroll animated'; // Added 'animated' fix
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.setAttribute('data-project-id', project.id);
+    createCard(p, i) {
+        const div = document.createElement('div');
+        div.className = 'project-item reveal active'; // Use active for instant visibility
+        div.style.transitionDelay = `${i * 0.1}s`;
 
-        const hue = (project.id * 137.5) % 360;
-        const fallbackGradient = `linear-gradient(135deg, hsl(${hue}, 60%, 20%), hsl(${hue + 40}, 60%, 30%))`;
+        div.innerHTML = `
+            <img src="${p.image}" alt="${p.title}" class="project-img" onerror="this.src='https://via.placeholder.com/800x500/050516/3fa2f6?text=${p.title}'">
+            <div class="project-overlay">
+                <span class="project-meta">${p.category.toUpperCase()} // RTL_CORE</span>
+                <h3 class="project-title">${p.title}</h3>
+                <p class="project-desc">${p.description}</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button class="btn btn-primary view-details" style="padding: 0.5rem 1rem; font-size: 0.7rem;">View Specs</button>
+                    ${p.github ? `<a href="${p.github}" target="_blank" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.7rem;"><i class="fab fa-github"></i> Code</a>` : ''}
+                </div>
+            </div>
+        `;
 
-        card.innerHTML = `
-        <div class="card-image-wrapper">
-          <div class="card-overlay"></div>
-          <img 
-            src="${project.image}" 
-            alt="${project.title}" 
-            class="project-image" 
-            onerror="this.onerror=null; this.parentElement.style.background='${fallbackGradient}'; this.style.display='none';"
-          />
-          <div class="card-actions">
-            <button class="btn-icon view-details"><i class="fas fa-eye"></i></button>
-            ${project.github ? `<a href="${project.github}" target="_blank" class="btn-icon"><i class="fab fa-github"></i></a>` : ''}
-          </div>
-        </div>
-        <div class="project-content">
-          <div class="project-category">${project.category.toUpperCase()}</div>
-          <h3 class="project-title">${project.title}</h3>
-          <p class="project-description">${project.description}</p>
-          <div class="project-tags">
-            ${project.tags ? project.tags.slice(0, 3).map(tag => `<span class="project-tag">${tag}</span>`).join('') : ''}
-          </div>
-        </div>
-    `;
+        div.querySelector('.view-details').addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.openModal(p);
+        });
 
-        card.addEventListener('click', () => this.openModal(project));
-
-        return card;
+        return div;
     }
 
     setupFilters() {
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        filterBtns.forEach(btn => {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 this.currentFilter = btn.getAttribute('data-filter');
                 this.renderProjects();
@@ -187,28 +128,15 @@ class ProjectManager {
         });
     }
 
-    setupLoadMore() {
-        const btn = document.getElementById('loadMoreBtn');
-        if (btn) btn.addEventListener('click', () => {
-            this.displayedProjects += 6;
-            this.renderProjects();
-        });
-    }
-
-    setupModal() {
-        const modal = document.getElementById('projectModal');
-        const closeBtn = modal.querySelector('.modal-close');
-        if (closeBtn) closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-    }
-
-    openModal(project) {
+    openModal(p) {
         const modal = document.getElementById('projectModal');
         const title = document.getElementById('modalTitle');
-        const body = document.getElementById('modalBody');
+        const body = document.getElementById('modalBodyText');
 
-        title.textContent = project.title;
-        body.innerHTML = project.details || project.description;
-        modal.classList.add('active');
+        title.textContent = p.title;
+        body.innerHTML = p.details || p.description;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
     }
 }
 
