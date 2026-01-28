@@ -250,6 +250,7 @@ body {
     font-size: 1.4rem;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: bold;
 }
@@ -493,6 +494,97 @@ body {
 
 .project-card:hover::before {
     width: 100%;
+}
+
+/* Technical Mastery Pillars Layout */
+.technical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.technical-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+    border-left: 2px solid var(--primary);
+    transition: var(--transition);
+}
+
+.technical-card:hover {
+    background: rgba(0, 242, 255, 0.03);
+    border-left-width: 4px;
+}
+
+.pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.pillar-header i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    background: rgba(0, 242, 255, 0.05);
+    padding: 0.8rem;
+    border-radius: 8px;
+    box-shadow: var(--glow);
+    transition: var(--transition);
+}
+
+.technical-card:hover .pillar-header i {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--glow-strong);
+}
+
+.pillar-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.technical-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.technical-bullets li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.technical-bullets li::before {
+    content: ">>";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-family: var(--font-code);
+    font-weight: bold;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.technical-bullets li strong {
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    margin-right: 5px;
+}
+
+.technical-bullets li:hover {
+    color: var(--text-light);
+    transform: translateX(5px);
+    transition: 0.2s ease;
 }
 
 /* Stats Engine */
