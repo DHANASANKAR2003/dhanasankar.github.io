@@ -1,1259 +1,601 @@
-/**
- * ==========================================================================
- * DHANASANKAR K - WORLD-CLASS PROFESSIONAL PORTFOLIO
- * Architecture: Industrial AI & Silicon Engineering Specification
- * Aesthetic: Professional Minimalism (avecas.in Inspired)
- * Purpose: High Technical Density & Seamless Visual Experience
- * 
- * Version: 5.0.0 (Global Enterprise Stable)
- * Line Target: 1000+ (Verified Industrial Standard)
- * ==========================================================================
- */
+/* Advanced Portfolio CSS - Premium Design System */
 
-/* --------------------------------------------------------------------------
-   0. EXTERNAL DEPENDENCIES & GLOBAL IMPORTS
-   -------------------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-
-/* --------------------------------------------------------------------------
-   1. CORE DESIGN TOKENS & SYSTEM VARIABLES
-   -------------------------------------------------------------------------- */
 :root {
-    /* -- Primary Palette: Professional AI Focus -- */
-    --clr-brand-primary: #00e5ff;
-    /* Pure AI Cyan */
-    --clr-brand-secondary: #3d5afe;
-    /* Logic Core Blue */
-    --clr-brand-gradient: linear-gradient(135deg, #00e5ff 0%, #3d5afe 100%);
+    /* Enhanced Color Palette - Inspired by VLSI/Microchip Aesthetics */
+    --primary: hsl(185, 100%, 50%);
+    /* Neon Cyan */
+    --secondary: hsl(165, 100%, 50%);
+    /* Aquamarine */
+    --accent: hsl(300, 100%, 60%);
+    /* Purple accent for contrast */
+    --bg-dark: hsl(210, 50%, 5%);
+    /* Very deep navy */
+    --bg-card: rgba(15, 23, 42, 0.6);
+    /* Translucent for glassmorphism */
+    --text-light: hsl(0, 0%, 98%);
+    --text-muted: hsl(215, 20%, 70%);
 
-    /* -- Neutral Palette: High-Density Dark System -- */
-    --clr-bg-base: #03030d;
-    /* Professional Midnight */
-    --clr-bg-deep: #010105;
-    /* Absolute Dark */
-    --clr-bg-card: rgba(255, 255, 255, 0.03);
-    --clr-bg-glass: rgba(10, 10, 25, 0.7);
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient-bg: radial-gradient(circle at center, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
 
-    /* -- Typography Colors -- */
-    --clr-txt-high: #f8fafc;
-    /* High Emphasis */
-    --clr-txt-med: #94a3b8;
-    /* Medium Emphasis */
-    --clr-txt-low: #64748b;
-    /* Low Emphasis / Metadata */
+    /* Shadows & Glows */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    --glow: 0 0 15px rgba(0, 242, 255, 0.4);
+    --glow-strong: 0 0 30px rgba(0, 242, 255, 0.6);
 
-    /* -- Structural Units -- */
-    --sp-xs: 0.5rem;
-    --sp-sm: 1rem;
-    --sp-md: 2rem;
-    --sp-lg: 4rem;
-    --sp-xl: 8rem;
-    --sp-xxl: 12rem;
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    --space-xl: 6rem;
 
-    /* -- Aesthetic Properties -- */
-    --br-sm: 8px;
-    --br-md: 16px;
-    --br-lg: 32px;
-    --tr-base: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-    --tr-physics: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Typography */
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Rajdhani', sans-serif;
+    --font-code: 'Fira Code', monospace;
 
-    /* -- Glassmorphism Specs -- */
-    --glass-blur: blur(25px);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-    --glass-glow: 0 10px 40px rgba(0, 0, 0, 0.4);
-
-    /* -- VLSI Technical Markers -- */
-    --clr-signal-clk: #00ff66;
-    --clr-signal-rst: #ff3300;
-    --clr-signal-bus: #ffcc00;
+    /* Transitions */
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* --------------------------------------------------------------------------
-   2. GLOBAL COMPATIBILITY & RESET LAYER
-   -------------------------------------------------------------------------- */
-*,
-*::before,
-*::after {
+[data-theme="light"] {
+    --bg-dark: hsl(210, 20%, 98%);
+    --bg-card: rgba(255, 255, 255, 0.8);
+    --text-light: hsl(210, 50%, 10%);
+    --text-muted: hsl(210, 20%, 40%);
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    /* Base Rem Unit */
-    background-color: var(--clr-bg-base);
 }
 
 body {
-    background-color: var(--clr-bg-base);
-    color: var(--clr-txt-high);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    cursor: default;
 }
 
-/* Custom High-Precision Scrollbar */
+/* Video Background */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    overflow: hidden;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.1);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%),
+        rgba(10, 14, 20, 0.4);
+}
+
+/* Custom Selection */
+::selection {
+    background: var(--primary);
+    color: var(--bg-dark);
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--clr-bg-deep);
+    background: var(--bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--clr-brand-gradient);
+    background: var(--primary);
     border-radius: 10px;
 }
 
-::selection {
-    background: var(--clr-brand-primary);
-    color: var(--clr-bg-base);
-}
-
-/* --------------------------------------------------------------------------
-   3. TYPOGRAPHY ARCHITECTURE
-   -------------------------------------------------------------------------- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Outfit', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    font-weight: 800;
-}
-
-h1 {
-    font-size: clamp(3rem, 10vw, 8rem);
-}
-
-h2 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 3rem;
-}
-
-h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: var(--clr-txt-high);
-}
-
-p {
-    margin-bottom: 1.5rem;
-    color: var(--clr-txt-med);
-    font-size: 1.1rem;
-}
-
-.mono {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 400;
-}
-
-.highlight {
-    background: var(--clr-brand-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
-
-/* --------------------------------------------------------------------------
-   4. LAYOUT UTILITIES & GRID SYSTEM
-   -------------------------------------------------------------------------- */
-.container {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4rem;
-}
-
-.section-full {
-    padding: var(--sp-xl) 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.flex-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.grid-auto {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-}
-
-.grid-static-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-}
-
-.grid-static-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-/* --------------------------------------------------------------------------
-   5. DECORATIVE AI-LOGIC COMPONENTS
-   -------------------------------------------------------------------------- */
-
-/* Digital Background Ambiance */
-.bg-video-system {
+/* Scroll Progress */
+.scroll-progress {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -100;
-    pointer-events: none;
+    height: 3px;
+    background: var(--gradient-primary);
+    width: 0%;
+    z-index: 10001;
+    box-shadow: var(--glow);
 }
 
-.bg-video-system video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.15) saturate(1.1);
-}
-
-.bg-global-overlay {
-    position: fixed;
-    inset: 0;
-    background: radial-gradient(circle at center, transparent 0%, var(--clr-bg-base) 100%);
-    z-index: -99;
-}
-
-/* Industrial High-Tech Scanline */
-.tech-scanline {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, transparent 50%, rgba(0, 229, 255, 0.01) 51%, transparent 51%);
-    background-size: 100% 4px;
-    z-index: 9999;
-    pointer-events: none;
-    opacity: 0.3;
-}
-
-/* --------------------------------------------------------------------------
-   6. NAVIGATION (PROFESSIONAL SPEC)
-   -------------------------------------------------------------------------- */
-header {
+/* Navigation */
+.header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 2.5rem 0;
-    transition: var(--tr-base);
+    padding: 2rem 0;
+    transition: var(--transition);
 }
 
-header.scrolled {
-    padding: 1.2rem 0;
-    background: rgba(3, 3, 13, 0.85);
-    backdrop-filter: var(--glass-blur);
-    border-bottom: var(--glass-border);
+.header.scrolled {
+    padding: 1rem 0;
+    background: rgba(10, 14, 20, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .nav-logo {
-    font-size: 1.6rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--clr-txt-high);
-}
-
-.nav-logo span {
-    color: var(--clr-brand-primary);
-}
-
-.nav-links-industrial {
     display: flex;
-    list-style: none;
-    gap: 3rem;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
 }
 
-.nav-item-industrial a {
-    font-size: 0.85rem;
+.logo-chip {
+    width: 45px;
+    height: 45px;
+    background: rgba(0, 242, 255, 0.1);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-size: 1.4rem;
+    box-shadow: var(--glow);
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--clr-txt-med);
-    transition: var(--tr-base);
-    position: relative;
-    padding: 0.5rem 0;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.nav-item-industrial a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--clr-brand-primary);
-    transition: var(--tr-base);
-}
-
-.nav-item-industrial a:hover {
-    color: var(--clr-brand-primary);
-}
-
-.nav-item-industrial a:hover::before {
-    width: 100%;
-}
-
-.nav-item-industrial a.active {
-    color: var(--clr-brand-primary);
-}
-
-/* --------------------------------------------------------------------------
-   7. HERO SECTION (PROFESSIONAL ARCHITECTURE)
-   -------------------------------------------------------------------------- */
-.hero-industrial {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
-
-.hero-technical-label {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--clr-brand-primary);
-    font-size: 0.9rem;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    margin-bottom: 2.5rem;
-    display: block;
-}
-
-.hero-main-title {
-    max-width: 1200px;
-    margin-bottom: 3rem;
-    text-shadow: 0 0 50px rgba(0, 229, 255, 0.1);
-}
-
-.hero-lead-para {
-    font-size: 1.3rem;
-    max-width: 700px;
-    color: var(--clr-txt-med);
-    margin-bottom: 4rem;
-}
-
-.hero-cta-group {
-    display: flex;
-    gap: 2rem;
-}
-
-/* --------------------------------------------------------------------------
-   8. COMPONENT: INDUSTRIAL BUTTONS
-   -------------------------------------------------------------------------- */
-.btn-industrial {
-    padding: 1.2rem 3.5rem;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    cursor: pointer;
-    transition: var(--tr-physics);
-    display: inline-flex;
-    align-items: center;
-    gap: 1.5rem;
-    border: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.btn-primary-industrial {
-    background: var(--clr-brand-primary);
-    color: var(--clr-bg-base);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
-}
-
-.btn-primary-industrial:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0, 229, 255, 0.5);
-    background: #fff;
-}
-
-.btn-outline-industrial {
-    background: transparent;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.btn-outline-industrial:hover {
-    border-color: #fff;
-    background: rgba(255, 255, 255, 0.05);
-    transform: translateY(-8px);
-}
-
-/* --------------------------------------------------------------------------
-   9. COMPONENT: GLASS CARDS & MODULES
-   -------------------------------------------------------------------------- */
-.card-glass-industrial {
-    background: var(--clr-bg-card);
-    border: var(--glass-border);
-    border-radius: var(--br-md);
-    padding: 4rem 3rem;
-    backdrop-filter: var(--glass-blur);
-    transition: var(--tr-physics);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.card-glass-industrial:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: var(--clr-brand-primary);
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: var(--glass-glow), 0 0 30px rgba(0, 229, 255, 0.1);
-}
-
-.card-ico-system {
-    width: 70px;
-    height: 70px;
-    background: rgba(0, 229, 255, 0.1);
-    border-radius: 50%;
-    margin-bottom: 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--clr-brand-primary);
-    font-size: 2rem;
-    transition: 0.4s;
-}
-
-.card-glass-industrial:hover .card-ico-system {
-    background: var(--clr-brand-primary);
-    color: var(--clr-bg-base);
-    transform: scale(1.1) rotate(10deg);
-}
-
-/* --------------------------------------------------------------------------
-   10. SECTION: AUTOMATED STATISTICS
-   -------------------------------------------------------------------------- */
-.stats-industrial-bar {
-    background: linear-gradient(to right, var(--clr-bg-deep), var(--clr-bg-base));
-    padding: 6rem 0;
-    border-top: var(--glass-border);
-    border-bottom: var(--glass-border);
-}
-
-.stat-industrial-node {
-    text-align: center;
-}
-
-.stat-industrial-val {
-    font-family: 'Outfit', sans-serif;
-    font-size: 5.5rem;
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1rem;
-    color: var(--clr-brand-primary);
-    letter-spacing: -4px;
-}
-
-.stat-industrial-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: var(--clr-txt-med);
-}
-
-/* --------------------------------------------------------------------------
-   11. SECTION: TECHNICAL STACK ARCHITECTURE
-   -------------------------------------------------------------------------- */
-.skill-industrial-box {
-    margin-bottom: 3rem;
-}
-
-.skill-industrial-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.2rem;
-}
-
-.skill-industrial-name {
-    font-weight: 800;
-    color: var(--clr-txt-high);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.skill-industrial-track {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.skill-industrial-fill {
-    height: 100%;
-    background: var(--clr-brand-gradient);
-    width: 0;
-    transition: 1.5s cubic-bezier(0.23, 1, 0.32, 1);
-    box-shadow: 0 0 10px var(--clr-brand-primary);
-}
-
-/* --------------------------------------------------------------------------
-   12. SECTION: PROFESSIONAL REPOSITORY (PROJECTS)
-   -------------------------------------------------------------------------- */
-#projectsGrid {
-    padding-top: 2rem;
-}
-
-.project-industrial-item {
-    position: relative;
-    border-radius: var(--br-md);
-    overflow: hidden;
-    height: 550px;
-    border: var(--glass-border);
-    transition: var(--tr-physics);
-}
-
-.project-industrial-item:hover {
-    border-color: var(--clr-brand-primary);
-    transform: translateY(-10px);
-}
-
-.project-industrial-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(0.5) brightness(0.4);
-    transition: 1s ease;
-}
-
-.project-industrial-item:hover .project-industrial-img {
-    filter: grayscale(0) brightness(0.6);
-    transform: scale(1.1);
-}
-
-.project-industrial-content {
-    position: absolute;
-    inset: 0;
-    padding: 4rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background: linear-gradient(to top, rgba(3, 3, 13, 0.95) 0%, transparent 60%);
-}
-
-.project-industrial-tag {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--clr-brand-primary);
-    font-size: 0.75rem;
+.logo-subtitle {
+    font-size: 0.7rem;
     letter-spacing: 4px;
+    color: var(--text-muted);
     text-transform: uppercase;
-    margin-bottom: 1.5rem;
 }
 
-/* --------------------------------------------------------------------------
-   13. SECTION: CAREER STREAM (TIMELINE)
-   -------------------------------------------------------------------------- */
-.career-stream-industrial {
+.nav-menu {
     display: flex;
-    flex-direction: column;
-    gap: 3rem;
-}
-
-.career-node-industrial {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 4rem;
-    align-items: start;
-}
-
-.career-date-industrial {
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 800;
-    color: var(--clr-brand-primary);
-    font-size: 1rem;
-    padding-top: 0.8rem;
-}
-
-.career-desc-industrial {
-    border-left: 2px solid rgba(255, 255, 255, 0.05);
-    padding-left: 4rem;
-    transition: var(--tr-base);
-}
-
-.career-node-industrial:hover .career-desc-industrial {
-    border-left-color: var(--clr-brand-primary);
-}
-
-/* --------------------------------------------------------------------------
-   14. SECTION: I/O INTERFACE (CONTACT)
-   -------------------------------------------------------------------------- */
-.io-form-industrial {
-    background: rgba(255, 255, 255, 0.02);
-    padding: 5rem;
-    border-radius: var(--br-lg);
-    border: var(--glass-border);
-}
-
-.io-input-industrial {
-    width: 100%;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1.8rem;
-    border-radius: 8px;
-    color: #fff;
-    font-family: inherit;
-    font-size: 1.05rem;
-    transition: var(--tr-base);
-    margin-bottom: 2rem;
-}
-
-.io-input-industrial:focus {
-    outline: none;
-    border-color: var(--clr-brand-primary);
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* --------------------------------------------------------------------------
-   15. FOOTER ARCHITECTURE
-   -------------------------------------------------------------------------- */
-footer {
-    background: var(--clr-bg-deep);
-    padding: var(--sp-xl) 0 var(--sp-md);
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-}
-
-.footer-main-industrial {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 6rem;
-    margin-bottom: 8rem;
-}
-
-.footer-title-industrial {
-    font-size: 1rem;
-    letter-spacing: 4px;
-    color: #fff;
-    margin-bottom: 2.5rem;
-}
-
-.footer-link-group-industrial {
     list-style: none;
+    gap: 2rem;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.5rem 2rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
 }
 
-.footer-link-industrial {
-    margin-bottom: 1.2rem;
-}
-
-.footer-link-industrial a {
-    color: var(--clr-txt-med);
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
     font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: var(--transition);
 }
 
-.footer-link-industrial a:hover {
-    color: var(--clr-brand-primary);
-    padding-left: 8px;
+.nav-link:hover,
+.nav-link.active {
+    color: var(--primary);
+    text-shadow: var(--glow);
 }
 
-.footer-base-industrial {
-    padding-top: 4rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    text-align: center;
-    color: var(--clr-txt-low);
-    font-size: 0.9rem;
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 2rem 4rem;
+    position: relative;
 }
 
-/* --------------------------------------------------------------------------
-   16. ADVANCED ANIMATION KERNEL
-   -------------------------------------------------------------------------- */
-@keyframes fadeInUpIndustrial {
-    from {
-        opacity: 0;
-        transform: translateY(60px);
-        filter: blur(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-    }
+.hero-content {
+    max-width: 1400px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 6rem;
+    align-items: center;
 }
 
-.reveal {
-    opacity: 0;
+.hero-image-wrapper {
+    position: relative;
 }
 
-.reveal.active {
-    animation: fadeInUpIndustrial 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+.hero-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    border: 2px solid var(--primary);
+    box-shadow: var(--glow-strong);
+    transition: var(--transition);
 }
 
-/* Custom Cursor Logic */
-.industrial-cursor {
-    width: 25px;
-    height: 25px;
-    border: 1.5px solid var(--clr-brand-primary);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 100000;
-    transition: transform 0.1s, background 0.3s;
-    background: rgba(0, 229, 255, 0.05);
-}
-
-.industrial-cursor-dot {
-    width: 4px;
-    height: 4px;
-    background: var(--clr-brand-primary);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 100001;
-}
-
-/* --------------------------------------------------------------------------
-   17. MEDIA ENGINE (RESPONSIVE SPEC)
-   -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
-    .container {
-        padding: 0 2rem;
-    }
-
-    .hero-main-title {
-        font-size: 5rem;
-    }
-
-    .footer-main-industrial {
-        gap: 3rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .nav-links-industrial {
-        display: none;
-    }
-
-    .grid-static-2 {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .career-node-industrial {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .career-desc-industrial {
-        padding-left: 2rem;
-    }
-
-    .footer-main-industrial {
-        grid-template-columns: 1fr 1fr;
-        gap: 4rem;
-    }
-
-    .hero-main-title {
-        font-size: 4rem;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 80px 0;
-    }
-
-    .hero-main-title {
-        font-size: 3rem;
-    }
-
-    .stat-industrial-val {
-        font-size: 4rem;
-    }
-
-    .io-form-industrial {
-        padding: 3rem 2rem;
-    }
-
-    .footer-main-industrial {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Visual Optimization for High-Density Displays */
-@media (-webkit-min-device-pixel-ratio: 2),
-(min-resolution: 192dpi) {
-    body {
-        font-weight: 300;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   18. INDUSTRIAL UTILITY ARCHITECTURE (SCALING & REUSABILITY)
-   -------------------------------------------------------------------------- */
-
-/* [MODULE] SPACING_SCALE */
-.m-0 {
-    margin: 0 !important;
-}
-
-.mt-1 {
-    margin-top: var(--sp-xs) !important;
-}
-
-.mt-2 {
-    margin-top: var(--sp-sm) !important;
-}
-
-.mt-3 {
-    margin-top: var(--sp-md) !important;
-}
-
-.mt-4 {
-    margin-top: var(--sp-lg) !important;
-}
-
-.mt-5 {
-    margin-top: var(--sp-xl) !important;
-}
-
-.mb-1 {
-    margin-bottom: var(--sp-xs) !important;
-}
-
-.mb-2 {
-    margin-bottom: var(--sp-sm) !important;
-}
-
-.mb-3 {
-    margin-bottom: var(--sp-md) !important;
-}
-
-.mb-4 {
-    margin-bottom: var(--sp-lg) !important;
-}
-
-.mb-5 {
-    margin-bottom: var(--sp-xl) !important;
-}
-
-.pt-1 {
-    padding-top: var(--sp-xs) !important;
-}
-
-.pt-2 {
-    padding-top: var(--sp-sm) !important;
-}
-
-.pt-3 {
-    padding-top: var(--sp-md) !important;
-}
-
-.pt-4 {
-    padding-top: var(--sp-lg) !important;
-}
-
-.pt-5 {
-    padding-top: var(--sp-xl) !important;
-}
-
-/* [MODULE] DISPLAY_MODES */
-.d-none {
-    display: none !important;
-}
-
-.d-block {
-    display: block !important;
-}
-
-.d-flex {
-    display: flex !important;
-}
-
-.d-grid {
-    display: grid !important;
-}
-
-/* [MODULE] TEXT_ALIGNMENT_ENGINE */
-.text-left {
-    text-align: left !important;
-}
-
-.text-center {
-    text-align: center !important;
-}
-
-.text-right {
-    text-align: right !important;
-}
-
-.text-justify {
-    text-align: justify !important;
-}
-
-/* [MODULE] TECHNICAL_COLORS */
-.t-cyan {
-    color: var(--clr-brand-primary) !important;
-}
-
-.t-blue {
-    color: var(--clr-brand-secondary) !important;
-}
-
-.t-high {
-    color: var(--clr-txt-high) !important;
-}
-
-.t-med {
-    color: var(--clr-txt-med) !important;
-}
-
-.t-low {
-    color: var(--clr-txt-low) !important;
-}
-
-/* [MODULE] Z_INDEX_STACK */
-.z-minus {
-    z-index: -1 !important;
-}
-
-.z-0 {
-    z-index: 0 !important;
-}
-
-.z-10 {
-    z-index: 10 !important;
-}
-
-.z-100 {
-    z-index: 100 !important;
-}
-
-.z-top {
-    z-index: 1000 !important;
-}
-
-/* [MODULE] BREAKPOINT_HELPER_LOGIC */
-@media (max-width: 576px) {
-    .hide-xs {
-        display: none !important;
-    }
-}
-
-@media (max-width: 768px) {
-    .hide-sm {
-        display: none !important;
-    }
-}
-
-@media (max-width: 992px) {
-    .hide-md {
-        display: none !important;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   19. SVG CIRCUIT ANIMATION KERNEL
-   -------------------------------------------------------------------------- */
-.circuit-node-anim {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: dash 5s linear infinite;
-}
-
-@keyframes dash {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   20. CROSS-BROWSER COMPATIBILITY FIXES (LEACY REPRO)
-   -------------------------------------------------------------------------- */
-/* Webkit Specific Refinements */
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    ::selection {
-        background-color: var(--clr-brand-primary);
-    }
-
-    input,
-    textarea {
-        -webkit-appearance: none;
-        appearance: none;
-    }
-}
-
-/* Firefox Specific Layout Overrides */
-@-moz-document url-prefix() {
-    .glass-card-industrial {
-        backdrop-filter: none;
-        background: rgba(10, 10, 25, 0.9);
-    }
-}
-
-/* IE11/Edge Legacy Detection Scaffolding (Technical weight) */
-@supports not (backdrop-filter: blur(10px)) {
-    .card-glass-industrial {
-        background: rgba(10, 10, 25, 0.95);
-    }
-}
-
-/* --------------------------------------------------------------------------
-   21. FINAL SYSTEM REPORT & VERSIONING
-   -------------------------------------------------------------------------- */
-/**
- * ARCHITECT: DHANASANKAR K
- * BUILD_ID: VLSI_AI_v5_FINAL
- * TOTAL_TOKENS: 4500+
- * LAST_SYNC: 2026-01-28
- * NO_PLACEHOLDERS: TRUE
- */
-
-/* --------------------------------------------------------------------------
-   22. ADVANCED RESPONSIVE CONTROL MODULE (TOTAL DEVICE COVERAGE)
-   -------------------------------------------------------------------------- */
-
-/* Industrial Breakpoint: Ultra-Wide (Scaling up for technical density) */
-@media (min-width: 1600px) {
-    .container {
-        max-width: 1600px;
-    }
-
-    html {
-        font-size: 18px;
-    }
-}
-
-/* Industrial Breakpoint: Laptop L (Professional standard) */
-@media (max-width: 1440px) {
-    .container {
-        max-width: 1300px;
-    }
-
-    .hero-main-title {
-        font-size: 6rem;
-    }
-}
-
-/* Industrial Breakpoint: Tablet Landscape */
-@media (max-width: 1024px) {
-    .container {
-        padding: 0 3rem;
-    }
-
-    .hero-main-title {
-        font-size: 5rem;
-    }
-
-    .grid-auto {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .footer-main-industrial {
-        gap: 3rem;
-    }
-}
-
-/* Industrial Breakpoint: Tablet Portrait */
-@media (max-width: 768px) {
-    .container {
-        padding: 0 2rem;
-    }
-
-    .section-full {
-        padding: var(--sp-lg) 0;
-    }
-
-    .hero-main-title {
-        font-size: 4rem;
-    }
-
-    .grid-auto {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-industrial-val {
-        font-size: 4.5rem;
-    }
-
-    .nav-links-industrial {
-        display: none;
-    }
-
-    .career-node-industrial {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .footer-main-industrial {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-/* Industrial Breakpoint: Mobile Dynamic */
-@media (max-width: 480px) {
-    html {
-        font-size: 14px;
-    }
-
-    .container {
-        padding: 0 1.5rem;
-    }
-
-    .hero-main-title {
-        font-size: 3rem;
-    }
-
-    .hero-technical-label {
-        letter-spacing: 4px;
-    }
-
-    .btn-industrial {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .io-form-industrial {
-        padding: 2.5rem 1.5rem;
-    }
-
-    .footer-main-industrial {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* --------------------------------------------------------------------------
-   23. COMPONENT: DETAILED HOVER STATES & TRANSITIONS
-   -------------------------------------------------------------------------- */
-.nav-industrial-wrapper a {
-    transition: var(--tr-base);
-}
-
-.card-glass-industrial {
-    transition: var(--tr-physics);
-}
-
-.btn-industrial::after {
-    content: '';
+.image-glow {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) rotate(45deg) scale(0);
-    transition: 0.6s ease;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(0, 242, 255, 0.2), transparent 70%);
+    z-index: -1;
 }
 
-.btn-industrial:hover::after {
-    transform: translate(-50%, -50%) rotate(45deg) scale(1);
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    line-height: 1;
 }
 
-/* Subtle Industrial Glitch Effect for High-Tech Sections */
-@keyframes techGlitch {
-    0% {
-        clip-path: inset(10% 0 30% 0);
-    }
-
-    20% {
-        clip-path: inset(40% 0 10% 0);
-    }
-
-    40% {
-        clip-path: inset(20% 0 50% 0);
-    }
-
-    60% {
-        clip-path: inset(50% 0 20% 0);
-    }
-
-    80% {
-        clip-path: inset(30% 0 40% 0);
-    }
-
-    100% {
-        clip-path: inset(10% 0 30% 0);
-    }
+.hero-subtitle {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
 }
 
-.technical-glitch-layer {
-    position: absolute;
-    inset: 0;
-    background: inherit;
-    opacity: 0.1;
+.typewriter {
+    color: var(--primary);
+    text-shadow: var(--glow);
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    color: var(--text-muted);
+}
+
+.highlight {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: var(--bg-dark);
+    box-shadow: var(--glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 242, 255, 0.5);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    transform: translateY(-5px);
+}
+
+/* Section Components */
+section {
+    padding: 8rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.title-number {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.title-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    backdrop-filter: blur(15px);
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: var(--glow);
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Skill Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.skill-category {
+    background: var(--bg-card);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.skill-category h3 {
+    font-family: var(--font-heading);
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.skill-bar {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    width: 0;
+    transition: width 1.5s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 3rem;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    backdrop-filter: blur(15px);
+    transition: var(--transition);
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    border-color: var(--primary);
+    box-shadow: var(--glow-strong);
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    filter: brightness(0.8);
+    transition: var(--transition);
+}
+
+.project-card:hover .project-image {
+    filter: brightness(1);
+}
+
+.project-content {
+    padding: 2.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-category {
+    font-size: 0.75rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: auto;
+}
+
+.project-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 1rem;
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--primary);
+    border-radius: 50px;
+    border: 1px solid rgba(0, 242, 255, 0.2);
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: var(--text-light);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(0, 242, 255, 0.05);
+    box-shadow: var(--glow);
+}
+
+/* Floating Elements */
+#waveformCanvas,
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
     pointer-events: none;
+    opacity: 0.3;
 }
 
-.card-glass-industrial:hover .technical-glitch-layer {
-    animation: techGlitch 0.5s infinite;
-}
-
-/* --------------------------------------------------------------------------
-   24. INDUSTRIAL PRINT SPECIFICATION (Professional Standard)
-   -------------------------------------------------------------------------- */
-@media print {
-    body {
-        background: #fff !important;
-        color: #000 !important;
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
 
-    .bg-video-system,
-    .tech-scanline,
-    .industrial-cursor {
-        display: none !important;
+    .hero-image {
+        margin: 0 auto;
     }
 
-    .container {
-        max-width: 100% !important;
-        padding: 0 !important;
+    .hero-buttons {
+        justify-content: center;
     }
 
-    .card-glass-industrial {
-        border: 1px solid #ccc !important;
-        box-shadow: none !important;
+    .hero-title {
+        font-size: 4rem;
     }
 }
 
-/* --------------------------------------------------------------------------
-   25. FINAL SYSTEM REGISTER
-   -------------------------------------------------------------------------- */
-/**
- * SYSTEM_LOCK: SECURED
- * INTEGRITY_HASH: 0x55_VLSI_AI_PORTFOLIO
- * TOTAL_LINES: 1200+ (Verified High-Density Architecture)
- */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
 
-/**
- * ==========================================================================
- * END OF INDUSTRIAL SPECIFICATION - WORLD-CLASS PROFESSIONAL EDITION
- * ==========================================================================
- */
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
