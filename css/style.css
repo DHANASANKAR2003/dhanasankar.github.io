@@ -757,34 +757,35 @@ body {
     transition: 0.3s ease;
 }
 
-/* Circuit Builder Lab */
-.circuit-builder {
+/* Gate Simulator */
+.gate-simulator {
     padding: 2rem;
 }
 
-.builder-header {
+.sim-header {
     text-align: center;
     margin-bottom: 2rem;
 }
 
-.builder-header h3 {
+.sim-header h3 {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     color: var(--primary);
     margin-bottom: 0.5rem;
 }
 
-.builder-header p {
+.sim-header p {
     color: var(--text-muted);
     font-size: 0.95rem;
 }
 
-/* Gate Palette */
-.gate-palette {
-    margin-bottom: 2rem;
+/* Gate Selection */
+.gate-selection {
+    margin-bottom: 2.5rem;
+    text-align: center;
 }
 
-.palette-title {
+.gate-label {
     font-family: var(--font-heading);
     font-size: 0.8rem;
     color: var(--primary);
@@ -822,217 +823,200 @@ body {
     box-shadow: var(--glow-strong);
 }
 
-/* Circuit Workspace */
-.circuit-workspace {
-    display: grid;
-    grid-template-columns: 80px 1fr 80px;
-    gap: 1.5rem;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.input-panel,
-.output-panel {
+/* Gate Display */
+.gate-display {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
     align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
 }
 
-.input-label,
-.output-label {
-    font-family: var(--font-heading);
-    font-size: 0.7rem;
-    color: var(--primary);
-    letter-spacing: 2px;
-}
-
-.circuit-input,
-.circuit-output {
+.input-wire {
     display: flex;
-    flex-direction: column;
     align-items: center;
     gap: 0.5rem;
 }
 
-.circuit-input span,
-.circuit-output span {
-    font-family: var(--font-code);
-    font-size: 0.8rem;
-    color: var(--text-muted);
+.input-wire.input-a {
+    margin-bottom: 2rem;
 }
 
-.input-toggle {
-    width: 45px;
-    height: 45px;
+.input-wire.input-b {
+    margin-top: 2rem;
+}
+
+.input-label,
+.output-label {
+    font-family: var(--font-code);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    min-width: 20px;
+}
+
+.input-btn {
+    width: 50px;
+    height: 50px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid var(--primary);
     border-radius: 8px;
     color: var(--primary);
     font-family: var(--font-code);
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.input-toggle:hover {
+.input-btn:hover {
     background: rgba(0, 242, 255, 0.1);
+    transform: scale(1.05);
 }
 
-.input-toggle.active {
+.input-btn.active {
     background: var(--success);
     border-color: var(--success);
     color: var(--bg-dark);
     box-shadow: 0 0 15px var(--success);
 }
 
-.output-display {
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 2px solid var(--primary);
+.wire {
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    opacity: 0.6;
+}
+
+/* Gate Symbol Box */
+.gate-symbol-box {
+    width: 120px;
+    height: 100px;
+    border: 3px solid var(--primary);
+    border-radius: 0 50px 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 242, 255, 0.05);
+    position: relative;
+    margin: 0 10px;
+}
+
+.gate-name {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--primary);
+    letter-spacing: 2px;
+}
+
+/* Output Wire */
+.output-wire {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.output-circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-code);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: var(--primary);
     transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
 }
 
-.output-display.active {
+.output-circle.active {
     background: var(--success);
     border-color: var(--success);
     color: var(--bg-dark);
-    box-shadow: 0 0 20px var(--success);
+    box-shadow: 0 0 25px var(--success);
+    animation: pulse 0.5s ease;
 }
 
-/* Circuit Canvas */
-.circuit-canvas {
-    min-height: 200px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px dashed rgba(0, 242, 255, 0.3);
-    border-radius: 12px;
-    padding: 1.5rem;
-    position: relative;
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
-.canvas-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 150px;
-    color: var(--text-muted);
-    gap: 1rem;
-}
-
-.canvas-placeholder i {
-    font-size: 2.5rem;
-    color: var(--primary);
-    opacity: 0.4;
-}
-
-.canvas-placeholder p {
-    font-size: 0.9rem;
+/* Truth Table */
+.truth-table-section {
+    margin-top: 2rem;
     text-align: center;
 }
 
-.placed-gates {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.placed-gate {
-    background: rgba(0, 242, 255, 0.1);
-    border: 1px solid var(--primary);
-    border-radius: 8px;
-    padding: 1rem;
-    min-width: 120px;
-}
-
-.gate-body {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 0.8rem;
-}
-
-.gate-type {
+.table-title {
     font-family: var(--font-heading);
-    font-size: 1rem;
-    color: var(--primary);
-}
-
-.remove-gate {
-    background: transparent;
-    border: none;
-    color: var(--danger);
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0 0.3rem;
-}
-
-.remove-gate:hover {
-    color: #ff6b6b;
-}
-
-.gate-inputs {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.input-select {
-    flex: 1;
-    padding: 0.4rem;
-    background: var(--bg-dark);
-    border: 1px solid rgba(0, 242, 255, 0.3);
-    color: var(--primary);
-    font-family: var(--font-code);
     font-size: 0.8rem;
-    border-radius: 4px;
+    color: var(--primary);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
 }
 
-/* Circuit Controls */
-.circuit-controls {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+.truth-table {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: var(--font-code);
 }
 
-.run-btn {
-    background: var(--success);
-    border: none;
-    color: var(--bg-dark);
-}
-
-.run-btn:hover {
-    box-shadow: 0 0 20px var(--success);
-}
-
-.clear-btn {
-    border-color: var(--danger);
-    color: var(--danger);
-}
-
-.clear-btn:hover {
-    background: rgba(255, 77, 77, 0.1);
-}
-
-/* Circuit Equation Display */
-.circuit-equation {
+.truth-table th,
+.truth-table td {
+    padding: 0.6rem 1rem;
+    border: 1px solid rgba(0, 242, 255, 0.2);
     text-align: center;
+}
+
+.truth-table th {
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--primary);
+    font-size: 0.9rem;
+}
+
+.truth-table td {
+    color: var(--text-muted);
+}
+
+.truth-table td.high {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.truth-table tr.current {
+    background: rgba(0, 242, 255, 0.15);
+}
+
+.truth-table tr.current td {
+    color: var(--text-light);
+}
+
+/* Expression Box */
+.expression-box {
+    text-align: center;
+    margin-top: 2rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 8px;
 }
 
-.eq-label {
+.expr-label {
     font-family: var(--font-heading);
     font-size: 0.75rem;
     color: var(--primary);
@@ -1040,9 +1024,9 @@ body {
     margin-right: 0.5rem;
 }
 
-.eq-value {
+.expr-value {
     font-family: var(--font-code);
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     color: var(--text-light);
 }
 
