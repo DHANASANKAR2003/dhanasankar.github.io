@@ -369,81 +369,82 @@
         </div>
     </section>
 
-    <!-- Interactive Circuit Builder -->
+    <!-- Interactive Gate Simulator -->
     <section class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">06.</span> Logic Circuit Builder
+            <span class="title-number">06.</span> Logic Gate Simulator
             <div class="title-line"></div>
         </h2>
-        <div class="circuit-builder project-card animate-on-scroll">
-            <div class="builder-header">
-                <h3>Interactive Logic Gate Simulator</h3>
-                <p>Select gates, place them on the canvas, and run your circuit!</p>
+        <div class="gate-simulator project-card animate-on-scroll">
+            <div class="sim-header">
+                <h3>Interactive Logic Gate Demonstrator</h3>
+                <p>Select a gate, change inputs, and see the output in real-time!</p>
             </div>
 
-            <!-- Gate Palette -->
-            <div class="gate-palette">
-                <div class="palette-title">LOGIC GATES</div>
+            <!-- Gate Selection -->
+            <div class="gate-selection">
+                <div class="gate-label">SELECT GATE</div>
                 <div class="gate-buttons">
-                    <button class="gate-btn" data-gate="AND" title="AND Gate">AND</button>
-                    <button class="gate-btn" data-gate="OR" title="OR Gate">OR</button>
-                    <button class="gate-btn" data-gate="NOT" title="NOT Gate">NOT</button>
-                    <button class="gate-btn" data-gate="NAND" title="NAND Gate">NAND</button>
-                    <button class="gate-btn" data-gate="NOR" title="NOR Gate">NOR</button>
-                    <button class="gate-btn" data-gate="XOR" title="XOR Gate">XOR</button>
-                    <button class="gate-btn" data-gate="XNOR" title="XNOR Gate">XNOR</button>
+                    <button class="gate-btn active" data-gate="AND">AND</button>
+                    <button class="gate-btn" data-gate="OR">OR</button>
+                    <button class="gate-btn" data-gate="NOT">NOT</button>
+                    <button class="gate-btn" data-gate="NAND">NAND</button>
+                    <button class="gate-btn" data-gate="NOR">NOR</button>
+                    <button class="gate-btn" data-gate="XOR">XOR</button>
+                    <button class="gate-btn" data-gate="XNOR">XNOR</button>
                 </div>
             </div>
 
-            <!-- Circuit Canvas -->
-            <div class="circuit-workspace">
-                <div class="input-panel">
-                    <div class="input-label">INPUTS</div>
-                    <div class="circuit-input">
-                        <span>A</span>
-                        <button id="inputA" class="input-toggle">0</button>
-                    </div>
-                    <div class="circuit-input">
-                        <span>B</span>
-                        <button id="inputB" class="input-toggle">0</button>
-                    </div>
-                    <div class="circuit-input">
-                        <span>C</span>
-                        <button id="inputC" class="input-toggle">0</button>
-                    </div>
+            <!-- Gate Display -->
+            <div class="gate-display">
+                <!-- Input A -->
+                <div class="input-wire input-a">
+                    <span class="input-label">A</span>
+                    <button class="input-btn" id="inputA">0</button>
+                    <div class="wire"></div>
                 </div>
 
-                <div class="circuit-canvas" id="circuitCanvas">
-                    <div class="canvas-placeholder">
-                        <i class="fas fa-microchip"></i>
-                        <p>Click a gate above, then click here to place it</p>
-                    </div>
-                    <div class="placed-gates" id="placedGates"></div>
+                <!-- Input B (hidden for NOT gate) -->
+                <div class="input-wire input-b" id="inputBWire">
+                    <span class="input-label">B</span>
+                    <button class="input-btn" id="inputB">0</button>
+                    <div class="wire"></div>
                 </div>
 
-                <div class="output-panel">
-                    <div class="output-label">OUTPUT</div>
-                    <div class="circuit-output">
-                        <span>Y</span>
-                        <div id="outputY" class="output-display">0</div>
-                    </div>
+                <!-- Gate Symbol -->
+                <div class="gate-symbol-box" id="gateSymbol">
+                    <div class="gate-name" id="gateName">AND</div>
+                    <div class="gate-shape"></div>
+                </div>
+
+                <!-- Output -->
+                <div class="output-wire">
+                    <div class="wire"></div>
+                    <div class="output-circle" id="outputY">0</div>
+                    <span class="output-label">Y</span>
                 </div>
             </div>
 
-            <!-- Controls -->
-            <div class="circuit-controls">
-                <button id="runCircuit" class="btn btn-primary run-btn">
-                    <i class="fas fa-play"></i> RUN CIRCUIT
-                </button>
-                <button id="clearCircuit" class="btn btn-secondary clear-btn">
-                    <i class="fas fa-trash"></i> CLEAR
-                </button>
+            <!-- Truth Table -->
+            <div class="truth-table-section">
+                <div class="table-title">TRUTH TABLE</div>
+                <table class="truth-table" id="truthTable">
+                    <thead>
+                        <tr>
+                            <th>A</th>
+                            <th>B</th>
+                            <th>Y</th>
+                        </tr>
+                    </thead>
+                    <tbody id="truthTableBody">
+                    </tbody>
+                </table>
             </div>
 
-            <!-- Circuit Display -->
-            <div class="circuit-equation" id="circuitEquation">
-                <span class="eq-label">Expression:</span>
-                <span class="eq-value" id="expressionDisplay">Select gates to build circuit</span>
+            <!-- Boolean Expression -->
+            <div class="expression-box">
+                <span class="expr-label">Expression:</span>
+                <span class="expr-value" id="boolExpression">Y = A · B</span>
             </div>
         </div>
     </section>
