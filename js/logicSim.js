@@ -1,21 +1,14 @@
 /**
- * Interactive Logic Circuit Builder
- * Allows users to select gates, build circuits, and run them
+ * Interactive Logic Gate Simulator
+ * Click a gate, change inputs, see output immediately
  */
 
-class CircuitBuilder {
+class GateSimulator {
     constructor() {
-        this.selectedGate = null;
-        this.placedGates = [];
-        this.inputs = { A: 0, B: 0, C: 0 };
+        this.currentGate = 'AND';
+        this.inputA = 0;
+        this.inputB = 0;
         this.init();
-    }
-
-    init() {
-        this.setupGatePalette();
-        this.setupInputToggles();
-        this.setupCanvas();
-        this.setupControls();
     }
 
     // Gate logic functions
@@ -29,221 +22,158 @@ class CircuitBuilder {
         XNOR: (a, b) => (a ^ b) ? 0 : 1
     };
 
-    setupGatePalette() {
+    // Gate expressions
+    gateExpressions = {
+        AND: 'Y = A · B',
+        OR: 'Y = A + B',
+        NOT: 'Y = A\'',
+        NAND: 'Y = (A · B)\'',
+        NOR: 'Y = (A + B)\'',
+        XOR: 'Y = A ⊕ B',
+        XNOR: 'Y = (A ⊕ B)\''
+    };
+
+    init() {
+        this.setupGateButtons();
+        this.setupInputButtons();
+        this.updateDisplay();
+        this.generateTruthTable();
+    }
+
+    setupGateButtons() {
         const gateButtons = document.querySelectorAll('.gate-btn');
         gateButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                // Remove active from all buttons
+                // Remove active from all
                 gateButtons.forEach(b => b.classList.remove('active'));
-                // Set this button as active
                 btn.classList.add('active');
-                this.selectedGate = btn.dataset.gate;
-            });
-        });
-    }
 
-    setupInputToggles() {
-        ['A', 'B', 'C'].forEach(input => {
-            const btn = document.getElementById(`input${input}`);
-            if (btn) {
-                btn.addEventListener('click', () => {
-                    this.inputs[input] = this.inputs[input] ? 0 : 1;
-                    btn.textContent = this.inputs[input];
-                    btn.classList.toggle('active', this.inputs[input] === 1);
-                });
-            }
-        });
-    }
+                this.currentGate = btn.dataset.gate;
+                this.updateDisplay();
+                this.generateTruthTable();
 
-    setupCanvas() {
-        const canvas = document.getElementById('circuitCanvas');
-        if (canvas) {
-            canvas.addEventListener('click', (e) => {
-                if (this.selectedGate && !e.target.closest('.placed-gate')) {
-                    this.placeGate(this.selectedGate);
+                // Show/hide input B for NOT gate
+                const inputBWire = document.getElementById('inputBWire');
+                if (inputBWire) {
+                    inputBWire.style.display = this.currentGate === 'NOT' ? 'none' : 'flex';
                 }
             });
-        }
-    }
-
-    setupControls() {
-        const runBtn = document.getElementById('runCircuit');
-        const clearBtn = document.getElementById('clearCircuit');
-
-        if (runBtn) {
-            runBtn.addEventListener('click', () => this.runCircuit());
-        }
-
-        if (clearBtn) {
-            clearBtn.addEventListener('click', () => this.clearCircuit());
-        }
-    }
-
-    placeGate(gateType) {
-        const container = document.getElementById('placedGates');
-        const placeholder = document.querySelector('.canvas-placeholder');
-
-        if (placeholder) {
-            placeholder.style.display = 'none';
-        }
-
-        const gateId = `gate-${Date.now()}`;
-        const gateElement = document.createElement('div');
-        gateElement.className = 'placed-gate';
-        gateElement.id = gateId;
-        gateElement.innerHTML = `
-            <div class="gate-body">
-                <span class="gate-type">${gateType}</span>
-                <button class="remove-gate" data-id="${gateId}">&times;</button>
-            </div>
-            <div class="gate-inputs">
-                <select class="input-select input-1">
-                    <option value="A">A</option>
-                    <option value="B">B</option>
-                    <option value="C">C</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                </select>
-                ${gateType !== 'NOT' ? `
-                <select class="input-select input-2">
-                    <option value="B">B</option>
-                    <option value="A">A</option>
-                    <option value="C">C</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                </select>
-                ` : ''}
-            </div>
-        `;
-
-        // Add remove functionality
-        gateElement.querySelector('.remove-gate').addEventListener('click', (e) => {
-            e.stopPropagation();
-            this.removeGate(gateId);
         });
-
-        container.appendChild(gateElement);
-        this.placedGates.push({ id: gateId, type: gateType, element: gateElement });
-        this.updateExpression();
     }
 
-    removeGate(gateId) {
-        const element = document.getElementById(gateId);
-        if (element) {
-            element.remove();
-        }
-        this.placedGates = this.placedGates.filter(g => g.id !== gateId);
-        this.updateExpression();
+    setupInputButtons() {
+        const inputABtn = document.getElementById('inputA');
+        const inputBBtn = document.getElementById('inputB');
 
-        if (this.placedGates.length === 0) {
-            const placeholder = document.querySelector('.canvas-placeholder');
-            if (placeholder) {
-                placeholder.style.display = 'flex';
+        if (inputABtn) {
+            inputABtn.addEventListener('click', () => {
+                this.inputA = this.inputA ? 0 : 1;
+                inputABtn.textContent = this.inputA;
+                inputABtn.classList.toggle('active', this.inputA === 1);
+                this.updateDisplay();
+            });
+        }
+
+        if (inputBBtn) {
+            inputBBtn.addEventListener('click', () => {
+                this.inputB = this.inputB ? 0 : 1;
+                inputBBtn.textContent = this.inputB;
+                inputBBtn.classList.toggle('active', this.inputB === 1);
+                this.updateDisplay();
+            });
+        }
+    }
+
+    updateDisplay() {
+        // Calculate output
+        let output;
+        if (this.currentGate === 'NOT') {
+            output = this.gateLogic.NOT(this.inputA);
+        } else {
+            output = this.gateLogic[this.currentGate](this.inputA, this.inputB);
+        }
+
+        // Update gate name
+        const gateName = document.getElementById('gateName');
+        if (gateName) {
+            gateName.textContent = this.currentGate;
+        }
+
+        // Update output display
+        const outputY = document.getElementById('outputY');
+        if (outputY) {
+            outputY.textContent = output;
+            outputY.classList.toggle('active', output === 1);
+        }
+
+        // Update expression
+        const exprDisplay = document.getElementById('boolExpression');
+        if (exprDisplay) {
+            exprDisplay.textContent = this.gateExpressions[this.currentGate];
+        }
+
+        // Highlight current row in truth table
+        this.highlightTruthTableRow();
+    }
+
+    generateTruthTable() {
+        const tbody = document.getElementById('truthTableBody');
+        const thead = document.querySelector('.truth-table thead tr');
+        if (!tbody || !thead) return;
+
+        tbody.innerHTML = '';
+
+        if (this.currentGate === 'NOT') {
+            // NOT gate - single input
+            thead.innerHTML = '<th>A</th><th>Y</th>';
+            for (let a = 0; a <= 1; a++) {
+                const y = this.gateLogic.NOT(a);
+                const row = document.createElement('tr');
+                row.dataset.a = a;
+                row.innerHTML = `<td>${a}</td><td class="${y ? 'high' : ''}">${y}</td>`;
+                tbody.appendChild(row);
+            }
+        } else {
+            // Two-input gates
+            thead.innerHTML = '<th>A</th><th>B</th><th>Y</th>';
+            for (let a = 0; a <= 1; a++) {
+                for (let b = 0; b <= 1; b++) {
+                    const y = this.gateLogic[this.currentGate](a, b);
+                    const row = document.createElement('tr');
+                    row.dataset.a = a;
+                    row.dataset.b = b;
+                    row.innerHTML = `<td>${a}</td><td>${b}</td><td class="${y ? 'high' : ''}">${y}</td>`;
+                    tbody.appendChild(row);
+                }
             }
         }
+
+        this.highlightTruthTableRow();
     }
 
-    clearCircuit() {
-        const container = document.getElementById('placedGates');
-        if (container) {
-            container.innerHTML = '';
-        }
-        this.placedGates = [];
+    highlightTruthTableRow() {
+        const tbody = document.getElementById('truthTableBody');
+        if (!tbody) return;
 
-        const placeholder = document.querySelector('.canvas-placeholder');
-        if (placeholder) {
-            placeholder.style.display = 'flex';
-        }
+        const rows = tbody.querySelectorAll('tr');
+        rows.forEach(row => {
+            row.classList.remove('current');
 
-        const output = document.getElementById('outputY');
-        if (output) {
-            output.textContent = '0';
-            output.classList.remove('active');
-        }
-
-        const expressionDisplay = document.getElementById('expressionDisplay');
-        if (expressionDisplay) {
-            expressionDisplay.textContent = 'Select gates to build circuit';
-        }
-    }
-
-    updateExpression() {
-        const expressionDisplay = document.getElementById('expressionDisplay');
-        if (!expressionDisplay) return;
-
-        if (this.placedGates.length === 0) {
-            expressionDisplay.textContent = 'Select gates to build circuit';
-            return;
-        }
-
-        let expression = 'Y = ';
-        const parts = [];
-
-        this.placedGates.forEach(gate => {
-            const input1Select = gate.element.querySelector('.input-1');
-            const input2Select = gate.element.querySelector('.input-2');
-            const in1 = input1Select ? input1Select.value : 'A';
-            const in2 = input2Select ? input2Select.value : 'B';
-
-            if (gate.type === 'NOT') {
-                parts.push(`NOT(${in1})`);
+            if (this.currentGate === 'NOT') {
+                if (parseInt(row.dataset.a) === this.inputA) {
+                    row.classList.add('current');
+                }
             } else {
-                parts.push(`${in1} ${gate.type} ${in2}`);
+                if (parseInt(row.dataset.a) === this.inputA &&
+                    parseInt(row.dataset.b) === this.inputB) {
+                    row.classList.add('current');
+                }
             }
         });
-
-        expression += parts.join(' → ');
-        expressionDisplay.textContent = expression;
-    }
-
-    runCircuit() {
-        if (this.placedGates.length === 0) {
-            alert('Please add at least one gate to run the circuit!');
-            return;
-        }
-
-        let result = null;
-
-        // Process each gate in sequence
-        this.placedGates.forEach((gate, index) => {
-            const input1Select = gate.element.querySelector('.input-1');
-            const input2Select = gate.element.querySelector('.input-2');
-
-            let in1Value = this.getInputValue(input1Select ? input1Select.value : 'A', result);
-            let in2Value = input2Select ? this.getInputValue(input2Select.value, result) : 0;
-
-            if (gate.type === 'NOT') {
-                result = this.gateLogic.NOT(in1Value);
-            } else {
-                result = this.gateLogic[gate.type](in1Value, in2Value);
-            }
-        });
-
-        // Display output
-        const output = document.getElementById('outputY');
-        if (output) {
-            output.textContent = result;
-            output.classList.toggle('active', result === 1);
-
-            // Animation effect
-            output.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                output.style.transform = 'scale(1)';
-            }, 200);
-        }
-
-        this.updateExpression();
-    }
-
-    getInputValue(inputName, previousResult) {
-        if (inputName === '0') return 0;
-        if (inputName === '1') return 1;
-        if (inputName === 'PREV' && previousResult !== null) return previousResult;
-        return this.inputs[inputName] || 0;
     }
 }
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    new CircuitBuilder();
+    new GateSimulator();
 });
