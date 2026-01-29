@@ -369,44 +369,81 @@
         </div>
     </section>
 
-    <!-- Interactive Simulator -->
+    <!-- Interactive Circuit Builder -->
     <section class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">06.</span> Logic Simulation Lab
+            <span class="title-number">06.</span> Logic Circuit Builder
             <div class="title-line"></div>
         </h2>
-        <div class="simulator-wrapper project-card animate-on-scroll">
-            <div class="sim-header">
-                <h3>Interactive 2-Input Logic Gate Simulator</h3>
-                <p>Test fundamental gate behaviors in real-time.</p>
+        <div class="circuit-builder project-card animate-on-scroll">
+            <div class="builder-header">
+                <h3>Interactive Logic Gate Simulator</h3>
+                <p>Select gates, place them on the canvas, and run your circuit!</p>
             </div>
-            <div id="logicSimContainer">
-                <div class="sim-controls">
-                    <div class="input-group">
-                        <label>Input A</label>
-                        <button id="btnInA" class="toggle-bit">0</button>
+
+            <!-- Gate Palette -->
+            <div class="gate-palette">
+                <div class="palette-title">LOGIC GATES</div>
+                <div class="gate-buttons">
+                    <button class="gate-btn" data-gate="AND" title="AND Gate">AND</button>
+                    <button class="gate-btn" data-gate="OR" title="OR Gate">OR</button>
+                    <button class="gate-btn" data-gate="NOT" title="NOT Gate">NOT</button>
+                    <button class="gate-btn" data-gate="NAND" title="NAND Gate">NAND</button>
+                    <button class="gate-btn" data-gate="NOR" title="NOR Gate">NOR</button>
+                    <button class="gate-btn" data-gate="XOR" title="XOR Gate">XOR</button>
+                    <button class="gate-btn" data-gate="XNOR" title="XNOR Gate">XNOR</button>
+                </div>
+            </div>
+
+            <!-- Circuit Canvas -->
+            <div class="circuit-workspace">
+                <div class="input-panel">
+                    <div class="input-label">INPUTS</div>
+                    <div class="circuit-input">
+                        <span>A</span>
+                        <button id="inputA" class="input-toggle">0</button>
                     </div>
-                    <div class="input-group">
-                        <label>Input B</label>
-                        <button id="btnInB" class="toggle-bit">0</button>
+                    <div class="circuit-input">
+                        <span>B</span>
+                        <button id="inputB" class="input-toggle">0</button>
                     </div>
-                    <div class="gate-selector">
-                        <select id="gateType">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="XOR">XOR</option>
-                            <option value="NAND">NAND</option>
-                            <option value="NOR">NOR</option>
-                        </select>
+                    <div class="circuit-input">
+                        <span>C</span>
+                        <button id="inputC" class="input-toggle">0</button>
                     </div>
                 </div>
-                <div class="sim-visual">
-                    <div class="gate-symbol" id="gateIcon">AND</div>
-                    <div class="output-display">
-                        <label>Output Y</label>
-                        <div id="outY" class="output-bit">0</div>
+
+                <div class="circuit-canvas" id="circuitCanvas">
+                    <div class="canvas-placeholder">
+                        <i class="fas fa-microchip"></i>
+                        <p>Click a gate above, then click here to place it</p>
+                    </div>
+                    <div class="placed-gates" id="placedGates"></div>
+                </div>
+
+                <div class="output-panel">
+                    <div class="output-label">OUTPUT</div>
+                    <div class="circuit-output">
+                        <span>Y</span>
+                        <div id="outputY" class="output-display">0</div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="circuit-controls">
+                <button id="runCircuit" class="btn btn-primary run-btn">
+                    <i class="fas fa-play"></i> RUN CIRCUIT
+                </button>
+                <button id="clearCircuit" class="btn btn-secondary clear-btn">
+                    <i class="fas fa-trash"></i> CLEAR
+                </button>
+            </div>
+
+            <!-- Circuit Display -->
+            <div class="circuit-equation" id="circuitEquation">
+                <span class="eq-label">Expression:</span>
+                <span class="eq-value" id="expressionDisplay">Select gates to build circuit</span>
             </div>
         </div>
     </section>
