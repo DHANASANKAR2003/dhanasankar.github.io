@@ -53,27 +53,30 @@
 
     <!-- Main Navigation -->
     <header id="header" class="header">
-        <nav id="navbar" class="navbar">
+        <nav class="navbar">
             <div class="nav-logo">
-                <div class="logo-chip">
-                    <i class="fas fa-microchip"></i>
-                </div>
-                <div class="logo-text-wrapper">
-                    <span class="logo-text">DK</span>
-                    <span class="logo-subtitle">VLSI CORE</span>
+                <div class="logo-chip"><i class="fas fa-microchip"></i></div>
+                <div class="logo-stack">
+                    <div class="logo-text">VLSI CORE</div>
+                    <div class="logo-subtitle">SYSTEM VERILOG // UVM</div>
                 </div>
             </div>
 
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
-                <li><a href="#about" class="nav-link">Module Info</a></li>
-                <li><a href="#training" class="nav-link">Training</a></li>
-                <li><a href="#technical" class="nav-link">Technical Pillars</a></li>
-                <li><a href="#projects" class="nav-link">IP Cores</a></li>
-                <li><a href="#insights" class="nav-link">Insights</a></li>
-                <li><a href="#contact" class="nav-link">I/O</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-
             <button class="theme-toggle" id="themeToggle">
                 <i class="fas fa-moon"></i>
             </button>
@@ -104,7 +107,7 @@
 
                 <div class="hero-buttons animate-on-scroll">
                     <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-microchip"></i> IP Inventory
+                        <i class="fas fa-microchip"></i> Projects
                     </a>
                     <a href="#" class="btn btn-secondary">
                         <i class="fas fa-download"></i> Tech Resume
@@ -157,13 +160,19 @@
         <div class="about-grid">
             <div class="project-card animate-on-scroll">
                 <h3 class="highlight-title">Biography</h3>
-                <p>An Electronics and Communication Engineering graduate with a specialized focus on digital hardware
-                    engineering. I bridge the gap between abstract algorithms and silicon implementation through
-                    meticulous RTL design and comprehensive verification methodologies.</p>
+                <p>Aspiring and enthusiastic VLSI Design Verification Engineer with hands-on experience in Verilog,
+                    SystemVerilog, and UVM
+                    methodology. Skilled in testbench development, functional verification, and waveform analysis using
+                    Vivado and other EDA
+                    tools. Passionate about ensuring design quality and functional correctness through efficient
+                    verification strategies. Seeking a
+                    challenging role in a reputed organization to apply my skills and contribute to the success of
+                    advanced FPGA/ASIC design
+                    projects.</p>
                 <div class="bio-tags">
-                    <span>Innovator</span>
-                    <span>Problem Solver</span>
-                    <span>Systems Thinker</span>
+                    <span>RTL Design</span>
+                    <span>UVM Verification</span>
+                    <span>FPGA</span>
                 </div>
             </div>
             <div class="project-card animate-on-scroll">
@@ -179,49 +188,93 @@
         </div>
     </section>
 
-    <!-- Training Deep-Dive -->
-    <section id="training" class="container">
+    <!-- Education Section -->
+    <section id="education" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">02.</span> Professional Training
+            <span class="title-number">02.</span> Education
             <div class="title-line"></div>
         </h2>
         <div class="training-container">
             <div class="training-card project-card animate-on-scroll">
                 <div class="training-header">
-                    <img src="images/silicon-craft.png" alt="Silicon Craft" style="height: 40px; margin-bottom: 1rem;"
-                        onerror="this.style.display='none'">
+                    <h3>B.E. Electronics and Communication Engineering</h3>
+                    <p class="highlight">Government College of Engineering, Erode | 2021 – 2025</p>
+                </div>
+            </div>
+            <div class="training-card project-card animate-on-scroll" style="margin-top: 1rem;">
+                <div class="training-header">
+                    <h3>Higher Secondary Education</h3>
+                    <p class="highlight">Government Boys Higher Secondary School, Gandarvakkottai | 2021</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container">
+        <h2 class="section-title animate-on-scroll">
+            <span class="title-number">03.</span> Experience
+            <div class="title-line"></div>
+        </h2>
+        <div class="training-container">
+            <!-- Silicon Craft Trainee -->
+            <div class="training-card project-card animate-on-scroll">
+                <div class="training-header">
                     <h3>Silicon Craft VLSI Training & Research Institute</h3>
-                    <p class="highlight">Design Verification Specialization (2025)</p>
+                    <p class="highlight">Design Verification Trainee | Feb 2025 – Present</p>
                 </div>
                 <div class="training-content">
-                    <div class="module-group">
-                        <h4>SystemVerilog Mastering</h4>
-                        <ul>
-                            <li>Object-Oriented Programming (Classes, Inheritance, Polymorphism)</li>
-                            <li>Randomization & Constraint Solvers</li>
-                            <li>Inter-Process Communication (Mailboxes, Semaphores, Events)</li>
-                            <li>Functional Coverage (Covergroups, Coverpoints, Cross-coverage)</li>
-                        </ul>
-                    </div>
-                    <div class="module-group">
-                        <h4>UVM Methodology</h4>
-                        <ul>
-                            <li>UVM Factory & Configuration Database</li>
-                            <li>Phase Management (Build, Connect, Run, etc.)</li>
-                            <li>TLM 1.0/2.0 Communication Interfaces</li>
-                            <li>Agent Architecture: Sequencer, Driver, Monitor</li>
-                            <li>Scoreboard & Checker Implementation</li>
-                        </ul>
-                    </div>
+                    <ul>
+                        <li>Gained strong understanding of digital design concepts including combinational and
+                            sequential logic.</li>
+                        <li>Explored Verilog and SystemVerilog RTL coding for counters, FSMs, and data path designs.
+                        </li>
+                        <li>Practiced RTL-to-gate-level synthesis, debugging, and waveform analysis using industry
+                            tools.</li>
+                        <li>Implemented and verified communication protocols (UART, SPI, I2C, APB) with testbenches.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Silicon Craft Intern -->
+            <div class="training-card project-card animate-on-scroll" style="margin-top: 2rem;">
+                <div class="training-header">
+                    <h3>Silicon Craft VLSI Training & Research Institute</h3>
+                    <p class="highlight">VLSI Intern | Jul – Aug 2024</p>
+                </div>
+                <div class="training-content">
+                    <ul>
+                        <li>Learned FPGA design flow, testbench creation, and waveform debugging.</li>
+                        <li>Gained experience in RTL synthesis, bitstream generation, and hardware testing.</li>
+                        <li>Designed digital circuits (logic gates, MUX, decoders, flip-flops) using Verilog.</li>
+                        <li>Contributed to a secure digital voting machine through counters and control logic design.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TechVolt Intern -->
+            <div class="training-card project-card animate-on-scroll" style="margin-top: 2rem;">
+                <div class="training-header">
+                    <h3>TechVolt Pvt. Ltd</h3>
+                    <p class="highlight">Embedded Systems and IoT Intern | Jun – Jul 2023</p>
+                </div>
+                <div class="training-content">
+                    <ul>
+                        <li>Gained hands-on experience in microcontroller programming and IoT development.</li>
+                        <li>Interfaced sensors and actuators using ESP8266, ESP32, and NodeMCU boards.</li>
+                        <li>Built real-time data acquisition systems with Arduino and NodeMCU.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Technical Pillars Section -->
-    <section id="technical" class="container">
+    <section id="skills" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">03.</span> Technical Mastery Pillars
+            <span class="title-number">04.</span> Skills
             <div class="title-line"></div>
         </h2>
         <div class="technical-grid">
@@ -330,7 +383,7 @@
     <!-- IP Inventory (Projects) -->
     <section id="projects" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">04.</span> IP Core Inventory
+            <span class="title-number">05.</span> Projects
             <div class="title-line"></div>
         </h2>
         <div class="projects-grid" id="projectsGrid">
@@ -339,9 +392,9 @@
     </section>
 
     <!-- Insights Hub (Blog/Articles) -->
-    <section id="insights" class="container">
+    <section id="blog" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">05.</span> VLSI Insights Hub
+            <span class="title-number">06.</span> Blog
             <div class="title-line"></div>
         </h2>
         <div class="insights-grid">
@@ -372,7 +425,7 @@
     <!-- Interactive Gate Simulator -->
     <section class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">06.</span> Logic Gate Simulator
+            <span class="title-number">07.</span> Logic Gate Simulator
             <div class="title-line"></div>
         </h2>
         <div class="gate-simulator project-card animate-on-scroll">
@@ -452,7 +505,7 @@
     <!-- I/O Interface (Contact) -->
     <section id="contact" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">07.</span> I/O Interface Channel
+            <span class="title-number">08.</span> Contact
             <div class="title-line"></div>
         </h2>
         <div class="contact-detailed-grid">
