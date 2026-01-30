@@ -112,6 +112,76 @@ const projectsData = [
             modes: ["Adaptive Mode", "Fixed Interval Mode", "Emergency Override Mode"]
         }
     }
+    ,
+    {
+        id: "uart_loopback",
+        title: "UART Loopback Communication",
+        category: "Verilog",
+        shortDesc: "Reliable serial communication system with FSM-controlled TX/RX and full-duplex data transfer.",
+        tags: ["Verilog", "UART", "FSM", "Custom IP"],
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>UART Architecture</h4>
+                    <p>Designed a UART-based loopback system with FSM-controlled TX and RX modules in Verilog for reliable serial communication. Implemented full-duplex data transfer where transmitted bytes were echoed back to verify correct reception.</p>
+                </div>
+            `,
+            verification: `
+                <div class="verif-specs">
+                     <h4>Verification & Implementation</h4>
+                     <p>Simulated and verified UART functionality using a structured testbench and GTKWave waveform analysis. Developed the UART master as a reusable Custom IP in Vivado for FPGA-based communication designs.</p>
+                </div>
+            `
+        }
+    },
+    {
+        id: "solar_tracker",
+        title: "Dual Axis Solar Tracker",
+        category: "Embedded",
+        shortDesc: "Automated solar panel alignment system using dual-axis rotation for maximum energy efficiency.",
+        tags: ["Arduino", "Embedded", "Sensors", "C++"],
+        fullDetails: {
+            architecture: `
+                 <div class="arch-block">
+                    <h4>System Overview</h4>
+                    <p>Developed a solar tracking system to align panels with the sun’s movement using dual-axis rotation. Enhanced energy efficiency by continuously optimizing panel orientation based on real-time light intensity.</p>
+                </div>
+            `,
+            keyFeatures: ["LDR (Light Dependent Resistor) sensing", "Servo motor control logic", "Real-time optimization"]
+        }
+    },
+    {
+        id: "color_sorter",
+        title: "Color-Based Product Sorting",
+        category: "Embedded",
+        shortDesc: "Automated sorting system using color sensors and servo mechanisms for industrial applications.",
+        tags: ["Arduino", "TCS3200", "Automation", "Servo"],
+        fullDetails: {
+            architecture: `
+                 <div class="arch-block">
+                    <h4>Sorting Mechanism</h4>
+                    <p>Built an automated sorting system using TCS3200 color sensor and servo-based diverter mechanism. Programmed the system to detect object color and classify items into specific output bins.</p>
+                </div>
+            `,
+            keyFeatures: ["TCS3200 Color Sensor", "Servo Diverter", "Automated Binning"]
+        }
+    },
+    {
+        id: "smart_fertilizer",
+        title: "IoT Smart Fertilizer System",
+        category: "IoT",
+        shortDesc: "Smart agriculture system for fertilizer and water control using NodeMCU and mobile app monitoring.",
+        tags: ["NodeMCU", "IoT", "Blynk", "Sensors"],
+        fullDetails: {
+            architecture: `
+                 <div class="arch-block">
+                    <h4>IoT Architecture</h4>
+                    <p>Uses NodeMCU (ESP8266) microcontroller for control. Three solenoid valves are used for fertilizer and water control. System helps in smart and efficient fertilizer management.</p>
+                </div>
+            `,
+            keyFeatures: ["NodeMCU (ESP8266)", "Solenoid Valves", "Blynk Mobile App", "DHT11/DHT22 Sensors"]
+        }
+    }
 ];
 
 class ProjectManager {
