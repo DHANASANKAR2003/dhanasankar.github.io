@@ -96,12 +96,13 @@ const projectsData = [
             ]
         }
     },
+
     {
         id: "traffic_ctrl",
         title: "Smart Traffic Light FSM Controller",
-        category: "Verilog",
+        category: "SystemVerilog",
         shortDesc: "Adaptive timing controller with emergency override and complex state-transition logic.",
-        tags: ["FSM", "Digital Logic", "Control"],
+        tags: ["SystemVerilog", "FSM", "Control"],
         fullDetails: {
             architecture: `
                 <div class="arch-block">
@@ -111,8 +112,8 @@ const projectsData = [
             `,
             modes: ["Adaptive Mode", "Fixed Interval Mode", "Emergency Override Mode"]
         }
-    }
-    ,
+    },
+
     {
         id: "uart_loopback",
         title: "UART Loopback Communication",
@@ -193,9 +194,37 @@ class ProjectManager {
     }
 
     render() {
-        if (!this.grid) return;
-        this.grid.innerHTML = '';
+        // Clear all grids
+        const grids = {
+            uvm: document.getElementById('grid-uvm'),
+            sv: document.getElementById('grid-sv'),
+            verilog: document.getElementById('grid-verilog'),
+            fpga: document.getElementById('grid-fpga')
+        };
+
+        Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
+
         projectsData.forEach((p, idx) => {
+            // Determine target grid
+            let targetGrid = null;
+            const cat = p.category.toLowerCase();
+            const tags = p.tags.map(t => t.toLowerCase());
+
+            if (cat === 'verification' || tags.includes('uvm')) {
+                targetGrid = grids.uvm;
+            } else if (cat === 'fpga' || tags.includes('fpga')) {
+                targetGrid = grids.fpga;
+            } else if (cat === 'systemverilog' || tags.includes('systemverilog')) {
+                targetGrid = grids.sv;
+            } else if (cat === 'verilog' || tags.includes('verilog')) {
+                targetGrid = grids.verilog;
+            } else {
+                // Filter out non-VLSI (Embedded/IoT) projects
+                return;
+            }
+
+            if (!targetGrid) return;
+
             const card = document.createElement('div');
             card.className = 'project-card animate-on-scroll';
             card.style.transitionDelay = `${idx * 0.1}s`;
@@ -214,7 +243,7 @@ class ProjectManager {
                     ${p.github ? `<a href="${p.github}" target="_blank" class="github-link"><i class="fab fa-github"></i></a>` : ''}
                 </div>
             `;
-            this.grid.appendChild(card);
+            targetGrid.appendChild(card);
         });
     }
 
