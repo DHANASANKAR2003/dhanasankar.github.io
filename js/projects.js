@@ -145,6 +145,79 @@ const projectsData = [
             specs: ["Depth: 16/32 Words", "Width: 8/32 Bits", "Zero Latency Read (optional)"]
         }
     },
+    {
+        id: "sv_async_fifo",
+        title: "Async FIFO Functional Verification",
+        category: "SystemVerilog",
+        shortDesc: "SystemVerilog Verification Environment for Asynchronous FIFO with CDC coverage.",
+        tags: ["SystemVerilog", "CDC", "Assertion", "Coverage"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Functional%20Verification%20Using%20System%20Verilog/Asynchronous%20FIFO",
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>Verification Environment</h4>
+                    <p>Robust Layered Testbench developed in SystemVerilog to verify Async FIFO correctness across clock domains.</p>
+                    <ul class="tech-list">
+                        <li><strong>CDC Checks:</strong> Verified Gray pointer synchronization and Empty/Full flag timing.</li>
+                        <li><strong>Randomization:</strong> Constrained random constraints for read/write bursts.</li>
+                        <li><strong>Assertions:</strong> SVA assertions for CDC stability and flag validity.</li>
+                    </ul>
+                </div>
+            `,
+            verification: `
+                <div class="verif-specs">
+                    <h4>Verification Features</h4>
+                    <p>Functional Coverage Checks: 100%.</p>
+                    <ul class="tech-list">
+                        <li><strong>Scoreboard:</strong> Automated data integrity check using a queue-based reference model.</li>
+                        <li><strong>Coverage:</strong> Cross coverage of Read/Write pointers and bin usage.</li>
+                    </ul>
+                </div>
+            `
+        }
+    },
+    {
+        id: "sv_dff",
+        title: "D-Flip Flop Verification IP",
+        category: "SystemVerilog",
+        shortDesc: "Basic SV Verification environment establishing Driver, Monitor, and Scoreboard methodology.",
+        tags: ["SystemVerilog", "OOTB", "Randomization"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Functional%20Verification%20Using%20System%20Verilog/D%20flip%20flop",
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>Testbench Architecture</h4>
+                    <p>Modular environment meant to demonstrate standard OOP-based verification practices.</p>
+                    <ul class="tech-list">
+                        <li><strong>Generator:</strong> Generates randomized D input patterns.</li>
+                        <li><strong>Driver/Monitor:</strong> Drives signals and samples output at clock edges.</li>
+                        <li><strong>Scoreboard:</strong> Compares Q output against expected value (D_delayed).</li>
+                    </ul>
+                </div>
+            `
+        }
+    },
+    {
+        id: "sv_spram",
+        title: "Single Port RAM Verification",
+        category: "SystemVerilog",
+        shortDesc: "Verification of 16x32 Single Port RAM using Constrained Random Verification.",
+        tags: ["SystemVerilog", "Memory", "Testbench"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Functional%20Verification%20Using%20System%20Verilog/SP%20RAM",
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>Memory Verification</h4>
+                    <p>Verified read/write operations of a Single Port RAM model.</p>
+                    <ul class="tech-list">
+                        <li><strong>Scenarios:</strong> Back-to-back Read/Write, Simultaneous Enable/Write assertions.</li>
+                        <li><strong>Data Integrity:</strong> Verified stored data matches written data across all addresses.</li>
+                    </ul>
+                </div>
+            `,
+            specs: ["Address Depth: 16", "Data Width: 32", "Verification: Layered OOP TB"]
+        }
+    },
 
     {
         id: "uart_loopback",
