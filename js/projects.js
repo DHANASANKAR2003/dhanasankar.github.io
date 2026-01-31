@@ -6,111 +6,143 @@
 const projectsData = [
     {
         id: "axi_spi",
-        title: "AXI4-Lite to SPI Bridge with CDC",
-        category: "Verification",
-        shortDesc: "Comprehensive Design & Verification of an asynchronous bridge using UVM and Asynchronous FIFOs.",
-        tags: ["Verilog", "UVM", "CDC", "Async FIFO"],
-        github: "https://github.com/DHANASANKAR2003",
+        title: "AXI4 to SPI Bridge RTL Design",
+        category: "Verilog",
+        shortDesc: "A robust AXI4 to SPI Bridge with Async FIFO CDC",
+        tags: ["Verilog", "CDC", "Async FIFO", "AXI4"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/AXI4-TO-SPI",
         fullDetails: {
             architecture: `
                 <div class="arch-block">
-                    <h4>Design Architecture</h4>
-                    <p>The system consists of an AXI4-Lite Slave interface receiving CPU commands, which are then pushed through a Clock Domain Crossing (CDC) boundary via an Asynchronous FIFO to an SPI Master controller operating on a separate, slower clock.</p>
+                    <h4>Overview</h4>
+                    <p>Designed to interface high-speed AXI4-compliant masters with slower SPI peripherals. Features fully verified bridge module handling Clock Domain Crossing (CDC) using asynchronous FIFOs.</p>
                     <ul class="tech-list">
-                        <li><strong>Clock Domains:</strong> AXI_CLK (100MHz), SPI_CLK (10MHz)</li>
-                        <li><strong>CDC Technique:</strong> Asynchronous FIFO with Gray-coded read/write pointers for pointer synchronization.</li>
-                        <li><strong>Handshaking:</strong> Full/Empty flag logic implemented with dual-flip-flop synchronizers.</li>
+                        <li><strong>Clock Domains:</strong> AXI (Fast), SPI (Slow)</li>
+                        <li><strong>CDC:</strong> 2-stage synchronization with Gray-coded pointers.</li>
+                        <li><strong>Burst Support:</strong> INCR burst type auto-split to SPI.</li>
                     </ul>
+                    <h4>FSM Logic</h4>
+                    <p><strong>Write FSM:</strong> Handles AW, W, B channels. Pops from FIFO -> SPI Request -> Response.<br>
+                    <strong>Read FSM:</strong> Handles AR, R channels. Pops Addr -> SPI Request -> Push Data to FIFO.</p>
                 </div>
             `,
             verification: `
                 <div class="verif-specs">
-                    <h4>Verification Strategy (UVM)</h4>
-                    <table class="verif-table">
-                        <tr><th>Component</th><th>Description</th></tr>
-                        <tr><td>Sequencer</td><td>Generates constrained random AXI transactions (burst vs single).</td></tr>
-                        <tr><td>Driver</td><td>Implements AXI4-Lite signaling & protocol handshakes.</td></tr>
-                        <tr><td>Monitor</td><td>Captures AXI/SPI interface traffic for coverage & scoreboard.</td></tr>
-                        <tr><td>Scoreboard</td><td>Model-based checking using a Reference SPI Model.</td></tr>
-                    </table>
-                    <p class="cov-info">Functional Coverage achieved: <strong>98%</strong> | Code Coverage: <strong>100%</strong></p>
+                    <h4>Verification (100% Coverage)</h4>
+                    <p>Comprehensive testbench verifying single beats, bursts, strobes, and boundary cases.</p>
+                    <ul class="tech-list">
+                        <li><strong>Test Cases:</strong> Single Write/Read, Strobe Tests, Transaction ID, Burst Ops.</li>
+                        <li><strong>Result:</strong> 59/59 Tests Passed (100% Success Rate).</li>
+                    </ul>
                 </div>
             `,
             ports: [
-                { name: "s_axi_aclk", dir: "Input", desc: "AXI Clock Domain" },
-                { name: "s_axi_awaddr", dir: "Input", bits: "32", desc: "Write Address" },
-                { name: "spi_mosi", dir: "Output", desc: "Serial Data Out" },
-                { name: "spi_sck", dir: "Output", desc: "Serial Clock" }
-            ]
+                { name: "s_axi_aclk", dir: "Input", bits: "1", desc: "AXI Clock" },
+                { name: "spi_mosi", dir: "Output", bits: "1", desc: "Master Out Slave In" },
+                { name: "spi_miso", dir: "Input", bits: "1", desc: "Master In Slave Out" }
+            ],
+            specs: ["FIFO Depth: 16", "SPI Mode: 0 (CPOL=0, CPHA=0)", "AXI Data/Addr: 32-bit"]
         }
     },
     {
         id: "i2c_master",
-        title: "I²C Master-Slave Protocol Engine",
+        title: "I²C Master-Slave Protocol FSM",
         category: "Verilog",
-        shortDesc: "Multi-slave addressing system with 7-bit addressing and 4-state FSM implementation.",
+        shortDesc: "Comprehensive I²C Controller (Master + 5 Slaves) with bit-level arbitration.",
         tags: ["Verilog", "Protocol", "FSM", "RTL"],
         github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/I2C%20Protocol",
         fullDetails: {
             architecture: `
                 <div class="arch-block">
-                    <h4>RTL Framework</h4>
-                    <p>A robust I²C implementation featuring a controller with programmable SCL frequency and support for START/STOP/REPEATED START conditions.</p>
+                    <h4>Internal FSM Design</h4>
+                    <p>Designed a robust FSM handling Start/Stop conditions, 7-bit addressing, and ACK/NACK logic.</p>
                     <ul class="tech-list">
-                        <li><strong>FSM states:</strong> IDLE, START, ADDR, DATA, ACK, STOP.</li>
-                        <li><strong>Slaves:</strong> 1 Master connected to 5 unique Slave IPs each with specialized 7-bit addresses.</li>
+                        <li><strong>States:</strong> IDLE, START, ADDRESS, READ_ACK, WRITE_DATA, WRITE_ACK, READ_DATA, STOP.</li>
+                        <li><strong>Slaves:</strong> 5 Independent Slave Controllers with unique addresses.</li>
+                        <li><strong>Features:</strong> Clock stretching support, Open-drain logic emulation.</li>
                     </ul>
                 </div>
             `,
-            keyFeatures: ["Open-drain buffer emulation", "Glitch filtering on SDA/SCL", "Multi-byte read/write support"],
+            keyFeatures: ["Master Controller", "5x Slave Nodes", "Bit-level SCL/SDA Control"],
             ports: [
-                { name: "sda", dir: "Inout", desc: "Serial Data Line" },
-                { name: "scl", dir: "Output", desc: "Serial Clock Line" },
-                { name: "addr_in", dir: "Input", bits: "7", desc: "Slave Target Address" }
+                { name: "sda", dir: "Inout", desc: "Serial Data" },
+                { name: "scl", dir: "Output", desc: "Serial Clock" },
+                { name: "addr", dir: "Input", bits: "7", desc: "Target Address" }
             ]
         }
     },
     {
         id: "sobel_fpga",
-        title: "Sobel Edge Detection Processor",
+        title: "FPGA-Based Sobel Edge Detection",
         category: "FPGA",
-        shortDesc: "Real-time hardware image convolution engine for edge detection on Xilinx Artix-7.",
-        tags: ["Verilog", "Image Proc", "DSP", "Vivado"],
+        shortDesc: "Full pipeline: Image -> Python -> Verilog (Artix-7) -> Python -> Edge Detected Image.",
+        tags: ["Verilog", "Python", "Image Proc", "DSP", "Vivado"],
         github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/Verilog%20Project/256_x_256_Image_Processing",
         fullDetails: {
             architecture: `
                 <div class="arch-block">
-                    <h4>Pipelined Image Processor</h4>
-                    <p>Implemented a 3x3 sliding window buffer using line buffers to process a 256x256 image stream in real-time.</p>
-                    <div class="math-block">G = sqrt(Gx² + Gy²) approximated as |Gx| + |Gy|</div>
-                    <ul class="tech-list">
-                        <li><strong>Kernel:</strong> Sobel operators for X and Y direction gradients.</li>
-                        <li><strong>Throughput:</strong> 1 pixel/clock cycle after initial latency.</li>
-                    </ul>
+                    <h4>Pipeline Architecture</h4>
+                    <p><strong>1. Python Pre-processing:</strong> Converts 256x256 image to 8-bit grayscale pixels (pixels_output.txt).</p>
+                    <p><strong>2. Verilog Core (Sobel):</strong>
+                        <ul>
+                            <li><strong>Line Buffers:</strong> Stores 3 image rows for 3x3 sliding window.</li>
+                            <li><strong>Convolution:</strong> Computes Gx and Gy gradients.</li>
+                            <li><strong>Magnitude:</strong> |Gx| + |Gy| clamped to 8-bit.</li>
+                        </ul>
+                    </p>
+                    <p><strong>3. Python Post-processing:</strong> Reconstructs image from Sobel_output.txt.</p>
                 </div>
             `,
-            specs: ["Target Device: XC7A35T (Artix-7)", "Max Frequency: 215MHz", "Power usage: < 200mW"],
+            specs: ["Resolution: 256x256", "Latency: ~1 pixel/clk", "Target: Artix-7 / DE2-70"],
             ports: [
-                { name: "pixel_in", dir: "Input", bits: "8", desc: "Grayscale input pixel" },
-                { name: "pixel_out", dir: "Output", bits: "8", desc: "Edge-detected output pixel" }
+                { name: "clk", dir: "Input", bits: "1", desc: "System Clock" },
+                { name: "pixel_in", dir: "Input", bits: "8", desc: "Grayscale Pixel" },
+                { name: "pixel_out", dir: "Output", bits: "8", desc: "Edge Magnitude" }
             ]
         }
     },
 
     {
         id: "traffic_ctrl",
-        title: "Smart Traffic Light FSM Controller",
-        category: "SystemVerilog",
-        shortDesc: "Adaptive timing controller with emergency override and complex state-transition logic.",
-        tags: ["SystemVerilog", "FSM", "Control"],
+        title: "Smart Traffic Light Controller",
+        category: "Verilog",
+        shortDesc: "4-Way Intersection Controller with Sensor-based timing and Emergency Override.",
+        tags: ["Verilog", "FSM", "Control"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/blob/main/Verilog%20Project/Traffic_Light_Controller.v",
         fullDetails: {
             architecture: `
                 <div class="arch-block">
-                    <h4>System State Machine</h4>
-                    <p>Designed a complex Mealy state machine that adapts traffic light cycles based on sensor inputs (Vehicle detection in specific lanes) and priority interrupts (Emergency vehicles).</p>
+                    <h4>FSM Control Logic</h4>
+                    <p>Implements a structured state machine for a 4-way intersection. Features dynamic timing based on density sensors (if simulated) or fixed priority rotation.</p>
+                    <ul class="tech-list">
+                        <li><strong>States:</strong> N_S_GREEN, N_S_YELLOW, E_W_GREEN, E_W_YELLOW.</li>
+                        <li><strong>Emergency Mode:</strong> Global Red-blink or specific Green path for emergency vehicles.</li>
+                    </ul>
                 </div>
             `,
-            modes: ["Adaptive Mode", "Fixed Interval Mode", "Emergency Override Mode"]
+            modes: ["Day Mode", "Night Mode (Blink)", "Emergency Override"]
+        }
+    },
+    {
+        id: "sync_fifo",
+        title: "Synchronous FIFO Memory",
+        category: "Verilog",
+        shortDesc: "High-speed data buffer with circular pointer logic and full/empty flags.",
+        tags: ["Verilog", "Memory", "FIFO"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/blob/main/COMBINATIONAL/DAY%207%20/Synchronous%20FIFO.v",
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>Memory Architecture</h4>
+                    <p>Standard Synchronous FIFO design using a dual-port RAM array (simulated) or register file.</p>
+                    <ul class="tech-list">
+                        <li><strong>Pointers:</strong> Circular Read and Write pointers.</li>
+                        <li><strong>Flags:</strong> Empty, Full, Almost Empty, Almost Full generation.</li>
+                        <li><strong>Reset:</strong> Synchronous reset logic.</li>
+                    </ul>
+                </div>
+            `,
+            specs: ["Depth: 16/32 Words", "Width: 8/32 Bits", "Zero Latency Read (optional)"]
         }
     },
 
