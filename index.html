@@ -31,7 +31,27 @@
         <div class="video-overlay"></div>
     </div>
 
-    <!-- UI Overlays -->
+    <!-- UI Background Engine & Filters -->
+    <svg style="position: absolute; width: 0; height: 0;" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="liquidEffect">
+                <feTurbulence type="turbulence" baseFrequency="0.01 0.05" numOctaves="2" seed="2" result="turbulence">
+                    <animate attributeName="baseFrequency" dur="30s" values="0.01 0.05;0.05 0.01;0.01 0.05"
+                        repeatCount="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R"
+                    yChannelSelector="G" />
+            </filter>
+            <filter id="glitchFilter">
+                <feTurbulence type="fractalNoise" baseFrequency="0.00001" numOctaves="1" result="noise">
+                    <animate id="glitchAnim" attributeName="baseFrequency" dur="0.1s" values="0.00001;0.05;0.00001"
+                        repeatCount="indefinite" begin="indefinite" />
+                </feTurbulence>
+                <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" />
+            </filter>
+        </defs>
+    </svg>
+
     <div class="pcb-lines">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -47,10 +67,30 @@
         </svg>
     </div>
 
-    <!-- Custom Interface -->
+    <!-- Global Interface Components -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
     <div class="scroll-progress"></div>
+
+    <!-- Sidebar Telemetry HUD -->
+    <aside class="sidebar-hud">
+        <div class="telemetry-block">
+            <label>MODULE_POS</label>
+            <span id="telModule">HOME</span>
+        </div>
+        <div class="telemetry-block">
+            <label>SCROLL_DP</label>
+            <span id="telScroll">000%</span>
+        </div>
+        <div class="telemetry-block">
+            <label>MEM_LOAD</label>
+            <span id="telMem">84.2MB</span>
+        </div>
+        <div class="hud-barcode"></div>
+    </aside>
+
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
 
     <!-- Main Navigation -->
     <header id="header" class="header">
