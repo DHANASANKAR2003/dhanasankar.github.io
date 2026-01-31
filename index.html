@@ -105,9 +105,11 @@
                     <span class="cursor">|</span>
                 </div>
                 <p class="hero-description animate-on-scroll">
-                    Professional <span class="highlight">VLSI Design & Verification Engineer</span> working from <span class="highlight">RTL Design to Verification Closure</span>, experienced in <span class="highlight">Verilog & SystemVerilog</span>, <span class="highlight">UVM-Based Functional Verification</span>, and <span class="highlight">High-Performance FPGA Systems</span>.
+                    Professional <span class="highlight">VLSI Design Engineer</span> specializing in
+                    advanced <span class="highlight">RTL Design</span>, scalable <span class="highlight">UVM
+                        Verification</span> environments, and high-performance <span class="highlight">FPGA</span>
+                    systems.
                 </p>
-
 
                 <div class="hero-buttons animate-on-scroll">
                     <a href="#projects" class="btn btn-primary">
@@ -128,7 +130,7 @@
             </div>
         </div>
 
-        
+        <canvas id="particleCanvas"></canvas>
     </section>
 
     <!-- Global Stats -->
@@ -136,21 +138,15 @@
         <div class="stats-grid">
             <div class="stat-item project-card animate-on-scroll">
                 <div class="stat-icon"><i class="fas fa-code-branch"></i></div>
-                <div class="stat-val">1000+</div>
-                <div class="stat-name">Verilog</div>
-                <p class="stat-desc">RTL design using Verilog HDL</p>
+                <div class="stat-val">50+</div>
+                <div class="stat-name">HDL IP Cores</div>
+                <p class="stat-desc">Designed and verified from scratch</p>
             </div>
             <div class="stat-item project-card animate-on-scroll">
                 <div class="stat-icon"><i class="fas fa-bolt"></i></div>
-                <div class="stat-val">200+</div>
-                <div class="stat-name">System Verilog</div>
-                <p class="stat-desc">Design and verification using SystemVerilog</p>
-            </div>
-            <div class="stat-item project-card animate-on-scroll">
-                <div class="stat-icon"><i class="fas fa-bolt"></i></div>
-                <div class="stat-val">100+</div>
-                <div class="stat-name">UVM</div>
-                <p class="stat-desc">UVM-based functional verification using SystemVerilog</p>
+                <div class="stat-val">46</div>
+                <div class="stat-name">FPGA DSP Filters</div>
+                <p class="stat-desc">High-performance image processing modules</p>
             </div>
             <div class="stat-item project-card animate-on-scroll">
                 <div class="stat-icon"><i class="fas fa-check-double"></i></div>
@@ -164,7 +160,7 @@
     <!-- Module Info (About) -->
     <section id="about" class="container">
         <h2 class="section-title animate-on-scroll">
-            <span class="title-number">01.</span> About
+            <span class="title-number">01.</span> Core Architecture
             <div class="title-line"></div>
         </h2>
         <div class="about-grid">
@@ -520,6 +516,19 @@
             <div class="expression-box">
                 <span class="expr-label">Expression:</span>
                 <span class="expr-value" id="boolExpression">Y = A · B</span>
+            </div>
+
+            <!-- Timing Diagram / Oscilloscope -->
+            <div class="timing-diagram-section">
+                <div class="table-title">REAL-TIME TIMING DIAGRAM</div>
+                <div class="timing-diagram-container">
+                    <canvas id="waveformCanvas"></canvas>
+                    <div class="timing-overlay"></div>
+                </div>
+                <div class="timing-controls">
+                    <span class="timing-status"><i class="fas fa-circle pulse-dot"></i> LIVE_FEED</span>
+                    <span class="timing-meta">CLK: 50MHz (SIMULATED)</span>
+                </div>
             </div>
         </div>
     </section>
