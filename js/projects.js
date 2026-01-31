@@ -371,20 +371,20 @@ class ProjectManager {
             card.style.transitionDelay = `${idx * 0.1}s`;
             card.innerHTML = `
                 <div class="card-accent-line"></div>
-                <div class="card-screw-bl"></div>
-                <div class="card-screw-br"></div>
-                <div class="card-meta">
-                    <span class="category-tag">${p.category}</span>
-                    <i class="fas fa-expand-alt open-icon"></i>
+                <div class="project-header">
+                    <div class="project-tags">${p.tags.map(t => `<span class="mini-tag">${t}</span>`).join('')}</div>
+                    <div class="project-links">
+                        ${p.github ? `<a href="${p.github}" target="_blank" title="View Source"><i class="fab fa-github"></i></a>` : ''}
+                        <button class="view-details" data-id="${p.id}" title="Technical Data" onclick="projectManager.openProject('${p.id}')"><i class="fas fa-microchip"></i></button>
+                    </div>
                 </div>
-                <h3>${p.title}</h3>
-                <p class="desc">${p.shortDesc}</p>
-                <div class="tag-row">
-                    ${p.tags.map(t => `<span class="mini-tag">${t}</span>`).join('')}
+                <div class="project-content">
+                    <h3>${p.title}</h3>
+                    <p>${p.shortDesc}</p>
                 </div>
-                <div class="card-footer">
-                    <button class="btn-text detail-btn" onclick="projectManager.openProject('${p.id}')">View Architecture</button>
-                    ${p.github ? `<a href="${p.github}" target="_blank" class="github-link"><i class="fab fa-github"></i></a>` : ''}
+                <div class="project-footer">
+                    <span class="category-tag">${p.category.toUpperCase()}</span>
+                    <span class="project-ver">VER_1.0.${p.id}</span>
                 </div>
             `;
             targetGrid.appendChild(card);
