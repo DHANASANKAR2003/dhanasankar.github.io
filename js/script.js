@@ -41,6 +41,9 @@ class PortfolioController {
         this.setupTypewriter();
         this.setupHUDSystem();
         this.setupScrollEffects();
+        this.setupTelemetry();
+        this.setupReactiveBorders();
+        this.setupDataScrambling();
         this.setupFormHandling();
         this.setupVideoFallback();
         this.startSystemClock();
@@ -197,6 +200,68 @@ class PortfolioController {
         }, observerOptions);
 
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    }
+
+    setupTelemetry() {
+        const telScroll = document.getElementById('telScroll');
+        const telModule = document.getElementById('telModule');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            // Scroll percentage
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = Math.round((window.scrollY / scrollTotal) * 100);
+            if (telScroll) telScroll.textContent = `${progress.toString().padStart(3, '0')}%`;
+
+            // Section tracking
+            let current = "HOME";
+            sections.forEach(section => {
+                if (window.scrollY >= section.offsetTop - 300) {
+                    current = section.getAttribute('id').toUpperCase();
+                }
+            });
+            if (telModule) telModule.textContent = current;
+        });
+    }
+
+    setupReactiveBorders() {
+        const cards = document.querySelectorAll('.project-card, .technical-card');
+        window.addEventListener('mousemove', (e) => {
+            const { clientX, clientY } = e;
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                const distance = Math.hypot(
+                    clientX - (rect.left + rect.width / 2),
+                    clientY - (rect.top + rect.height / 2)
+                );
+                if (distance < 300) {
+                    card.classList.add('near-mouse');
+                } else {
+                    card.classList.remove('near-mouse');
+                }
+            });
+        });
+    }
+
+    setupDataScrambling() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>/-_=+';
+        document.querySelectorAll('.highlight, .section-title').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const originalText = el.getAttribute('data-text') || el.innerText;
+                el.setAttribute('data-text', originalText);
+                let iteration = 0;
+                const interval = setInterval(() => {
+                    el.innerText = originalText.split('')
+                        .map((letter, index) => {
+                            if (index < iteration) return originalText[index];
+                            return chars[Math.floor(Math.random() * chars.length)];
+                        })
+                        .join('');
+                    if (iteration >= originalText.length) clearInterval(interval);
+                    iteration += 1 / 3;
+                }, 30);
+            });
+        });
     }
 
     startSystemClock() {
