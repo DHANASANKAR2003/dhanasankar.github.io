@@ -83,6 +83,26 @@ class PortfolioController {
         const scrollBtn = document.getElementById('scrollTopBtn');
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        // Mobile Menu Toggle
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
 
         window.addEventListener('scroll', () => {
             // Header compression
@@ -181,10 +201,12 @@ class PortfolioController {
 
     startSystemClock() {
         const clockEl = document.getElementById('systemClock');
+        const hudClock = document.getElementById('hudClock');
         setInterval(() => {
             const now = new Date();
             const timeStr = now.toISOString().split('T')[1].split('.')[0] + ' UTC';
             if (clockEl) clockEl.textContent = timeStr;
+            if (hudClock) hudClock.textContent = timeStr;
         }, 1000);
     }
 
