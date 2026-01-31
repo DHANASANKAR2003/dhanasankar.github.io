@@ -1820,6 +1820,139 @@ body::after {
     }
 }
 
+/* --- Phase 4: Hyper-Technical Overhaul --- */
+
+/* Sidebar Telemetry HUD */
+.sidebar-hud {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    z-index: 1000;
+    font-family: var(--font-mono);
+    pointer-events: none;
+}
+
+.telemetry-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.telemetry-block label {
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+.telemetry-block span {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.hud-barcode {
+    width: 60px;
+    height: 30px;
+    background: linear-gradient(90deg,
+            var(--primary) 2px, transparent 2px,
+            var(--primary) 5px, transparent 5px,
+            var(--primary) 10px, transparent 10px,
+            var(--primary) 12px, transparent 12px);
+    opacity: 0.3;
+    margin-top: 1rem;
+}
+
+/* CRT & Scanline Effects */
+.crt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent 50%, rgba(0, 0, 0, 0.25) 100%);
+    pointer-events: none;
+    z-index: 9998;
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(0, 242, 255, 0.02) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9997;
+    animation: scanlineMove 10s linear infinite;
+}
+
+@keyframes scanlineMove {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 100%;
+    }
+}
+
+/* Chromatic Aberration for Headings */
+.hero-title,
+.section-title {
+    text-shadow:
+        -2px 0 0 rgba(255, 0, 0, 0.3),
+        2px 0 0 rgba(0, 255, 255, 0.3);
+    animation: chromaticPulse 5s infinite alternate;
+}
+
+@keyframes chromaticPulse {
+    0% {
+        text-shadow: -1px 0 0 rgba(255, 0, 0, 0.2), 1px 0 0 rgba(0, 255, 255, 0.2);
+    }
+
+    100% {
+        text-shadow: -3px 0 2px rgba(255, 0, 0, 0.4), 3px 0 2px rgba(0, 255, 255, 0.4);
+    }
+}
+
+/* Liquid Glass Sections */
+.hero-section,
+.gate-simulator {
+    filter: url(#liquidEffect);
+}
+
+/* Reactive Glowing Borders Hook */
+.project-card,
+.technical-card {
+    border: 1px solid rgba(0, 242, 255, 0.1);
+    transition: border-color 0.3s var(--transition-technical);
+}
+
+.project-card.near-mouse {
+    border-color: rgba(0, 242, 255, 0.6);
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+/* Data Scramble effect */
+.scramble {
+    font-family: var(--font-mono);
+    display: inline-block;
+}
+
+@media (max-width: 1200px) {
+    .sidebar-hud {
+        display: none;
+    }
+}
+
 /* --- Phase 3: Ultra-Advanced Atmospheric HUD --- */
 
 .system-hud {
