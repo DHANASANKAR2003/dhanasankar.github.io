@@ -370,6 +370,9 @@ class ProjectManager {
             card.className = 'project-card animate-on-scroll';
             card.style.transitionDelay = `${idx * 0.1}s`;
             card.innerHTML = `
+                <div class="card-accent-line"></div>
+                <div class="card-screw-bl"></div>
+                <div class="card-screw-br"></div>
                 <div class="card-meta">
                     <span class="category-tag">${p.category}</span>
                     <i class="fas fa-expand-alt open-icon"></i>
