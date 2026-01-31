@@ -100,6 +100,13 @@ body {
     background: radial-gradient(circle at center, #0a192f 0%, #020c1b 100%);
 }
 
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
 .video-overlay {
     position: absolute;
     top: 0;
