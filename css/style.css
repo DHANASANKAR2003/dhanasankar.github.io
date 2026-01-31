@@ -1922,11 +1922,7 @@ body::after {
     }
 }
 
-/* Liquid Glass Sections */
-.hero-section,
-.gate-simulator {
-    filter: url(#liquidEffect);
-}
+
 
 /* Reactive Glowing Borders Hook */
 .project-card,
