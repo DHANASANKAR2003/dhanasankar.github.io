@@ -218,6 +218,42 @@ const projectsData = [
             specs: ["Address Depth: 16", "Data Width: 32", "Verification: Layered OOP TB"]
         }
     },
+    {
+        id: "uvm_axi_spi",
+        title: "AXI-SPI UVM Verification",
+        category: "Verification",
+        shortDesc: "Complete UVM Environment with 2 Agents, Scoreboard, and Functional Coverage.",
+        tags: ["SystemVerilog", "UVM", "VIP", "Coverage"],
+        github: "https://github.com/DHANASANKAR2003/VLSI-INTERN-Silicic-Innova-Technology-/tree/main/UVM%20Project/AXI4_TO_SPI_BRIDGE",
+        fullDetails: {
+            architecture: `
+                <div class="arch-block">
+                    <h4>UVM Architecture</h4>
+                    <p>Designed a modular UVM environment to verify the AXI4-Lite to SPI Bridge (CDC aware).</p>
+                    <ul class="tech-list">
+                        <li><strong>Agents (2):</strong>
+                            <ul>
+                                <li><strong>AXI Master Agent:</strong> Driver, Monitor, Sequencer (Active).</li>
+                                <li><strong>SPI Slave Agent:</strong> Driver, Monitor, Sequencer (Reactive).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Scoreboard (1):</strong> Predicts expected SPI output based on AXI writes and compares with DUT output.</li>
+                        <li><strong>Coverage (1):</strong> Collects functional coverage on state transitions and protocol handshake.</li>
+                    </ul>
+                </div>
+            `,
+            verification: `
+                <div class="verif-specs">
+                    <h4>Verification Components</h4>
+                    <p>Implemented a highly reusable verification IP (VIP) structure.</p>
+                    <ul class="tech-list">
+                        <li><strong>Sequences:</strong> Base, Reset, Write_Burst, Read_Burst.</li>
+                        <li><strong>Analysis Ports:</strong> Used TLM ports to broadcast transactions from Monitors to Scoreboard/Coverage subscribers.</li>
+                    </ul>
+                </div>
+            `
+        }
+    },
 
     {
         id: "uart_loopback",
